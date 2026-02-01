@@ -24,6 +24,26 @@ except Exception as e:
     print(f"Local LLM not available: {e}")
     LOCAL_LLM_AVAILABLE = False
 
+# Import SOP engine
+try:
+    from src.sop.engine import EnhancedSOPEngine
+    _sop_engine = None
+    
+    def get_sop_engine():
+        global _sop_engine
+        if _sop_engine is None:
+            _sop_engine = EnhancedSOPEngine()
+            _sop_engine.load_definitions()
+        return _sop_engine
+    
+    SOP_ENGINE_AVAILABLE = True
+except Exception as e:
+    print(f"SOP engine not available: {e}")
+    SOP_ENGINE_AVAILABLE = False
+    
+    def get_sop_engine():
+        return None
+
 # Setup paths
 BASE_DIR = Path(__file__).parent
 TEMPLATES_DIR = BASE_DIR / "templates"
@@ -167,14 +187,50 @@ async def sop_list_partial(request: Request, entity_id: str):
 
 
 @app.post("/api/sop/{entity_id}/{sop_id}/trigger", response_class=HTMLResponse)
-async def trigger_sop(request: Request, entity_id: str, sop_id: str):
-    """Trigger SOP execution (dry-run for now)."""
-    return templates.TemplateResponse("partials/trigger_result.html", {
-        "request": request,
-        "sop_id": sop_id,
-        "status": "triggered",
-        "message": f"SOP {sop_id} triggered (dry-run mode)"
-    })
+async def trigger_sop(
+    request: Request,
+    entity_id: str,
+    sop_id: str,
+    dry_run: bool = True  # Default to dry-run for safety
+):
+    """Trigger SOP execution."""
+    if not SOP_ENGINE_AVAILABLE:
+        return templates.TemplateResponse("partials/trigger_result.html", {
+            "request": request,
+            "sop_id": sop_id,
+            "status": "error",
+            "message": "SOP engine not available"
+        })
+    
+    engine = get_sop_engine()
+    
+    # Get form data for variables if provided
+    form_data = await request.form()
+    event_data = {
+        "event_type": "manual",
+        "trigger_source": "dashboard",
+        "entity": entity_id,
+        "variables": dict(form_data) if form_data else {}
+    }
+    
+    try:
+        result = engine.execute_sop(sop_id, event=event_data, dry_run=dry_run)
+        
+        return templates.TemplateResponse("partials/trigger_result.html", {
+            "request": request,
+            "sop_id": sop_id,
+            "status": "success" if result.get("success") else "failed",
+            "message": f"SOP {sop_id} executed" + (" (dry-run)" if dry_run else ""),
+            "result": result,
+            "dry_run": dry_run
+        })
+    except Exception as e:
+        return templates.TemplateResponse("partials/trigger_result.html", {
+            "request": request,
+            "sop_id": sop_id,
+            "status": "error",
+            "message": f"Execution error: {str(e)}"
+        })
 
 
 @app.get("/api/stats", response_class=HTMLResponse)
