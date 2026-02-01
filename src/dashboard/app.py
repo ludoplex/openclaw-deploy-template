@@ -44,6 +44,25 @@ except Exception as e:
     def get_sop_engine():
         return None
 
+# Import Scheduler
+try:
+    from src.sop.scheduler import SOPScheduler, Schedule, ScheduleType
+    _scheduler = None
+    
+    def get_scheduler():
+        global _scheduler
+        if _scheduler is None:
+            _scheduler = SOPScheduler()
+        return _scheduler
+    
+    SCHEDULER_AVAILABLE = True
+except Exception as e:
+    print(f"Scheduler not available: {e}")
+    SCHEDULER_AVAILABLE = False
+    
+    def get_scheduler():
+        return None
+
 # Setup paths
 BASE_DIR = Path(__file__).parent
 TEMPLATES_DIR = BASE_DIR / "templates"
@@ -615,6 +634,181 @@ async def sop_delete(entity_id: str, sop_id: str):
     shutil.move(str(sop_path), str(trash_dir / sop_path.name))
     
     return {"status": "deleted", "sop_id": sop_id}
+
+
+# =============================================================================
+# SCHEDULER
+# =============================================================================
+
+@app.get("/scheduler", response_class=HTMLResponse)
+async def scheduler_page(request: Request):
+    """Scheduler dashboard."""
+    scheduler = get_scheduler()
+    schedules = scheduler.list_schedules() if scheduler else []
+    
+    # Convert to dicts for template
+    schedules_data = []
+    for s in schedules:
+        schedules_data.append({
+            'id': s.id,
+            'sop_id': s.sop_id,
+            'entity': s.entity,
+            'schedule_type': s.schedule_type.value,
+            'expression': s.expression,
+            'enabled': s.enabled,
+            'next_run': s.next_run,
+            'run_count': s.run_count,
+            'max_runs': s.max_runs
+        })
+    
+    return templates.TemplateResponse("scheduler.html", {
+        "request": request,
+        "schedules": schedules_data,
+        "all_sops": load_sops()
+    })
+
+
+@app.post("/api/scheduler")
+async def api_create_schedule(
+    entity: str = Form(...),
+    sop_id: str = Form(...),
+    schedule_type: str = Form(...),
+    expression: str = Form(...),
+    max_runs: Optional[int] = Form(None)
+):
+    """Create a new schedule."""
+    scheduler = get_scheduler()
+    if not scheduler:
+        raise HTTPException(status_code=503, detail="Scheduler not available")
+    
+    import uuid
+    schedule = Schedule(
+        id=str(uuid.uuid4())[:8],
+        sop_id=sop_id,
+        entity=entity,
+        schedule_type=ScheduleType(schedule_type),
+        expression=expression,
+        max_runs=max_runs
+    )
+    
+    scheduler.add_schedule(schedule)
+    
+    # Return the new row HTML for HTMX
+    return HTMLResponse(f'''
+        <tr class="schedule-row" data-entity="{entity}" data-enabled="enabled">
+            <td class="px-6 py-4 whitespace-nowrap">
+                <a href="/sop/{entity}/{sop_id}" class="text-blue-600 hover:underline">{sop_id}</a>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 py-1 text-xs rounded-full bg-gray-100">{entity.replace('_', ' ').title()}</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{schedule_type}</td>
+            <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">{expression}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">{schedule.next_run or '—'}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">0{f'/{max_runs}' if max_runs else ''}</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Enabled</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                <span class="text-green-600">✓ Created</span>
+            </td>
+        </tr>
+    ''')
+
+
+@app.post("/api/scheduler/{schedule_id}/toggle")
+async def api_toggle_schedule(schedule_id: str):
+    """Toggle schedule enabled/disabled."""
+    scheduler = get_scheduler()
+    if not scheduler:
+        raise HTTPException(status_code=503, detail="Scheduler not available")
+    
+    schedule = scheduler.get_schedule(schedule_id)
+    if not schedule:
+        raise HTTPException(status_code=404, detail="Schedule not found")
+    
+    scheduler.update_schedule(schedule_id, {'enabled': not schedule.enabled})
+    schedule = scheduler.get_schedule(schedule_id)  # Refresh
+    
+    status_class = "bg-green-100 text-green-800" if schedule.enabled else "bg-gray-100 text-gray-500"
+    status_text = "Enabled" if schedule.enabled else "Disabled"
+    
+    return HTMLResponse(f'''
+        <tr class="schedule-row" data-entity="{schedule.entity}" data-enabled="{'enabled' if schedule.enabled else 'disabled'}">
+            <td class="px-6 py-4 whitespace-nowrap">
+                <a href="/sop/{schedule.entity}/{schedule.sop_id}" class="text-blue-600 hover:underline">{schedule.sop_id}</a>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 py-1 text-xs rounded-full bg-gray-100">{schedule.entity.replace('_', ' ').title()}</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{schedule.schedule_type.value}</td>
+            <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">{schedule.expression}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">{schedule.next_run[:16].replace('T', ' ') if schedule.next_run else '—'}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">{schedule.run_count}{f'/{schedule.max_runs}' if schedule.max_runs else ''}</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <button hx-post="/api/scheduler/{schedule_id}/toggle" hx-swap="outerHTML" hx-target="closest tr"
+                        class="px-2 py-1 text-xs rounded-full {status_class}">{status_text}</button>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                <div class="flex gap-2">
+                    <button hx-post="/api/scheduler/{schedule_id}/run" hx-target="#runResult" class="text-green-600">▶️</button>
+                    <button hx-delete="/api/scheduler/{schedule_id}" hx-confirm="Delete?" hx-target="closest tr" hx-swap="outerHTML" class="text-red-600">🗑️</button>
+                </div>
+            </td>
+        </tr>
+    ''')
+
+
+@app.delete("/api/scheduler/{schedule_id}")
+async def api_delete_schedule(schedule_id: str):
+    """Delete a schedule."""
+    scheduler = get_scheduler()
+    if not scheduler:
+        raise HTTPException(status_code=503, detail="Scheduler not available")
+    
+    if scheduler.remove_schedule(schedule_id):
+        return HTMLResponse("")  # Empty = row removed
+    raise HTTPException(status_code=404, detail="Schedule not found")
+
+
+@app.post("/api/scheduler/{schedule_id}/run")
+async def api_run_schedule(schedule_id: str):
+    """Run a schedule immediately."""
+    scheduler = get_scheduler()
+    engine = get_sop_engine()
+    
+    if not scheduler:
+        raise HTTPException(status_code=503, detail="Scheduler not available")
+    
+    schedule = scheduler.get_schedule(schedule_id)
+    if not schedule:
+        raise HTTPException(status_code=404, detail="Schedule not found")
+    
+    # Execute the SOP
+    if engine:
+        try:
+            result = engine.execute_sop(schedule.sop_id, schedule.entity, schedule.variables)
+            scheduler.mark_run(schedule_id)
+            return HTMLResponse(f'''
+                <div class="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <p class="text-green-800 font-medium">✓ SOP Executed: {schedule.sop_id}</p>
+                    <p class="text-sm text-green-600">Steps completed: {result.get('steps_completed', 'N/A')}</p>
+                </div>
+            ''')
+        except Exception as e:
+            return HTMLResponse(f'''
+                <div class="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p class="text-red-800 font-medium">✗ Execution Failed</p>
+                    <p class="text-sm text-red-600">{str(e)}</p>
+                </div>
+            ''')
+    else:
+        return HTMLResponse(f'''
+            <div class="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p class="text-yellow-800 font-medium">⚠ Dry Run Mode</p>
+                <p class="text-sm text-yellow-600">SOP engine not available. Would execute: {schedule.sop_id}</p>
+            </div>
+        ''')
 
 
 # =============================================================================
