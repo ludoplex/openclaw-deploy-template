@@ -1,0 +1,13 @@
+{
+    "provider_name": "MyProvider",
+    "provider_name_lower": "{{ cookiecutter.provider_name | lower }}",
+    "provider_name_upper": "{{ cookiecutter.provider_name | upper }}",
+    "api_base_url": "https://api.example.com/v1",
+    "oauth_base_url": "https://example.com/oauth",
+    "token_url": "https://example.com/oauth/token",
+    "max_text_char": "2000",
+    "max_photos": "4",
+    "max_videos": "1",
+    "supports_scheduling": "true",
+    "author": "ludoplex"
+}

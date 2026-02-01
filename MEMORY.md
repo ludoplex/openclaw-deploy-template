@@ -70,4 +70,35 @@ Port Python 3 to Cosmopolitan Libc as an updated version of the Python 2.7 porta
 
 ---
 
+## Workflow
+
+### PR Review Process (mixpost-malone)
+**Added: 2026-02-01**
+
+1. Create feature branch for new work
+2. Push and create PR → triggers Sourcery AI + Copilot review
+3. Check PR comments: `gh pr view <num> --repo ludoplex/mixpost-malone --json reviews,comments`
+4. Fix issues, push updates
+5. Merge when approved
+
+### Qwen Delegation Checklist
+Before using Claude for a task, ask: "Can Qwen handle this?"
+
+**YES → Qwen:**
+- Code formatting/cleanup
+- Simple summaries (<500 words)
+- JSON/YAML generation
+- Platform-specific text formatting
+- Boilerplate code generation
+- Comment/docstring writing
+
+**NO → Claude:**
+- Complex reasoning/planning
+- Multi-file refactoring
+- API design decisions
+- Security-sensitive code
+- Tool orchestration
+
+---
+
 *Update this file with significant learnings and decisions.*

@@ -349,6 +349,75 @@ Output as JSON:"""
         return self.generate_json(f"extracted data with fields: {fields_str}")
 
 
+    def validate_code(self, code: str, language: str = "php") -> Dict[str, Any]:
+        """
+        Quick validation of generated code using local LLM.
+        
+        Args:
+            code: Code to validate.
+            language: Programming language (php, python, javascript).
+            
+        Returns:
+            Dict with 'valid' bool, 'errors' list, and 'suggestions' list.
+        """
+        prompt = f"""Analyze this {language} code for errors. Reply in JSON format:
+{{"valid": true/false, "errors": ["error1", ...], "suggestions": ["suggestion1", ...]}}
+
+Code:
+```{language}
+{code}
+```
+
+JSON:"""
+        response = self._run(prompt, max_tokens=500, temperature=0.2)
+        
+        try:
+            start = response.find('{')
+            end = response.rfind('}') + 1
+            if start >= 0 and end > start:
+                return json.loads(response[start:end])
+        except json.JSONDecodeError:
+            pass
+        
+        return {"valid": None, "errors": [], "suggestions": [], "raw": response}
+    
+    def generate_boilerplate(self, description: str, language: str = "php") -> str:
+        """
+        Generate boilerplate code from description.
+        
+        Args:
+            description: What the code should do.
+            language: Target language.
+            
+        Returns:
+            Generated code string.
+        """
+        prompt = f"""Generate {language} code for: {description}
+
+Follow best practices. Output only the code, no explanation:"""
+        return self._run(prompt, max_tokens=1000, temperature=0.3)
+    
+    def add_docstrings(self, code: str, language: str = "python") -> str:
+        """
+        Add docstrings/comments to code.
+        
+        Args:
+            code: Code to document.
+            language: Programming language.
+            
+        Returns:
+            Code with added documentation.
+        """
+        prompt = f"""Add proper docstrings and comments to this {language} code:
+
+```{language}
+{code}
+```
+
+Output the documented code:"""
+        return self._run(prompt, max_tokens=1500, temperature=0.3)
+
+
 # Convenience functions for quick use
 _default_delegate: Optional[LlamafileDelegate] = None
 
@@ -379,6 +448,21 @@ def summarize(text: str, max_words: int = 100) -> str:
 def format_for_platform(text: str, platform: str) -> str:
     """Quick access to format_for_platform()."""
     return get_delegate().format_for_platform(text, platform)
+
+
+def validate_code(code: str, language: str = "php") -> Dict[str, Any]:
+    """Quick access to validate_code()."""
+    return get_delegate().validate_code(code, language)
+
+
+def generate_boilerplate(description: str, language: str = "php") -> str:
+    """Quick access to generate_boilerplate()."""
+    return get_delegate().generate_boilerplate(description, language)
+
+
+def add_docstrings(code: str, language: str = "python") -> str:
+    """Quick access to add_docstrings()."""
+    return get_delegate().add_docstrings(code, language)
 
 
 if __name__ == "__main__":
