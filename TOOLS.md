@@ -43,11 +43,6 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 - Code generation with context
 - Tool use coordination
 
-### Also Installed (Ollama)
-- Ollama v0.15.2 also available at `localhost:11434`
-- Model: qwen2.5:7b (4.7GB)
-- Can run both if needed
-
 ---
 
 ## Zoho API System
