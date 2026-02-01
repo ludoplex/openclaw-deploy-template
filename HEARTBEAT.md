@@ -1,5 +1,9 @@
-# HEARTBEAT.md
+# HEARTBEAT.md - Periodic Tasks
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+## Backup Check (every 4 hours)
+- Run `scripts/backup.ps1` if last backup > 4 hours ago
+- Verify GitHub is in sync (no uncommitted changes)
 
-# Add tasks below when you want the agent to check something periodically.
+## Project Status
+- SOP Dashboard actively in development
+- Check for any failed services (dashboard:8080, llamafile:8081)
