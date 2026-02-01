@@ -101,4 +101,13 @@ Before using Claude for a task, ask: "Can Qwen handle this?"
 
 ---
 
+## Blockers
+
+### ggLeap API
+**Status:** No public API documentation found
+**Tried:** ggleap.com, ggcircuit.com/developers, support URLs
+**Next:** Contact ggLeap support directly or check if API requires partner access
+
+---
+
 *Update this file with significant learnings and decisions.*
