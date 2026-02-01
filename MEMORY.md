@@ -53,4 +53,21 @@ User prefers Cosmopolitan/APE philosophy (jart). Use llamafile for local LLM, no
 
 ---
 
+## Ideas / Future Projects
+
+### Python 3 Cosmopolitan Port
+**Added: 2026-01-31**
+
+Port Python 3 to Cosmopolitan Libc as an updated version of the Python 2.7 portable.
+
+- **Reference**: [awesome-cosmopolitan](https://github.com/shmup/awesome-cosmopolitan) - curated list of Cosmo projects
+- **Existing**: [cosmofy](https://github.com/metaist/cosmofy) - Cosmopolitan Python Bundler (wraps existing Python)
+- **Goal**: Native Python 3.x APE binary (single file runs on Windows/Linux/Mac/BSD)
+- **Why**: Aligns with jart/Cosmopolitan philosophy, enables truly portable Python
+- **Approach**: Compile CPython 3.12+ with cosmocc, handle platform-specific code
+- **Complexity**: High but achievable - llamafile proves complex C++ works with Cosmo
+- **Potential repo**: `ludoplex/cosmopolitan-python` or contribute to jart/cosmopolitan
+
+---
+
 *Update this file with significant learnings and decisions.*
