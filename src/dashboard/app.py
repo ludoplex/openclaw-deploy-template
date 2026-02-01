@@ -244,6 +244,85 @@ async def stats_partial(request: Request):
 
 
 # =============================================================================
+# CONTENT CALENDAR
+# =============================================================================
+
+@app.get("/calendar", response_class=HTMLResponse)
+async def content_calendar(request: Request):
+    """Content calendar view."""
+    from datetime import datetime, timedelta
+    import calendar as cal
+    
+    today = datetime.now()
+    
+    # Build calendar weeks for current month
+    month_cal = cal.monthcalendar(today.year, today.month)
+    calendar_weeks = []
+    
+    for week in month_cal:
+        week_data = []
+        for day in week:
+            day_data = {
+                "day": day if day > 0 else "",
+                "is_today": day == today.day,
+                "is_current_month": day > 0,
+                "posts": []  # Would be populated from database
+            }
+            week_data.append(day_data)
+        calendar_weeks.append(week_data)
+    
+    # Sample upcoming posts (would come from database)
+    upcoming_posts = []
+    
+    stats = {
+        "total_scheduled": 0,
+        "posts_this_week": 0,
+        "drafts": 0,
+        "posted_this_month": 0
+    }
+    
+    return templates.TemplateResponse("content_calendar.html", {
+        "request": request,
+        "calendar_weeks": calendar_weeks,
+        "upcoming_posts": upcoming_posts,
+        "stats": stats,
+        "current_month": today.strftime("%B %Y")
+    })
+
+
+@app.post("/api/calendar/generate", response_class=HTMLResponse)
+async def generate_calendar_content(request: Request):
+    """Generate content calendar using AI."""
+    if not LOCAL_LLM_AVAILABLE:
+        return HTMLResponse("<div class='text-red-400 p-4'>Local LLM not available</div>")
+    
+    try:
+        from src.content.generator import generate_content_calendar
+        
+        # Generate for all entities
+        all_content = []
+        for entity in ["mighty_house_inc", "dsaic", "computer_store"]:
+            content = generate_content_calendar(entity, days=7, posts_per_day=1)
+            all_content.extend(content)
+        
+        # Return HTML with generated content
+        html = "<div class='p-4 bg-green-900 rounded-lg'>"
+        html += "<h3 class='text-green-300 font-bold mb-3'>✨ Generated Content Ideas</h3>"
+        html += "<div class='space-y-2'>"
+        for item in all_content[:10]:  # Limit to 10
+            html += f"<div class='text-sm text-gray-300'>"
+            html += f"<span class='text-gray-500'>{item['date']}</span> - "
+            html += f"<span class='font-medium'>{item['topic']}</span> "
+            html += f"<span class='text-xs text-gray-500'>({item['platform']})</span>"
+            html += "</div>"
+        html += "</div></div>"
+        
+        return HTMLResponse(html)
+    except Exception as e:
+        return HTMLResponse(f"<div class='text-red-400 p-4'>Error: {str(e)}</div>")
+
+
+# =============================================================================
 # CONTENT GENERATION (Local LLM)
 # =============================================================================
 

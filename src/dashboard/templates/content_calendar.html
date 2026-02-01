@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block title %}Content Calendar | SOP Dashboard{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="md:flex md:items-center md:justify-between">
+        <div class="flex-1 min-w-0">
+            <h1 class="text-2xl font-bold leading-7 text-white sm:text-3xl">
+                📅 Content Calendar
+            </h1>
+            <p class="mt-1 text-gray-400">Plan and schedule social media content across all entities</p>
+        </div>
+        <div class="mt-4 flex md:mt-0 md:ml-4 space-x-3">
+            <button 
+                hx-post="/api/calendar/generate"
+                hx-target="#calendar-content"
+                hx-swap="innerHTML"
+                class="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-md text-sm font-medium">
+                🤖 AI Generate Week
+            </button>
+            <a href="/content" class="bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-md text-sm font-medium">
+                ➕ New Post
+            </a>
+        </div>
+    </div>
+
+    <!-- Entity Filter -->
+    <div class="flex space-x-2">
+        <button class="entity-filter px-4 py-2 rounded-lg bg-gray-700 text-white text-sm font-medium hover:bg-gray-600" data-entity="all">
+            All Entities
+        </button>
+        <button class="entity-filter px-4 py-2 rounded-lg bg-blue-800 text-blue-200 text-sm font-medium hover:bg-blue-700" data-entity="mighty_house_inc">
+            🏢 MHI
+        </button>
+        <button class="entity-filter px-4 py-2 rounded-lg bg-purple-800 text-purple-200 text-sm font-medium hover:bg-purple-700" data-entity="dsaic">
+            💻 DSAIC
+        </button>
+        <button class="entity-filter px-4 py-2 rounded-lg bg-green-800 text-green-200 text-sm font-medium hover:bg-green-700" data-entity="computer_store">
+            🎮 Computer Store
+        </button>
+    </div>
+
+    <!-- Calendar Grid -->
+    <div id="calendar-content" class="bg-gray-800 rounded-lg shadow-xl border border-gray-700 overflow-hidden">
+        <div class="grid grid-cols-7 gap-px bg-gray-700">
+            <!-- Day Headers -->
+            {% for day in ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] %}
+            <div class="bg-gray-800 p-3 text-center text-gray-400 text-sm font-medium">
+                {{ day }}
+            </div>
+            {% endfor %}
+            
+            <!-- Calendar Days -->
+            {% for week in calendar_weeks %}
+            {% for day in week %}
+            <div class="bg-gray-800 min-h-32 p-2 {% if day.is_today %}ring-2 ring-blue-500{% endif %} {% if not day.is_current_month %}opacity-50{% endif %}">
+                <div class="text-sm {% if day.is_today %}text-blue-400 font-bold{% else %}text-gray-400{% endif %}">
+                    {{ day.day }}
+                </div>
+                <div class="mt-1 space-y-1">
+                    {% for post in day.posts %}
+                    <div class="text-xs p-1 rounded {% if post.entity == 'mighty_house_inc' %}bg-blue-900 text-blue-200{% elif post.entity == 'dsaic' %}bg-purple-900 text-purple-200{% else %}bg-green-900 text-green-200{% endif %} truncate cursor-pointer hover:opacity-80"
+                         title="{{ post.content[:100] }}">
+                        {% if post.platform == 'twitter' %}🐦{% elif post.platform == 'linkedin' %}💼{% elif post.platform == 'discord' %}💬{% elif post.platform == 'facebook' %}📘{% else %}📱{% endif %}
+                        {{ post.topic[:20] }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Upcoming Posts -->
+    <div class="bg-gray-800 rounded-lg shadow-xl border border-gray-700 p-6">
+        <h2 class="text-lg font-semibold text-white mb-4">📋 Upcoming Posts This Week</h2>
+        
+        <div class="space-y-4">
+            {% for post in upcoming_posts %}
+            <div class="flex items-start space-x-4 p-4 bg-gray-750 rounded-lg border border-gray-600">
+                <div class="flex-shrink-0">
+                    {% if post.entity == 'mighty_house_inc' %}
+                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-xl">🏢</div>
+                    {% elif post.entity == 'dsaic' %}
+                    <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center text-xl">💻</div>
+                    {% else %}
+                    <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center text-xl">🎮</div>
+                    {% endif %}
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm font-medium text-white truncate">{{ post.topic }}</p>
+                        <span class="text-xs text-gray-400">{{ post.scheduled_date }}</span>
+                    </div>
+                    <p class="text-sm text-gray-400 truncate">{{ post.content[:80] }}...</p>
+                    <div class="mt-2 flex items-center space-x-2">
+                        {% for platform in post.platforms %}
+                        <span class="px-2 py-1 text-xs rounded-full bg-gray-700 text-gray-300">
+                            {{ platform }}
+                        </span>
+                        {% endfor %}
+                        <span class="px-2 py-1 text-xs rounded-full {% if post.status == 'scheduled' %}bg-blue-900 text-blue-300{% elif post.status == 'draft' %}bg-yellow-900 text-yellow-300{% else %}bg-green-900 text-green-300{% endif %}">
+                            {{ post.status }}
+                        </span>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 space-x-2">
+                    <button class="text-gray-400 hover:text-white">✏️</button>
+                    <button class="text-gray-400 hover:text-red-400">🗑️</button>
+                </div>
+            </div>
+            {% else %}
+            <div class="text-center py-8 text-gray-400">
+                <p class="text-xl mb-2">📭</p>
+                <p>No posts scheduled for this week</p>
+                <button 
+                    hx-post="/api/calendar/generate"
+                    hx-target="#calendar-content"
+                    hx-swap="outerHTML"
+                    class="mt-4 text-purple-400 hover:text-purple-300">
+                    Generate content ideas with AI →
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <div class="text-2xl font-bold text-white">{{ stats.total_scheduled }}</div>
+            <div class="text-sm text-gray-400">Posts Scheduled</div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <div class="text-2xl font-bold text-white">{{ stats.posts_this_week }}</div>
+            <div class="text-sm text-gray-400">This Week</div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <div class="text-2xl font-bold text-white">{{ stats.drafts }}</div>
+            <div class="text-sm text-gray-400">Drafts</div>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <div class="text-2xl font-bold text-green-400">{{ stats.posted_this_month }}</div>
+            <div class="text-sm text-gray-400">Posted This Month</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Entity filter functionality
+    document.querySelectorAll('.entity-filter').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const entity = this.dataset.entity;
+            // Update active state
+            document.querySelectorAll('.entity-filter').forEach(b => b.classList.remove('ring-2', 'ring-white'));
+            this.classList.add('ring-2', 'ring-white');
+            // Filter posts (would need HTMX or JS implementation)
+            console.log('Filter by:', entity);
+        });
+    });
+</script>
+{% endblock %}
