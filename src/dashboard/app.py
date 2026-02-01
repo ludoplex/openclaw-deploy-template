@@ -290,6 +290,52 @@ async def content_calendar(request: Request):
     })
 
 
+# =============================================================================
+# EXECUTION HISTORY
+# =============================================================================
+
+@app.get("/history", response_class=HTMLResponse)
+async def execution_history(request: Request):
+    """Execution history view."""
+    # Get history from engine if available
+    executions = []
+    if SOP_ENGINE_AVAILABLE:
+        engine = get_sop_engine()
+        history = getattr(engine, '_history', [])
+        for i, exec_data in enumerate(reversed(history[-50:])):  # Last 50
+            steps_passed = sum(1 for s in exec_data.get('step_results', []) if s.get('success'))
+            steps_total = len(exec_data.get('step_results', []))
+            
+            # Calculate duration
+            try:
+                from datetime import datetime
+                started = datetime.fromisoformat(exec_data.get('started_at', ''))
+                completed = datetime.fromisoformat(exec_data.get('completed_at', ''))
+                duration_ms = int((completed - started).total_seconds() * 1000)
+            except:
+                duration_ms = 0
+            
+            executions.append({
+                'id': i,
+                'sop_id': exec_data.get('sop_id'),
+                'sop_name': exec_data.get('sop_name'),
+                'entity': exec_data.get('entity'),
+                'success': exec_data.get('success'),
+                'dry_run': exec_data.get('dry_run'),
+                'started_at': exec_data.get('started_at', '')[:19].replace('T', ' '),
+                'steps_passed': steps_passed,
+                'steps_total': steps_total,
+                'duration_ms': duration_ms,
+            })
+    
+    return templates.TemplateResponse("execution_history.html", {
+        "request": request,
+        "executions": executions,
+        "total_pages": 1,
+        "current_page": 1
+    })
+
+
 @app.post("/api/calendar/generate", response_class=HTMLResponse)
 async def generate_calendar_content(request: Request):
     """Generate content calendar using AI."""
