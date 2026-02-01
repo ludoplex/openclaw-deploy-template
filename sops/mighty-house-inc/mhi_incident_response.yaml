@@ -1,0 +1,243 @@
+# MHI Incident Response SOP
+# Handles security incidents, service outages, or critical issues for government clients
+
+sop_id: mhi_incident_response
+name: "Incident Response Protocol"
+description: "Structured response to security incidents, service outages, or critical issues affecting government clients"
+entity: mighty_house_inc
+version: "1.0"
+status: active
+
+metadata:
+  author: "Operations Team"
+  created: "2026-01-31"
+  compliance:
+    - NIST 800-53
+    - FISMA
+  severity_levels:
+    - critical: "Complete service outage or data breach"
+    - high: "Partial outage or security concern"
+    - medium: "Degraded service or potential issue"
+    - low: "Minor issue with workaround available"
+
+triggers:
+  - type: webhook
+    description: "Automated alert from monitoring system"
+    config:
+      source: monitoring_system
+      severity_filter: ["critical", "high"]
+  
+  - type: manual
+    description: "Staff-initiated incident report"
+    authorized_roles:
+      - operations
+      - security
+      - leadership
+
+input_variables:
+  - name: incident_type
+    type: select
+    required: true
+    options:
+      - security_breach
+      - service_outage
+      - data_loss
+      - unauthorized_access
+      - system_compromise
+  - name: severity
+    type: select
+    required: true
+    options: [critical, high, medium, low]
+  - name: affected_systems
+    type: text
+    required: true
+  - name: affected_clients
+    type: text
+    required: true
+  - name: initial_description
+    type: textarea
+    required: true
+  - name: reporter_name
+    type: text
+    required: true
+
+workflow:
+  - step_id: log_incident
+    name: "Log Incident"
+    type: create_record
+    description: "Create incident record in tracking system"
+    config:
+      module: incidents
+      fields:
+        incident_type: "{{incident_type}}"
+        severity: "{{severity}}"
+        affected_systems: "{{affected_systems}}"
+        affected_clients: "{{affected_clients}}"
+        description: "{{initial_description}}"
+        reporter: "{{reporter_name}}"
+        status: "investigating"
+        opened_at: "{{now}}"
+
+  - step_id: notify_leadership
+    name: "Notify Leadership"
+    type: notification
+    description: "Alert leadership team immediately"
+    config:
+      channels:
+        - type: sms
+          recipients: ["{{leadership_oncall}}"]
+        - type: email
+          recipients: ["leadership@mightyhouseinc.com"]
+        - type: slack
+          channel: "#incident-response"
+      message: |
+        🚨 INCIDENT ALERT - {{severity | upper}}
+        
+        Type: {{incident_type}}
+        Affected: {{affected_systems}}
+        Clients: {{affected_clients}}
+        
+        {{initial_description}}
+        
+        Reporter: {{reporter_name}}
+
+  - step_id: assess_severity
+    name: "Assess Severity"
+    type: condition
+    description: "Branch based on incident severity"
+    config:
+      conditions:
+        - if: "severity == 'critical'"
+          goto: activate_cirt
+        - if: "severity == 'high'"
+          goto: notify_clients
+        - else:
+          goto: assign_investigation
+
+  - step_id: activate_cirt
+    name: "Activate CIRT"
+    type: task
+    description: "Activate Critical Incident Response Team"
+    config:
+      task_type: escalation
+      team: cirt
+      actions:
+        - page_oncall
+        - setup_war_room
+        - notify_legal
+    next: notify_clients
+
+  - step_id: notify_clients
+    name: "Notify Affected Clients"
+    type: notification
+    description: "Notify government clients per contract requirements"
+    config:
+      template: client_incident_notification
+      channels:
+        - type: email
+          recipients: "{{client_contacts}}"
+        - type: phone
+          condition: "severity in ['critical', 'high']"
+      compliance_tracking: true
+    next: assign_investigation
+
+  - step_id: assign_investigation
+    name: "Assign Investigation"
+    type: create_task
+    description: "Create investigation task for security team"
+    config:
+      assignee: "{{security_lead}}"
+      priority: "{{severity}}"
+      due_date: "{{now + 4h if severity == 'critical' else now + 24h}}"
+      checklist:
+        - Identify root cause
+        - Document timeline
+        - Preserve evidence
+        - Assess impact scope
+        - Identify remediation steps
+
+  - step_id: containment_check
+    name: "Containment Checkpoint"
+    type: approval
+    description: "Confirm incident is contained"
+    config:
+      approvers: ["{{security_lead}}", "{{operations_lead}}"]
+      required_approvals: 1
+      fields:
+        - name: containment_status
+          type: select
+          options: [contained, spreading, unknown]
+        - name: containment_actions
+          type: textarea
+      timeout_hours: 4
+
+  - step_id: document_response
+    name: "Document Response"
+    type: content_generate
+    description: "Generate incident report"
+    config:
+      template: incident_report
+      variables:
+        incident_id: "{{record_id}}"
+        timeline: "{{investigation_timeline}}"
+        root_cause: "{{root_cause}}"
+        remediation: "{{remediation_steps}}"
+      output_format: pdf
+      store_location: "incidents/{{record_id}}"
+
+  - step_id: client_update
+    name: "Client Status Update"
+    type: notification
+    description: "Send resolution update to affected clients"
+    config:
+      template: client_resolution_update
+      channels:
+        - type: email
+          recipients: "{{client_contacts}}"
+      require_acknowledgment: true
+
+  - step_id: post_incident_review
+    name: "Schedule Post-Incident Review"
+    type: create_task
+    description: "Schedule lessons learned meeting"
+    config:
+      task_type: meeting
+      title: "Post-Incident Review: {{incident_type}}"
+      attendees:
+        - security_team
+        - operations_team
+        - leadership
+      agenda:
+        - Timeline review
+        - Root cause analysis
+        - Process improvements
+        - Documentation updates
+      schedule: "{{now + 7d}}"
+
+  - step_id: close_incident
+    name: "Close Incident"
+    type: field_update
+    description: "Mark incident as resolved"
+    config:
+      module: incidents
+      record_id: "{{record_id}}"
+      fields:
+        status: resolved
+        closed_at: "{{now}}"
+        resolution_summary: "{{resolution_notes}}"
+
+notifications:
+  on_complete:
+    channels:
+      - slack: "#incident-response"
+    message: "✅ Incident {{record_id}} resolved and closed"
+  
+  on_error:
+    channels:
+      - sms: ["{{leadership_oncall}}"]
+    message: "⚠️ Error in incident response workflow for {{record_id}}"
+
+compliance:
+  audit_trail: true
+  retention_days: 2555  # 7 years for government contracts
+  encryption: required

@@ -1,0 +1,330 @@
+# Computer Store - New Hardware Arrival SOP
+# Process for receiving, testing, and promoting new hardware inventory
+
+sop_id: cs_new_hardware_arrival
+name: "New Hardware Arrival Processing"
+description: "End-to-end process for receiving new hardware, testing, adding to inventory, and promoting to customers"
+entity: computer_store
+version: "1.0"
+status: active
+
+metadata:
+  author: "Store Operations"
+  created: "2026-01-31"
+  category: inventory
+  location: "Wheatland, WY"
+  tags:
+    - hardware
+    - inventory
+    - receiving
+    - promotion
+
+triggers:
+  - type: manual
+    description: "Staff initiates when shipment arrives"
+  
+  - type: webhook
+    description: "Automated from shipping notification"
+    config:
+      source: shipping_tracker
+      event: delivered
+
+input_variables:
+  - name: shipment_id
+    type: text
+    required: true
+  - name: supplier
+    type: select
+    required: true
+    options:
+      - Ingram Micro
+      - TD Synnex
+      - D&H Distributing
+      - NewEgg Business
+      - Amazon Business
+      - Direct Manufacturer
+  - name: item_count
+    type: number
+    required: true
+  - name: high_value_items
+    type: checkbox
+    label: "Contains items over $500"
+  - name: promotional_worthy
+    type: checkbox
+    label: "Items suitable for social media promotion"
+
+workflow:
+  - step_id: log_shipment
+    name: "Log Shipment Receipt"
+    type: create_record
+    description: "Create receiving record"
+    config:
+      module: shipments
+      fields:
+        shipment_id: "{{shipment_id}}"
+        supplier: "{{supplier}}"
+        expected_items: "{{item_count}}"
+        received_at: "{{now}}"
+        received_by: "{{current_user}}"
+        status: "processing"
+
+  - step_id: unpack_verify
+    name: "Unpack and Verify"
+    type: task
+    description: "Physical verification of shipment contents"
+    config:
+      task_type: checklist
+      assignee: "{{current_user}}"
+      checklist:
+        - Verify box count matches packing slip
+        - Check for visible damage
+        - Unpack all items carefully
+        - Match items to packing list
+        - Note any discrepancies
+        - Save all packing materials for returns
+      time_estimate_minutes: 30
+
+  - step_id: check_discrepancy
+    name: "Check for Discrepancies"
+    type: condition
+    description: "Handle any shipping discrepancies"
+    config:
+      conditions:
+        - if: "has_discrepancy == true"
+          goto: report_discrepancy
+        - else:
+          goto: inventory_entry
+
+  - step_id: report_discrepancy
+    name: "Report Discrepancy"
+    type: create_task
+    description: "Create task to resolve shipping issue"
+    config:
+      task_type: issue
+      priority: high
+      assignee: "{{store_manager}}"
+      title: "Shipment Discrepancy: {{shipment_id}}"
+      details: "{{discrepancy_notes}}"
+      actions:
+        - Contact supplier
+        - File claim if needed
+        - Update inventory accordingly
+    next: inventory_entry
+
+  - step_id: inventory_entry
+    name: "Add to Inventory"
+    type: api_call
+    description: "Add items to inventory system"
+    config:
+      service: inventory
+      action: bulk_add
+      params:
+        items: "{{verified_items}}"
+        location: "main_floor"
+        source_shipment: "{{shipment_id}}"
+      update_counts: true
+
+  - step_id: high_value_check
+    name: "High Value Item Processing"
+    type: condition
+    description: "Additional steps for high-value items"
+    config:
+      conditions:
+        - if: "high_value_items == true"
+          goto: secure_storage
+        - else:
+          goto: price_tag
+
+  - step_id: secure_storage
+    name: "Secure High-Value Items"
+    type: task
+    description: "Store high-value items in secure location"
+    config:
+      task_type: action
+      instructions:
+        - Place items in locked display case
+        - Add security tags if applicable
+        - Log serial numbers
+        - Take photos for insurance
+      notify: "{{store_manager}}"
+    next: price_tag
+
+  - step_id: price_tag
+    name: "Price and Tag Items"
+    type: task
+    description: "Print price tags and label items"
+    config:
+      task_type: action
+      checklist:
+        - Print price labels
+        - Attach tags to items
+        - Update shelf labels
+        - Place items on sales floor
+      print_labels: true
+
+  - step_id: test_gpus
+    name: "Test Graphics Cards"
+    type: condition
+    description: "Special testing for GPUs"
+    config:
+      conditions:
+        - if: "contains_gpus == true"
+          goto: gpu_testing
+        - else:
+          goto: promotional_check
+
+  - step_id: gpu_testing
+    name: "GPU Benchmark Testing"
+    type: task
+    description: "Run benchmark tests on new GPUs"
+    config:
+      task_type: testing
+      test_suite:
+        - 3DMark Time Spy
+        - Furmark stress test (10 min)
+        - Temperature monitoring
+      document_results: true
+      create_demo_videos: true
+    next: promotional_check
+
+  - step_id: promotional_check
+    name: "Check Promotional Status"
+    type: condition
+    description: "Determine if items should be promoted"
+    config:
+      conditions:
+        - if: "promotional_worthy == true"
+          goto: photo_items
+        - else:
+          goto: update_website
+
+  - step_id: photo_items
+    name: "Photograph Items"
+    type: task
+    description: "Take promotional photos"
+    config:
+      task_type: photography
+      requirements:
+        - Clean background
+        - Good lighting
+        - Multiple angles
+        - Include packaging
+        - Lifestyle shots if applicable
+      output_folder: "product_photos/{{date}}"
+
+  - step_id: generate_promo_content
+    name: "Generate Promotional Content"
+    type: content_generate
+    description: "AI-assisted promotional content creation"
+    config:
+      template: new_arrival_promo
+      variables:
+        items: "{{promotional_items}}"
+        photos: "{{photo_paths}}"
+      platforms: [facebook, twitter, discord]
+      voice_profile: cs_gaming
+      ai_enhance: true
+
+  - step_id: social_announce
+    name: "Social Media Announcement"
+    type: social_post
+    description: "Post new arrivals on social media"
+    config:
+      platforms:
+        - facebook
+        - twitter
+        - discord
+        - instagram
+      content:
+        facebook: |
+          🆕 NEW ARRIVALS! 🆕
+          
+          Fresh hardware just hit the shelves at Computer Store Wheatland!
+          
+          {{item_list}}
+          
+          Stop by and check them out! We're open 10am-8pm.
+          
+          📍 Wheatland, WY
+          
+          #NewArrivals #PCHardware #WheatlandWY #ComputerStore
+        twitter: |
+          🆕 New hardware alert!
+          
+          {{featured_item}} just arrived!
+          
+          Come check it out at Computer Store Wheatland 🎮
+          
+          #PCGaming #NewArrivals #WheatlandWY
+        discord: |
+          # 🆕 NEW ARRIVALS ALERT 🆕
+          
+          Fresh hardware just dropped!
+          
+          {{item_list_discord}}
+          
+          **Stop by the store to check them out!**
+          Open 10am-8pm daily
+      media: "{{photo_paths}}"
+      schedule: immediate
+
+  - step_id: update_website
+    name: "Update Website Inventory"
+    type: api_call
+    description: "Sync new items to website"
+    config:
+      service: website
+      action: sync_inventory
+      params:
+        items: "{{new_items}}"
+        mark_new: true
+        new_badge_days: 7
+
+  - step_id: notify_wishlist
+    name: "Notify Wishlist Customers"
+    type: notification
+    description: "Alert customers who wanted these items"
+    config:
+      template: wishlist_notification
+      query:
+        module: wishlists
+        match: "{{new_item_skus}}"
+      channels:
+        - type: email
+          subject: "🎉 Item on your wishlist is now in stock!"
+        - type: sms
+          condition: "sms_opted_in == true"
+
+  - step_id: complete_receiving
+    name: "Complete Receiving Process"
+    type: field_update
+    description: "Mark shipment as fully processed"
+    config:
+      module: shipments
+      record_id: "{{shipment_record_id}}"
+      fields:
+        status: "completed"
+        processed_at: "{{now}}"
+        items_added: "{{actual_item_count}}"
+        photos_taken: "{{photo_count}}"
+        social_posted: "{{social_post_ids}}"
+
+notifications:
+  on_complete:
+    channels:
+      - slack: "#inventory"
+    message: "✅ Shipment {{shipment_id}} fully processed: {{actual_item_count}} items added"
+  
+  on_high_value:
+    channels:
+      - sms: ["{{store_manager}}"]
+    message: "💰 High-value items received in shipment {{shipment_id}}"
+
+reports:
+  weekly_summary:
+    schedule: "every monday 9am"
+    include:
+      - total_items_received
+      - value_received
+      - discrepancy_count
+      - promotional_posts_made
