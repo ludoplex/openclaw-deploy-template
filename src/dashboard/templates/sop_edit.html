@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block title %}{% if is_new %}Create SOP{% else %}Edit {{ sop.name }}{% endif %} | SOP Dashboard{% endblock %}
+
+{% block content %}
+<div class="mb-6">
+    <nav class="flex" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-sm text-gray-400">
+            <li><a href="/" class="hover:text-white">Dashboard</a></li>
+            <li><span class="mx-2">/</span></li>
+            <li><a href="/entity/{{ entity_id }}" class="hover:text-white">{{ entity_id | replace('_', ' ') | title }}</a></li>
+            <li><span class="mx-2">/</span></li>
+            {% if is_new %}
+            <li class="text-white">New SOP</li>
+            {% else %}
+            <li><a href="/sop/{{ entity_id }}/{{ sop.sop_id }}" class="hover:text-white">{{ sop.name }}</a></li>
+            <li><span class="mx-2">/</span></li>
+            <li class="text-white">Edit</li>
+            {% endif %}
+        </ol>
+    </nav>
+</div>
+
+<div class="bg-gray-800 rounded-lg shadow-xl border border-gray-700">
+    <div class="px-6 py-4 border-b border-gray-700">
+        <h1 class="text-2xl font-bold text-white">
+            {% if is_new %}
+            ➕ Create New SOP
+            {% else %}
+            ✏️ Edit: {{ sop.name }}
+            {% endif %}
+        </h1>
+        <p class="text-gray-400 mt-1">
+            {% if is_new %}
+            Create a new SOP for {{ entity_name | default(entity_id | replace('_', ' ') | title) }}
+            {% else %}
+            Modify the SOP configuration in YAML format
+            {% endif %}
+        </p>
+    </div>
+    
+    {% if error %}
+    <div class="mx-6 mt-4 p-4 bg-red-900/50 border border-red-700 rounded-lg">
+        <div class="flex items-center">
+            <span class="text-red-400 text-xl mr-2">⚠️</span>
+            <span class="text-red-300">{{ error }}</span>
+        </div>
+    </div>
+    {% endif %}
+    
+    <form method="POST" class="p-6">
+        <div class="mb-4">
+            <label for="yaml_content" class="block text-sm font-medium text-gray-300 mb-2">
+                SOP Configuration (YAML)
+            </label>
+            <textarea
+                id="yaml_content"
+                name="yaml_content"
+                rows="30"
+                class="w-full px-4 py-3 bg-gray-900 border border-gray-600 rounded-lg text-gray-100 font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Enter SOP YAML configuration..."
+                spellcheck="false"
+            >{{ raw_yaml }}</textarea>
+        </div>
+        
+        <div class="flex justify-between items-center">
+            <div class="flex space-x-3">
+                <button
+                    type="submit"
+                    class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
+                >
+                    💾 Save SOP
+                </button>
+                <a
+                    href="{% if is_new %}/entity/{{ entity_id }}{% else %}/sop/{{ entity_id }}/{{ sop.sop_id }}{% endif %}"
+                    class="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-lg transition-colors"
+                >
+                    Cancel
+                </a>
+            </div>
+            
+            <div class="text-gray-400 text-sm">
+                <span id="char-count">0</span> characters
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Quick Reference -->
+<div class="mt-6 bg-gray-800 rounded-lg shadow-xl border border-gray-700 p-6">
+    <h2 class="text-lg font-semibold text-white mb-4">📖 Quick Reference</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+        <div>
+            <h3 class="font-medium text-gray-300 mb-2">Required Fields</h3>
+            <ul class="text-gray-400 space-y-1">
+                <li><code class="text-green-400">sop_id</code> - Unique identifier</li>
+                <li><code class="text-green-400">name</code> - Display name</li>
+                <li><code class="text-green-400">description</code> - What this SOP does</li>
+                <li><code class="text-green-400">entity</code> - Owner entity</li>
+                <li><code class="text-green-400">workflow</code> - List of steps</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3 class="font-medium text-gray-300 mb-2">Step Types</h3>
+            <ul class="text-gray-400 space-y-1">
+                <li><code class="text-blue-400">task</code> - General task</li>
+                <li><code class="text-blue-400">social_post</code> - Post to social media</li>
+                <li><code class="text-blue-400">content_generate</code> - AI content</li>
+                <li><code class="text-blue-400">notification</code> - Send alert</li>
+                <li><code class="text-blue-400">condition</code> - Branch logic</li>
+                <li><code class="text-blue-400">approval</code> - Wait for approval</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3 class="font-medium text-gray-300 mb-2">Trigger Types</h3>
+            <ul class="text-gray-400 space-y-1">
+                <li><code class="text-purple-400">manual</code> - User initiated</li>
+                <li><code class="text-purple-400">schedule</code> - Cron-based</li>
+                <li><code class="text-purple-400">webhook</code> - External API</li>
+                <li><code class="text-purple-400">record_event</code> - CRM event</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3 class="font-medium text-gray-300 mb-2">Platforms</h3>
+            <ul class="text-gray-400 space-y-1">
+                <li><code class="text-yellow-400">twitter</code>, <code class="text-yellow-400">linkedin</code></li>
+                <li><code class="text-yellow-400">discord</code>, <code class="text-yellow-400">facebook</code></li>
+                <li><code class="text-yellow-400">instagram</code>, <code class="text-yellow-400">youtube</code></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Character counter
+    const textarea = document.getElementById('yaml_content');
+    const charCount = document.getElementById('char-count');
+    
+    function updateCharCount() {
+        charCount.textContent = textarea.value.length;
+    }
+    
+    textarea.addEventListener('input', updateCharCount);
+    updateCharCount();
+    
+    // Tab key support in textarea
+    textarea.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const start = this.selectionStart;
+            const end = this.selectionEnd;
+            this.value = this.value.substring(0, start) + '  ' + this.value.substring(end);
+            this.selectionStart = this.selectionEnd = start + 2;
+            updateCharCount();
+        }
+    });
+</script>
+{% endblock %}

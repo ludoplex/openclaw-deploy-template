@@ -22,11 +22,11 @@
             <p class="mt-1 text-gray-400">{{ sops|length }} Standard Operating Procedures</p>
         </div>
         <div class="mt-4 flex md:mt-0 md:ml-4 space-x-3">
-            <button class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md text-sm font-medium border border-gray-600">
-                + New SOP
-            </button>
+            <a href="/sop/new/{{ entity_id }}" class="bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-md text-sm font-medium">
+                ➕ New SOP
+            </a>
             <button class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium">
-                Run All
+                ▶️ Run All
             </button>
         </div>
     </div>

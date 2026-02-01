@@ -247,6 +247,196 @@ async def api_generate_hashtags(entity: str, topic: str, count: int = 5):
 
 
 # =============================================================================
+# SOP EDITING
+# =============================================================================
+
+@app.get("/sop/{entity_id}/{sop_id}/edit", response_class=HTMLResponse)
+async def sop_edit_page(request: Request, entity_id: str, sop_id: str):
+    """SOP edit form."""
+    sops = load_sops()
+    
+    if entity_id not in sops:
+        raise HTTPException(status_code=404, detail="Entity not found")
+    
+    sop = next((s for s in sops[entity_id] if s.get('sop_id') == sop_id), None)
+    if not sop:
+        raise HTTPException(status_code=404, detail="SOP not found")
+    
+    # Load raw YAML for editing
+    sop_path = Path(sop['_path'])
+    with open(sop_path, 'r', encoding='utf-8') as f:
+        raw_yaml = f.read()
+    
+    return templates.TemplateResponse("sop_edit.html", {
+        "request": request,
+        "entity_id": entity_id,
+        "sop": sop,
+        "raw_yaml": raw_yaml
+    })
+
+
+@app.post("/sop/{entity_id}/{sop_id}/edit", response_class=HTMLResponse)
+async def sop_edit_save(
+    request: Request,
+    entity_id: str,
+    sop_id: str,
+    yaml_content: str = Form(...)
+):
+    """Save SOP edits."""
+    sops = load_sops()
+    
+    if entity_id not in sops:
+        raise HTTPException(status_code=404, detail="Entity not found")
+    
+    sop = next((s for s in sops[entity_id] if s.get('sop_id') == sop_id), None)
+    if not sop:
+        raise HTTPException(status_code=404, detail="SOP not found")
+    
+    # Validate YAML
+    try:
+        parsed = yaml.safe_load(yaml_content)
+        if not parsed:
+            raise ValueError("Empty YAML")
+    except yaml.YAMLError as e:
+        return templates.TemplateResponse("sop_edit.html", {
+            "request": request,
+            "entity_id": entity_id,
+            "sop": sop,
+            "raw_yaml": yaml_content,
+            "error": f"Invalid YAML: {str(e)}"
+        })
+    
+    # Save to file
+    sop_path = Path(sop['_path'])
+    with open(sop_path, 'w', encoding='utf-8') as f:
+        f.write(yaml_content)
+    
+    # Redirect to detail page
+    from fastapi.responses import RedirectResponse
+    return RedirectResponse(
+        url=f"/sop/{entity_id}/{sop_id}?saved=1",
+        status_code=303
+    )
+
+
+@app.get("/sop/new/{entity_id}", response_class=HTMLResponse)
+async def sop_new_page(request: Request, entity_id: str):
+    """Create new SOP form."""
+    entity_names = {
+        "mighty_house_inc": "Mighty House Inc.",
+        "dsaic": "DSAIC",
+        "computer_store": "Computer Store",
+        "cross_entity": "Cross-Entity Pipelines"
+    }
+    
+    if entity_id not in entity_names:
+        raise HTTPException(status_code=404, detail="Entity not found")
+    
+    # Default template for new SOP
+    default_yaml = f'''sop_id: new_sop
+name: "New SOP"
+description: "Description of the SOP"
+entity: {entity_id}
+version: "1.0"
+status: draft
+
+triggers:
+  - type: manual
+    description: "Manual trigger"
+
+workflow:
+  - step_id: step_1
+    name: "First Step"
+    type: task
+    description: "What this step does"
+    config:
+      task_type: notification
+      message: "SOP started"
+'''
+    
+    return templates.TemplateResponse("sop_edit.html", {
+        "request": request,
+        "entity_id": entity_id,
+        "entity_name": entity_names[entity_id],
+        "sop": None,
+        "raw_yaml": default_yaml,
+        "is_new": True
+    })
+
+
+@app.post("/sop/new/{entity_id}", response_class=HTMLResponse)
+async def sop_new_save(
+    request: Request,
+    entity_id: str,
+    yaml_content: str = Form(...)
+):
+    """Save new SOP."""
+    entity_dirs = {
+        "mighty_house_inc": "mighty-house-inc",
+        "dsaic": "dsaic",
+        "computer_store": "computer-store",
+        "cross_entity": "cross-entity"
+    }
+    
+    if entity_id not in entity_dirs:
+        raise HTTPException(status_code=404, detail="Entity not found")
+    
+    # Validate YAML
+    try:
+        parsed = yaml.safe_load(yaml_content)
+        if not parsed:
+            raise ValueError("Empty YAML")
+        sop_id = parsed.get('sop_id', 'new_sop')
+    except yaml.YAMLError as e:
+        return templates.TemplateResponse("sop_edit.html", {
+            "request": request,
+            "entity_id": entity_id,
+            "sop": None,
+            "raw_yaml": yaml_content,
+            "is_new": True,
+            "error": f"Invalid YAML: {str(e)}"
+        })
+    
+    # Save to file
+    entity_path = SOPS_DIR / entity_dirs[entity_id]
+    entity_path.mkdir(parents=True, exist_ok=True)
+    sop_path = entity_path / f"{sop_id}.yaml"
+    
+    with open(sop_path, 'w', encoding='utf-8') as f:
+        f.write(yaml_content)
+    
+    # Redirect to detail page
+    from fastapi.responses import RedirectResponse
+    return RedirectResponse(
+        url=f"/sop/{entity_id}/{sop_id}?created=1",
+        status_code=303
+    )
+
+
+@app.delete("/api/sop/{entity_id}/{sop_id}")
+async def sop_delete(entity_id: str, sop_id: str):
+    """Delete an SOP."""
+    sops = load_sops()
+    
+    if entity_id not in sops:
+        raise HTTPException(status_code=404, detail="Entity not found")
+    
+    sop = next((s for s in sops[entity_id] if s.get('sop_id') == sop_id), None)
+    if not sop:
+        raise HTTPException(status_code=404, detail="SOP not found")
+    
+    # Move to trash instead of deleting
+    sop_path = Path(sop['_path'])
+    trash_dir = WORKSPACE / ".trash"
+    trash_dir.mkdir(exist_ok=True)
+    
+    import shutil
+    shutil.move(str(sop_path), str(trash_dir / sop_path.name))
+    
+    return {"status": "deleted", "sop_id": sop_id}
+
+
+# =============================================================================
 # API ENDPOINTS (JSON)
 # =============================================================================
 
