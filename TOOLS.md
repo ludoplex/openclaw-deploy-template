@@ -30,11 +30,32 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 # API at http://localhost:8081/v1/chat/completions
 ```
 
+### Python Helper (USE THIS!)
+**Location**: `local_llm.py` in workspace root
+
+```python
+# Import from workspace
+import sys; sys.path.insert(0, r"C:\Users\user\.openclaw\workspace")
+from local_llm import ask_local, generate_json, summarize, format_for_platform
+
+# Simple prompt
+result = ask_local("Reformat this as bullet points: ...")
+
+# Generate JSON from description
+data = generate_json("user with name, email, role")
+
+# Summarize text
+summary = summarize(long_text, max_words=100)
+
+# Format for platform (Discord, WhatsApp, Telegram, Twitter)
+formatted = format_for_platform(text, "discord")
+```
+
 ### Delegate to Local LLM
 - Text formatting/cleanup
 - Simple summaries (<500 words)
 - Data extraction
-- JSON/YAML validation
+- JSON/YAML generation
 - Template substitution
 
 ### Keep on Claude
