@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Content Generator - SOP Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="mb-8">
+        <a href="/" class="text-blue-400 hover:text-blue-300">← Back to Dashboard</a>
+    </div>
+    
+    <h1 class="text-3xl font-bold mb-2">🤖 AI Content Generator</h1>
+    <p class="text-gray-400 mb-8">
+        Generate social media content using local LLM (llamafile + Qwen).
+        <span class="text-green-400">Saves API tokens!</span>
+    </p>
+    
+    {% if not llm_available %}
+    <div class="bg-red-900/50 border border-red-500 rounded-lg p-4 mb-8">
+        <p class="text-red-300">
+            ⚠️ Local LLM not available. Make sure llamafile is set up correctly.
+        </p>
+    </div>
+    {% endif %}
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <!-- Input Form -->
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">Generate Content</h2>
+            
+            <form hx-post="/api/content/generate" 
+                  hx-target="#result" 
+                  hx-indicator="#loading"
+                  class="space-y-4">
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Entity</label>
+                    <select name="entity" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white">
+                        <option value="mighty_house_inc">🏛️ Mighty House Inc.</option>
+                        <option value="dsaic">💻 DSAIC</option>
+                        <option value="computer_store" selected>🎮 Computer Store</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Platform</label>
+                    <select name="platform" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white">
+                        <option value="twitter">𝕏 Twitter</option>
+                        <option value="linkedin">💼 LinkedIn</option>
+                        <option value="discord" selected>🎮 Discord</option>
+                        <option value="facebook">📘 Facebook</option>
+                        <option value="instagram">📷 Instagram</option>
+                        <option value="tiktok">🎵 TikTok</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Topic</label>
+                    <input type="text" name="topic" 
+                           placeholder="e.g., Weekend LAN party tournament"
+                           class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400"
+                           required>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Additional Context (optional)</label>
+                    <textarea name="context" rows="3"
+                              placeholder="Any specific details to include..."
+                              class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-400"></textarea>
+                </div>
+                
+                <button type="submit" 
+                        class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-4 rounded-lg transition"
+                        {% if not llm_available %}disabled{% endif %}>
+                    🚀 Generate Content
+                </button>
+            </form>
+            
+            <!-- Loading indicator -->
+            <div id="loading" class="htmx-indicator mt-4 text-center">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent"></div>
+                <p class="text-gray-400 mt-2">Generating with local LLM...</p>
+            </div>
+        </div>
+        
+        <!-- Result -->
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">Generated Content</h2>
+            <div id="result" class="min-h-[200px]">
+                <p class="text-gray-500 italic">Generated content will appear here...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick Examples -->
+    <div class="mt-8 bg-gray-800 rounded-lg p-6">
+        <h2 class="text-xl font-semibold mb-4">Quick Examples</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+            <button onclick="document.querySelector('[name=topic]').value='Weekend LAN party with Fortnite tournament'; document.querySelector('[name=entity]').value='computer_store'; document.querySelector('[name=platform]').value='discord';"
+                    class="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg text-left transition">
+                <span class="text-2xl">🎮</span>
+                <p class="font-medium mt-2">Gaming Event</p>
+                <p class="text-sm text-gray-400">LAN party announcement</p>
+            </button>
+            
+            <button onclick="document.querySelector('[name=topic]').value='New government contract win with DOD'; document.querySelector('[name=entity]').value='mighty_house_inc'; document.querySelector('[name=platform]').value='linkedin';"
+                    class="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg text-left transition">
+                <span class="text-2xl">🏛️</span>
+                <p class="font-medium mt-2">Contract Win</p>
+                <p class="text-sm text-gray-400">GovCon announcement</p>
+            </button>
+            
+            <button onclick="document.querySelector('[name=topic]').value='New API feature release for cloud deployment'; document.querySelector('[name=entity]').value='dsaic'; document.querySelector('[name=platform]').value='twitter';"
+                    class="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg text-left transition">
+                <span class="text-2xl">💻</span>
+                <p class="font-medium mt-2">Feature Release</p>
+                <p class="text-sm text-gray-400">SaaS product update</p>
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}

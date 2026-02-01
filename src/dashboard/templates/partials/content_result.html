@@ -1,0 +1,42 @@
+{% if error %}
+<div class="bg-red-900/50 border border-red-500 rounded-lg p-4">
+    <p class="text-red-300">❌ Error: {{ error }}</p>
+</div>
+{% elif content %}
+<div class="space-y-4">
+    <!-- Generated content -->
+    <div class="bg-gray-700 rounded-lg p-4">
+        <pre class="whitespace-pre-wrap text-white">{{ content }}</pre>
+    </div>
+    
+    <!-- Metadata -->
+    <div class="flex flex-wrap gap-2 text-sm">
+        <span class="bg-blue-900/50 text-blue-300 px-3 py-1 rounded-full">
+            {{ platform | title }}
+        </span>
+        <span class="bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full">
+            {{ entity | replace('_', ' ') | title }}
+        </span>
+        <span class="bg-gray-600 text-gray-300 px-3 py-1 rounded-full">
+            {{ char_count }} chars
+        </span>
+        <span class="bg-green-900/50 text-green-300 px-3 py-1 rounded-full">
+            🤖 Local LLM
+        </span>
+    </div>
+    
+    <!-- Actions -->
+    <div class="flex gap-2">
+        <button onclick="navigator.clipboard.writeText(document.querySelector('pre').textContent); this.textContent='✓ Copied!'; setTimeout(() => this.textContent='📋 Copy', 2000)"
+                class="bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 rounded-lg text-sm transition">
+            📋 Copy
+        </button>
+        <button onclick="location.reload()"
+                class="bg-gray-600 hover:bg-gray-500 text-white px-4 py-2 rounded-lg text-sm transition">
+            🔄 Generate Another
+        </button>
+    </div>
+</div>
+{% else %}
+<p class="text-gray-500 italic">No content generated yet.</p>
+{% endif %}

@@ -3,14 +3,26 @@ SOP Automation Dashboard - FastAPI + HTMX
 Multi-entity SOP management for MHI, DSAIC, and Computer Store.
 """
 
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI, Request, HTTPException, Form
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pathlib import Path
 import yaml
+import sys
 from typing import Optional
 from datetime import datetime
+
+# Add parent to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
+# Import content generator (uses local LLM)
+try:
+    from src.content.generator import generate_post, generate_hashtags
+    LOCAL_LLM_AVAILABLE = True
+except Exception as e:
+    print(f"Local LLM not available: {e}")
+    LOCAL_LLM_AVAILABLE = False
 
 # Setup paths
 BASE_DIR = Path(__file__).parent
@@ -176,6 +188,65 @@ async def stats_partial(request: Request):
 
 
 # =============================================================================
+# CONTENT GENERATION (Local LLM)
+# =============================================================================
+
+@app.get("/content", response_class=HTMLResponse)
+async def content_generator_page(request: Request):
+    """Content generation page."""
+    return templates.TemplateResponse("content_generator.html", {
+        "request": request,
+        "llm_available": LOCAL_LLM_AVAILABLE,
+        "entities": ["mighty_house_inc", "dsaic", "computer_store"],
+        "platforms": ["twitter", "linkedin", "discord", "facebook", "instagram"]
+    })
+
+
+@app.post("/api/content/generate", response_class=HTMLResponse)
+async def generate_content(
+    request: Request,
+    entity: str = Form(...),
+    topic: str = Form(...),
+    platform: str = Form(...),
+    context: str = Form("")
+):
+    """Generate content using local LLM."""
+    if not LOCAL_LLM_AVAILABLE:
+        return templates.TemplateResponse("partials/content_result.html", {
+            "request": request,
+            "error": "Local LLM not available. Check llamafile setup.",
+            "content": None
+        })
+    
+    try:
+        result = generate_post(entity, topic, platform, context if context else None)
+        return templates.TemplateResponse("partials/content_result.html", {
+            "request": request,
+            "content": result["content"],
+            "entity": entity,
+            "platform": platform,
+            "char_count": result["char_count"],
+            "error": None
+        })
+    except Exception as e:
+        return templates.TemplateResponse("partials/content_result.html", {
+            "request": request,
+            "error": str(e),
+            "content": None
+        })
+
+
+@app.post("/api/content/hashtags")
+async def api_generate_hashtags(entity: str, topic: str, count: int = 5):
+    """Generate hashtags using local LLM."""
+    if not LOCAL_LLM_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Local LLM not available")
+    
+    hashtags = generate_hashtags(entity, topic, count)
+    return {"hashtags": hashtags}
+
+
+# =============================================================================
 # API ENDPOINTS (JSON)
 # =============================================================================
 
@@ -192,6 +263,16 @@ async def api_entity_sops(entity_id: str):
     if entity_id not in sops:
         raise HTTPException(status_code=404, detail="Entity not found")
     return sops[entity_id]
+
+
+@app.get("/api/status")
+async def api_status():
+    """API: System status."""
+    return {
+        "status": "running",
+        "local_llm": LOCAL_LLM_AVAILABLE,
+        "sops": get_sop_stats()
+    }
 
 
 # =============================================================================

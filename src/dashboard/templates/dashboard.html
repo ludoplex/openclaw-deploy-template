@@ -12,8 +12,11 @@
             </h1>
             <p class="mt-1 text-gray-400">Manage workflows across all entities</p>
         </div>
-        <div class="mt-4 flex md:mt-0 md:ml-4">
-            <span class="text-sm text-gray-400">Last updated: {{ now.strftime('%H:%M:%S') }}</span>
+        <div class="mt-4 flex gap-4 md:mt-0 md:ml-4 items-center">
+            <a href="/content" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-2">
+                🤖 AI Content
+            </a>
+            <span class="text-sm text-gray-400">{{ now.strftime('%H:%M:%S') }}</span>
         </div>
     </div>
 

@@ -143,9 +143,13 @@ class LlamafileDelegate:
             capture_output=True,
             text=True,
             timeout=self.timeout,
+            encoding='utf-8',
+            errors='replace',  # Handle any encoding issues gracefully
         )
         
-        return result.stdout.strip()
+        if result.stdout:
+            return result.stdout.strip()
+        return ""
     
     def ask(
         self,
