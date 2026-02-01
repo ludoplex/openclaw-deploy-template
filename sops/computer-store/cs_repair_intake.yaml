@@ -1,0 +1,294 @@
+# Computer Store Repair Intake SOP
+# Standardizes device intake for repair services
+
+sop_id: cs_repair_intake
+name: "Device Repair Intake Process"
+description: |
+  Handles customer device intake for repairs at Computer Store.
+  Creates service tickets, manages customer communication,
+  and ensures proper documentation of device condition.
+  
+entity: computer_store
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "Computer Store Repair Bench"
+
+tags:
+  - repair
+  - intake
+  - customer-service
+  - service-ticket
+
+triggers:
+  - type: record_create
+    module: Service_Tickets
+  
+  - type: manual
+    description: "Manual intake at front desk"
+
+  - type: webhook
+    endpoint: /webhooks/cs/repair-request
+    description: "Online repair request form"
+
+config:
+  retry_policy:
+    max_attempts: 2
+    backoff_seconds: 30
+  notify_on_failure:
+    - "channel:cs-repairs"
+
+steps:
+  # --- Phase 1: Customer & Device Information ---
+
+  - id: validate_intake
+    name: "Validate Intake Data"
+    type: validation
+    on_failure: stop
+    config:
+      rules:
+        - field: Customer_Name
+          operator: exists
+        - field: Customer_Phone
+          operator: exists
+        - field: Device_Type
+          operator: exists
+        - field: Issue_Description
+          operator: exists
+        - field: Intake_Waiver_Signed
+          operator: equals
+          value: true
+      fail_message: "Missing required intake information or waiver"
+
+  - id: generate_ticket_number
+    name: "Generate Service Ticket Number"
+    type: transform
+    config:
+      operations:
+        - field: Ticket_Number
+          expression: "CS-{{date_format(now(), 'YYMMDD')}}-{{sequence(4)}}"
+
+  - id: determine_service_type
+    name: "Determine Service Type"
+    type: condition
+    config:
+      expression: "Issue_Description"
+      rules:
+        - pattern: "virus|slow|popup|malware"
+          result: "REP-001"  # Virus Removal
+          price: 89
+        - pattern: "won't boot|no power|blue screen|black screen"
+          result: "REP-006"  # No-Boot Diagnosis
+          price: 79
+        - pattern: "screen|cracked|display|broken"
+          result: "REP-008"  # Screen Replacement
+          price: "119 + part"
+        - pattern: "data|transfer|backup|files"
+          result: "REP-004"  # Data Transfer
+          price: 59
+        - pattern: "clean|dust|fan|thermal|hot|overheating"
+          result: "REP-003"  # Deep Cleaning
+          price: 69
+        - pattern: "upgrade|ram|ssd|memory"
+          result: "REP-007"  # RAM/SSD Upgrade
+          price: 49
+        - default:
+          result: "DIAG-001"  # Diagnostic Only
+          price: 40
+
+  # --- Phase 2: Estimate & Approval ---
+
+  - id: create_estimate
+    name: "Create Service Estimate"
+    type: create_record
+    config:
+      _module: Service_Estimates
+      record_data:
+        Ticket: "{{Ticket_Number}}"
+        Customer: "{{customer_record_id}}"
+        Device_Type: "{{Device_Type}}"
+        Device_Brand: "{{Device_Brand}}"
+        Device_Model: "{{Device_Model}}"
+        Serial_Number: "{{Serial_Number}}"
+        Service_Code: "{{Service_Code}}"
+        Base_Price: "{{Base_Price}}"
+        Parts_Estimate: "{{Parts_Estimate}}"
+        Total_Estimate: "{{Total_Estimate}}"
+        Issue_Description: "{{Issue_Description}}"
+        Status: "Pending Approval"
+
+  - id: send_estimate_sms
+    name: "Send Estimate via SMS"
+    type: notification
+    condition: "Customer_Phone exists"
+    config:
+      channels:
+        - sms
+      recipients:
+        - "{{Customer_Phone}}"
+      template: repair_estimate
+      variables:
+        name: "{{Customer_Name}}"
+        ticket: "{{Ticket_Number}}"
+        device: "{{Device_Type}}"
+        estimate: "{{Total_Estimate}}"
+        approval_link: "{{Approval_URL}}"
+
+  - id: send_estimate_email
+    name: "Send Estimate via Email"
+    type: notification
+    condition: "Customer_Email exists"
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Customer_Email}}"
+      template: repair_estimate_detailed
+      variables:
+        name: "{{Customer_Name}}"
+        ticket: "{{Ticket_Number}}"
+        device: "{{Device_Type}} {{Device_Brand}} {{Device_Model}}"
+        issue: "{{Issue_Description}}"
+        service: "{{Service_Description}}"
+        labor: "{{Base_Price}}"
+        parts: "{{Parts_Estimate}}"
+        total: "{{Total_Estimate}}"
+        turnaround: "{{Estimated_Turnaround}}"
+
+  # --- Phase 3: Wait for Approval ---
+
+  - id: request_approval
+    name: "Request Customer Approval"
+    type: approval
+    config:
+      approvers:
+        - "customer:{{Customer_Email}}"
+        - "customer:{{Customer_Phone}}"
+      timeout_hours: 48
+      escalation:
+        after_hours: 24
+        escalate_to:
+          - "role:Front Desk"
+      on_timeout: notify
+
+  - id: handle_approval_timeout
+    name: "Handle Approval Timeout"
+    type: notification
+    condition: "Approval_Status == 'Timeout'"
+    config:
+      channels:
+        - sms
+      recipients:
+        - "{{Customer_Phone}}"
+      template: estimate_reminder
+      variables:
+        ticket: "{{Ticket_Number}}"
+        device: "{{Device_Type}}"
+
+  # --- Phase 4: Approved - Begin Repair ---
+
+  - id: update_status_approved
+    name: "Update Status to Approved"
+    type: field_update
+    condition: "Approval_Status == 'Approved'"
+    config:
+      updates:
+        Status: "Approved - In Queue"
+        Approval_Date: "{{now}}"
+        Approved_Amount: "{{Total_Estimate}}"
+
+  - id: assign_technician
+    name: "Assign to Technician"
+    type: field_update
+    condition: "Approval_Status == 'Approved'"
+    config:
+      updates:
+        Assigned_Tech: "{{Available_Technician}}"
+        Queue_Position: "{{Next_Queue_Position}}"
+
+  - id: notify_technician
+    name: "Notify Assigned Technician"
+    type: notification
+    condition: "Approval_Status == 'Approved'"
+    config:
+      channels:
+        - discord
+      recipients:
+        - "channel:cs-repairs"
+        - "user:{{Assigned_Tech_Discord}}"
+      template: new_repair_assigned
+      variables:
+        ticket: "{{Ticket_Number}}"
+        device: "{{Device_Type}} {{Device_Brand}}"
+        issue: "{{Issue_Description}}"
+        service: "{{Service_Code}}"
+        customer: "{{Customer_Name}}"
+
+  - id: create_repair_task
+    name: "Create Repair Task"
+    type: create_task
+    condition: "Approval_Status == 'Approved'"
+    config:
+      tasks:
+        - subject: "{{Ticket_Number}}: {{Device_Type}} - {{Service_Description}}"
+          due_days: "{{Turnaround_Days}}"
+          assign_to: "{{Assigned_Tech}}"
+          priority: "{{Priority_Level}}"
+          description: |
+            REPAIR TICKET: {{Ticket_Number}}
+            
+            Customer: {{Customer_Name}}
+            Phone: {{Customer_Phone}}
+            
+            Device: {{Device_Type}} {{Device_Brand}} {{Device_Model}}
+            Serial: {{Serial_Number}}
+            
+            Issue: {{Issue_Description}}
+            Service: {{Service_Code}} - {{Service_Description}}
+            
+            Approved Amount: ${{Approved_Amount}}
+            
+            Notes: {{Special_Notes}}
+
+  # --- Phase 5: Declined - Return Device ---
+
+  - id: update_status_declined
+    name: "Update Status to Declined"
+    type: field_update
+    condition: "Approval_Status == 'Declined'"
+    config:
+      updates:
+        Status: "Declined - Pending Pickup"
+        Decline_Date: "{{now}}"
+        Decline_Reason: "{{Customer_Decline_Reason}}"
+
+  - id: notify_pickup_declined
+    name: "Notify Customer for Pickup"
+    type: notification
+    condition: "Approval_Status == 'Declined'"
+    config:
+      channels:
+        - sms
+      recipients:
+        - "{{Customer_Phone}}"
+      template: device_ready_pickup
+      variables:
+        name: "{{Customer_Name}}"
+        device: "{{Device_Type}}"
+        message: "Your device is ready for pickup (repair declined)."
+
+  # --- Phase 6: Documentation ---
+
+  - id: log_intake
+    name: "Log Intake for Reporting"
+    type: create_record
+    config:
+      _module: Service_Analytics
+      record_data:
+        Date: "{{now}}"
+        Ticket: "{{Ticket_Number}}"
+        Service_Type: "{{Service_Code}}"
+        Device_Category: "{{Device_Type}}"
+        Estimate_Amount: "{{Total_Estimate}}"
+        Approval_Status: "{{Approval_Status}}"
+        Source: "{{Intake_Source}}"

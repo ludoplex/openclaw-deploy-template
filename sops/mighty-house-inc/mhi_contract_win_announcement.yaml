@@ -1,0 +1,222 @@
+# Mighty House Inc. Government Contract Win Announcement SOP
+# Automates celebratory announcements when contracts are awarded
+
+sop_id: mhi_contract_win_announcement
+name: "Government Contract Win Announcement Pipeline"
+description: |
+  Orchestrates the announcement of government contract awards across
+  all channels. Emphasizes EDWOSB status and builds credibility
+  for future opportunities.
+  
+entity: mighty_house_inc
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "MHI Business Development"
+
+tags:
+  - government
+  - contracts
+  - announcement
+  - marketing
+  - edwosb
+
+triggers:
+  - type: field_update
+    module: Deals
+    field: Stage
+    new_value: "Closed Won"
+    condition: "Deal_Type == 'Government'"
+
+  - type: webhook
+    endpoint: /webhooks/mhi/contract-award
+    description: "Triggered by SAM.gov award notification"
+
+  - type: manual
+    description: "Manual announcement trigger"
+
+config:
+  retry_policy:
+    max_attempts: 2
+    backoff_seconds: 60
+  notify_on_failure:
+    - "channel:mhi-sales"
+    - "email:bd@mightyhouseinc.com"
+
+steps:
+  # --- Validation ---
+  
+  - id: validate_contract_data
+    name: "Validate Contract Data"
+    type: validation
+    on_failure: stop
+    config:
+      rules:
+        - field: Contract_Name
+          operator: exists
+        - field: Awarding_Agency
+          operator: exists
+        - field: Contract_Value
+          operator: exists
+        - field: Contract_Number
+          operator: exists
+      fail_message: "Missing required contract information"
+
+  - id: check_announcement_approval
+    name: "Check Announcement Approval"
+    type: condition
+    config:
+      expression: "Announce_Publicly == true"
+      description: "Only announce if approved for public disclosure"
+
+  # --- Content Generation ---
+
+  - id: generate_linkedin_post
+    name: "Generate LinkedIn Announcement"
+    type: content_generate
+    config:
+      type: social_post
+      prompt_template: |
+        Create a professional LinkedIn announcement for a government contract award:
+        
+        Company: Mighty House Inc. (EDWOSB-certified)
+        Contract: {{Contract_Name}}
+        Agency: {{Awarding_Agency}}
+        Value: {{Contract_Value}}
+        Scope: {{Contract_Scope}}
+        
+        Emphasize:
+        - Our expertise and track record
+        - EDWOSB (Economically Disadvantaged Woman-Owned Small Business) status
+        - Commitment to government clients
+        - Team appreciation
+        
+        Keep it professional but celebratory. Include a call for similar opportunities.
+      tone: professional
+      length: medium
+      output_variable: linkedin_content
+
+  - id: generate_twitter_post
+    name: "Generate Twitter Announcement"
+    type: content_generate
+    config:
+      type: social_post
+      prompt_template: |
+        Create a brief Twitter announcement for a government contract win:
+        
+        Company: Mighty House Inc.
+        Contract: {{Contract_Name}}
+        Agency: {{Awarding_Agency}}
+        
+        Keep under 250 chars to leave room for hashtags. Professional but excited.
+      tone: professional
+      length: short
+      output_variable: twitter_content
+
+  # --- Post Announcements ---
+
+  - id: post_linkedin
+    name: "Post to LinkedIn"
+    type: social_post
+    config:
+      platforms:
+        - linkedin
+      content: |
+        {{linkedin_content}}
+        
+        #MightyHouseInc #EDWOSB #GovCon #SmallBusiness #WomanOwned
+      schedule_type: immediate
+
+  - id: post_twitter
+    name: "Post to Twitter"
+    type: social_post
+    config:
+      platforms:
+        - twitter
+      content: "{{twitter_content}}"
+      hashtags:
+        - "#MightyHouseInc"
+        - "#EDWOSB"
+        - "#GovCon"
+        - "#ContractWin"
+      schedule_type: immediate
+
+  - id: post_facebook
+    name: "Post to Facebook"
+    type: social_post
+    config:
+      platforms:
+        - facebook
+      content: |
+        🎉 Exciting News from Mighty House Inc.!
+        
+        {{linkedin_content}}
+        
+        Thank you to our amazing team and to {{Awarding_Agency}} for this opportunity!
+      schedule_type: immediate
+
+  # --- Internal Notifications ---
+
+  - id: notify_team
+    name: "Notify Team"
+    type: notification
+    config:
+      channels:
+        - discord
+        - email
+      recipients:
+        - "channel:mhi-general"
+        - "role:All Staff"
+      template: contract_win_internal
+      variables:
+        contract_name: "{{Contract_Name}}"
+        agency: "{{Awarding_Agency}}"
+        value: "{{Contract_Value}}"
+        team_lead: "{{Project_Manager}}"
+
+  # --- Update CRM ---
+
+  - id: update_deal_record
+    name: "Update Deal Record"
+    type: field_update
+    config:
+      updates:
+        Announcement_Posted: true
+        Announcement_Date: "{{now}}"
+        Social_Platforms: "LinkedIn, Twitter, Facebook"
+
+  - id: create_followup_tasks
+    name: "Create Follow-up Tasks"
+    type: create_task
+    config:
+      tasks:
+        - subject: "Send thank-you to {{Awarding_Agency}} contracting officer"
+          due_days: 3
+          assign_to: "{{Account_Owner}}"
+          priority: "High"
+        
+        - subject: "Update website portfolio with {{Contract_Name}}"
+          due_days: 7
+          assign_to: "role:Marketing"
+          priority: "Normal"
+        
+        - subject: "Create case study for {{Contract_Name}}"
+          due_days: 30
+          assign_to: "role:Marketing"
+          priority: "Low"
+
+  # --- Cross-Entity: Notify Computer Store ---
+
+  - id: notify_computer_store
+    name: "Notify Computer Store of Win"
+    type: cross_entity_trigger
+    condition: "Contract_Scope contains 'Training' OR Contract_Scope contains 'Certification'"
+    config:
+      target_entity: computer_store
+      target_sop: cs_government_training_prep
+      payload:
+        contract_id: "{{Contract_Number}}"
+        contract_name: "{{Contract_Name}}"
+        training_scope: "{{Training_Requirements}}"
+        start_date: "{{Performance_Start_Date}}"
+      wait_for_completion: false

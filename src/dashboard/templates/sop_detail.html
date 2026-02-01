@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}{{ sop.name or sop.sop_id }} - SOP Dashboard{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Breadcrumb -->
+    <nav class="flex" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2">
+            <li><a href="/" class="text-gray-400 hover:text-white">Dashboard</a></li>
+            <li><span class="text-gray-600">/</span></li>
+            <li><a href="/entity/{{ entity_id }}" class="text-gray-400 hover:text-white">{{ entity_id }}</a></li>
+            <li><span class="text-gray-600">/</span></li>
+            <li><span class="text-white">{{ sop.sop_id }}</span></li>
+        </ol>
+    </nav>
+
+    <!-- Header -->
+    <div class="md:flex md:items-center md:justify-between">
+        <div class="flex-1 min-w-0">
+            <h1 class="text-2xl font-bold leading-7 text-white sm:text-3xl">
+                {{ sop.name or sop.sop_id }}
+            </h1>
+            <p class="mt-1 text-gray-400">{{ sop.description or 'No description provided' }}</p>
+        </div>
+        <div class="mt-4 flex md:mt-0 md:ml-4 space-x-3">
+            <button class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md text-sm font-medium border border-gray-600">
+                Edit
+            </button>
+            <button 
+                hx-post="/api/sop/{{ entity_id }}/{{ sop.sop_id }}/trigger"
+                hx-target="#trigger-result"
+                hx-swap="innerHTML"
+                class="bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-md text-sm font-medium">
+                Run SOP
+            </button>
+        </div>
+    </div>
+
+    <!-- Trigger Result -->
+    <div id="trigger-result"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-6">
+            <!-- Steps -->
+            <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                <h2 class="text-lg font-semibold text-white mb-4">Workflow Steps</h2>
+                <div class="space-y-4">
+                    {% if sop.steps %}
+                    {% for step in sop.steps %}
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                            {{ loop.index }}
+                        </div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-white font-medium">{{ step.name or step.id or 'Step ' ~ loop.index }}</h3>
+                            <p class="text-gray-400 text-sm">Type: {{ step.type or 'action' }}</p>
+                            {% if step.description %}
+                            <p class="text-gray-500 text-sm mt-1">{{ step.description }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <p class="text-gray-400">No steps defined</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Triggers -->
+            {% if sop.triggers %}
+            <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                <h2 class="text-lg font-semibold text-white mb-4">Triggers</h2>
+                <div class="space-y-3">
+                    {% for trigger in sop.triggers %}
+                    <div class="bg-gray-750 rounded-lg p-4 border border-gray-600">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-3">
+                                {% if trigger.type == 'crm_event' %}📊
+                                {% elif trigger.type == 'schedule' %}⏰
+                                {% elif trigger.type == 'webhook' %}🔗
+                                {% else %}⚡{% endif %}
+                            </span>
+                            <div>
+                                <h3 class="text-white font-medium">{{ trigger.type or 'Unknown' }}</h3>
+                                <p class="text-gray-400 text-sm">{{ trigger.event or trigger.schedule or 'Manual trigger' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-6">
+            <!-- Metadata -->
+            <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                <h2 class="text-lg font-semibold text-white mb-4">Details</h2>
+                <dl class="space-y-3">
+                    <div>
+                        <dt class="text-gray-400 text-sm">SOP ID</dt>
+                        <dd class="text-white font-mono text-sm">{{ sop.sop_id }}</dd>
+                    </div>
+                    <div>
+                        <dt class="text-gray-400 text-sm">Version</dt>
+                        <dd class="text-white">{{ sop.version or '1.0' }}</dd>
+                    </div>
+                    <div>
+                        <dt class="text-gray-400 text-sm">Status</dt>
+                        <dd>
+                            {% if sop.status == 'active' %}
+                            <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-900 text-green-300">Active</span>
+                            {% elif sop.status == 'draft' %}
+                            <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-900 text-yellow-300">Draft</span>
+                            {% else %}
+                            <span class="px-2 py-1 text-xs font-semibold rounded-full bg-gray-700 text-gray-300">{{ sop.status or 'Unknown' }}</span>
+                            {% endif %}
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="text-gray-400 text-sm">Entity</dt>
+                        <dd class="text-white">{{ sop.entity or entity_id }}</dd>
+                    </div>
+                    {% if sop.owner %}
+                    <div>
+                        <dt class="text-gray-400 text-sm">Owner</dt>
+                        <dd class="text-white">{{ sop.owner }}</dd>
+                    </div>
+                    {% endif %}
+                    <div>
+                        <dt class="text-gray-400 text-sm">File</dt>
+                        <dd class="text-gray-300 font-mono text-xs">{{ sop._file }}</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <!-- Tags -->
+            {% if sop.tags %}
+            <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                <h2 class="text-lg font-semibold text-white mb-4">Tags</h2>
+                <div class="flex flex-wrap gap-2">
+                    {% for tag in sop.tags %}
+                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

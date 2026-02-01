@@ -1,0 +1,205 @@
+# DSAIC - Subscription Management SOP
+# Automates SaaS subscription lifecycle management
+
+id: dsaic_subscription_management
+name: "DSAIC Subscription Management"
+version: "1.0"
+entity: dsaic
+module: Deals
+description: "Manages SaaS subscription lifecycle including onboarding, upgrades, and renewals"
+enabled: true
+priority: 10
+tags: [saas, subscriptions, dsaic]
+
+triggers:
+  - type: record_create
+    condition: "Deal_Type == 'Subscription'"
+    
+  - type: field_update
+    field: Subscription_Tier
+    
+  - type: field_update
+    field: Subscription_Status
+
+steps:
+  # Step 1: Validate subscription data
+  - id: validate_subscription
+    name: "Validate Subscription Data"
+    type: validation
+    rules:
+      - field: Account_Name
+        required: true
+      - field: Contact_Name
+        required: true
+      - field: Subscription_Tier
+        required: true
+        allowed_values: ["Free", "Starter", "Professional", "Enterprise"]
+      - field: Billing_Cycle
+        allowed_values: ["Monthly", "Annual"]
+      - field: MRR
+        min_value: 0
+    on_failure: notify_admin
+
+  # Step 2: Notify product team
+  - id: notify_product
+    name: "Notify Product Team"
+    type: notification
+    recipients:
+      - "channel:dsaic-product"
+      - "channel:dsaic-customers"
+    template: subscription_change
+    level: info
+
+  # Step 3: New subscription onboarding
+  - id: onboarding_tasks
+    name: "Create Onboarding Tasks"
+    type: create_task
+    condition: "Subscription_Status == 'New'"
+    tasks:
+      - subject: "Welcome Call: ${Account_Name}"
+        due_days: 1
+        assign_to: "role:Customer_Success"
+        priority: High
+        description: "Welcome call for new ${Subscription_Tier} subscription"
+      - subject: "Account Provisioning: ${Account_Name}"
+        due_days: 1
+        assign_to: "role:DevOps"
+        priority: High
+        description: "Provision ${Subscription_Tier} tier infrastructure and access"
+      - subject: "Onboarding Training: ${Account_Name}"
+        due_days: 5
+        assign_to: "role:Customer_Success"
+        priority: Normal
+        description: "Schedule onboarding training session"
+      - subject: "Documentation Access: ${Account_Name}"
+        due_days: 2
+        assign_to: "role:Customer_Success"
+        priority: Normal
+        description: "Provide API documentation and integration guides"
+
+  # Step 4: Enterprise tier special handling
+  - id: enterprise_onboarding
+    name: "Enterprise Onboarding"
+    type: create_task
+    condition: "Subscription_Tier == 'Enterprise'"
+    tasks:
+      - subject: "Dedicated Success Manager: ${Account_Name}"
+        due_days: 1
+        assign_to: "role:Customer_Success_Manager"
+        priority: High
+        description: "Assign dedicated success manager for enterprise account"
+      - subject: "SLA Review: ${Account_Name}"
+        due_days: 3
+        assign_to: "role:Legal"
+        priority: High
+        description: "Review and configure enterprise SLA requirements"
+      - subject: "Custom Integration: ${Account_Name}"
+        due_days: 7
+        assign_to: "role:Solutions_Engineer"
+        priority: Normal
+        description: "Assess custom integration requirements"
+      - subject: "Security Review: ${Account_Name}"
+        due_days: 5
+        assign_to: "role:Security"
+        priority: High
+        description: "Conduct security assessment for enterprise deployment"
+
+  # Step 5: Upgrade notifications
+  - id: notify_upgrade
+    name: "Notify on Tier Upgrade"
+    type: notification
+    condition: "Subscription_Tier_Changed == 'true' && New_Tier_Higher == 'true'"
+    recipients:
+      - "channel:dsaic-general"
+      - "role:Customer_Success"
+    template: subscription_change
+    level: success
+
+  # Step 6: Downgrade handling
+  - id: downgrade_tasks
+    name: "Handle Tier Downgrade"
+    type: create_task
+    condition: "Subscription_Tier_Changed == 'true' && New_Tier_Higher == 'false'"
+    tasks:
+      - subject: "Downgrade Review: ${Account_Name}"
+        due_days: 1
+        assign_to: "role:Customer_Success"
+        priority: High
+        description: "Review reasons for downgrade and retention opportunities"
+      - subject: "Feature Migration: ${Account_Name}"
+        due_days: 3
+        assign_to: "role:DevOps"
+        priority: Normal
+        description: "Migrate customer to lower tier, disable premium features"
+
+  # Step 7: Update subscription record
+  - id: update_subscription
+    name: "Update Subscription Record"
+    type: field_update
+    updates:
+      Subscription_Status: "Active"
+      Onboarding_Status: "In Progress"
+      Last_Activity_Date: "${TODAY}"
+
+---
+# DSAIC Customer Success SOP
+id: dsaic_customer_success
+name: "DSAIC Customer Success"
+version: "1.0"
+entity: dsaic
+module: Accounts
+description: "Proactive customer success monitoring and engagement"
+enabled: true
+priority: 20
+tags: [saas, success, dsaic]
+
+triggers:
+  - type: scheduled
+    schedule: "0 9 * * 1"  # Weekly on Monday
+    
+  - type: field_update
+    field: Health_Score
+
+steps:
+  - id: check_health_score
+    name: "Check Customer Health"
+    type: condition
+    condition: "Health_Score < 70"
+
+  - id: at_risk_alert
+    name: "At-Risk Customer Alert"
+    type: notification
+    condition: "Health_Score < 50"
+    recipients:
+      - "channel:dsaic-customers"
+      - "role:Customer_Success_Manager"
+    template: validation_failed
+    level: error
+
+  - id: at_risk_tasks
+    name: "At-Risk Intervention"
+    type: create_task
+    condition: "Health_Score < 50"
+    tasks:
+      - subject: "Urgent: At-Risk Customer - ${Account_Name}"
+        due_days: 1
+        assign_to: "role:Customer_Success_Manager"
+        priority: High
+        description: "Immediate intervention required - Health Score: ${Health_Score}"
+      - subject: "Executive Escalation: ${Account_Name}"
+        due_days: 2
+        assign_to: "role:Executive"
+        priority: High
+        description: "Prepare executive engagement plan for at-risk account"
+
+  - id: quarterly_review
+    name: "Quarterly Business Review"
+    type: create_task
+    condition: "Days_Since_QBR >= 90"
+    tasks:
+      - subject: "Schedule QBR: ${Account_Name}"
+        due_days: 7
+        assign_to: "role:Customer_Success"
+        priority: Normal
+        description: "Schedule quarterly business review for ${Subscription_Tier} customer"
+

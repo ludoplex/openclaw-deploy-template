@@ -1,0 +1,146 @@
+# Computer Store - Student Enrollment SOP
+# Automates student onboarding for training programs
+
+id: cs_student_enrollment
+name: "CS Student Enrollment"
+version: "1.0"
+entity: computer_store
+module: Contacts
+description: "Manages student enrollment, program assignment, and onboarding workflows"
+enabled: true
+priority: 10
+tags: [training, students, enrollment, cs]
+
+triggers:
+  - type: record_create
+    condition: "Contact_Type == 'Student'"
+    
+  - type: field_update
+    field: Enrollment_Status
+
+steps:
+  # Step 1: Validate student information
+  - id: validate_student
+    name: "Validate Student Information"
+    type: validation
+    rules:
+      - field: First_Name
+        required: true
+      - field: Last_Name
+        required: true
+      - field: Email
+        required: true
+        format: email
+      - field: Phone
+        format: phone
+      - field: Program
+        required: true
+        allowed_values:
+          - "CompTIA A+"
+          - "CompTIA Network+"
+          - "CompTIA Security+"
+          - "Cisco CCNA"
+          - "AWS Cloud Practitioner"
+          - "Azure Fundamentals"
+          - "Touch Typing"
+          - "Mathematics Tutoring"
+          - "Statistics Tutoring"
+          - "ASM/C Programming"
+          - "General IT Training"
+      - field: Payment_Status
+        allowed_values: ["Pending", "Paid", "Scholarship", "Payment Plan"]
+    on_failure: notify_admin
+
+  # Step 2: Notify training team
+  - id: notify_training
+    name: "Notify Training Team"
+    type: notification
+    recipients:
+      - "channel:cs-training"
+    template: new_student
+    level: success
+
+  # Step 3: Create onboarding tasks
+  - id: onboarding_tasks
+    name: "Create Onboarding Tasks"
+    type: create_task
+    tasks:
+      - subject: "Welcome Call: ${First_Name} ${Last_Name}"
+        due_days: 1
+        assign_to: "role:Student_Services"
+        priority: High
+        description: "Make welcome call to new student enrolled in ${Program}"
+      - subject: "Schedule Orientation: ${First_Name} ${Last_Name}"
+        due_days: 2
+        assign_to: "role:Student_Services"
+        priority: High
+        description: "Schedule orientation session for ${Program}"
+      - subject: "Account Setup: ${First_Name} ${Last_Name}"
+        due_days: 1
+        assign_to: "role:IT_Support"
+        priority: High
+        description: "Create student account and provide access credentials"
+      - subject: "Study Materials: ${First_Name} ${Last_Name}"
+        due_days: 3
+        assign_to: "role:Instructor"
+        priority: Normal
+        description: "Prepare and distribute study materials for ${Program}"
+
+  # Step 4: Certification program special handling
+  - id: cert_program_setup
+    name: "Certification Program Setup"
+    type: create_task
+    condition: "Program == 'CompTIA A+' || Program == 'CompTIA Network+' || Program == 'CompTIA Security+' || Program == 'Cisco CCNA'"
+    tasks:
+      - subject: "Pearsonvue Registration: ${First_Name} ${Last_Name}"
+        due_days: 7
+        assign_to: "role:Testing_Center"
+        priority: Normal
+        description: "Assist student with Pearsonvue account creation"
+      - subject: "Practice Exam Setup: ${First_Name} ${Last_Name}"
+        due_days: 5
+        assign_to: "role:Instructor"
+        priority: Normal
+        description: "Set up practice exam access for ${Program}"
+      - subject: "Lab Access: ${First_Name} ${Last_Name}"
+        due_days: 3
+        assign_to: "role:IT_Support"
+        priority: High
+        description: "Configure hands-on lab environment access"
+
+  # Step 5: Payment plan handling
+  - id: payment_plan_tasks
+    name: "Payment Plan Setup"
+    type: create_task
+    condition: "Payment_Status == 'Payment Plan'"
+    tasks:
+      - subject: "Payment Agreement: ${First_Name} ${Last_Name}"
+        due_days: 2
+        assign_to: "role:Billing"
+        priority: High
+        description: "Set up payment plan agreement and schedule"
+      - subject: "First Payment Reminder: ${First_Name} ${Last_Name}"
+        due_days: 30
+        assign_to: "role:Billing"
+        priority: Normal
+        description: "Send first payment reminder"
+
+  # Step 6: Update student record
+  - id: update_enrollment
+    name: "Update Enrollment Record"
+    type: field_update
+    updates:
+      Enrollment_Status: "Enrolled"
+      Enrollment_Date: "${TODAY}"
+      Onboarding_Complete: "false"
+      Expected_Completion: "${TODAY + 90}"
+
+  # Step 7: Potential employee pipeline flag
+  - id: flag_potential_employee
+    name: "Flag Potential Employee"
+    type: field_update
+    condition: "Prior_IT_Experience == 'Yes'"
+    updates:
+      Pipeline_Candidate: "true"
+      Pipeline_Status: "Monitoring"
+

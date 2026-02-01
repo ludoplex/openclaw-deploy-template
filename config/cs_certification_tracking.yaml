@@ -1,0 +1,160 @@
+# Computer Store - Certification Tracking SOP
+# Tracks student progress and certification achievements
+
+id: cs_certification_tracking
+name: "CS Certification Tracking"
+version: "1.0"
+entity: computer_store
+module: Contacts
+description: "Tracks certification progress, exam scheduling, and achievement recognition"
+enabled: true
+priority: 15
+tags: [training, certification, tracking, cs]
+
+triggers:
+  - type: field_update
+    field: Certification_Status
+    
+  - type: field_update
+    field: Exam_Date
+    
+  - type: field_update
+    field: Exam_Result
+
+steps:
+  # Step 1: Validate certification data
+  - id: validate_cert_data
+    name: "Validate Certification Data"
+    type: validation
+    rules:
+      - field: Current_Certification
+        required: true
+        allowed_values:
+          - "CompTIA A+"
+          - "CompTIA Network+"
+          - "CompTIA Security+"
+          - "Cisco CCNA"
+          - "AWS Cloud Practitioner"
+          - "Azure Fundamentals"
+          - "Touch Typing Level 1"
+          - "Touch Typing Level 2"
+      - field: Study_Progress
+        min_value: 0
+        max_value: 100
+    on_failure: continue
+
+  # Step 2: Progress milestone notifications
+  - id: notify_25_progress
+    name: "25% Progress Milestone"
+    type: notification
+    condition: "Study_Progress >= 25 && Study_Progress < 50"
+    recipients:
+      - "channel:cs-training"
+    template: sop_started
+    level: info
+
+  - id: notify_50_progress
+    name: "50% Progress Milestone"
+    type: notification
+    condition: "Study_Progress >= 50 && Study_Progress < 75"
+    recipients:
+      - "channel:cs-training"
+      - "role:Instructor"
+    template: sop_started
+    level: info
+
+  - id: notify_75_progress
+    name: "75% Progress - Exam Ready"
+    type: notification
+    condition: "Study_Progress >= 75"
+    recipients:
+      - "channel:cs-training"
+      - "role:Testing_Center"
+    template: sop_completed
+    level: success
+
+  # Step 3: Exam scheduling tasks
+  - id: exam_prep_tasks
+    name: "Exam Preparation Tasks"
+    type: create_task
+    condition: "Study_Progress >= 80 && Exam_Date == ''"
+    tasks:
+      - subject: "Schedule Exam: ${First_Name} ${Last_Name} - ${Current_Certification}"
+        due_days: 3
+        assign_to: "role:Testing_Center"
+        priority: High
+        description: "Help student schedule ${Current_Certification} exam at Pearsonvue"
+      - subject: "Final Review Session: ${First_Name} ${Last_Name}"
+        due_days: 5
+        assign_to: "role:Instructor"
+        priority: Normal
+        description: "Conduct final review session before exam"
+
+  # Step 4: Exam day reminders
+  - id: exam_reminder_tasks
+    name: "Exam Reminder Tasks"
+    type: create_task
+    condition: "Exam_Date != ''"
+    tasks:
+      - subject: "Exam Day Prep: ${First_Name} ${Last_Name}"
+        due_days: -1
+        assign_to: "role:Testing_Center"
+        priority: High
+        description: "Confirm exam appointment and send reminder to student"
+
+  # Step 5: Certification achieved notification
+  - id: notify_certification_achieved
+    name: "Certification Achievement"
+    type: notification
+    condition: "Exam_Result == 'Pass'"
+    recipients:
+      - "channel:cs-training"
+      - "channel:cs-general"
+      - "role:Student_Services"
+    template: certification_achieved
+    level: success
+
+  # Step 6: Update on pass
+  - id: update_on_pass
+    name: "Update on Certification Pass"
+    type: field_update
+    condition: "Exam_Result == 'Pass'"
+    updates:
+      Certification_Status: "Certified"
+      Certification_Date: "${TODAY}"
+      Certifications_Earned: "${Certifications_Earned + 1}"
+      Pipeline_Status: "Ready for Placement"
+
+  # Step 7: Handle exam failure
+  - id: handle_exam_failure
+    name: "Handle Exam Failure"
+    type: create_task
+    condition: "Exam_Result == 'Fail'"
+    tasks:
+      - subject: "Exam Review: ${First_Name} ${Last_Name}"
+        due_days: 3
+        assign_to: "role:Instructor"
+        priority: High
+        description: "Review exam performance and identify weak areas"
+      - subject: "Remediation Plan: ${First_Name} ${Last_Name}"
+        due_days: 5
+        assign_to: "role:Instructor"
+        priority: Normal
+        description: "Create remediation study plan"
+      - subject: "Reschedule Exam: ${First_Name} ${Last_Name}"
+        due_days: 14
+        assign_to: "role:Testing_Center"
+        priority: Normal
+        description: "Schedule retake after remediation"
+
+  # Step 8: Trigger employee pipeline
+  - id: trigger_employee_pipeline
+    name: "Trigger Employee Pipeline"
+    type: notification
+    condition: "Certifications_Earned >= 2 && Pipeline_Candidate == 'true'"
+    recipients:
+      - "channel:mhi-general"
+      - "email:rachel@mightyhouseinc.com"
+    template: new_student
+    level: success
+

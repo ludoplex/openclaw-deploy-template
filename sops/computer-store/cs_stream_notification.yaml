@@ -1,0 +1,178 @@
+# Computer Store Stream Notification SOP
+# Automates notifications when streams go live
+
+sop_id: cs_stream_notification
+name: "Stream Live Notification"
+description: |
+  Automatically notifies community when the Computer Store
+  Twitch/YouTube stream goes live. Cross-posts to Discord,
+  Twitter, and Facebook.
+  
+entity: computer_store
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "Computer Store Streaming"
+
+tags:
+  - streaming
+  - twitch
+  - notifications
+  - community
+
+triggers:
+  - type: event
+    platform: twitch
+    event_type: stream.online
+    description: "Twitch stream went live"
+
+  - type: webhook
+    endpoint: /webhooks/twitch/stream-online
+    description: "Twitch EventSub notification"
+
+  - type: manual
+    description: "Manual stream announcement"
+
+config:
+  retry_policy:
+    max_attempts: 2
+    backoff_seconds: 10
+  notify_on_failure:
+    - "channel:cs-streaming"
+
+steps:
+  # --- Validate Stream Info ---
+
+  - id: get_stream_info
+    name: "Get Stream Information"
+    type: api_call
+    config:
+      endpoint: "https://api.twitch.tv/helix/streams"
+      method: "GET"
+      headers:
+        Client-ID: "{{TWITCH_CLIENT_ID}}"
+        Authorization: "Bearer {{TWITCH_ACCESS_TOKEN}}"
+      body:
+        user_login: "MightyHouseInc"
+
+  - id: parse_stream_data
+    name: "Parse Stream Data"
+    type: transform
+    config:
+      operations:
+        - field: Stream_Title
+          expression: "stream_data.title"
+        - field: Game_Name
+          expression: "stream_data.game_name"
+        - field: Viewer_Count
+          expression: "stream_data.viewer_count"
+        - field: Thumbnail_URL
+          expression: "stream_data.thumbnail_url.replace('{width}', '440').replace('{height}', '248')"
+
+  # --- Discord Notification (Priority) ---
+
+  - id: notify_discord
+    name: "Notify Discord"
+    type: social_post
+    config:
+      platforms:
+        - discord
+      content: |
+        @everyone 
+        
+        🔴 **WE'RE LIVE ON TWITCH!** 🔴
+        
+        **{{Stream_Title}}**
+        🎮 Playing: {{Game_Name}}
+        
+        📺 **Watch Now:** https://twitch.tv/MightyHouseInc
+        
+        Come hang out! 🎉
+      schedule_type: immediate
+
+  # --- Twitter Notification ---
+
+  - id: notify_twitter
+    name: "Notify Twitter"
+    type: social_post
+    config:
+      platforms:
+        - twitter
+      content: |
+        🔴 LIVE NOW on Twitch!
+        
+        {{Stream_Title}}
+        
+        Playing: {{Game_Name}}
+        
+        📺 twitch.tv/MightyHouseInc
+        
+        #Twitch #Live #Gaming #ComputerStore
+      schedule_type: immediate
+
+  # --- Facebook Notification ---
+
+  - id: notify_facebook
+    name: "Notify Facebook"
+    type: social_post
+    condition: "Post_To_Facebook == true"
+    config:
+      platforms:
+        - facebook
+      content: |
+        🔴 We're LIVE on Twitch right now!
+        
+        {{Stream_Title}}
+        
+        Come watch us play {{Game_Name}}!
+        
+        📺 Watch at: https://twitch.tv/MightyHouseInc
+      schedule_type: immediate
+
+  # --- Update Status ---
+
+  - id: update_stream_record
+    name: "Update Stream Record"
+    type: create_record
+    config:
+      _module: Stream_History
+      record_data:
+        Stream_Date: "{{now}}"
+        Title: "{{Stream_Title}}"
+        Game: "{{Game_Name}}"
+        Start_Time: "{{now}}"
+        Status: "Live"
+        Notifications_Sent: "Discord, Twitter, Facebook"
+
+  # --- Stream End Handling ---
+
+  - id: handle_stream_end
+    name: "Handle Stream End"
+    type: webhook_send
+    description: "Webhook triggered when stream ends"
+    condition: "Event_Type == 'stream.offline'"
+    config:
+      url: "{{INTERNAL_API}}/streams/ended"
+      method: "POST"
+      body:
+        stream_id: "{{Stream_ID}}"
+        duration: "{{Stream_Duration}}"
+
+  - id: post_stream_recap
+    name: "Post Stream Recap"
+    type: social_post
+    condition: "Event_Type == 'stream.offline' AND Stream_Duration_Minutes >= 30"
+    config:
+      platforms:
+        - discord
+      content: |
+        📺 **Stream Ended** - Thanks for watching!
+        
+        We streamed {{Game_Name}} for {{Stream_Duration_Formatted}}!
+        
+        Peak viewers: {{Peak_Viewers}}
+        
+        See you next time! 🎮
+        
+        Follow on Twitch for notifications: twitch.tv/MightyHouseInc
+      schedule_type: immediate

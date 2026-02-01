@@ -1,0 +1,333 @@
+# Cross-Entity Pipeline: Student to Employee
+# Tracks progression from Computer Store student to MHI employee
+
+pipeline_id: pipeline_student_employee
+name: "Student to Employee Development Pipeline"
+description: |
+  Cross-entity pipeline that tracks a student's progression from
+  learning at Computer Store through skill development to potential
+  employment at Mighty House Inc.
+  
+  Stages:
+  1. Student Enrollment (Computer Store)
+  2. Skills Development (Computer Store)
+  3. Certification Achievement (Computer Store)
+  4. Internship Consideration (Cross-entity)
+  5. Employment Onboarding (Mighty House Inc.)
+
+entity: cross_entity
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "HR & Learning Center"
+
+tags:
+  - pipeline
+  - cross-entity
+  - student
+  - employee
+  - career
+  - development
+
+# =============================================================================
+# TRIGGERS
+# =============================================================================
+
+triggers:
+  - type: cross_entity
+    source_entity: computer_store
+    source_sop: cs_esa_enrollment
+    description: "Triggered when ESA student shows career interest"
+
+  - type: cross_entity
+    source_entity: computer_store
+    source_sop: cs_certification_tracking
+    description: "Triggered when student completes certification"
+
+  - type: field_update
+    module: Pipeline_Candidates
+    field: Stage
+    description: "Stage change in pipeline"
+
+  - type: manual
+    description: "Manual pipeline initiation"
+
+# =============================================================================
+# PIPELINE STAGES
+# =============================================================================
+
+stages:
+  - name: "Student Identification"
+    entity: computer_store
+    sop: cs_student_enrollment
+    entry_conditions:
+      - "Age >= 16"
+      - "Interested_In_Tech_Career == true"
+    exit_conditions:
+      - "Skills_Assessment_Complete == true"
+
+  - name: "Skills Development"
+    entity: computer_store
+    sop: cs_certification_tracking
+    entry_conditions:
+      - "Skills_Assessment_Complete == true"
+    exit_conditions:
+      - "Has_IT_Certification == true OR Skill_Level >= 'Intermediate'"
+
+  - name: "Internship Evaluation"
+    entity: mighty_house_inc
+    sop: mhi_internship_evaluation
+    entry_conditions:
+      - "Has_IT_Certification == true OR Skill_Level >= 'Intermediate'"
+      - "Age >= 16"
+      - "Work_Permit_Status == 'Valid' OR Age >= 18"
+    exit_conditions:
+      - "Internship_Decision != null"
+
+  - name: "Employment Onboarding"
+    entity: mighty_house_inc
+    sop: mhi_employee_onboarding
+    entry_conditions:
+      - "Internship_Decision == 'Hire' OR Direct_Hire == true"
+    exit_conditions:
+      - "Onboarding_Complete == true"
+
+# =============================================================================
+# STEPS
+# =============================================================================
+
+steps:
+  # --- Stage 1: Student Identification ---
+
+  - id: receive_candidate
+    name: "Receive Pipeline Candidate"
+    type: validation
+    config:
+      rules:
+        - field: student_id
+          operator: exists
+        - field: student_name
+          operator: exists
+        - field: source
+          operator: exists
+      fail_message: "Invalid pipeline candidate data"
+
+  - id: create_pipeline_record
+    name: "Create Pipeline Record"
+    type: create_record
+    config:
+      _module: Pipeline_Candidates
+      record_data:
+        Name: "{{student_name}}"
+        Source_Entity: "computer_store"
+        Source_Record: "{{student_id}}"
+        Pipeline: "Student to Employee"
+        Current_Stage: "Student Identification"
+        Parent_Contact: "{{parent_contact}}"
+        Skills_Interest: "{{skills_interest}}"
+        Entry_Date: "{{now}}"
+        Status: "Active"
+
+  - id: notify_hr
+    name: "Notify HR of New Candidate"
+    type: notification
+    config:
+      channels:
+        - discord
+        - email
+      recipients:
+        - "channel:mhi-hr"
+        - "role:HR"
+      template: new_pipeline_candidate
+      variables:
+        candidate_name: "{{student_name}}"
+        source: "Computer Store ESA Program"
+        interests: "{{skills_interest}}"
+
+  # --- Stage 2: Skills Tracking ---
+
+  - id: monitor_skills_progress
+    name: "Monitor Skills Progress"
+    type: condition
+    config:
+      expression: "Current_Stage == 'Skills Development'"
+      description: "Check for certification completion"
+
+  - id: update_on_certification
+    name: "Update on Certification"
+    type: field_update
+    condition: "Certification_Achieved == true"
+    config:
+      updates:
+        Has_IT_Certification: true
+        Certification_Name: "{{Certification_Name}}"
+        Certification_Date: "{{Certification_Date}}"
+        Current_Stage: "Internship Evaluation"
+
+  - id: notify_certification_achievement
+    name: "Notify of Certification"
+    type: notification
+    condition: "Certification_Achieved == true"
+    config:
+      channels:
+        - discord
+      recipients:
+        - "channel:mhi-hr"
+        - "channel:cs-learning"
+      template: candidate_certified
+      variables:
+        candidate_name: "{{student_name}}"
+        certification: "{{Certification_Name}}"
+
+  - id: post_achievement_social
+    name: "Celebrate Achievement"
+    type: social_post
+    condition: "Certification_Achieved == true AND Share_Achievement == true"
+    config:
+      platforms:
+        - facebook
+        - linkedin
+      content: |
+        🎉 Congratulations to one of our Learning Center students for 
+        earning their {{Certification_Name}} certification!
+        
+        Our ESA tutoring and IT certification programs help Wyoming 
+        students build real career skills.
+        
+        #ESA #ITCertification #CareerReady #Wheatland #Wyoming
+      schedule_type: immediate
+
+  # --- Stage 3: Internship Evaluation ---
+
+  - id: trigger_internship_eval
+    name: "Trigger Internship Evaluation"
+    type: cross_entity_trigger
+    condition: "Current_Stage == 'Internship Evaluation'"
+    config:
+      target_entity: mighty_house_inc
+      target_sop: mhi_internship_evaluation
+      payload:
+        candidate_id: "{{pipeline_record_id}}"
+        candidate_name: "{{student_name}}"
+        certifications: "{{Certifications}}"
+        skills: "{{Demonstrated_Skills}}"
+        source: "student_employee_pipeline"
+      wait_for_completion: false
+
+  - id: schedule_interview
+    name: "Schedule Interview"
+    type: create_task
+    condition: "Current_Stage == 'Internship Evaluation'"
+    config:
+      tasks:
+        - subject: "Interview: {{student_name}} (Pipeline Candidate)"
+          due_days: 14
+          assign_to: "role:HR"
+          priority: "High"
+          description: |
+            Pipeline candidate ready for internship interview.
+            
+            Candidate: {{student_name}}
+            Source: Computer Store Learning Center
+            Certifications: {{Certifications}}
+            Skills: {{Demonstrated_Skills}}
+            
+            Schedule interview and complete evaluation.
+
+  # --- Stage 4: Employment Decision ---
+
+  - id: process_hire_decision
+    name: "Process Hire Decision"
+    type: condition
+    config:
+      expression: "Internship_Decision == 'Hire'"
+      on_true: proceed_to_onboarding
+      on_false: handle_not_hired
+
+  - id: proceed_to_onboarding
+    name: "Proceed to Onboarding"
+    type: cross_entity_trigger
+    condition: "Internship_Decision == 'Hire'"
+    config:
+      target_entity: mighty_house_inc
+      target_sop: mhi_employee_onboarding
+      payload:
+        candidate_id: "{{pipeline_record_id}}"
+        employee_name: "{{student_name}}"
+        position: "{{Offered_Position}}"
+        start_date: "{{Start_Date}}"
+        source: "student_employee_pipeline"
+      wait_for_completion: false
+
+  - id: update_hired_status
+    name: "Update Pipeline - Hired"
+    type: field_update
+    condition: "Internship_Decision == 'Hire'"
+    config:
+      updates:
+        Current_Stage: "Employment Onboarding"
+        Status: "Hired"
+        Hire_Date: "{{now}}"
+        Position: "{{Offered_Position}}"
+
+  - id: celebrate_hire
+    name: "Celebrate New Hire"
+    type: social_post
+    condition: "Internship_Decision == 'Hire' AND Announce_Hire == true"
+    config:
+      platforms:
+        - linkedin
+        - facebook
+      content: |
+        🎉 We're thrilled to welcome {{student_name}} to the 
+        Mighty House Inc. team!
+        
+        {{student_name}} started their journey at our Computer Store 
+        Learning Center and worked hard to earn certifications that 
+        prepared them for a career in IT.
+        
+        This is what our student-to-employee pipeline is all about! 
+        
+        #MightyHouseInc #Hiring #CareerDevelopment #ITCareers
+      schedule_type: immediate
+
+  # --- Handle Not Hired ---
+
+  - id: handle_not_hired
+    name: "Handle Not Hired"
+    type: field_update
+    condition: "Internship_Decision == 'Not Ready' OR Internship_Decision == 'Declined'"
+    config:
+      updates:
+        Status: "On Hold"
+        Next_Review_Date: "{{now}} + 90 days"
+        Notes: "{{Decision_Notes}}"
+
+  - id: create_development_plan
+    name: "Create Development Plan"
+    type: create_task
+    condition: "Internship_Decision == 'Not Ready'"
+    config:
+      tasks:
+        - subject: "Development Plan: {{student_name}}"
+          due_days: 7
+          assign_to: "role:Learning Center"
+          priority: "Normal"
+          description: |
+            Create development plan for pipeline candidate.
+            
+            Areas for improvement: {{Improvement_Areas}}
+            Recommended next steps: {{Recommended_Steps}}
+            
+            Schedule follow-up in 90 days.
+
+  # --- Pipeline Analytics ---
+
+  - id: update_pipeline_metrics
+    name: "Update Pipeline Metrics"
+    type: field_update
+    config:
+      updates:
+        Last_Updated: "{{now}}"
+        Days_In_Pipeline: "{{days_since_entry}}"
+        Current_Stage_Days: "{{days_in_current_stage}}"

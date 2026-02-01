@@ -1,0 +1,63 @@
+# Mighty House Inc. SOP Repository - .gitignore
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# Local configuration (not for version control)
+local.cfg
+*.local.md
+.env
+.env.local
+
+# Compiled output
+*.pdf
+*.docx
+*.xlsx
+
+# Print-ready files (stored separately)
+print-ready/
+
+# Backup folders (managed separately)
+backup/
+.backup/
+
+# Logs
+*.log
+logs/
+
+# Sensitive documents
+confidential/
+*.confidential.md
+
+# Draft files (personal work in progress)
+*.draft.md
+drafts/
+
+# Archive
+archive/
+
+# Node modules (if using any tooling)
+node_modules/

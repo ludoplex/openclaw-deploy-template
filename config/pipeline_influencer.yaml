@@ -1,0 +1,170 @@
+# Cross-Entity - Influencer Development Pipeline
+# Manages LAN center members progressing to influencer careers
+
+id: pipeline_influencer
+name: "Influencer Development Pipeline"
+version: "1.0"
+entity: cross_entity
+module: Contacts
+description: "Tracks and develops LAN center members into influencers promoting partners"
+enabled: true
+priority: 10
+tags: [pipeline, influencer, marketing, cross_entity]
+
+triggers:
+  - type: field_update
+    field: Membership_Tier
+    condition: "Membership_Tier == 'Influencer'"
+    
+  - type: field_update
+    field: Influencer_Status
+    
+  - type: field_update
+    field: Social_Followers
+
+steps:
+  # Step 1: Validate influencer candidate
+  - id: validate_influencer
+    name: "Validate Influencer Candidate"
+    type: validation
+    rules:
+      - field: Social_Handle
+        required: true
+      - field: Primary_Platform
+        required: true
+        allowed_values: ["Twitch", "YouTube", "TikTok", "Instagram", "Twitter", "Multi-Platform"]
+      - field: Social_Followers
+        min_value: 100
+      - field: Content_Category
+        allowed_values: ["Gaming", "Tech Reviews", "Programming", "IT Education", "General"]
+    on_failure: notify_admin
+
+  # Step 2: Notify marketing team
+  - id: notify_marketing
+    name: "Notify Marketing Team"
+    type: notification
+    recipients:
+      - "channel:cs-lan-center"
+      - "role:Marketing"
+    template: new_student
+    level: success
+
+  # Step 3: Tier 1 - Emerging influencer (100-999 followers)
+  - id: tier1_tasks
+    name: "Tier 1 Emerging Influencer"
+    type: create_task
+    condition: "Social_Followers >= 100 && Social_Followers < 1000"
+    tasks:
+      - subject: "Influencer Onboarding: ${First_Name} ${Last_Name}"
+        due_days: 3
+        assign_to: "role:Community_Manager"
+        priority: Normal
+        description: "Welcome ${Social_Handle} to influencer program"
+      - subject: "Content Strategy: ${First_Name} ${Last_Name}"
+        due_days: 7
+        assign_to: "role:Marketing"
+        priority: Normal
+        description: "Help develop content strategy for ${Primary_Platform}"
+      - subject: "Provide Promotional Materials: ${First_Name} ${Last_Name}"
+        due_days: 5
+        assign_to: "role:Marketing"
+        priority: Normal
+        description: "Send branded assets and promotional materials"
+
+  # Step 4: Tier 2 - Growing influencer (1000-9999 followers)
+  - id: tier2_tasks
+    name: "Tier 2 Growing Influencer"
+    type: create_task
+    condition: "Social_Followers >= 1000 && Social_Followers < 10000"
+    tasks:
+      - subject: "Affiliate Program: ${First_Name} ${Last_Name}"
+        due_days: 3
+        assign_to: "role:Marketing"
+        priority: High
+        description: "Set up affiliate tracking and commission structure"
+      - subject: "Sponsored Content Agreement: ${First_Name} ${Last_Name}"
+        due_days: 7
+        assign_to: "role:Legal"
+        priority: Normal
+        description: "Prepare sponsored content agreement"
+      - subject: "Partner Introductions: ${First_Name} ${Last_Name}"
+        due_days: 10
+        assign_to: "role:Business_Development"
+        priority: Normal
+        description: "Introduce to MHI and DSAIC partner opportunities"
+
+  # Step 5: Tier 3 - Established influencer (10000+ followers)
+  - id: tier3_notification
+    name: "Tier 3 Established Influencer"
+    type: notification
+    condition: "Social_Followers >= 10000"
+    recipients:
+      - "email:rachel@mightyhouseinc.com"
+      - "channel:mhi-general"
+      - "role:Executive"
+    template: certification_achieved
+    level: success
+
+  - id: tier3_tasks
+    name: "Tier 3 Ambassador Program"
+    type: create_task
+    condition: "Social_Followers >= 10000"
+    tasks:
+      - subject: "Brand Ambassador: ${First_Name} ${Last_Name}"
+        due_days: 3
+        assign_to: "role:Marketing_Director"
+        priority: High
+        description: "Negotiate brand ambassador agreement for ${Social_Handle}"
+      - subject: "Exclusive Partnership: ${First_Name} ${Last_Name}"
+        due_days: 7
+        assign_to: "role:Business_Development"
+        priority: High
+        description: "Explore exclusive partnership opportunities"
+      - subject: "Event Appearance: ${First_Name} ${Last_Name}"
+        due_days: 14
+        assign_to: "role:Events"
+        priority: Normal
+        description: "Schedule appearance at upcoming events"
+
+  # Step 6: Cross-promotion opportunities
+  - id: cross_promo_tasks
+    name: "Cross-Promotion Tasks"
+    type: create_task
+    tasks:
+      - subject: "Feature on MHI Social: ${Social_Handle}"
+        due_days: 14
+        assign_to: "role:Marketing"
+        priority: Normal
+        description: "Feature influencer content on MHI social channels"
+      - subject: "DSAIC Product Review: ${Social_Handle}"
+        due_days: 21
+        assign_to: "role:DSAIC_Marketing"
+        priority: Normal
+        description: "Coordinate product review content"
+      - subject: "LAN Center Stream Event: ${Social_Handle}"
+        due_days: 30
+        assign_to: "role:Community_Manager"
+        priority: Normal
+        description: "Schedule live stream event at LAN center"
+
+  # Step 7: Update influencer record
+  - id: update_influencer
+    name: "Update Influencer Record"
+    type: field_update
+    updates:
+      Influencer_Status: "Active"
+      Program_Join_Date: "${TODAY}"
+      Last_Engagement_Date: "${TODAY}"
+
+  # Step 8: Performance tracking
+  - id: performance_tasks
+    name: "Monthly Performance Review"
+    type: create_task
+    condition: "Influencer_Status == 'Active'"
+    tasks:
+      - subject: "Monthly Analytics: ${Social_Handle}"
+        due_days: 30
+        assign_to: "role:Marketing"
+        priority: Normal
+        description: "Review monthly performance metrics and ROI"
+

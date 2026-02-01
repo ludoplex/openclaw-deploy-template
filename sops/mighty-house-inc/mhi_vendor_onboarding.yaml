@@ -1,0 +1,253 @@
+# Mighty House Inc. Vendor/Supplier Onboarding SOP
+# Standardizes new vendor setup process
+
+sop_id: mhi_vendor_onboarding
+name: "Vendor Onboarding Process"
+description: |
+  Manages the onboarding of new vendors and suppliers for Mighty House Inc.
+  Handles documentation collection, system setup, and compliance verification
+  for IBM, Climb Channel, D&H, TD Synnex, and other partners.
+  
+entity: mighty_house_inc
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "MHI Operations"
+
+tags:
+  - vendor
+  - supplier
+  - onboarding
+  - procurement
+  - compliance
+
+triggers:
+  - type: record_create
+    module: Vendors
+    
+  - type: manual
+    description: "Manual vendor setup"
+
+  - type: webhook
+    endpoint: /webhooks/mhi/new-vendor
+    description: "New vendor application received"
+
+config:
+  retry_policy:
+    max_attempts: 2
+    backoff_seconds: 60
+  notify_on_failure:
+    - "channel:mhi-ops"
+
+steps:
+  # --- Phase 1: Initial Validation ---
+
+  - id: validate_vendor
+    name: "Validate Vendor Information"
+    type: validation
+    on_failure: stop
+    config:
+      rules:
+        - field: Vendor_Name
+          operator: exists
+        - field: Contact_Name
+          operator: exists
+        - field: Contact_Email
+          operator: exists
+        - field: Vendor_Type
+          operator: exists
+        - field: Tax_ID
+          operator: exists
+
+  - id: check_existing
+    name: "Check for Existing Vendor"
+    type: api_call
+    config:
+      endpoint: "/api/vendors/search"
+      method: "POST"
+      body:
+        tax_id: "{{Tax_ID}}"
+        name: "{{Vendor_Name}}"
+
+  - id: flag_duplicate
+    name: "Flag Potential Duplicate"
+    type: notification
+    condition: "Existing_Match_Found == true"
+    config:
+      channels:
+        - email
+      recipients:
+        - "role:Procurement"
+      template: vendor_duplicate_warning
+      variables:
+        new_vendor: "{{Vendor_Name}}"
+        existing_vendor: "{{Matched_Vendor_Name}}"
+
+  # --- Phase 2: Documentation Collection ---
+
+  - id: request_documents
+    name: "Request Required Documents"
+    type: notification
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Contact_Email}}"
+      template: vendor_doc_request
+      variables:
+        vendor_name: "{{Vendor_Name}}"
+        contact_name: "{{Contact_Name}}"
+        required_docs: |
+          - W-9 Form
+          - Certificate of Insurance
+          - Business License
+          - Banking Information (ACH setup)
+          - Authorized Contact List
+
+  - id: create_doc_tasks
+    name: "Create Documentation Tasks"
+    type: create_task
+    config:
+      tasks:
+        - subject: "Collect W-9: {{Vendor_Name}}"
+          due_days: 7
+          assign_to: "role:Procurement"
+          priority: "High"
+        
+        - subject: "Verify Insurance: {{Vendor_Name}}"
+          due_days: 7
+          assign_to: "role:Procurement"
+          priority: "High"
+        
+        - subject: "Setup ACH: {{Vendor_Name}}"
+          due_days: 10
+          assign_to: "role:Finance"
+          priority: "Normal"
+
+  # --- Phase 3: Compliance Verification ---
+
+  - id: verify_sam_registration
+    name: "Verify SAM.gov Registration"
+    type: api_call
+    condition: "Vendor_Type == 'Government Subcontractor'"
+    config:
+      endpoint: "https://api.sam.gov/entity-information/v3/entities"
+      method: "GET"
+      headers:
+        X-Api-Key: "{{SAM_API_KEY}}"
+      body:
+        ueiSAM: "{{UEI_Number}}"
+
+  - id: check_debarment
+    name: "Check Debarment Status"
+    type: api_call
+    config:
+      endpoint: "https://api.sam.gov/entity-information/v3/exclusions"
+      method: "GET"
+      headers:
+        X-Api-Key: "{{SAM_API_KEY}}"
+      body:
+        q: "{{Vendor_Name}}"
+
+  - id: flag_compliance_issue
+    name: "Flag Compliance Issue"
+    type: notification
+    condition: "Debarment_Found == true OR SAM_Inactive == true"
+    config:
+      channels:
+        - email
+        - discord
+      recipients:
+        - "role:Compliance"
+        - "role:Executive"
+      template: vendor_compliance_alert
+      variables:
+        vendor: "{{Vendor_Name}}"
+        issue: "{{Compliance_Issue}}"
+
+  # --- Phase 4: System Setup ---
+
+  - id: create_zoho_vendor
+    name: "Create Vendor in Zoho"
+    type: create_record
+    condition: "All_Docs_Received == true"
+    config:
+      _module: Vendors
+      record_data:
+        Vendor_Name: "{{Vendor_Name}}"
+        Vendor_Type: "{{Vendor_Type}}"
+        Primary_Contact: "{{Contact_Name}}"
+        Email: "{{Contact_Email}}"
+        Phone: "{{Contact_Phone}}"
+        Address: "{{Address}}"
+        Tax_ID: "{{Tax_ID}}"
+        Payment_Terms: "{{Payment_Terms}}"
+        Status: "Active"
+        Onboarding_Date: "{{now}}"
+
+  - id: setup_accounting
+    name: "Setup in Accounting System"
+    type: create_task
+    condition: "All_Docs_Received == true"
+    config:
+      tasks:
+        - subject: "Setup {{Vendor_Name}} in QuickBooks"
+          due_days: 3
+          assign_to: "role:Finance"
+          priority: "Normal"
+          description: |
+            New vendor approved for setup:
+            
+            Vendor: {{Vendor_Name}}
+            Payment Terms: {{Payment_Terms}}
+            ACH Info: [See secure file]
+
+  # --- Phase 5: Welcome & Communication ---
+
+  - id: send_welcome
+    name: "Send Welcome Communication"
+    type: notification
+    condition: "Status == 'Active'"
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Contact_Email}}"
+      template: vendor_welcome
+      variables:
+        vendor_name: "{{Vendor_Name}}"
+        contact_name: "{{Contact_Name}}"
+        account_manager: "{{Assigned_AM}}"
+        portal_link: "{{Vendor_Portal_URL}}"
+
+  - id: notify_team
+    name: "Notify Internal Team"
+    type: notification
+    config:
+      channels:
+        - discord
+      recipients:
+        - "channel:mhi-procurement"
+      template: new_vendor_active
+      variables:
+        vendor: "{{Vendor_Name}}"
+        type: "{{Vendor_Type}}"
+        products: "{{Product_Categories}}"
+
+  # --- Phase 6: First Order Setup ---
+
+  - id: create_first_order_task
+    name: "Schedule First Order"
+    type: create_task
+    config:
+      tasks:
+        - subject: "Place test order with {{Vendor_Name}}"
+          due_days: 14
+          assign_to: "{{Assigned_AM}}"
+          priority: "Normal"
+          description: |
+            New vendor onboarded. Place initial test order to verify:
+            - Pricing accuracy
+            - Delivery timeline
+            - Invoice format
+            - Quality standards

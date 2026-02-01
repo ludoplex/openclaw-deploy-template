@@ -1,0 +1,159 @@
+# SOP Definition Schema
+# This file documents the YAML schema for defining SOPs
+
+# =============================================================================
+# TOP-LEVEL STRUCTURE
+# =============================================================================
+# id: unique_identifier              # Required: Unique SOP identifier
+# name: "Human Readable Name"        # Required: Display name
+# version: "1.0"                     # Required: Semantic version
+# entity: mighty_house_inc           # Required: Entity owner
+#   - mighty_house_inc
+#   - dsaic  
+#   - computer_store
+#   - cross_entity
+# module: Leads                       # Required: CRM module
+# description: "..."                  # Optional: Description
+# enabled: true                       # Optional: Default true
+# priority: 100                       # Optional: Lower = higher priority
+# tags: [sales, automation]           # Optional: Tags for filtering
+
+# =============================================================================
+# TRIGGERS
+# =============================================================================
+# triggers:
+#   - type: stage_change
+#     from: "Qualification"           # Optional: Previous stage
+#     to: "Proposal"                   # Optional: New stage
+#   
+#   - type: field_update
+#     field: Amount                    # Field that changed
+#     condition: ">= 10000"            # Optional: Condition
+#   
+#   - type: record_create
+#   
+#   - type: record_update
+#   
+#   - type: manual
+#   
+#   - type: scheduled
+#     schedule: "0 9 * * *"            # Cron expression
+#   
+#   - type: webhook
+
+# =============================================================================
+# STEPS
+# =============================================================================
+# steps:
+#   - id: step_id                     # Required: Unique step ID
+#     name: "Step Name"               # Required: Display name
+#     type: validation                # Required: Step type (see below)
+#     condition: "Amount >= 1000"     # Optional: Skip if false
+#     on_failure: continue            # Optional: continue, block_transition, notify_admin, rollback
+
+# =============================================================================
+# STEP TYPES
+# =============================================================================
+
+# --- validation ---
+# Validates record data against rules
+#   - id: validate_contact
+#     type: validation
+#     rules:
+#       - field: Email
+#         required: true
+#         format: email
+#       - field: Amount
+#         min_value: 1000
+#         max_value: 1000000
+#       - field: Contract_Type
+#         allowed_values: [FED, SLED, Enterprise]
+#       - field: Custom_Field
+#         pattern: "^[A-Z]{3}-[0-9]{4}$"
+#         custom_validator: validate_supplier
+#     on_failure: block_transition
+
+# --- notification ---
+# Sends notifications via Cliq
+#   - id: notify_manager
+#     type: notification
+#     recipients:
+#       - "role:Sales_Manager"
+#       - "email:boss@mightyhouseinc.com"
+#       - "channel:sales-alerts"
+#     template: high_value_deal
+#     level: info                     # info, warning, error, success
+
+# --- create_task ---
+# Creates follow-up tasks
+#   - id: create_followups
+#     type: create_task
+#     tasks:
+#       - subject: "Follow up on ${Deal_Name}"
+#         due_days: 3
+#         assign_to: record_owner      # record_owner, role:<name>, user:<email>
+#         priority: High
+#         description: "Follow up call for deal"
+
+# --- field_update ---
+# Updates record fields
+#   - id: update_stage
+#     type: field_update
+#     updates:
+#       Next_Step: "Contract Sent"
+#       Pipeline_Status: "Active"
+
+# --- create_record ---
+# Creates a new record
+#   - id: create_activity
+#     type: create_record
+#     record_data:
+#       _module: Activities
+#       Subject: "SOP Triggered"
+#       Description: "Automated activity"
+
+# --- api_call ---
+# Calls external API
+#   - id: sync_supplier
+#     type: api_call
+#     api_config:
+#       endpoint: "https://api.supplier.com/orders"
+#       method: POST
+#       headers:
+#         Authorization: "${SUPPLIER_API_KEY}"
+#       body:
+#         order_id: "${Order_Number}"
+
+# --- condition ---
+# Conditional branching (condition evaluated before step)
+#   - id: check_amount
+#     type: condition
+#     condition: "Amount >= 50000"
+
+# --- approval ---
+# Request approval (placeholder for future workflow)
+#   - id: request_approval
+#     type: approval
+#     approvers:
+#       - "role:Sales_Manager"
+#     timeout_hours: 48
+
+# =============================================================================
+# VARIABLE SUBSTITUTION
+# =============================================================================
+# Use ${field_name} or $field_name to substitute record field values
+# Examples:
+#   - ${Deal_Name}    -> "Acme Corp Enterprise Contract"
+#   - ${Amount}       -> "50000"
+#   - ${Owner.name}   -> "John Smith"
+
+# =============================================================================
+# CONDITION OPERATORS
+# =============================================================================
+# Supported operators in condition strings:
+#   >=, <=, >, <, ==, !=
+# Examples:
+#   - "Amount >= 10000"
+#   - "Stage == 'Proposal'"
+#   - "Contract_Type != 'Residential'"
+

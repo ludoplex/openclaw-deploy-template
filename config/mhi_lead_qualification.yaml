@@ -1,0 +1,95 @@
+# Mighty House Inc - Lead Qualification SOP
+# Automates initial lead processing for FED/SLED/Enterprise opportunities
+
+id: mhi_lead_qualification
+name: "MHI Lead Qualification"
+version: "1.0"
+entity: mighty_house_inc
+module: Leads
+description: "Qualifies new leads, validates data, assigns follow-ups, and notifies sales team"
+enabled: true
+priority: 10
+tags: [sales, automation, mhi]
+
+triggers:
+  - type: record_create
+  
+  - type: field_update
+    field: Lead_Status
+    condition: "Lead_Status == 'New'"
+
+steps:
+  # Step 1: Validate required lead information
+  - id: validate_lead_data
+    name: "Validate Lead Information"
+    type: validation
+    rules:
+      - field: Last_Name
+        required: true
+      - field: Company
+        required: true
+      - field: Email
+        required: true
+        format: email
+      - field: Phone
+        format: phone
+      - field: Lead_Source
+        required: true
+    on_failure: notify_admin
+
+  # Step 2: Determine lead type and route
+  - id: check_enterprise
+    name: "Check for Enterprise Lead"
+    type: condition
+    condition: "Annual_Revenue >= 1000000"
+
+  # Step 3: Notify sales team of new lead
+  - id: notify_sales
+    name: "Notify Sales Team"
+    type: notification
+    recipients:
+      - "channel:mhi-sales"
+    template: sop_started
+    level: info
+
+  # Step 4: High-value lead alert
+  - id: notify_high_value
+    name: "Alert on High-Value Lead"
+    type: notification
+    condition: "Annual_Revenue >= 5000000"
+    recipients:
+      - "role:Sales_Manager"
+      - "email:rachel@mightyhouseinc.com"
+    template: high_value_deal
+    level: success
+
+  # Step 5: Create initial follow-up tasks
+  - id: create_followup_tasks
+    name: "Create Follow-up Tasks"
+    type: create_task
+    tasks:
+      - subject: "Initial Contact: ${Company} - ${Last_Name}"
+        due_days: 1
+        assign_to: record_owner
+        priority: High
+        description: "Make initial contact with new lead from ${Lead_Source}"
+      - subject: "Research: ${Company}"
+        due_days: 2
+        assign_to: record_owner
+        priority: Normal
+        description: "Research company background, decision makers, and potential needs"
+      - subject: "Qualification Call: ${Company}"
+        due_days: 3
+        assign_to: record_owner
+        priority: Normal
+        description: "Schedule and conduct qualification call to assess fit"
+
+  # Step 6: Update lead status
+  - id: update_status
+    name: "Update Lead Status"
+    type: field_update
+    updates:
+      Lead_Status: "Contacted"
+      SOP_Processed: "true"
+      SOP_Processed_Date: "${TODAY}"
+

@@ -1,0 +1,197 @@
+# Mighty House Inc - Contract Lifecycle SOP
+# Automates contract creation, signing, and renewal workflows
+
+id: mhi_contract_lifecycle
+name: "MHI Contract Lifecycle"
+version: "1.0"
+entity: mighty_house_inc
+module: Deals
+description: "Manages contract creation, e-signature workflows, and renewal tracking"
+enabled: true
+priority: 30
+tags: [contracts, legal, mhi]
+
+triggers:
+  - type: stage_change
+    from: "Negotiation"
+    to: "Contract"
+    
+  - type: field_update
+    field: Contract_Status
+
+steps:
+  # Step 1: Validate contract requirements
+  - id: validate_contract_requirements
+    name: "Validate Contract Requirements"
+    type: validation
+    rules:
+      - field: Account_Name
+        required: true
+      - field: Contact_Name
+        required: true
+      - field: Amount
+        required: true
+        min_value: 100
+      - field: Contract_Type
+        required: true
+        allowed_values: ["FED", "SLED", "Enterprise", "SMB", "Residential"]
+      - field: Contract_Term_Months
+        required: true
+        min_value: 1
+        max_value: 60
+    on_failure: block_transition
+
+  # Step 2: Notify legal and contracts team
+  - id: notify_contracts
+    name: "Notify Contracts Team"
+    type: notification
+    recipients:
+      - "channel:mhi-contracts"
+      - "role:Legal"
+    template: contract_ready
+    level: info
+
+  # Step 3: Create contract preparation tasks
+  - id: contract_prep_tasks
+    name: "Create Contract Preparation Tasks"
+    type: create_task
+    tasks:
+      - subject: "Prepare Contract: ${Deal_Name}"
+        due_days: 2
+        assign_to: "role:Legal"
+        priority: High
+        description: "Prepare ${Contract_Type} contract for ${Account_Name} - $${Amount}"
+      - subject: "Legal Review: ${Deal_Name}"
+        due_days: 3
+        assign_to: "role:Legal"
+        priority: High
+        description: "Review contract terms and compliance requirements"
+      - subject: "Internal Approval: ${Deal_Name}"
+        due_days: 4
+        assign_to: "role:Sales_Manager"
+        priority: High
+        description: "Final internal approval before sending to customer"
+
+  # Step 4: FED/SLED compliance tasks
+  - id: fed_sled_compliance
+    name: "FED/SLED Compliance Tasks"
+    type: create_task
+    condition: "Contract_Type == 'FED' || Contract_Type == 'SLED'"
+    tasks:
+      - subject: "EDWOSB Documentation: ${Deal_Name}"
+        due_days: 2
+        assign_to: "role:Compliance"
+        priority: High
+        description: "Prepare EDWOSB certification documentation"
+      - subject: "Government Compliance Review: ${Deal_Name}"
+        due_days: 3
+        assign_to: "role:Compliance"
+        priority: High
+        description: "Ensure all government contracting requirements are met"
+      - subject: "SAM.gov Verification: ${Deal_Name}"
+        due_days: 2
+        assign_to: "role:Compliance"
+        priority: Normal
+        description: "Verify customer registration in SAM.gov"
+
+  # Step 5: Enterprise deal special handling
+  - id: enterprise_escalation
+    name: "Enterprise Deal Escalation"
+    type: notification
+    condition: "Contract_Type == 'Enterprise' && Amount >= 100000"
+    recipients:
+      - "email:rachel@mightyhouseinc.com"
+      - "role:Executive"
+    template: high_value_deal
+    level: success
+
+  # Step 6: Update contract status
+  - id: update_contract_status
+    name: "Update Contract Status"
+    type: field_update
+    updates:
+      Contract_Status: "In Preparation"
+      Contract_Prep_Started: "${TODAY}"
+      Next_Step: "Contract Review"
+
+  # Step 7: E-signature workflow trigger
+  - id: trigger_esignature
+    name: "Trigger E-Signature Workflow"
+    type: notification
+    condition: "Contract_Status == 'Ready for Signature'"
+    recipients:
+      - "channel:mhi-contracts"
+    template: contract_ready
+    level: info
+
+---
+# Contract Renewal Sub-SOP
+id: mhi_contract_renewal
+name: "MHI Contract Renewal"
+version: "1.0"
+entity: mighty_house_inc
+module: Deals
+description: "Automates contract renewal reminders and workflows"
+enabled: true
+priority: 35
+tags: [contracts, renewal, mhi]
+
+triggers:
+  - type: scheduled
+    schedule: "0 9 * * 1"  # Every Monday at 9 AM
+    
+  - type: field_update
+    field: Contract_End_Date
+
+steps:
+  - id: check_expiring_contracts
+    name: "Check Expiring Contracts"
+    type: condition
+    condition: "Contract_End_Date <= '90 days'"
+
+  - id: notify_renewal_90
+    name: "90-Day Renewal Notice"
+    type: notification
+    condition: "Contract_End_Date <= '90 days' && Contract_End_Date > '60 days'"
+    recipients:
+      - "role:Account_Manager"
+      - "channel:mhi-sales"
+    template: subscription_change
+    level: info
+
+  - id: notify_renewal_60
+    name: "60-Day Renewal Notice"
+    type: notification
+    condition: "Contract_End_Date <= '60 days' && Contract_End_Date > '30 days'"
+    recipients:
+      - "role:Account_Manager"
+      - "role:Sales_Manager"
+    template: subscription_change
+    level: warning
+
+  - id: notify_renewal_30
+    name: "30-Day Urgent Renewal"
+    type: notification
+    condition: "Contract_End_Date <= '30 days'"
+    recipients:
+      - "email:rachel@mightyhouseinc.com"
+      - "role:Account_Manager"
+    template: subscription_change
+    level: error
+
+  - id: create_renewal_tasks
+    name: "Create Renewal Tasks"
+    type: create_task
+    condition: "Contract_End_Date <= '90 days'"
+    tasks:
+      - subject: "Renewal Discussion: ${Account_Name}"
+        due_days: 7
+        assign_to: record_owner
+        priority: High
+        description: "Contact customer to discuss contract renewal"
+      - subject: "Prepare Renewal Proposal: ${Account_Name}"
+        due_days: 14
+        assign_to: record_owner
+        priority: Normal
+        description: "Prepare renewal proposal with updated pricing"
+

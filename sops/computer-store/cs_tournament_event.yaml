@@ -1,0 +1,334 @@
+# Computer Store Tournament/Gaming Event SOP
+# Automates event promotion, notifications, and post-event content
+
+sop_id: cs_tournament_event
+name: "Gaming Tournament Event Pipeline"
+description: |
+  Full automation for gaming tournaments and LAN events at the
+  Computer Store. Handles multi-phase promotion, stream notifications,
+  and post-event recap content.
+  
+entity: computer_store
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "Computer Store Events Team"
+
+tags:
+  - gaming
+  - events
+  - tournament
+  - lan
+  - streaming
+
+# =============================================================================
+# TRIGGERS
+# =============================================================================
+
+triggers:
+  - type: record_create
+    module: Events
+    condition: "Event_Type == 'Tournament' OR Event_Type == 'LAN Party'"
+  
+  - type: field_update
+    module: Events
+    field: Status
+    new_value: "Confirmed"
+  
+  - type: manual
+    description: "Manually trigger event promotion"
+
+  - type: event
+    platform: ggleap
+    event_type: tournament_created
+    description: "Auto-trigger when tournament created in GGLeap"
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+config:
+  retry_policy:
+    max_attempts: 2
+    backoff_seconds: 60
+  timeout_seconds: 1800
+  notify_on_failure:
+    - "channel:cs-events"
+
+# =============================================================================
+# STEPS
+# =============================================================================
+
+steps:
+  # --- Phase 1: Event Validation ---
+  
+  - id: validate_event
+    name: "Validate Event Data"
+    type: validation
+    on_failure: stop
+    config:
+      rules:
+        - field: Event_Name
+          operator: exists
+        - field: Event_Date
+          operator: exists
+        - field: Event_Time
+          operator: exists
+        - field: Game_Title
+          operator: exists
+        - field: Max_Participants
+          operator: exists
+        - field: Entry_Fee
+          operator: exists
+      fail_message: "Missing required event information"
+
+  # --- Phase 2: Initial Announcement (Event Created) ---
+
+  - id: generate_announcement
+    name: "Generate Event Announcement"
+    type: content_generate
+    config:
+      type: social_post
+      prompt_template: |
+        Create an exciting announcement for a gaming tournament:
+        
+        Event: {{Event_Name}}
+        Game: {{Game_Title}}
+        Date: {{Event_Date}} at {{Event_Time}}
+        Location: Computer Store LAN Center, Wheatland, WY
+        Entry Fee: {{Entry_Fee}}
+        Max Players: {{Max_Participants}}
+        Prizes: {{Prize_Pool}}
+        
+        Make it hype! Use gaming culture language. Include a call to register.
+      tone: enthusiastic
+      length: medium
+      output_variable: announcement_content
+
+  - id: post_discord_announcement
+    name: "Post to Discord"
+    type: social_post
+    config:
+      platforms:
+        - discord
+      content: |
+        🎮 **NEW TOURNAMENT ALERT** 🏆
+        
+        {{announcement_content}}
+        
+        📍 Computer Store LAN Center - Wheatland, WY
+        💰 Entry: {{Entry_Fee}}
+        🎁 Prizes: {{Prize_Pool}}
+        
+        **Register now - spots are limited!**
+      schedule_type: immediate
+
+  - id: post_facebook_announcement
+    name: "Post to Facebook"
+    type: social_post
+    config:
+      platforms:
+        - facebook
+      content: "{{announcement_content}}"
+      hashtags:
+        - "#ComputerStore"
+        - "#Gaming"
+        - "#Tournament"
+        - "#Wheatland"
+        - "#Wyoming"
+        - "#LANParty"
+      schedule_type: immediate
+
+  - id: post_tiktok_teaser
+    name: "Post TikTok Teaser"
+    type: social_post
+    description: "Create hype on TikTok"
+    config:
+      platforms:
+        - tiktok
+      content: |
+        🎮 Tournament incoming! {{Game_Title}} at Computer Store Wheatland!
+        {{Event_Date}} - Are you ready? 🏆
+        
+        #gaming #tournament #{{Game_Title}} #esports #wyoming #wheatland #lanparty
+      schedule_type: immediate
+
+  # --- Phase 3: Reminder Schedule ---
+
+  - id: schedule_7day_reminder
+    name: "Schedule 7-Day Reminder"
+    type: social_post
+    config:
+      platforms:
+        - discord
+        - facebook
+      content: |
+        ⏰ ONE WEEK until {{Event_Name}}!
+        
+        🎮 {{Game_Title}}
+        📅 {{Event_Date}} @ {{Event_Time}}
+        💺 Spots remaining: {{Spots_Remaining}}
+        
+        Don't miss out - register today!
+      schedule_type: scheduled
+      scheduled_at: "{{Event_Date}} - 7 days"
+
+  - id: schedule_3day_reminder
+    name: "Schedule 3-Day Reminder"
+    type: social_post
+    config:
+      platforms:
+        - discord
+        - facebook
+        - twitter
+      content: |
+        🔥 3 DAYS TO GO! {{Event_Name}}
+        
+        {{Game_Title}} tournament this {{Event_Day}}!
+        Last chance to register!
+      schedule_type: scheduled
+      scheduled_at: "{{Event_Date}} - 3 days"
+
+  - id: schedule_1day_reminder
+    name: "Schedule 1-Day Reminder"
+    type: social_post
+    config:
+      platforms:
+        - discord
+        - facebook
+        - twitter
+        - instagram
+      content: |
+        🚨 TOMORROW! {{Event_Name}} 🚨
+        
+        🎮 {{Game_Title}}
+        ⏰ {{Event_Time}}
+        📍 Computer Store LAN Center
+        
+        See you there! 💪
+      schedule_type: scheduled
+      scheduled_at: "{{Event_Date}} - 1 day"
+
+  - id: schedule_2hour_reminder
+    name: "Schedule 2-Hour Reminder"
+    type: social_post
+    config:
+      platforms:
+        - discord
+      content: |
+        @everyone 
+        
+        ⚡ **STARTING IN 2 HOURS** ⚡
+        
+        {{Event_Name}} kicks off at {{Event_Time}}!
+        
+        ✅ Bring your controller/peripherals
+        ✅ Arrive 15 min early to check in
+        ✅ Snacks and drinks available
+        
+        LET'S GO! 🎮🔥
+      schedule_type: scheduled
+      scheduled_at: "{{Event_DateTime}} - 2 hours"
+
+  # --- Phase 4: Live Event (Triggered by Stream Start) ---
+
+  - id: notify_stream_start
+    name: "Notify Stream Start"
+    type: social_post
+    condition: "Has_Stream == true"
+    config:
+      platforms:
+        - discord
+        - twitter
+      content: |
+        🔴 WE'RE LIVE!
+        
+        {{Event_Name}} is happening NOW on Twitch!
+        
+        📺 twitch.tv/MightyHouseInc
+        
+        Come watch the action! 🏆
+      schedule_type: immediate
+
+  # --- Phase 5: Post-Event ---
+
+  - id: delay_post_event
+    name: "Wait for Event End"
+    type: delay
+    config:
+      duration: "{{Event_Duration}}"
+      description: "Wait until event is scheduled to end"
+
+  - id: generate_recap
+    name: "Generate Event Recap"
+    type: content_generate
+    config:
+      type: social_post
+      prompt_template: |
+        Create an event recap post:
+        
+        Event: {{Event_Name}}
+        Game: {{Game_Title}}
+        Winner: {{Winner_Name}}
+        Runner-up: {{Runner_Up}}
+        Total Participants: {{Participant_Count}}
+        
+        Celebrate the winners, thank participants, and tease the next event!
+      tone: enthusiastic
+      length: medium
+      output_variable: recap_content
+
+  - id: post_recap
+    name: "Post Event Recap"
+    type: social_post
+    config:
+      platforms:
+        - discord
+        - facebook
+        - instagram
+        - twitter
+      content: |
+        🏆 **{{Event_Name}} RESULTS** 🏆
+        
+        {{recap_content}}
+        
+        Thanks to everyone who came out! 
+        Stay tuned for our next event! 🎮
+      hashtags:
+        - "#ComputerStore"
+        - "#Gaming"
+        - "#Tournament"
+        - "#Wheatland"
+      schedule_type: immediate
+
+  # --- Phase 6: CRM Updates ---
+
+  - id: update_event_status
+    name: "Update Event Status"
+    type: field_update
+    config:
+      updates:
+        Status: "Completed"
+        Actual_Participants: "{{Participant_Count}}"
+        Revenue: "{{Total_Revenue}}"
+        Social_Reach: "{{Total_Impressions}}"
+
+  - id: create_followup_tasks
+    name: "Create Follow-up Tasks"
+    type: create_task
+    config:
+      tasks:
+        - subject: "Upload {{Event_Name}} photos/highlights"
+          due_days: 2
+          assign_to: "role:Events"
+          priority: "High"
+        
+        - subject: "Send thank-you to {{Event_Name}} participants"
+          due_days: 1
+          assign_to: "role:Events"
+          priority: "Normal"
+        
+        - subject: "Plan next {{Game_Title}} tournament"
+          due_days: 14
+          assign_to: "role:Events"
+          priority: "Normal"

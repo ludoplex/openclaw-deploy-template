@@ -1,0 +1,110 @@
+# Mighty House Inc - Deal Processing SOP
+# Automates deal stage transitions and contract workflows
+
+id: mhi_deal_processing
+name: "MHI Deal Processing"
+version: "1.0"
+entity: mighty_house_inc
+module: Deals
+description: "Processes deal stage changes, validates requirements, and triggers contract workflows"
+enabled: true
+priority: 20
+tags: [sales, contracts, mhi]
+
+triggers:
+  - type: stage_change
+    from: "Qualification"
+    to: "Proposal"
+    
+  - type: stage_change
+    from: "Proposal"
+    to: "Negotiation"
+    
+  - type: stage_change
+    from: "Negotiation"
+    to: "Closed Won"
+
+steps:
+  # Step 1: Validate deal has required contact info
+  - id: validate_contacts
+    name: "Verify Contact Information"
+    type: validation
+    rules:
+      - field: Contact_Name
+        required: true
+      - field: Account_Name
+        required: true
+      - field: Amount
+        required: true
+        min_value: 1
+    on_failure: block_transition
+
+  # Step 2: High-value deal notification
+  - id: notify_high_value
+    name: "High Value Deal Alert"
+    type: notification
+    condition: "Amount >= 50000"
+    recipients:
+      - "role:Sales_Manager"
+      - "channel:mhi-sales"
+    template: high_value_deal
+    level: success
+
+  # Step 3: Create proposal tasks (on move to Proposal)
+  - id: proposal_tasks
+    name: "Create Proposal Tasks"
+    type: create_task
+    condition: "Stage == 'Proposal'"
+    tasks:
+      - subject: "Prepare Proposal: ${Deal_Name}"
+        due_days: 3
+        assign_to: record_owner
+        priority: High
+        description: "Prepare detailed proposal for ${Account_Name}"
+      - subject: "Proposal Review: ${Deal_Name}"
+        due_days: 4
+        assign_to: "role:Sales_Manager"
+        priority: Normal
+        description: "Review proposal before sending to customer"
+      - subject: "Send Proposal: ${Deal_Name}"
+        due_days: 5
+        assign_to: record_owner
+        priority: High
+        description: "Send approved proposal to ${Contact_Name}"
+
+  # Step 4: Create negotiation tasks
+  - id: negotiation_tasks
+    name: "Create Negotiation Tasks"
+    type: create_task
+    condition: "Stage == 'Negotiation'"
+    tasks:
+      - subject: "Negotiation Strategy: ${Deal_Name}"
+        due_days: 1
+        assign_to: record_owner
+        priority: High
+        description: "Document negotiation strategy and bottom-line terms"
+      - subject: "Legal Review: ${Deal_Name}"
+        due_days: 3
+        assign_to: "role:Legal"
+        priority: High
+        description: "Review contract terms for ${Amount} deal"
+
+  # Step 5: Update deal fields
+  - id: update_deal
+    name: "Update Deal Fields"
+    type: field_update
+    updates:
+      Next_Step: "Awaiting Customer Response"
+      Last_SOP_Run: "${TODAY}"
+
+  # Step 6: FED/SLED special handling
+  - id: check_fed_sled
+    name: "FED/SLED Compliance Check"
+    type: notification
+    condition: "Contract_Type == 'FED' || Contract_Type == 'SLED'"
+    recipients:
+      - "channel:mhi-contracts"
+      - "role:Compliance"
+    template: contract_ready
+    level: warning
+

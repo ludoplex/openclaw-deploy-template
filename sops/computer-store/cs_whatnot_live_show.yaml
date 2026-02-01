@@ -1,0 +1,339 @@
+# Computer Store Whatnot Live Selling SOP
+# Automates promotion for Whatnot live auction shows
+
+sop_id: cs_whatnot_live_show
+name: "Whatnot Live Show Pipeline"
+description: |
+  Orchestrates the promotion and follow-up for Whatnot live selling
+  shows. Handles pre-show hype, live notifications, inventory sync,
+  and post-show recaps.
+  
+entity: computer_store
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "Computer Store Sales Team"
+
+tags:
+  - whatnot
+  - live-selling
+  - auctions
+  - sales
+  - collectibles
+
+# =============================================================================
+# TRIGGERS
+# =============================================================================
+
+triggers:
+  - type: webhook
+    endpoint: /webhooks/whatnot/show-scheduled
+    description: "Triggered when Whatnot show is scheduled"
+
+  - type: event
+    platform: whatnot
+    event_type: show.scheduled
+  
+  - type: manual
+    description: "Manually initiate show promotion"
+
+  - type: scheduled
+    cron: "0 10 * * *"
+    description: "Daily check for upcoming shows"
+    timezone: "America/Denver"
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+config:
+  retry_policy:
+    max_attempts: 2
+    backoff_seconds: 30
+  timeout_seconds: 600
+  notify_on_failure:
+    - "channel:cs-sales"
+
+# =============================================================================
+# STEPS
+# =============================================================================
+
+steps:
+  # --- Phase 1: Show Setup Validation ---
+
+  - id: validate_show
+    name: "Validate Show Data"
+    type: validation
+    on_failure: stop
+    config:
+      rules:
+        - field: Show_Title
+          operator: exists
+        - field: Show_Date
+          operator: exists
+        - field: Show_Time
+          operator: exists
+        - field: Category
+          operator: exists
+      fail_message: "Missing required show information"
+
+  # --- Phase 2: Pre-Show Promotion (T-24 hours) ---
+
+  - id: generate_promo_content
+    name: "Generate Promo Content"
+    type: content_generate
+    config:
+      type: social_post
+      prompt_template: |
+        Create an exciting promo for a Whatnot live auction:
+        
+        Show: {{Show_Title}}
+        Category: {{Category}} (e.g., TCG, Collectibles, Gaming, Electronics)
+        Date/Time: {{Show_Date}} at {{Show_Time}} MST
+        Featured Items: {{Featured_Items}}
+        
+        Make it exciting! Emphasize deals, rare items, and the live auction
+        experience. Include urgency and FOMO elements.
+      tone: enthusiastic
+      length: short
+      output_variable: promo_content
+
+  - id: post_discord_promo
+    name: "Post Discord Promo"
+    type: social_post
+    config:
+      platforms:
+        - discord
+      content: |
+        🔴 **LIVE SHOW TOMORROW** 🔴
+        
+        {{promo_content}}
+        
+        📺 Whatnot: whatnot.com/user/computerstorewy
+        ⏰ {{Show_Time}} MST
+        
+        Set your reminders! 🔔
+      schedule_type: scheduled
+      scheduled_at: "{{Show_DateTime}} - 24 hours"
+
+  - id: post_facebook_promo
+    name: "Post Facebook Promo"
+    type: social_post
+    config:
+      platforms:
+        - facebook
+      content: "{{promo_content}}"
+      hashtags:
+        - "#Whatnot"
+        - "#LiveSelling"
+        - "#Auctions"
+        - "#{{Category}}"
+        - "#Wheatland"
+      schedule_type: scheduled
+      scheduled_at: "{{Show_DateTime}} - 24 hours"
+
+  - id: post_tiktok_promo
+    name: "Post TikTok Promo"
+    type: social_post
+    config:
+      platforms:
+        - tiktok
+      content: |
+        🔥 LIVE AUCTION TOMORROW! {{Show_Title}}
+        
+        {{Category}} deals you won't want to miss! 
+        Whatnot @ {{Show_Time}} MST
+        
+        #whatnot #liveauction #{{Category}} #deals #collectibles
+      schedule_type: scheduled
+      scheduled_at: "{{Show_DateTime}} - 24 hours"
+
+  # --- Phase 3: Day-of Reminders ---
+
+  - id: post_morning_reminder
+    name: "Morning Reminder"
+    type: social_post
+    config:
+      platforms:
+        - discord
+        - twitter
+      content: |
+        📣 TODAY! {{Show_Title}} on Whatnot!
+        
+        ⏰ Going LIVE at {{Show_Time}} MST
+        🎁 {{Featured_Items}}
+        
+        Don't miss out on the deals!
+      schedule_type: scheduled
+      scheduled_at: "{{Show_Date}} 09:00:00"
+
+  - id: post_1hour_reminder
+    name: "1-Hour Reminder"
+    type: social_post
+    config:
+      platforms:
+        - discord
+        - twitter
+        - facebook
+      content: |
+        ⏰ **1 HOUR** until we go LIVE on Whatnot!
+        
+        {{Show_Title}}
+        
+        📺 whatnot.com/user/computerstorewy
+        
+        Get ready! 🔥
+      schedule_type: scheduled
+      scheduled_at: "{{Show_DateTime}} - 1 hour"
+
+  # --- Phase 4: Live Show Notification ---
+
+  - id: post_live_now
+    name: "We're LIVE Notification"
+    type: social_post
+    description: "Triggered when show actually starts"
+    condition: "Show_Status == 'Live'"
+    config:
+      platforms:
+        - discord
+        - twitter
+        - facebook
+      content: |
+        🔴 **WE'RE LIVE NOW!** 🔴
+        
+        {{Show_Title}} is happening RIGHT NOW on Whatnot!
+        
+        📺 whatnot.com/user/computerstorewy
+        
+        JOIN NOW for amazing deals! 💰🔥
+      schedule_type: immediate
+
+  # --- Phase 5: During Show - Inventory Sync ---
+
+  - id: sync_inventory_ebay
+    name: "Sync Sold Items to eBay"
+    type: api_call
+    description: "Mark sold items as unavailable on eBay"
+    condition: "Sold_Items_Count > 0"
+    config:
+      endpoint: "/api/inventory/sync"
+      method: "POST"
+      body:
+        source: "whatnot"
+        action: "mark_sold"
+        items: "{{Sold_Items}}"
+        destination: "ebay"
+
+  - id: sync_inventory_tiktok
+    name: "Sync to TikTok Shop"
+    type: api_call
+    condition: "Sold_Items_Count > 0"
+    config:
+      endpoint: "/api/inventory/sync"
+      method: "POST"
+      body:
+        source: "whatnot"
+        action: "mark_sold"
+        items: "{{Sold_Items}}"
+        destination: "tiktok_shop"
+
+  # --- Phase 6: Post-Show ---
+
+  - id: delay_post_show
+    name: "Wait for Show End"
+    type: delay
+    config:
+      until_condition: "Show_Status == 'Ended'"
+
+  - id: generate_recap
+    name: "Generate Show Recap"
+    type: content_generate
+    config:
+      type: social_post
+      prompt_template: |
+        Create a recap for a completed Whatnot live show:
+        
+        Show: {{Show_Title}}
+        Total Sales: ${{Total_Sales}}
+        Items Sold: {{Items_Sold_Count}}
+        Viewers: {{Viewer_Count}}
+        Top Sale: {{Top_Sale_Item}} for ${{Top_Sale_Price}}
+        
+        Thank the audience, highlight the energy, and tease the next show!
+      tone: enthusiastic
+      length: short
+      output_variable: recap_content
+
+  - id: post_recap
+    name: "Post Show Recap"
+    type: social_post
+    config:
+      platforms:
+        - discord
+        - facebook
+        - instagram
+      content: |
+        🎉 **SHOW RECAP** 🎉
+        
+        {{recap_content}}
+        
+        Thanks to everyone who joined!
+        
+        📺 Next show: {{Next_Show_Date}}
+        
+        Follow on Whatnot for notifications! 🔔
+      hashtags:
+        - "#Whatnot"
+        - "#LiveSelling"
+        - "#ThankYou"
+      schedule_type: immediate
+
+  - id: post_highlight_reel
+    name: "Post Highlight Reel"
+    type: social_post
+    description: "Post video highlights to TikTok and Reels"
+    condition: "Has_Highlights == true"
+    config:
+      platforms:
+        - tiktok
+        - instagram
+      content: |
+        🔥 Best moments from today's Whatnot show!
+        
+        That {{Top_Sale_Item}} went for ${{Top_Sale_Price}}! 😱
+        
+        #whatnot #liveauction #sold #deals
+      media:
+        - type: video
+          source: file
+          value: "{{Highlight_Video_Path}}"
+      schedule_type: immediate
+
+  # --- Phase 7: CRM & Analytics ---
+
+  - id: update_show_record
+    name: "Update Show Record"
+    type: field_update
+    config:
+      updates:
+        Status: "Completed"
+        Total_Revenue: "{{Total_Sales}}"
+        Items_Sold: "{{Items_Sold_Count}}"
+        Peak_Viewers: "{{Peak_Viewer_Count}}"
+        Average_Sale_Price: "{{Average_Sale_Price}}"
+
+  - id: create_followup_tasks
+    name: "Create Follow-up Tasks"
+    type: create_task
+    config:
+      tasks:
+        - subject: "Ship {{Show_Title}} orders"
+          due_days: 1
+          assign_to: "role:Fulfillment"
+          priority: "High"
+          description: "Process and ship all orders from the Whatnot show."
+        
+        - subject: "Prep inventory for next show"
+          due_days: 3
+          assign_to: "role:Sales"
+          priority: "Normal"

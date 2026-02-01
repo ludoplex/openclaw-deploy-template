@@ -1,0 +1,479 @@
+# SOP Automation Schema v1.0
+# Unified schema for all entities: Mighty House Inc., DSAIC, Computer Store
+
+# =============================================================================
+# SOP DEFINITION SCHEMA
+# =============================================================================
+
+sop_definition:
+  type: object
+  required:
+    - sop_id
+    - name
+    - entity
+    - version
+    - triggers
+    - steps
+  properties:
+    # --- Metadata ---
+    sop_id:
+      type: string
+      pattern: "^(mhi|dsaic|cs|pipeline)_[a-z_]+$"
+      description: "Unique identifier (entity prefix + snake_case name)"
+    
+    name:
+      type: string
+      description: "Human-readable SOP name"
+    
+    description:
+      type: string
+      description: "What this SOP accomplishes"
+    
+    entity:
+      type: string
+      enum: [mighty_house_inc, dsaic, computer_store, cross_entity]
+      description: "Which entity owns this SOP"
+    
+    version:
+      type: string
+      pattern: "^\\d+\\.\\d+$"
+      description: "Semantic version (major.minor)"
+    
+    status:
+      type: string
+      enum: [draft, active, deprecated]
+      default: draft
+    
+    effective_date:
+      type: string
+      format: date
+    
+    owner:
+      type: string
+      description: "Responsible team or person"
+    
+    tags:
+      type: array
+      items:
+        type: string
+      description: "Categorization tags"
+
+    # --- Triggers ---
+    triggers:
+      type: array
+      items:
+        $ref: "#/trigger_definition"
+      description: "What starts this SOP"
+
+    # --- Steps ---
+    steps:
+      type: array
+      items:
+        $ref: "#/step_definition"
+      description: "Ordered list of actions"
+
+    # --- Configuration ---
+    config:
+      type: object
+      properties:
+        retry_policy:
+          type: object
+          properties:
+            max_attempts:
+              type: integer
+              default: 3
+            backoff_seconds:
+              type: integer
+              default: 60
+        timeout_seconds:
+          type: integer
+          default: 300
+        notify_on_failure:
+          type: array
+          items:
+            type: string
+
+# =============================================================================
+# TRIGGER TYPES
+# =============================================================================
+
+trigger_definition:
+  type: object
+  required:
+    - type
+  properties:
+    type:
+      type: string
+      enum:
+        - stage_change      # Zoho deal/record stage change
+        - field_update      # Zoho field value change
+        - record_create     # New Zoho record
+        - record_update     # Zoho record modified
+        - manual            # User-initiated
+        - scheduled         # Cron-based
+        - webhook           # External HTTP trigger
+        - cross_entity      # Triggered by another entity's SOP
+        - event             # Platform event (stream start, sale, etc.)
+    
+    # For stage_change
+    module:
+      type: string
+      description: "Zoho module name"
+    from_stage:
+      type: string
+    to_stage:
+      type: string
+    
+    # For field_update
+    field:
+      type: string
+    old_value:
+      type: string
+    new_value:
+      type: string
+    
+    # For scheduled
+    cron:
+      type: string
+      description: "Cron expression"
+    timezone:
+      type: string
+      default: "America/Denver"
+    
+    # For webhook
+    endpoint:
+      type: string
+    secret:
+      type: string
+    
+    # For cross_entity
+    source_sop:
+      type: string
+      description: "SOP ID that triggers this"
+    source_entity:
+      type: string
+      enum: [mighty_house_inc, dsaic, computer_store]
+    
+    # For event
+    platform:
+      type: string
+      enum: [twitch, discord, whatnot, tiktok, stripe, ggleap]
+    event_type:
+      type: string
+
+# =============================================================================
+# STEP TYPES
+# =============================================================================
+
+step_definition:
+  type: object
+  required:
+    - id
+    - type
+    - name
+  properties:
+    id:
+      type: string
+      description: "Unique step identifier within SOP"
+    
+    type:
+      type: string
+      enum:
+        # --- Core Steps ---
+        - validation        # Check conditions before proceeding
+        - notification      # Send alert (email, SMS, Discord, etc.)
+        - create_task       # Create Zoho task
+        - field_update      # Update Zoho record field
+        - create_record     # Create new Zoho record
+        - api_call          # Call external API
+        - condition         # Branch based on logic
+        - approval          # Human approval gate
+        
+        # --- Social/Content Steps ---
+        - social_post       # Post to social media via MixPost
+        - content_generate  # AI-generated content
+        - schedule_content  # Queue content for later
+        
+        # --- Cross-Entity Steps ---
+        - cross_entity_trigger  # Trigger SOP in another entity
+        - data_sync             # Sync data between entities
+        
+        # --- Utility Steps ---
+        - delay             # Wait for time period
+        - loop              # Iterate over collection
+        - transform         # Transform data
+        - webhook_send      # Send outbound webhook
+    
+    name:
+      type: string
+      description: "Human-readable step name"
+    
+    description:
+      type: string
+    
+    # --- Execution Control ---
+    condition:
+      type: string
+      description: "Expression that must be true to execute"
+    
+    on_failure:
+      type: string
+      enum: [stop, continue, retry, skip]
+      default: stop
+    
+    retry:
+      type: object
+      properties:
+        max_attempts:
+          type: integer
+        delay_seconds:
+          type: integer
+    
+    timeout_seconds:
+      type: integer
+
+    # --- Step-Specific Config ---
+    config:
+      type: object
+      description: "Step-type-specific configuration"
+
+# =============================================================================
+# STEP CONFIG SCHEMAS
+# =============================================================================
+
+step_configs:
+  
+  # --- validation ---
+  validation:
+    rules:
+      type: array
+      items:
+        type: object
+        properties:
+          field:
+            type: string
+          operator:
+            type: string
+            enum: [equals, not_equals, contains, gt, lt, gte, lte, exists, not_exists]
+          value:
+            type: any
+    fail_message:
+      type: string
+  
+  # --- notification ---
+  notification:
+    channels:
+      type: array
+      items:
+        type: string
+        enum: [email, sms, discord, slack, teams]
+    recipients:
+      type: array
+      items:
+        type: string
+    template:
+      type: string
+    variables:
+      type: object
+  
+  # --- social_post ---
+  social_post:
+    platforms:
+      type: array
+      items:
+        type: string
+        enum: [facebook, instagram, twitter, linkedin, discord, tiktok, mastodon, threads]
+    content:
+      type: object
+      properties:
+        text:
+          type: string
+        template:
+          type: string
+          description: "Template ID or name"
+        variables:
+          type: object
+    media:
+      type: array
+      items:
+        type: object
+        properties:
+          type:
+            type: string
+            enum: [image, video, carousel]
+          source:
+            type: string
+            enum: [url, file, generated]
+          value:
+            type: string
+    hashtags:
+      type: array
+      items:
+        type: string
+    schedule:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [immediate, scheduled, optimal]
+        datetime:
+          type: string
+          format: datetime
+    entity_voice:
+      type: string
+      enum: [mhi_professional, dsaic_developer, cs_gaming]
+      description: "Brand voice profile to use"
+  
+  # --- content_generate ---
+  content_generate:
+    type:
+      type: string
+      enum: [social_post, blog, email, video_script, image_prompt]
+    prompt_template:
+      type: string
+    variables:
+      type: object
+    tone:
+      type: string
+      enum: [professional, casual, enthusiastic, technical]
+    length:
+      type: string
+      enum: [short, medium, long]
+    output_variable:
+      type: string
+      description: "Variable name to store generated content"
+  
+  # --- cross_entity_trigger ---
+  cross_entity_trigger:
+    target_entity:
+      type: string
+      enum: [mighty_house_inc, dsaic, computer_store]
+    target_sop:
+      type: string
+    payload:
+      type: object
+      description: "Data to pass to target SOP"
+    wait_for_completion:
+      type: boolean
+      default: false
+  
+  # --- approval ---
+  approval:
+    approvers:
+      type: array
+      items:
+        type: string
+    timeout_hours:
+      type: integer
+      default: 24
+    escalation:
+      type: object
+      properties:
+        after_hours:
+          type: integer
+        escalate_to:
+          type: array
+          items:
+            type: string
+    on_timeout:
+      type: string
+      enum: [approve, reject, escalate]
+  
+  # --- delay ---
+  delay:
+    duration:
+      type: string
+      description: "Duration (e.g., '30m', '2h', '1d')"
+    until:
+      type: string
+      format: datetime
+      description: "Wait until specific time"
+    until_condition:
+      type: string
+      description: "Wait until condition is true"
+
+# =============================================================================
+# ENTITY-SPECIFIC EXTENSIONS
+# =============================================================================
+
+entity_extensions:
+  
+  mighty_house_inc:
+    hashtags:
+      - "#MightyHouseInc"
+      - "#EDWOSB"
+      - "#GovCon"
+      - "#ITSolutions"
+      - "#SmallBusiness"
+    platforms:
+      primary: [linkedin, twitter]
+      secondary: [facebook]
+    voice: professional
+    zoho_prefix: "MHI"
+  
+  dsaic:
+    hashtags:
+      - "#DSAIC"
+      - "#SaaS"
+      - "#DevTools"
+      - "#CloudSolutions"
+      - "#OpenSource"
+    platforms:
+      primary: [twitter, discord, mastodon]
+      secondary: [linkedin]
+    voice: technical
+    zoho_prefix: "DSAIC"
+  
+  computer_store:
+    hashtags:
+      - "#ComputerStore"
+      - "#LANCenter"
+      - "#Gaming"
+      - "#ITCertification"
+      - "#Wheatland"
+      - "#Wyoming"
+    platforms:
+      primary: [discord, facebook, tiktok]
+      secondary: [instagram, twitch]
+    voice: enthusiastic
+    zoho_prefix: "CS"
+
+# =============================================================================
+# CROSS-ENTITY PIPELINES
+# =============================================================================
+
+pipeline_definition:
+  type: object
+  required:
+    - pipeline_id
+    - name
+    - stages
+  properties:
+    pipeline_id:
+      type: string
+      pattern: "^pipeline_[a-z_]+$"
+    name:
+      type: string
+    description:
+      type: string
+    stages:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          entity:
+            type: string
+            enum: [mighty_house_inc, dsaic, computer_store]
+          sop:
+            type: string
+            description: "SOP ID to execute at this stage"
+          entry_conditions:
+            type: array
+            items:
+              type: string
+          exit_conditions:
+            type: array
+            items:
+              type: string

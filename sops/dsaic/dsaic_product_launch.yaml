@@ -1,0 +1,270 @@
+# DSAIC Product Launch SOP
+# Automates the announcement and promotion of new SaaS products/features
+
+sop_id: dsaic_product_launch
+name: "DSAIC Product Launch Pipeline"
+description: |
+  Orchestrates the full product launch sequence from teaser through
+  follow-up content. Integrates with MixPost for social scheduling
+  and Stripe for tracking new signups.
+  
+entity: dsaic
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "DSAIC Product Team"
+
+tags:
+  - marketing
+  - social
+  - product
+  - launch
+
+# =============================================================================
+# TRIGGERS
+# =============================================================================
+
+triggers:
+  - type: manual
+    description: "Manually initiate product launch sequence"
+  
+  - type: field_update
+    module: Products
+    field: Launch_Status
+    new_value: "Ready for Launch"
+  
+  - type: webhook
+    endpoint: /webhooks/dsaic/product-launch
+    description: "Triggered by CI/CD on release tag"
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+config:
+  retry_policy:
+    max_attempts: 3
+    backoff_seconds: 300
+  timeout_seconds: 3600
+  notify_on_failure:
+    - "channel:dsaic-alerts"
+    - "email:product@dsaic.io"
+
+# =============================================================================
+# STEPS
+# =============================================================================
+
+steps:
+  # --- Phase 1: Pre-Launch Validation ---
+  
+  - id: validate_launch_data
+    name: "Validate Launch Data"
+    type: validation
+    description: "Ensure all required launch data is present"
+    on_failure: stop
+    config:
+      rules:
+        - field: Product_Name
+          operator: exists
+        - field: Launch_Date
+          operator: exists
+        - field: Description
+          operator: exists
+        - field: Pricing_Tier
+          operator: exists
+        - field: Documentation_URL
+          operator: exists
+      fail_message: "Missing required product launch data"
+
+  # --- Phase 2: Teaser Campaign (T-7 days) ---
+  
+  - id: generate_teaser_content
+    name: "Generate Teaser Content"
+    type: content_generate
+    description: "AI-generate teaser posts for each platform"
+    config:
+      type: social_post
+      prompt_template: |
+        Create a teaser post for our upcoming product launch:
+        
+        Product: {{Product_Name}}
+        Key Feature: {{Key_Feature}}
+        Launch Date: {{Launch_Date}}
+        
+        The post should build anticipation without revealing too much.
+        Include a call-to-action to follow for updates.
+      tone: technical
+      length: short
+      output_variable: teaser_content
+
+  - id: schedule_teaser_twitter
+    name: "Schedule Teaser - Twitter"
+    type: social_post
+    description: "Post teaser to Twitter"
+    config:
+      platforms:
+        - twitter
+      content: "{{teaser_content}}"
+      hashtags:
+        - "#DSAIC"
+        - "#ComingSoon"
+        - "#DevTools"
+      schedule_type: scheduled
+      scheduled_at: "{{Launch_Date}} - 7 days"
+
+  - id: schedule_teaser_discord
+    name: "Schedule Teaser - Discord"
+    type: social_post
+    description: "Post teaser to Discord dev community"
+    config:
+      platforms:
+        - discord
+      content: |
+        🚀 **Something's Coming...**
+        
+        {{teaser_content}}
+        
+        Stay tuned for the full reveal!
+      schedule_type: scheduled
+      scheduled_at: "{{Launch_Date}} - 7 days"
+
+  - id: schedule_teaser_mastodon
+    name: "Schedule Teaser - Mastodon"
+    type: social_post
+    description: "Post teaser to Mastodon (fosstodon)"
+    config:
+      platforms:
+        - mastodon
+      content: "{{teaser_content}}"
+      hashtags:
+        - "#DSAIC"
+        - "#OpenSource"
+        - "#DevTools"
+      schedule_type: scheduled
+      scheduled_at: "{{Launch_Date}} - 7 days"
+
+  # --- Phase 3: Launch Day Announcement (T+0) ---
+
+  - id: generate_announcement_content
+    name: "Generate Announcement Content"
+    type: content_generate
+    config:
+      type: social_post
+      prompt_template: |
+        Create the main product launch announcement:
+        
+        Product: {{Product_Name}}
+        Description: {{Description}}
+        Key Features: {{Key_Features}}
+        Pricing: {{Pricing_Tier}}
+        Documentation: {{Documentation_URL}}
+        
+        The post should be exciting, highlight key benefits,
+        and include a clear call-to-action to try/buy.
+      tone: enthusiastic
+      length: medium
+      output_variable: announcement_content
+
+  - id: post_announcement_all
+    name: "Post Launch Announcement"
+    type: social_post
+    description: "Post announcement to all platforms simultaneously"
+    config:
+      platforms:
+        - twitter
+        - discord
+        - mastodon
+        - linkedin
+      content: "{{announcement_content}}"
+      hashtags:
+        - "#DSAIC"
+        - "#NewRelease"
+        - "#DevTools"
+        - "#SaaS"
+      schedule_type: immediate
+      platform_overrides:
+        linkedin:
+          content: |
+            🎉 Exciting News from DSAIC!
+            
+            {{announcement_content}}
+            
+            Learn more: {{Documentation_URL}}
+
+  - id: notify_team
+    name: "Notify Team of Launch"
+    type: notification
+    config:
+      channels:
+        - discord
+        - slack
+      recipients:
+        - "channel:dsaic-general"
+        - "role:Product"
+        - "role:Marketing"
+      template: product_launched
+      variables:
+        product_name: "{{Product_Name}}"
+        launch_url: "{{Documentation_URL}}"
+
+  # --- Phase 4: Follow-Up (T+1 day) ---
+
+  - id: delay_for_followup
+    name: "Wait for Follow-up"
+    type: delay
+    config:
+      duration: "24h"
+
+  - id: generate_followup_content
+    name: "Generate Follow-up Content"
+    type: content_generate
+    config:
+      type: social_post
+      prompt_template: |
+        Create a follow-up post for our product launch:
+        
+        Product: {{Product_Name}}
+        Key testimonial or stat: "Already seeing great adoption!"
+        
+        Focus on early feedback, use cases, or a specific feature deep-dive.
+      tone: casual
+      length: short
+      output_variable: followup_content
+
+  - id: post_followup
+    name: "Post Follow-up Content"
+    type: social_post
+    config:
+      platforms:
+        - twitter
+        - discord
+      content: "{{followup_content}}"
+      schedule_type: immediate
+
+  # --- Phase 5: Update CRM ---
+
+  - id: update_product_status
+    name: "Update Product Launch Status"
+    type: field_update
+    config:
+      updates:
+        Launch_Status: "Launched"
+        Launch_Completed_Date: "{{now}}"
+        Social_Posts_Count: "{{social_posts_count}}"
+
+  - id: create_followup_tasks
+    name: "Create Follow-up Tasks"
+    type: create_task
+    config:
+      tasks:
+        - subject: "Review {{Product_Name}} launch metrics"
+          due_days: 7
+          assign_to: "role:Product"
+          priority: "High"
+          description: "Analyze engagement, signups, and feedback from launch."
+        
+        - subject: "Plan {{Product_Name}} feature update content"
+          due_days: 14
+          assign_to: "role:Marketing"
+          priority: "Normal"
+          description: "Create content plan for ongoing product promotion."

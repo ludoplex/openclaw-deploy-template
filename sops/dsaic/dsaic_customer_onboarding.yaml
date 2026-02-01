@@ -1,0 +1,278 @@
+# DSAIC Customer Onboarding SOP
+# Welcomes new SaaS customers and ensures successful activation
+
+sop_id: dsaic_customer_onboarding
+name: "SaaS Customer Onboarding Pipeline"
+description: |
+  Automated onboarding flow for new DSAIC SaaS customers.
+  Handles welcome communications, account setup verification,
+  and early engagement to reduce churn risk.
+  
+entity: dsaic
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "DSAIC Customer Success"
+
+tags:
+  - onboarding
+  - saas
+  - customer-success
+  - activation
+
+triggers:
+  - type: webhook
+    endpoint: /webhooks/stripe/subscription-created
+    description: "New Stripe subscription"
+
+  - type: record_create
+    module: Customers
+    condition: "Subscription_Status == 'Active'"
+
+  - type: event
+    platform: stripe
+    event_type: customer.subscription.created
+
+config:
+  retry_policy:
+    max_attempts: 3
+    backoff_seconds: 60
+  notify_on_failure:
+    - "channel:dsaic-support"
+
+steps:
+  # --- Phase 1: Welcome ---
+
+  - id: validate_customer
+    name: "Validate Customer Data"
+    type: validation
+    config:
+      rules:
+        - field: Email
+          operator: exists
+        - field: Company_Name
+          operator: exists
+        - field: Plan_Type
+          operator: exists
+        - field: Subscription_ID
+          operator: exists
+
+  - id: send_welcome_email
+    name: "Send Welcome Email"
+    type: notification
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Email}}"
+      template: dsaic_welcome
+      variables:
+        name: "{{Contact_Name}}"
+        company: "{{Company_Name}}"
+        plan: "{{Plan_Type}}"
+        dashboard_url: "https://app.dsaic.io/dashboard"
+        docs_url: "https://docs.dsaic.io"
+
+  - id: post_welcome_discord
+    name: "Welcome in Discord (if joined)"
+    type: notification
+    condition: "Discord_User_ID exists"
+    config:
+      channels:
+        - discord
+      recipients:
+        - "user:{{Discord_User_ID}}"
+        - "channel:dsaic-customers"
+      template: discord_welcome
+      variables:
+        name: "{{Contact_Name}}"
+        company: "{{Company_Name}}"
+
+  # --- Phase 2: Account Setup Verification ---
+
+  - id: delay_24h
+    name: "Wait 24 Hours"
+    type: delay
+    config:
+      duration: "24h"
+
+  - id: check_first_login
+    name: "Check First Login"
+    type: api_call
+    config:
+      endpoint: "https://api.dsaic.io/internal/user-activity"
+      method: "GET"
+      headers:
+        Authorization: "Bearer {{DSAIC_INTERNAL_KEY}}"
+      body:
+        user_id: "{{User_ID}}"
+        check: "first_login"
+
+  - id: send_activation_nudge
+    name: "Send Activation Nudge"
+    type: notification
+    condition: "First_Login == false"
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Email}}"
+      template: activation_nudge
+      variables:
+        name: "{{Contact_Name}}"
+        login_url: "https://app.dsaic.io/login"
+        help_url: "https://docs.dsaic.io/getting-started"
+
+  # --- Phase 3: Feature Adoption Check (Day 7) ---
+
+  - id: delay_7d
+    name: "Wait Until Day 7"
+    type: delay
+    config:
+      duration: "6d"  # Total 7 days from start
+
+  - id: check_feature_usage
+    name: "Check Feature Usage"
+    type: api_call
+    config:
+      endpoint: "https://api.dsaic.io/internal/feature-usage"
+      method: "GET"
+      headers:
+        Authorization: "Bearer {{DSAIC_INTERNAL_KEY}}"
+      body:
+        user_id: "{{User_ID}}"
+        period: "7d"
+
+  - id: categorize_engagement
+    name: "Categorize Engagement Level"
+    type: transform
+    config:
+      operations:
+        - field: Engagement_Level
+          expression: |
+            if Features_Used >= 5: "High"
+            elif Features_Used >= 2: "Medium"
+            else: "Low"
+
+  - id: send_tips_email
+    name: "Send Tips Based on Usage"
+    type: notification
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Email}}"
+      template: "week1_tips_{{Engagement_Level}}"
+      variables:
+        name: "{{Contact_Name}}"
+        features_used: "{{Features_Used}}"
+        suggested_features: "{{Unused_Features}}"
+
+  # --- Phase 4: Low Engagement Intervention ---
+
+  - id: create_cs_task
+    name: "Create CS Outreach Task"
+    type: create_task
+    condition: "Engagement_Level == 'Low'"
+    config:
+      tasks:
+        - subject: "Low engagement: {{Company_Name}} - reach out"
+          due_days: 2
+          assign_to: "role:Customer Success"
+          priority: "High"
+          description: |
+            New customer showing low engagement in first week.
+            
+            Company: {{Company_Name}}
+            Contact: {{Contact_Name}} ({{Email}})
+            Plan: {{Plan_Type}}
+            Features Used: {{Features_Used}}
+            
+            Recommended actions:
+            - Schedule onboarding call
+            - Offer personalized demo
+            - Identify blockers
+
+  - id: update_health_score
+    name: "Update Health Score"
+    type: field_update
+    config:
+      updates:
+        Health_Score: "{{Calculated_Health_Score}}"
+        Engagement_Level: "{{Engagement_Level}}"
+        Last_Activity_Check: "{{now}}"
+
+  # --- Phase 5: Success Milestone (Day 14) ---
+
+  - id: delay_14d
+    name: "Wait Until Day 14"
+    type: delay
+    config:
+      duration: "7d"
+
+  - id: check_activation_complete
+    name: "Check Activation Milestone"
+    type: api_call
+    config:
+      endpoint: "https://api.dsaic.io/internal/activation-status"
+      method: "GET"
+      body:
+        user_id: "{{User_ID}}"
+
+  - id: send_success_email
+    name: "Send Success Email"
+    type: notification
+    condition: "Activation_Complete == true"
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Email}}"
+      template: activation_success
+      variables:
+        name: "{{Contact_Name}}"
+        achievements: "{{Milestones_Completed}}"
+
+  - id: post_success_social
+    name: "Celebrate Success (Optional)"
+    type: social_post
+    condition: "Activation_Complete == true AND Share_Success == true"
+    config:
+      platforms:
+        - twitter
+      content: |
+        Welcome to the DSAIC family, {{Company_Name}}! 🎉
+        
+        Great to see you crushing it with our tools already.
+        
+        #DSAIC #SaaS #CustomerSuccess
+      schedule_type: immediate
+
+  # --- Phase 6: CRM Updates ---
+
+  - id: update_onboarding_status
+    name: "Update Onboarding Status"
+    type: field_update
+    config:
+      updates:
+        Onboarding_Stage: "{{Final_Stage}}"
+        Onboarding_Completed: "{{Activation_Complete}}"
+        Onboarding_Days: "{{Days_To_Activate}}"
+
+  - id: schedule_30day_checkin
+    name: "Schedule 30-Day Check-in"
+    type: create_task
+    config:
+      tasks:
+        - subject: "30-day check-in: {{Company_Name}}"
+          due_days: 16  # 30 days from start, we're at day 14
+          assign_to: "role:Customer Success"
+          priority: "Normal"
+          description: |
+            Schedule 30-day health check call.
+            
+            Review:
+            - Feature adoption
+            - Support tickets
+            - Feedback collection
+            - Upsell opportunities

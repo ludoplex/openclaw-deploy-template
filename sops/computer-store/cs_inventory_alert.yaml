@@ -1,0 +1,226 @@
+# Computer Store Inventory Alert SOP
+# Monitors inventory levels and triggers restock actions
+
+sop_id: cs_inventory_alert
+name: "Low Inventory Alert & Restock"
+description: |
+  Monitors inventory levels for retail items, snacks, and gaming supplies.
+  Triggers alerts and restock workflows when items fall below threshold.
+  
+entity: computer_store
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "Computer Store Operations"
+
+tags:
+  - inventory
+  - restock
+  - alerts
+  - operations
+
+triggers:
+  - type: field_update
+    module: Inventory
+    field: Quantity
+    condition: "Quantity <= Reorder_Point"
+
+  - type: scheduled
+    cron: "0 6 * * *"
+    description: "Daily inventory check at 6 AM"
+
+  - type: webhook
+    endpoint: /webhooks/pos/inventory-sync
+    description: "POS inventory update"
+
+config:
+  retry_policy:
+    max_attempts: 2
+  notify_on_failure:
+    - "channel:cs-ops"
+
+steps:
+  # --- Identify Low Stock Items ---
+
+  - id: check_stock_levels
+    name: "Check Stock Levels"
+    type: api_call
+    config:
+      endpoint: "/api/inventory/low-stock"
+      method: "GET"
+      body:
+        location: "computer_store"
+        threshold: "reorder_point"
+
+  - id: categorize_items
+    name: "Categorize Low Stock Items"
+    type: transform
+    config:
+      operations:
+        - field: Critical_Items
+          expression: "filter(items, quantity == 0)"
+        - field: Low_Items
+          expression: "filter(items, quantity <= reorder_point AND quantity > 0)"
+        - field: By_Category
+          expression: "group_by(items, category)"
+
+  # --- Critical (Out of Stock) ---
+
+  - id: alert_critical
+    name: "Alert Critical Stock-Out"
+    type: notification
+    condition: "Critical_Items.length > 0"
+    config:
+      channels:
+        - discord
+        - sms
+      recipients:
+        - "channel:cs-ops"
+        - "role:Store Manager"
+      template: stock_critical
+      variables:
+        items: "{{Critical_Items}}"
+        count: "{{Critical_Items.length}}"
+
+  - id: create_urgent_restock
+    name: "Create Urgent Restock Task"
+    type: create_task
+    condition: "Critical_Items.length > 0"
+    config:
+      tasks:
+        - subject: "URGENT: {{Critical_Items.length}} items out of stock"
+          due_days: 0
+          assign_to: "role:Store Manager"
+          priority: "Critical"
+          description: |
+            OUT OF STOCK ITEMS:
+            
+            {{Critical_Items_List}}
+            
+            Action required immediately.
+
+  # --- Low Stock Alerts ---
+
+  - id: notify_low_stock
+    name: "Notify Low Stock"
+    type: notification
+    condition: "Low_Items.length > 0"
+    config:
+      channels:
+        - discord
+      recipients:
+        - "channel:cs-ops"
+      template: stock_low
+      variables:
+        items: "{{Low_Items}}"
+        count: "{{Low_Items.length}}"
+
+  # --- Category-Specific Handling ---
+
+  - id: handle_snacks
+    name: "Handle Snack Restock"
+    type: create_task
+    condition: "By_Category.snacks.length > 0"
+    config:
+      tasks:
+        - subject: "Restock snacks/drinks ({{By_Category.snacks.length}} items)"
+          due_days: 2
+          assign_to: "role:Front Desk"
+          priority: "Normal"
+          description: |
+            Low stock snacks and drinks:
+            {{Snacks_List}}
+            
+            Restock from Costco/Sam's Club run.
+
+  - id: handle_gaming_supplies
+    name: "Handle Gaming Supplies"
+    type: create_task
+    condition: "By_Category.gaming.length > 0"
+    config:
+      tasks:
+        - subject: "Order gaming supplies ({{By_Category.gaming.length}} items)"
+          due_days: 3
+          assign_to: "role:Store Manager"
+          priority: "Normal"
+          description: |
+            Low gaming supplies:
+            {{Gaming_List}}
+            
+            Check Amazon/distributor pricing.
+
+  - id: handle_retail
+    name: "Handle Retail Inventory"
+    type: create_task
+    condition: "By_Category.retail.length > 0"
+    config:
+      tasks:
+        - subject: "Reorder retail items ({{By_Category.retail.length}} SKUs)"
+          due_days: 5
+          assign_to: "role:Store Manager"
+          priority: "Normal"
+          description: |
+            Low retail inventory:
+            {{Retail_List}}
+            
+            Check D&H/TD Synnex for availability.
+
+  # --- Auto-Reorder (if enabled) ---
+
+  - id: check_auto_reorder
+    name: "Check Auto-Reorder Settings"
+    type: condition
+    config:
+      expression: "Auto_Reorder_Enabled == true"
+
+  - id: generate_po
+    name: "Generate Purchase Order"
+    type: create_record
+    condition: "Auto_Reorder_Enabled == true AND Low_Items.length > 0"
+    config:
+      _module: Purchase_Orders
+      record_data:
+        PO_Date: "{{now}}"
+        Status: "Draft"
+        Items: "{{Reorder_Items}}"
+        Total_Estimate: "{{Reorder_Total}}"
+        Source: "Auto-generated from inventory alert"
+
+  - id: notify_po_created
+    name: "Notify PO Created"
+    type: notification
+    condition: "PO_Created == true"
+    config:
+      channels:
+        - discord
+      recipients:
+        - "role:Store Manager"
+      template: auto_po_created
+      variables:
+        po_number: "{{PO_Number}}"
+        items_count: "{{Reorder_Items.length}}"
+        total: "{{Reorder_Total}}"
+
+  # --- Weekly Summary ---
+
+  - id: generate_weekly_report
+    name: "Generate Weekly Inventory Report"
+    type: social_post
+    condition: "Is_Weekly_Run == true"
+    config:
+      platforms:
+        - discord
+      content: |
+        📊 **Weekly Inventory Report**
+        
+        **Stock Status:**
+        🔴 Out of Stock: {{Critical_Count}}
+        🟡 Low Stock: {{Low_Count}}
+        🟢 Adequate: {{Adequate_Count}}
+        
+        **Top Sellers This Week:**
+        {{Top_Sellers_List}}
+        
+        **Slow Movers:**
+        {{Slow_Movers_List}}
+      schedule_type: immediate

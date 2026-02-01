@@ -1,0 +1,246 @@
+# DSAIC Support Ticket Escalation SOP
+# Manages escalation of support tickets based on severity and SLA
+
+sop_id: dsaic_support_escalation
+name: "Support Ticket Escalation"
+description: |
+  Automated escalation workflow for DSAIC support tickets.
+  Routes based on severity, tracks SLA compliance, and ensures
+  critical issues reach the right team quickly.
+  
+entity: dsaic
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "DSAIC Support"
+
+tags:
+  - support
+  - escalation
+  - sla
+  - tickets
+
+triggers:
+  - type: record_create
+    module: Support_Tickets
+    
+  - type: field_update
+    module: Support_Tickets
+    field: Priority
+    new_value: "Critical"
+
+  - type: scheduled
+    cron: "*/15 * * * *"
+    description: "Check for SLA breaches every 15 minutes"
+
+config:
+  retry_policy:
+    max_attempts: 3
+    backoff_seconds: 30
+  notify_on_failure:
+    - "channel:dsaic-support"
+
+steps:
+  # --- Triage ---
+
+  - id: classify_ticket
+    name: "Classify Ticket Severity"
+    type: transform
+    config:
+      operations:
+        - field: Severity
+          expression: |
+            if "down" in Issue.lower() or "outage" in Issue.lower(): "Critical"
+            elif "cannot" in Issue.lower() or "error" in Issue.lower(): "High"
+            elif "slow" in Issue.lower() or "question" in Issue.lower(): "Medium"
+            else: "Low"
+        - field: SLA_Hours
+          expression: |
+            if Severity == "Critical": 1
+            elif Severity == "High": 4
+            elif Severity == "Medium": 24
+            else: 72
+
+  - id: set_sla_deadline
+    name: "Set SLA Deadline"
+    type: field_update
+    config:
+      updates:
+        SLA_Deadline: "{{now + SLA_Hours hours}}"
+        Severity: "{{Severity}}"
+
+  # --- Critical Ticket Handling ---
+
+  - id: alert_critical
+    name: "Alert on Critical Ticket"
+    type: notification
+    condition: "Severity == 'Critical'"
+    config:
+      channels:
+        - discord
+        - sms
+      recipients:
+        - "channel:dsaic-support-urgent"
+        - "role:Support Lead"
+        - "role:Engineering On-Call"
+      template: critical_ticket_alert
+      variables:
+        ticket_id: "{{Ticket_Number}}"
+        customer: "{{Customer_Name}}"
+        issue: "{{Issue_Summary}}"
+        mrr: "{{Customer_MRR}}"
+
+  - id: page_oncall
+    name: "Page On-Call Engineer"
+    type: api_call
+    condition: "Severity == 'Critical'"
+    config:
+      endpoint: "https://api.pagerduty.com/incidents"
+      method: "POST"
+      headers:
+        Authorization: "Token token={{PAGERDUTY_KEY}}"
+      body:
+        incident:
+          type: "incident"
+          title: "Critical: {{Issue_Summary}}"
+          service:
+            id: "{{DSAIC_SERVICE_ID}}"
+          urgency: "high"
+          body:
+            type: "incident_body"
+            details: "Customer: {{Customer_Name}}\nTicket: {{Ticket_Number}}"
+
+  # --- High Priority Handling ---
+
+  - id: assign_high
+    name: "Auto-Assign High Priority"
+    type: field_update
+    condition: "Severity == 'High' AND Assigned_To == null"
+    config:
+      updates:
+        Assigned_To: "{{Next_Available_Agent}}"
+        Status: "In Progress"
+
+  - id: notify_high
+    name: "Notify on High Priority"
+    type: notification
+    condition: "Severity == 'High'"
+    config:
+      channels:
+        - discord
+      recipients:
+        - "channel:dsaic-support"
+        - "user:{{Assigned_To_Discord}}"
+      template: high_priority_ticket
+      variables:
+        ticket_id: "{{Ticket_Number}}"
+        customer: "{{Customer_Name}}"
+        issue: "{{Issue_Summary}}"
+
+  # --- SLA Monitoring ---
+
+  - id: check_sla_warning
+    name: "Check SLA Warning Threshold"
+    type: condition
+    config:
+      expression: "Time_To_SLA_Hours <= (SLA_Hours * 0.25) AND Status != 'Resolved'"
+
+  - id: send_sla_warning
+    name: "Send SLA Warning"
+    type: notification
+    condition: "SLA_Warning == true"
+    config:
+      channels:
+        - discord
+        - email
+      recipients:
+        - "user:{{Assigned_To}}"
+        - "role:Support Lead"
+      template: sla_warning
+      variables:
+        ticket_id: "{{Ticket_Number}}"
+        time_remaining: "{{Time_To_SLA}}"
+        customer: "{{Customer_Name}}"
+
+  - id: escalate_sla_breach
+    name: "Escalate SLA Breach"
+    type: notification
+    condition: "SLA_Breached == true"
+    config:
+      channels:
+        - discord
+        - email
+        - sms
+      recipients:
+        - "role:Support Lead"
+        - "role:CS Lead"
+      template: sla_breach
+      variables:
+        ticket_id: "{{Ticket_Number}}"
+        customer: "{{Customer_Name}}"
+        breach_time: "{{Breach_Duration}}"
+        assigned_to: "{{Assigned_To}}"
+
+  # --- Customer Communication ---
+
+  - id: send_acknowledgment
+    name: "Send Ticket Acknowledgment"
+    type: notification
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Customer_Email}}"
+      template: ticket_received
+      variables:
+        ticket_id: "{{Ticket_Number}}"
+        name: "{{Customer_Contact_Name}}"
+        severity: "{{Severity}}"
+        sla: "{{SLA_Hours}} hours"
+
+  - id: update_customer_status
+    name: "Send Status Update"
+    type: notification
+    condition: "Hours_Since_Update >= 4 AND Status == 'In Progress'"
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Customer_Email}}"
+      template: ticket_status_update
+      variables:
+        ticket_id: "{{Ticket_Number}}"
+        status: "{{Status}}"
+        update: "{{Latest_Note}}"
+
+  # --- Resolution ---
+
+  - id: handle_resolution
+    name: "Handle Ticket Resolution"
+    type: notification
+    condition: "Status == 'Resolved'"
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Customer_Email}}"
+      template: ticket_resolved
+      variables:
+        ticket_id: "{{Ticket_Number}}"
+        resolution: "{{Resolution_Summary}}"
+        survey_link: "{{CSAT_Survey_URL}}"
+
+  - id: log_metrics
+    name: "Log Resolution Metrics"
+    type: create_record
+    condition: "Status == 'Resolved'"
+    config:
+      _module: Support_Metrics
+      record_data:
+        Ticket: "{{Ticket_Number}}"
+        Severity: "{{Severity}}"
+        Time_To_First_Response: "{{First_Response_Time}}"
+        Time_To_Resolution: "{{Resolution_Time}}"
+        SLA_Met: "{{SLA_Met}}"
+        Agent: "{{Assigned_To}}"
+        Customer_Plan: "{{Customer_Plan}}"

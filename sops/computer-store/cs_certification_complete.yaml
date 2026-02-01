@@ -1,0 +1,201 @@
+# Computer Store Certification Completion SOP
+# Celebrates when a student completes an IT certification
+
+sop_id: cs_certification_complete
+name: "Certification Completion Celebration"
+description: |
+  Automates celebration and follow-up when a Learning Center student
+  completes an IT certification exam. Handles congratulations,
+  social recognition, and next-steps guidance.
+  
+entity: computer_store
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "Computer Store Learning Center"
+
+tags:
+  - certification
+  - education
+  - celebration
+  - pearson-vue
+
+triggers:
+  - type: field_update
+    module: Certifications
+    field: Status
+    new_value: "Passed"
+
+  - type: webhook
+    endpoint: /webhooks/pearson/exam-result
+    description: "Pearson VUE exam result notification"
+
+  - type: manual
+    description: "Manual certification logging"
+
+steps:
+  # --- Validation ---
+
+  - id: validate_cert
+    name: "Validate Certification Data"
+    type: validation
+    config:
+      rules:
+        - field: Student_Name
+          operator: exists
+        - field: Certification_Name
+          operator: exists
+        - field: Exam_Date
+          operator: exists
+        - field: Result
+          operator: equals
+          value: "Passed"
+
+  # --- Immediate Celebration ---
+
+  - id: send_congrats_email
+    name: "Send Congratulations Email"
+    type: notification
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Student_Email}}"
+      template: certification_congrats
+      variables:
+        name: "{{Student_Name}}"
+        certification: "{{Certification_Name}}"
+        date: "{{Exam_Date}}"
+        next_steps: "{{Recommended_Next_Certs}}"
+
+  - id: notify_discord
+    name: "Celebrate in Discord"
+    type: social_post
+    config:
+      platforms:
+        - discord
+      content: |
+        🎉 **CERTIFICATION ACHIEVED!** 🎉
+        
+        Huge congratulations to **{{Student_Name}}** for passing the **{{Certification_Name}}** exam!
+        
+        All that hard work paid off! 🏆
+        
+        #Certified #ITCertification #ProudMoment
+      schedule_type: immediate
+
+  # --- Public Recognition (with permission) ---
+
+  - id: check_share_permission
+    name: "Check Share Permission"
+    type: condition
+    config:
+      expression: "Share_Publicly == true"
+
+  - id: post_facebook
+    name: "Post to Facebook"
+    type: social_post
+    condition: "Share_Publicly == true"
+    config:
+      platforms:
+        - facebook
+      content: |
+        🎓 Congratulations to one of our Learning Center students for earning their {{Certification_Name}} certification!
+        
+        We're so proud of the dedication and hard work it takes to achieve this.
+        
+        Interested in IT certifications? Our Learning Center offers tutoring and exam prep for:
+        ✅ CompTIA (A+, Network+, Security+)
+        ✅ Microsoft certifications
+        ✅ And more!
+        
+        Wyoming ESA approved. Call us to learn more!
+        
+        #ITCertification #ComputerStore #Wheatland #Wyoming #ESA
+      schedule_type: immediate
+
+  - id: post_linkedin
+    name: "Post to LinkedIn"
+    type: social_post
+    condition: "Share_Publicly == true"
+    config:
+      platforms:
+        - linkedin
+      content: |
+        🎉 Another Success Story from Computer Store Learning Center!
+        
+        We're thrilled to celebrate a student achieving their {{Certification_Name}} certification.
+        
+        Our Learning Center provides personalized tutoring and exam preparation for IT certifications - and we're proud to be an approved ESA vendor for Wyoming families.
+        
+        Investing in skills. Building careers. Strengthening our community.
+        
+        #ITCertification #Education #Wyoming #SmallTownBigDreams
+      schedule_type: immediate
+
+  # --- Update Student Record ---
+
+  - id: update_student
+    name: "Update Student Record"
+    type: field_update
+    config:
+      updates:
+        Certifications_Earned: "{{Certifications_Earned}} + 1"
+        Latest_Certification: "{{Certification_Name}}"
+        Certification_Date: "{{Exam_Date}}"
+
+  - id: check_career_pipeline
+    name: "Check Career Pipeline Eligibility"
+    type: condition
+    config:
+      expression: "Age >= 16 AND Total_Certifications >= 2"
+
+  - id: trigger_career_pipeline
+    name: "Trigger Career Pipeline"
+    type: cross_entity_trigger
+    condition: "Age >= 16 AND Total_Certifications >= 2"
+    config:
+      target_entity: cross_entity
+      target_sop: pipeline_student_employee
+      payload:
+        student_id: "{{Student_ID}}"
+        student_name: "{{Student_Name}}"
+        certifications: "{{All_Certifications}}"
+        source: "certification_complete"
+      wait_for_completion: false
+
+  # --- Follow-up ---
+
+  - id: create_followup
+    name: "Create Follow-up Task"
+    type: create_task
+    config:
+      tasks:
+        - subject: "Follow-up: {{Student_Name}} - next certification"
+          due_days: 7
+          assign_to: "role:Learning Center"
+          priority: "Normal"
+          description: |
+            {{Student_Name}} just passed {{Certification_Name}}!
+            
+            Follow up to:
+            - Congratulate in person
+            - Discuss next certification goals
+            - Update learning plan
+            - Check ESA funding status
+
+  # --- Analytics ---
+
+  - id: log_certification
+    name: "Log for Analytics"
+    type: create_record
+    config:
+      _module: Certification_Analytics
+      record_data:
+        Student: "{{Student_ID}}"
+        Certification: "{{Certification_Name}}"
+        Vendor: "{{Cert_Vendor}}"
+        Exam_Date: "{{Exam_Date}}"
+        First_Attempt: "{{Is_First_Attempt}}"
+        Prep_Hours: "{{Total_Prep_Hours}}"
+        ESA_Funded: "{{ESA_Used}}"

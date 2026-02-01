@@ -1,0 +1,287 @@
+# Computer Store ESA (Education Savings Account) Enrollment SOP
+# Handles withOdyssey ESA student enrollment for tutoring and training
+
+sop_id: cs_esa_enrollment
+name: "ESA Student Enrollment Pipeline"
+description: |
+  Manages the enrollment process for students using Wyoming ESA or 
+  Utah Fits All education savings accounts through the withOdyssey
+  platform. Handles family onboarding, program selection, and 
+  ongoing tracking.
+  
+entity: computer_store
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "Computer Store Learning Center"
+
+tags:
+  - esa
+  - education
+  - tutoring
+  - withodyssey
+  - enrollment
+
+# =============================================================================
+# TRIGGERS
+# =============================================================================
+
+triggers:
+  - type: webhook
+    endpoint: /webhooks/withodyssey/enrollment
+    description: "Triggered by withOdyssey enrollment notification"
+
+  - type: record_create
+    module: ESA_Students
+    description: "New ESA student record created"
+
+  - type: manual
+    description: "Manual enrollment initiation"
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+config:
+  retry_policy:
+    max_attempts: 3
+    backoff_seconds: 120
+  timeout_seconds: 1800
+  notify_on_failure:
+    - "channel:cs-learning"
+    - "email:learning@computerstorewy.com"
+
+# =============================================================================
+# STEPS
+# =============================================================================
+
+steps:
+  # --- Phase 1: Enrollment Validation ---
+
+  - id: validate_enrollment
+    name: "Validate Enrollment Data"
+    type: validation
+    on_failure: stop
+    config:
+      rules:
+        - field: Student_Name
+          operator: exists
+        - field: Parent_Name
+          operator: exists
+        - field: Parent_Email
+          operator: exists
+        - field: ESA_Program
+          operator: exists
+          allowed_values:
+            - "Wyoming ESA"
+            - "Utah Fits All"
+        - field: ESA_Account_ID
+          operator: exists
+        - field: Selected_Services
+          operator: exists
+      fail_message: "Missing required ESA enrollment information"
+
+  - id: verify_esa_eligibility
+    name: "Verify ESA Eligibility"
+    type: api_call
+    description: "Confirm ESA account is active and has funds"
+    config:
+      endpoint: "https://api.withodyssey.com/v1/verify-account"
+      method: "POST"
+      headers:
+        Authorization: "Bearer {{ODYSSEY_API_KEY}}"
+      body:
+        account_id: "{{ESA_Account_ID}}"
+        vendor_id: "{{ODYSSEY_VENDOR_ID}}"
+        requested_amount: "{{Estimated_Cost}}"
+
+  # --- Phase 2: Family Onboarding ---
+
+  - id: create_family_record
+    name: "Create Family Record"
+    type: create_record
+    config:
+      _module: Families
+      record_data:
+        Family_Name: "{{Parent_Name}} Family"
+        Primary_Contact: "{{Parent_Name}}"
+        Email: "{{Parent_Email}}"
+        Phone: "{{Parent_Phone}}"
+        ESA_Program: "{{ESA_Program}}"
+        ESA_Account_ID: "{{ESA_Account_ID}}"
+        Enrollment_Date: "{{now}}"
+        Status: "Active"
+
+  - id: create_student_record
+    name: "Create Student Record"
+    type: create_record
+    config:
+      _module: Students
+      record_data:
+        Student_Name: "{{Student_Name}}"
+        Family: "{{family_record_id}}"
+        Grade_Level: "{{Grade_Level}}"
+        ESA_Program: "{{ESA_Program}}"
+        Services_Enrolled: "{{Selected_Services}}"
+        Start_Date: "{{Start_Date}}"
+        Status: "Enrolled"
+
+  # --- Phase 3: Welcome Communications ---
+
+  - id: send_welcome_email
+    name: "Send Welcome Email"
+    type: notification
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Parent_Email}}"
+      template: esa_welcome
+      variables:
+        parent_name: "{{Parent_Name}}"
+        student_name: "{{Student_Name}}"
+        services: "{{Selected_Services}}"
+        first_session_date: "{{First_Session_Date}}"
+        location: "Computer Store Learning Center, Wheatland, WY"
+
+  - id: notify_learning_center
+    name: "Notify Learning Center Staff"
+    type: notification
+    config:
+      channels:
+        - discord
+        - email
+      recipients:
+        - "channel:cs-learning"
+        - "role:Tutor"
+      template: new_esa_student
+      variables:
+        student_name: "{{Student_Name}}"
+        grade_level: "{{Grade_Level}}"
+        services: "{{Selected_Services}}"
+        start_date: "{{Start_Date}}"
+        special_notes: "{{Special_Needs_Notes}}"
+
+  # --- Phase 4: Service Setup ---
+
+  - id: schedule_initial_assessment
+    name: "Schedule Initial Assessment"
+    type: create_task
+    condition: "Selected_Services contains 'Tutoring'"
+    config:
+      tasks:
+        - subject: "Initial Assessment: {{Student_Name}}"
+          due_days: 7
+          assign_to: "role:Tutor"
+          priority: "High"
+          description: |
+            Conduct initial assessment for new ESA student.
+            
+            Student: {{Student_Name}}
+            Grade: {{Grade_Level}}
+            Services: {{Selected_Services}}
+            Parent Contact: {{Parent_Email}}
+            
+            Goals:
+            - Assess current skill level
+            - Identify learning style
+            - Create personalized learning plan
+            - Set measurable goals
+
+  - id: setup_certification_track
+    name: "Setup Certification Track"
+    type: create_record
+    condition: "Selected_Services contains 'IT Certification'"
+    config:
+      _module: Certification_Tracks
+      record_data:
+        Student: "{{student_record_id}}"
+        Certification_Goal: "{{Certification_Goal}}"
+        Target_Exam_Date: "{{Target_Exam_Date}}"
+        Study_Plan: "Standard"
+        Status: "In Progress"
+
+  # --- Phase 5: withOdyssey Tracking Setup ---
+
+  - id: create_tracking_record
+    name: "Create Service Tracking"
+    type: api_call
+    description: "Register services with withOdyssey for tracking"
+    config:
+      endpoint: "https://api.withodyssey.com/v1/register-services"
+      method: "POST"
+      headers:
+        Authorization: "Bearer {{ODYSSEY_API_KEY}}"
+      body:
+        account_id: "{{ESA_Account_ID}}"
+        vendor_id: "{{ODYSSEY_VENDOR_ID}}"
+        student_id: "{{Student_External_ID}}"
+        services: "{{Selected_Services}}"
+        start_date: "{{Start_Date}}"
+
+  # --- Phase 6: Calendar & Scheduling ---
+
+  - id: create_recurring_sessions
+    name: "Create Session Schedule"
+    type: api_call
+    condition: "Session_Frequency exists"
+    config:
+      endpoint: "/api/calendar/create-recurring"
+      method: "POST"
+      body:
+        title: "{{Student_Name}} - {{Service_Type}}"
+        frequency: "{{Session_Frequency}}"
+        duration_minutes: "{{Session_Duration}}"
+        start_date: "{{Start_Date}}"
+        location: "Computer Store Learning Center"
+        attendees:
+          - "{{Parent_Email}}"
+          - "{{Assigned_Tutor_Email}}"
+
+  # --- Phase 7: Social Announcement (Optional) ---
+
+  - id: post_enrollment_update
+    name: "Post Enrollment Update"
+    type: social_post
+    condition: "Share_Announcement == true"
+    config:
+      platforms:
+        - facebook
+      content: |
+        📚 Welcome to our Learning Center! 
+        
+        We're excited to help another Wyoming student reach their goals 
+        through the ESA program!
+        
+        Our tutoring and IT certification programs are approved ESA vendors
+        through withOdyssey.
+        
+        Learn more: computerstorewy.com/learning
+        
+        #ESA #WyomingESA #Education #Tutoring #Wheatland
+      schedule_type: immediate
+
+  # --- Phase 8: Cross-Entity Pipeline (if applicable) ---
+
+  - id: check_internship_interest
+    name: "Check Internship Interest"
+    type: condition
+    config:
+      expression: "Age >= 16 AND Interested_In_Tech_Career == true"
+      on_true: trigger_pipeline
+      on_false: skip
+
+  - id: trigger_student_employee_pipeline
+    name: "Trigger Student-to-Employee Pipeline"
+    type: cross_entity_trigger
+    condition: "Age >= 16 AND Interested_In_Tech_Career == true"
+    config:
+      target_entity: mighty_house_inc
+      target_sop: pipeline_student_employee
+      payload:
+        student_id: "{{student_record_id}}"
+        student_name: "{{Student_Name}}"
+        parent_contact: "{{Parent_Email}}"
+        skills_interest: "{{Tech_Interests}}"
+        source: "esa_enrollment"
+      wait_for_completion: false

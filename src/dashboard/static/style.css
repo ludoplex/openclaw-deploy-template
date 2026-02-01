@@ -1,0 +1,6 @@
+/* Custom styles for SOP Dashboard */
+/* Most styling handled by Tailwind CDN */
+
+.bg-gray-750 {
+    background-color: #374151;
+}

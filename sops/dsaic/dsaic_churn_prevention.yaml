@@ -1,0 +1,209 @@
+# DSAIC Churn Prevention SOP
+# Intervenes when customers show signs of churning
+
+sop_id: dsaic_churn_prevention
+name: "Customer Churn Prevention"
+description: |
+  Automated intervention when customers show signs of potential churn.
+  Triggers outreach, special offers, and CS escalation based on
+  risk signals.
+  
+entity: dsaic
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "DSAIC Customer Success"
+
+tags:
+  - churn
+  - retention
+  - customer-success
+  - saas
+
+triggers:
+  - type: field_update
+    module: Customers
+    field: Health_Score
+    condition: "Health_Score < 50"
+
+  - type: webhook
+    endpoint: /webhooks/stripe/subscription-canceled
+    description: "Subscription cancellation initiated"
+
+  - type: scheduled
+    cron: "0 8 * * 1"
+    description: "Weekly churn risk scan"
+
+config:
+  retry_policy:
+    max_attempts: 2
+  notify_on_failure:
+    - "channel:dsaic-cs"
+
+steps:
+  # --- Risk Assessment ---
+
+  - id: calculate_risk
+    name: "Calculate Churn Risk"
+    type: transform
+    config:
+      operations:
+        - field: Churn_Risk_Score
+          expression: |
+            (100 - Health_Score) * 0.3 +
+            (Days_Since_Login > 14 ? 30 : 0) +
+            (Support_Tickets_Open > 3 ? 20 : 0) +
+            (Feature_Usage_Decline ? 20 : 0)
+        - field: Risk_Level
+          expression: |
+            if Churn_Risk_Score >= 70: "Critical"
+            elif Churn_Risk_Score >= 50: "High"
+            elif Churn_Risk_Score >= 30: "Medium"
+            else: "Low"
+
+  # --- Immediate Actions for Critical Risk ---
+
+  - id: alert_cs_critical
+    name: "Alert CS Team - Critical"
+    type: notification
+    condition: "Risk_Level == 'Critical'"
+    config:
+      channels:
+        - discord
+        - email
+      recipients:
+        - "channel:dsaic-cs-urgent"
+        - "role:CS Lead"
+      template: churn_critical_alert
+      variables:
+        company: "{{Company_Name}}"
+        contact: "{{Contact_Name}}"
+        health: "{{Health_Score}}"
+        risk: "{{Churn_Risk_Score}}"
+        last_login: "{{Last_Login_Date}}"
+        mrr: "{{Monthly_Revenue}}"
+
+  - id: create_urgent_task
+    name: "Create Urgent Outreach Task"
+    type: create_task
+    condition: "Risk_Level == 'Critical'"
+    config:
+      tasks:
+        - subject: "URGENT: {{Company_Name}} churn risk - call today"
+          due_days: 0
+          assign_to: "{{Account_Owner}}"
+          priority: "Critical"
+          description: |
+            CRITICAL CHURN RISK - IMMEDIATE ACTION REQUIRED
+            
+            Customer: {{Company_Name}}
+            Contact: {{Contact_Name}} ({{Email}})
+            MRR: ${{Monthly_Revenue}}
+            Health Score: {{Health_Score}}
+            Last Login: {{Last_Login_Date}}
+            
+            Risk Factors:
+            {{Risk_Factors}}
+            
+            Recommended Actions:
+            1. Call within 4 hours
+            2. Understand pain points
+            3. Offer retention package if needed
+            4. Schedule follow-up
+
+  # --- High Risk Automation ---
+
+  - id: send_checkin_email
+    name: "Send Check-in Email"
+    type: notification
+    condition: "Risk_Level == 'High'"
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Email}}"
+      template: churn_checkin
+      variables:
+        name: "{{Contact_Name}}"
+        features: "{{Underused_Features}}"
+        help_link: "https://docs.dsaic.io"
+        meeting_link: "{{CS_Calendar_Link}}"
+
+  - id: create_high_task
+    name: "Create High-Risk Task"
+    type: create_task
+    condition: "Risk_Level == 'High'"
+    config:
+      tasks:
+        - subject: "High churn risk: {{Company_Name}}"
+          due_days: 2
+          assign_to: "{{Account_Owner}}"
+          priority: "High"
+
+  # --- Cancellation Intercept ---
+
+  - id: intercept_cancellation
+    name: "Cancellation Intercept"
+    type: notification
+    condition: "Cancellation_Initiated == true"
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Email}}"
+      template: cancellation_intercept
+      variables:
+        name: "{{Contact_Name}}"
+        offer: "{{Retention_Offer}}"
+        survey_link: "{{Exit_Survey_URL}}"
+
+  - id: notify_cs_cancellation
+    name: "Notify CS of Cancellation"
+    type: notification
+    condition: "Cancellation_Initiated == true"
+    config:
+      channels:
+        - discord
+      recipients:
+        - "channel:dsaic-cs"
+      template: cancellation_notice
+      variables:
+        company: "{{Company_Name}}"
+        mrr: "{{Monthly_Revenue}}"
+        tenure: "{{Months_Active}}"
+
+  - id: call_cancellation
+    name: "Schedule Save Call"
+    type: create_task
+    condition: "Cancellation_Initiated == true AND Monthly_Revenue >= 100"
+    config:
+      tasks:
+        - subject: "SAVE CALL: {{Company_Name}} canceling (${{Monthly_Revenue}}/mo)"
+          due_days: 0
+          assign_to: "role:CS Lead"
+          priority: "Critical"
+
+  # --- Update CRM ---
+
+  - id: update_health_record
+    name: "Update Health Record"
+    type: field_update
+    config:
+      updates:
+        Last_Risk_Assessment: "{{now}}"
+        Churn_Risk_Score: "{{Churn_Risk_Score}}"
+        Risk_Level: "{{Risk_Level}}"
+        Intervention_Triggered: true
+
+  - id: log_intervention
+    name: "Log Intervention"
+    type: create_record
+    config:
+      _module: Churn_Interventions
+      record_data:
+        Customer: "{{record_id}}"
+        Date: "{{now}}"
+        Risk_Score: "{{Churn_Risk_Score}}"
+        Risk_Level: "{{Risk_Level}}"
+        Actions_Taken: "{{Actions_List}}"
+        MRR_At_Risk: "{{Monthly_Revenue}}"

@@ -1,0 +1,221 @@
+# Mighty House Inc. Quarterly Business Review SOP
+# Generates and distributes quarterly performance reports
+
+sop_id: mhi_quarterly_review
+name: "Quarterly Business Review"
+description: |
+  Automates the generation and distribution of quarterly business
+  review reports across all entities. Aggregates metrics from
+  MHI, DSAIC, and Computer Store operations.
+  
+entity: mighty_house_inc
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "MHI Executive Team"
+
+tags:
+  - reporting
+  - quarterly
+  - executive
+  - analytics
+
+triggers:
+  - type: scheduled
+    cron: "0 6 1 1,4,7,10 *"
+    description: "First day of each quarter at 6 AM"
+    timezone: "America/Denver"
+
+  - type: manual
+    description: "Manual report generation"
+
+config:
+  retry_policy:
+    max_attempts: 3
+    backoff_seconds: 300
+  notify_on_failure:
+    - "role:Executive"
+
+steps:
+  # --- Data Collection ---
+
+  - id: collect_mhi_metrics
+    name: "Collect MHI Metrics"
+    type: api_call
+    config:
+      endpoint: "/api/reports/mhi/quarterly"
+      method: "GET"
+      body:
+        quarter: "{{Current_Quarter}}"
+        year: "{{Current_Year}}"
+        metrics:
+          - revenue
+          - contracts_won
+          - contracts_lost
+          - pipeline_value
+          - new_vendors
+          - employee_count
+
+  - id: collect_dsaic_metrics
+    name: "Collect DSAIC Metrics"
+    type: cross_entity_trigger
+    config:
+      target_entity: dsaic
+      target_sop: dsaic_metrics_export
+      payload:
+        period: "{{Current_Quarter}}"
+        metrics:
+          - mrr
+          - arr
+          - new_customers
+          - churned_customers
+          - nps_score
+          - support_tickets
+      wait_for_completion: true
+
+  - id: collect_cs_metrics
+    name: "Collect Computer Store Metrics"
+    type: cross_entity_trigger
+    config:
+      target_entity: computer_store
+      target_sop: cs_metrics_export
+      payload:
+        period: "{{Current_Quarter}}"
+        metrics:
+          - revenue
+          - repairs_completed
+          - gaming_hours_sold
+          - certifications_passed
+          - esa_students
+          - events_held
+      wait_for_completion: true
+
+  # --- Report Generation ---
+
+  - id: generate_executive_summary
+    name: "Generate Executive Summary"
+    type: content_generate
+    config:
+      type: report
+      prompt_template: |
+        Generate an executive summary for Mighty House Inc. Q{{Quarter}} {{Year}}:
+        
+        MHI (B2B/Government):
+        - Revenue: ${{MHI_Revenue}}
+        - Contracts Won: {{Contracts_Won}}
+        - Pipeline: ${{Pipeline_Value}}
+        
+        DSAIC (SaaS):
+        - MRR: ${{DSAIC_MRR}}
+        - New Customers: {{New_Customers}}
+        - Churn Rate: {{Churn_Rate}}%
+        
+        Computer Store (Retail/Gaming):
+        - Revenue: ${{CS_Revenue}}
+        - Repairs: {{Repairs_Count}}
+        - Gaming Hours: {{Gaming_Hours}}
+        - ESA Students: {{ESA_Students}}
+        
+        Highlight wins, challenges, and recommendations for next quarter.
+      tone: professional
+      length: long
+      output_variable: executive_summary
+
+  - id: calculate_kpis
+    name: "Calculate Combined KPIs"
+    type: transform
+    config:
+      operations:
+        - field: Total_Revenue
+          expression: "MHI_Revenue + DSAIC_Revenue + CS_Revenue"
+        - field: YoY_Growth
+          expression: "(Total_Revenue - Last_Year_Revenue) / Last_Year_Revenue * 100"
+        - field: Combined_NPS
+          expression: "weighted_average([MHI_NPS, DSAIC_NPS, CS_NPS], [MHI_Customers, DSAIC_Customers, CS_Customers])"
+
+  # --- Distribution ---
+
+  - id: notify_executives
+    name: "Notify Executive Team"
+    type: notification
+    config:
+      channels:
+        - email
+      recipients:
+        - "role:Executive"
+        - "role:Board"
+      template: quarterly_review_ready
+      variables:
+        quarter: "Q{{Quarter}} {{Year}}"
+        summary: "{{executive_summary}}"
+        report_link: "{{Report_URL}}"
+
+  - id: post_internal_summary
+    name: "Post Internal Summary"
+    type: notification
+    config:
+      channels:
+        - discord
+      recipients:
+        - "channel:mhi-general"
+      template: quarterly_summary_internal
+      variables:
+        quarter: "Q{{Quarter}}"
+        highlights: "{{Top_Wins}}"
+        next_quarter: "{{Next_Quarter_Goals}}"
+
+  - id: post_linkedin_highlight
+    name: "Post LinkedIn Quarterly Highlight"
+    type: social_post
+    condition: "Share_Publicly == true"
+    config:
+      platforms:
+        - linkedin
+      content: |
+        📊 Q{{Quarter}} {{Year}} Wrap-up for Mighty House Inc.!
+        
+        {{Public_Highlights}}
+        
+        Proud of our team's accomplishments across all divisions.
+        Here's to an even stronger Q{{Next_Quarter}}! 💪
+        
+        #MightyHouseInc #QuarterlyReview #SmallBusiness #Growth
+      schedule_type: immediate
+
+  # --- Archive & Tasks ---
+
+  - id: archive_report
+    name: "Archive Report"
+    type: create_record
+    config:
+      _module: Quarterly_Reports
+      record_data:
+        Period: "Q{{Quarter}} {{Year}}"
+        Generated_Date: "{{now}}"
+        MHI_Revenue: "{{MHI_Revenue}}"
+        DSAIC_MRR: "{{DSAIC_MRR}}"
+        CS_Revenue: "{{CS_Revenue}}"
+        Total_Revenue: "{{Total_Revenue}}"
+        YoY_Growth: "{{YoY_Growth}}"
+        Report_URL: "{{Report_URL}}"
+        Executive_Summary: "{{executive_summary}}"
+
+  - id: create_followup_tasks
+    name: "Create Q+1 Planning Tasks"
+    type: create_task
+    config:
+      tasks:
+        - subject: "Q{{Next_Quarter}} goal setting meeting"
+          due_days: 7
+          assign_to: "role:Executive"
+          priority: "High"
+        
+        - subject: "Review Q{{Quarter}} underperforming metrics"
+          due_days: 14
+          assign_to: "role:Operations"
+          priority: "Normal"
+        
+        - subject: "Update Q{{Next_Quarter}} forecasts"
+          due_days: 10
+          assign_to: "role:Finance"
+          priority: "High"

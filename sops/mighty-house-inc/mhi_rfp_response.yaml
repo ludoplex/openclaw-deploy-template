@@ -1,0 +1,288 @@
+# Mighty House Inc. RFP Response Workflow SOP
+# Manages the process from opportunity discovery to proposal submission
+
+sop_id: mhi_rfp_response
+name: "RFP Response Workflow"
+description: |
+  End-to-end workflow for responding to government RFPs and solicitations
+  discovered via SAM.gov. Handles team assignment, timeline management,
+  document preparation, and submission tracking.
+  
+entity: mighty_house_inc
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "MHI Business Development"
+
+tags:
+  - government
+  - rfp
+  - proposal
+  - sam.gov
+  - procurement
+
+triggers:
+  - type: record_create
+    module: Opportunities
+    condition: "Source == 'SAM.gov'"
+
+  - type: webhook
+    endpoint: /webhooks/sam/opportunity
+    description: "New opportunity from SAM.gov API"
+
+  - type: manual
+    description: "Manual RFP entry"
+
+config:
+  retry_policy:
+    max_attempts: 3
+    backoff_seconds: 120
+  timeout_seconds: 3600
+  notify_on_failure:
+    - "channel:mhi-bd"
+
+steps:
+  # --- Phase 1: Opportunity Qualification ---
+
+  - id: validate_opportunity
+    name: "Validate Opportunity Data"
+    type: validation
+    on_failure: stop
+    config:
+      rules:
+        - field: Solicitation_Number
+          operator: exists
+        - field: Title
+          operator: exists
+        - field: Response_Deadline
+          operator: exists
+        - field: Contracting_Office
+          operator: exists
+        - field: NAICS_Code
+          operator: exists
+      fail_message: "Missing required opportunity fields"
+
+  - id: check_naics_match
+    name: "Check NAICS Code Match"
+    type: condition
+    config:
+      expression: "NAICS_Code in ['541512', '541511', '541519', '541513', '541330', '423430']"
+      description: "Verify opportunity matches our NAICS codes"
+
+  - id: calculate_timeline
+    name: "Calculate Response Timeline"
+    type: transform
+    config:
+      operations:
+        - field: Days_Until_Deadline
+          expression: "date_diff(Response_Deadline, now())"
+        - field: Go_NoGo_Deadline
+          expression: "date_add(now(), 3, 'days')"
+        - field: Draft_Deadline
+          expression: "date_subtract(Response_Deadline, 5, 'days')"
+        - field: Review_Deadline
+          expression: "date_subtract(Response_Deadline, 2, 'days')"
+
+  # --- Phase 2: Go/No-Go Decision ---
+
+  - id: notify_bd_team
+    name: "Notify BD Team"
+    type: notification
+    config:
+      channels:
+        - discord
+        - email
+      recipients:
+        - "channel:mhi-bd"
+        - "role:Business Development"
+      template: new_opportunity
+      variables:
+        title: "{{Title}}"
+        solicitation: "{{Solicitation_Number}}"
+        deadline: "{{Response_Deadline}}"
+        value: "{{Estimated_Value}}"
+        naics: "{{NAICS_Code}}"
+
+  - id: create_go_nogo_task
+    name: "Create Go/No-Go Task"
+    type: create_task
+    config:
+      tasks:
+        - subject: "Go/No-Go Decision: {{Title}}"
+          due_days: 3
+          assign_to: "role:BD Lead"
+          priority: "High"
+          description: |
+            Evaluate opportunity and make go/no-go decision.
+            
+            Solicitation: {{Solicitation_Number}}
+            Agency: {{Contracting_Office}}
+            Deadline: {{Response_Deadline}}
+            Est. Value: {{Estimated_Value}}
+            
+            Checklist:
+            - [ ] Review full solicitation
+            - [ ] Assess technical capability
+            - [ ] Check past performance fit
+            - [ ] Evaluate competition
+            - [ ] Confirm resource availability
+            - [ ] Calculate price-to-win
+
+  - id: request_go_nogo_approval
+    name: "Request Go/No-Go Approval"
+    type: approval
+    config:
+      approvers:
+        - "role:BD Lead"
+        - "role:Executive"
+      timeout_hours: 72
+      escalation:
+        after_hours: 48
+        escalate_to:
+          - "role:CEO"
+      on_timeout: reject
+
+  # --- Phase 3: Proposal Preparation (if GO) ---
+
+  - id: update_status_go
+    name: "Update Status to Active"
+    type: field_update
+    condition: "Go_Decision == 'Go'"
+    config:
+      updates:
+        Status: "Active Pursuit"
+        Decision_Date: "{{now}}"
+        Assigned_PM: "{{Assigned_Proposal_Manager}}"
+
+  - id: create_proposal_tasks
+    name: "Create Proposal Task List"
+    type: create_task
+    condition: "Go_Decision == 'Go'"
+    config:
+      tasks:
+        - subject: "Download full solicitation package: {{Solicitation_Number}}"
+          due_days: 1
+          assign_to: "{{Assigned_PM}}"
+          priority: "High"
+        
+        - subject: "Create proposal outline: {{Title}}"
+          due_days: 3
+          assign_to: "{{Assigned_PM}}"
+          priority: "High"
+        
+        - subject: "Identify subcontractors/teaming partners"
+          due_days: 5
+          assign_to: "role:BD Lead"
+          priority: "Normal"
+        
+        - subject: "Draft technical approach"
+          due_days: 7
+          assign_to: "{{Technical_Lead}}"
+          priority: "High"
+        
+        - subject: "Compile past performance references"
+          due_days: 7
+          assign_to: "{{Assigned_PM}}"
+          priority: "Normal"
+        
+        - subject: "Develop pricing strategy"
+          due_days: 10
+          assign_to: "role:Finance"
+          priority: "High"
+        
+        - subject: "Complete first draft: {{Title}}"
+          due_days: "{{Draft_Deadline_Days}}"
+          assign_to: "{{Assigned_PM}}"
+          priority: "Critical"
+        
+        - subject: "Executive review of proposal"
+          due_days: "{{Review_Deadline_Days}}"
+          assign_to: "role:Executive"
+          priority: "Critical"
+
+  - id: notify_team_kickoff
+    name: "Notify Team of Kickoff"
+    type: notification
+    condition: "Go_Decision == 'Go'"
+    config:
+      channels:
+        - discord
+        - email
+      recipients:
+        - "{{Assigned_PM}}"
+        - "{{Technical_Lead}}"
+        - "role:Proposal Team"
+      template: proposal_kickoff
+      variables:
+        title: "{{Title}}"
+        deadline: "{{Response_Deadline}}"
+        pm: "{{Assigned_PM}}"
+
+  # --- Phase 4: No-Go Handling ---
+
+  - id: update_status_nogo
+    name: "Update Status to No-Go"
+    type: field_update
+    condition: "Go_Decision == 'No-Go'"
+    config:
+      updates:
+        Status: "No-Go"
+        Decision_Date: "{{now}}"
+        No_Go_Reason: "{{Decision_Reason}}"
+
+  - id: log_nogo_reason
+    name: "Log No-Go for Analysis"
+    type: create_record
+    condition: "Go_Decision == 'No-Go'"
+    config:
+      _module: Opportunity_Analytics
+      record_data:
+        Opportunity: "{{record_id}}"
+        Decision: "No-Go"
+        Reason: "{{Decision_Reason}}"
+        NAICS: "{{NAICS_Code}}"
+        Agency: "{{Contracting_Office}}"
+        Estimated_Value: "{{Estimated_Value}}"
+
+  # --- Phase 5: Submission Tracking ---
+
+  - id: schedule_submission_reminder
+    name: "Schedule Submission Reminders"
+    type: social_post
+    condition: "Go_Decision == 'Go'"
+    config:
+      platforms:
+        - discord
+      content: |
+        ⏰ **PROPOSAL DEADLINE REMINDER**
+        
+        {{Title}}
+        Solicitation: {{Solicitation_Number}}
+        Due: {{Response_Deadline}}
+        
+        Final submission must be uploaded 24 hours before deadline!
+      schedule_type: scheduled
+      scheduled_at: "{{Response_Deadline}} - 48 hours"
+
+  - id: create_submission_checklist
+    name: "Create Submission Checklist"
+    type: create_task
+    condition: "Go_Decision == 'Go'"
+    config:
+      tasks:
+        - subject: "SUBMIT: {{Title}} - DEADLINE {{Response_Deadline}}"
+          due_days: "{{Deadline_Days}}"
+          assign_to: "{{Assigned_PM}}"
+          priority: "Critical"
+          description: |
+            SUBMISSION CHECKLIST:
+            
+            - [ ] All volumes complete
+            - [ ] Page counts verified
+            - [ ] Required forms included
+            - [ ] Signatures obtained
+            - [ ] PDF bookmarks added
+            - [ ] File sizes within limits
+            - [ ] Upload to SAM.gov/eBuy/Agency portal
+            - [ ] Confirmation receipt saved
+            - [ ] Backup submission method ready

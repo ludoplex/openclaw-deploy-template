@@ -1,0 +1,152 @@
+# Cross-Entity - Student to Employee Pipeline
+# Manages the transition of certified students to MHI/DSAIC roles
+
+id: pipeline_student_employee
+name: "Student to Employee Pipeline"
+version: "1.0"
+entity: cross_entity
+module: Contacts
+description: "Tracks and manages certified students transitioning to employment at MHI or DSAIC"
+enabled: true
+priority: 5
+tags: [pipeline, recruitment, cross_entity]
+
+triggers:
+  - type: field_update
+    field: Pipeline_Status
+    
+  - type: field_update
+    field: Certifications_Earned
+    condition: "Certifications_Earned >= 2"
+    
+  - type: field_update
+    field: Employment_Interest
+
+steps:
+  # Step 1: Validate pipeline candidate
+  - id: validate_candidate
+    name: "Validate Pipeline Candidate"
+    type: validation
+    rules:
+      - field: Certifications_Earned
+        required: true
+        min_value: 1
+      - field: Pipeline_Candidate
+        required: true
+      - field: Email
+        required: true
+        format: email
+      - field: Employment_Interest
+        allowed_values: ["MHI", "DSAIC", "Both", "Not Interested"]
+    on_failure: continue
+
+  # Step 2: Notify recruitment teams
+  - id: notify_recruitment
+    name: "Notify Recruitment Teams"
+    type: notification
+    condition: "Pipeline_Status == 'Ready for Placement'"
+    recipients:
+      - "channel:mhi-general"
+      - "channel:dsaic-general"
+      - "role:HR"
+    template: certification_achieved
+    level: success
+
+  # Step 3: MHI interest pathway
+  - id: mhi_recruitment_tasks
+    name: "MHI Recruitment Tasks"
+    type: create_task
+    condition: "Employment_Interest == 'MHI' || Employment_Interest == 'Both'"
+    tasks:
+      - subject: "MHI Interview: ${First_Name} ${Last_Name}"
+        due_days: 7
+        assign_to: "role:MHI_HR"
+        priority: High
+        description: "Schedule interview for certified candidate with ${Certifications_Earned} certifications"
+      - subject: "MHI Skills Assessment: ${First_Name} ${Last_Name}"
+        due_days: 10
+        assign_to: "role:MHI_Technical"
+        priority: Normal
+        description: "Conduct technical skills assessment"
+      - subject: "MHI Background Check: ${First_Name} ${Last_Name}"
+        due_days: 14
+        assign_to: "role:HR"
+        priority: Normal
+        description: "Initiate background check process"
+
+  # Step 4: DSAIC interest pathway
+  - id: dsaic_recruitment_tasks
+    name: "DSAIC Recruitment Tasks"
+    type: create_task
+    condition: "Employment_Interest == 'DSAIC' || Employment_Interest == 'Both'"
+    tasks:
+      - subject: "DSAIC Interview: ${First_Name} ${Last_Name}"
+        due_days: 7
+        assign_to: "role:DSAIC_HR"
+        priority: High
+        description: "Schedule interview for certified candidate"
+      - subject: "DSAIC Code Challenge: ${First_Name} ${Last_Name}"
+        due_days: 10
+        assign_to: "role:DSAIC_Engineering"
+        priority: Normal
+        description: "Send coding challenge for technical assessment"
+      - subject: "DSAIC Culture Fit: ${First_Name} ${Last_Name}"
+        due_days: 12
+        assign_to: "role:DSAIC_HR"
+        priority: Normal
+        description: "Conduct culture fit interview"
+
+  # Step 5: High performer fast track
+  - id: fast_track_notification
+    name: "Fast Track High Performers"
+    type: notification
+    condition: "Certifications_Earned >= 3 && Average_Exam_Score >= 90"
+    recipients:
+      - "email:rachel@mightyhouseinc.com"
+      - "role:Executive"
+    template: certification_achieved
+    level: success
+
+  # Step 6: Update pipeline status
+  - id: update_pipeline
+    name: "Update Pipeline Status"
+    type: field_update
+    updates:
+      Pipeline_Status: "Active Interview"
+      Interview_Started_Date: "${TODAY}"
+      Sourced_From: "Computer Store Training"
+
+  # Step 7: Offer made tracking
+  - id: offer_tasks
+    name: "Offer Stage Tasks"
+    type: create_task
+    condition: "Pipeline_Status == 'Offer'"
+    tasks:
+      - subject: "Prepare Offer: ${First_Name} ${Last_Name}"
+        due_days: 2
+        assign_to: "role:HR"
+        priority: High
+        description: "Prepare employment offer for ${Target_Entity}"
+      - subject: "Compensation Review: ${First_Name} ${Last_Name}"
+        due_days: 1
+        assign_to: "role:HR_Manager"
+        priority: High
+        description: "Review and approve compensation package"
+      - subject: "Offer Presentation: ${First_Name} ${Last_Name}"
+        due_days: 3
+        assign_to: "role:Hiring_Manager"
+        priority: High
+        description: "Present offer to candidate"
+
+  # Step 8: Hired notification
+  - id: notify_hired
+    name: "Notify on Hire"
+    type: notification
+    condition: "Pipeline_Status == 'Hired'"
+    recipients:
+      - "channel:cs-general"
+      - "channel:mhi-general"
+      - "channel:dsaic-general"
+    template: sop_completed
+    level: success
+

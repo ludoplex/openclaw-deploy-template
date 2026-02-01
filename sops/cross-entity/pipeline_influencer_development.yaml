@@ -1,0 +1,370 @@
+# Cross-Entity Pipeline: Influencer Development
+# Develops gaming community members into brand ambassadors
+
+pipeline_id: pipeline_influencer_development
+name: "Influencer Development Pipeline"
+description: |
+  Cross-entity pipeline that identifies and develops gaming community
+  members into content creators and brand ambassadors for Computer Store
+  and the broader Mighty House Inc. brand.
+  
+  Stages:
+  1. Community Identification (Computer Store)
+  2. Content Creator Support (Computer Store)
+  3. Brand Ambassador Program (Cross-entity)
+  4. Collaboration Opportunities (All entities)
+
+entity: cross_entity
+version: "1.0"
+status: active
+effective_date: "2026-01-31"
+owner: "Marketing & Community"
+
+tags:
+  - pipeline
+  - influencer
+  - gaming
+  - content-creator
+  - ambassador
+  - community
+
+triggers:
+  - type: field_update
+    module: Community_Members
+    field: Engagement_Score
+    condition: "Engagement_Score >= 80"
+
+  - type: event
+    platform: twitch
+    event_type: channel.follow
+    condition: "Follower_Count >= 100"
+
+  - type: event
+    platform: discord
+    event_type: member.level_up
+    condition: "Level >= 10"
+
+  - type: manual
+    description: "Staff nomination"
+
+stages:
+  - name: "Community Champion"
+    entity: computer_store
+    entry_conditions:
+      - "Engagement_Score >= 50"
+      - "Member_Duration_Days >= 30"
+    exit_conditions:
+      - "Content_Created >= 3"
+
+  - name: "Content Creator"
+    entity: computer_store
+    entry_conditions:
+      - "Content_Created >= 3"
+      - "Follower_Count >= 100"
+    exit_conditions:
+      - "Collaboration_Count >= 2"
+      - "Content_Quality_Score >= 70"
+
+  - name: "Brand Ambassador"
+    entity: cross_entity
+    entry_conditions:
+      - "Collaboration_Count >= 2"
+      - "Brand_Fit_Score >= 80"
+    exit_conditions:
+      - "Ambassador_Agreement_Signed == true"
+
+steps:
+  # --- Stage 1: Identification ---
+
+  - id: validate_candidate
+    name: "Validate Influencer Candidate"
+    type: validation
+    config:
+      rules:
+        - field: Name
+          operator: exists
+        - field: Platform
+          operator: exists
+        - field: Handle
+          operator: exists
+        - field: Engagement_Score
+          operator: gte
+          value: 50
+
+  - id: create_influencer_record
+    name: "Create Influencer Record"
+    type: create_record
+    config:
+      _module: Influencer_Pipeline
+      record_data:
+        Name: "{{Name}}"
+        Primary_Platform: "{{Platform}}"
+        Handle: "{{Handle}}"
+        Follower_Count: "{{Follower_Count}}"
+        Engagement_Score: "{{Engagement_Score}}"
+        Discovery_Source: "{{Source}}"
+        Current_Stage: "Community Champion"
+        Entry_Date: "{{now}}"
+        Status: "Active"
+
+  - id: notify_community_team
+    name: "Notify Community Team"
+    type: notification
+    config:
+      channels:
+        - discord
+      recipients:
+        - "channel:cs-community"
+        - "role:Community Manager"
+      template: new_influencer_candidate
+      variables:
+        name: "{{Name}}"
+        platform: "{{Platform}}"
+        handle: "{{Handle}}"
+        followers: "{{Follower_Count}}"
+
+  # --- Stage 2: Community Champion Support ---
+
+  - id: send_recognition_dm
+    name: "Send Recognition DM"
+    type: notification
+    config:
+      channels:
+        - discord
+      recipients:
+        - "user:{{Discord_User_ID}}"
+      template: community_champion_welcome
+      variables:
+        name: "{{Name}}"
+        perks: "Early access to events, Discord role, shoutouts"
+
+  - id: grant_discord_role
+    name: "Grant Community Champion Role"
+    type: api_call
+    config:
+      endpoint: "/api/discord/roles/assign"
+      method: "POST"
+      body:
+        user_id: "{{Discord_User_ID}}"
+        role: "Community Champion"
+        guild_id: "{{CS_DISCORD_GUILD}}"
+
+  - id: create_welcome_post
+    name: "Welcome Post"
+    type: social_post
+    config:
+      platforms:
+        - discord
+      content: |
+        🎮 **Welcome our newest Community Champion!**
+        
+        Big shoutout to {{Name}} for being an awesome member of our community!
+        
+        Check them out: {{Platform_Link}}
+        
+        #CommunityChampion
+      schedule_type: immediate
+
+  # --- Stage 3: Content Creator Progression ---
+
+  - id: check_content_milestone
+    name: "Check Content Milestone"
+    type: condition
+    config:
+      expression: "Content_Created >= 3"
+
+  - id: upgrade_to_creator
+    name: "Upgrade to Content Creator"
+    type: field_update
+    condition: "Content_Created >= 3 AND Follower_Count >= 100"
+    config:
+      updates:
+        Current_Stage: "Content Creator"
+        Stage_Change_Date: "{{now}}"
+        Creator_Since: "{{now}}"
+
+  - id: offer_creator_perks
+    name: "Offer Creator Perks"
+    type: notification
+    condition: "Current_Stage == 'Content Creator'"
+    config:
+      channels:
+        - email
+        - discord
+      recipients:
+        - "{{Email}}"
+        - "user:{{Discord_User_ID}}"
+      template: creator_perks_offer
+      variables:
+        name: "{{Name}}"
+        perks: |
+          - Free LAN center access (4 hrs/week)
+          - Equipment loans for content
+          - Event co-hosting opportunities
+          - Shoutouts on our channels
+          - Affiliate discount codes
+
+  - id: create_collaboration_task
+    name: "Schedule First Collaboration"
+    type: create_task
+    condition: "Current_Stage == 'Content Creator'"
+    config:
+      tasks:
+        - subject: "Schedule collab with {{Name}}"
+          due_days: 14
+          assign_to: "role:Community Manager"
+          priority: "Normal"
+          description: |
+            New content creator ready for first collaboration!
+            
+            Creator: {{Name}}
+            Platform: {{Platform}} ({{Handle}})
+            Followers: {{Follower_Count}}
+            
+            Ideas:
+            - Stream together
+            - Event coverage
+            - Review/unboxing
+            - Tournament highlight
+
+  # --- Stage 4: Brand Ambassador ---
+
+  - id: evaluate_ambassador_fit
+    name: "Evaluate Ambassador Fit"
+    type: transform
+    condition: "Collaboration_Count >= 2"
+    config:
+      operations:
+        - field: Brand_Fit_Score
+          expression: |
+            (Content_Quality * 0.3) +
+            (Engagement_Rate * 0.3) +
+            (Audience_Alignment * 0.2) +
+            (Reliability_Score * 0.2)
+
+  - id: upgrade_to_ambassador
+    name: "Upgrade to Ambassador"
+    type: field_update
+    condition: "Brand_Fit_Score >= 80"
+    config:
+      updates:
+        Current_Stage: "Brand Ambassador"
+        Stage_Change_Date: "{{now}}"
+
+  - id: send_ambassador_offer
+    name: "Send Ambassador Offer"
+    type: notification
+    condition: "Current_Stage == 'Brand Ambassador'"
+    config:
+      channels:
+        - email
+      recipients:
+        - "{{Email}}"
+      template: ambassador_offer
+      variables:
+        name: "{{Name}}"
+        benefits: |
+          - Monthly stipend or product credit
+          - Exclusive merch package
+          - Priority event access
+          - Featured on our website
+          - Revenue share on referrals
+          - Direct line to marketing team
+
+  - id: create_ambassador_task
+    name: "Create Ambassador Onboarding"
+    type: create_task
+    condition: "Ambassador_Agreement_Signed == true"
+    config:
+      tasks:
+        - subject: "Onboard Ambassador: {{Name}}"
+          due_days: 7
+          assign_to: "role:Marketing"
+          priority: "High"
+          description: |
+            New brand ambassador accepted!
+            
+            Ambassador: {{Name}}
+            Platform: {{Platform}}
+            Followers: {{Follower_Count}}
+            
+            Onboarding checklist:
+            - [ ] Send welcome kit
+            - [ ] Create affiliate codes
+            - [ ] Add to ambassador Discord
+            - [ ] Schedule intro call
+            - [ ] Add to content calendar
+            - [ ] Create social intro post
+
+  - id: announce_ambassador
+    name: "Announce New Ambassador"
+    type: social_post
+    condition: "Ambassador_Agreement_Signed == true"
+    config:
+      platforms:
+        - discord
+        - facebook
+        - twitter
+        - instagram
+      content: |
+        🌟 **Welcome Our Newest Brand Ambassador!** 🌟
+        
+        We're thrilled to announce {{Name}} as an official 
+        Computer Store Brand Ambassador!
+        
+        Follow them: {{Platform_Link}}
+        
+        #ComputerStore #Ambassador #Gaming #Community
+      schedule_type: immediate
+
+  # --- Cross-Entity Opportunities ---
+
+  - id: check_mhi_opportunity
+    name: "Check MHI Collaboration Opportunity"
+    type: condition
+    condition: "Current_Stage == 'Brand Ambassador'"
+    config:
+      expression: "Audience_Includes_B2B == true OR Tech_Focus == true"
+
+  - id: notify_mhi_marketing
+    name: "Notify MHI of Opportunity"
+    type: cross_entity_trigger
+    condition: "Audience_Includes_B2B == true"
+    config:
+      target_entity: mighty_house_inc
+      target_sop: mhi_influencer_collab_review
+      payload:
+        ambassador_id: "{{record_id}}"
+        name: "{{Name}}"
+        platform: "{{Platform}}"
+        handle: "{{Handle}}"
+        followers: "{{Follower_Count}}"
+        tech_focus: "{{Tech_Focus}}"
+        audience_demo: "{{Audience_Demographics}}"
+      wait_for_completion: false
+
+  - id: check_dsaic_opportunity
+    name: "Check DSAIC Collaboration"
+    type: cross_entity_trigger
+    condition: "Developer_Audience == true"
+    config:
+      target_entity: dsaic
+      target_sop: dsaic_influencer_review
+      payload:
+        ambassador_id: "{{record_id}}"
+        name: "{{Name}}"
+        platform: "{{Platform}}"
+        developer_focus: "{{Developer_Content_Ratio}}"
+      wait_for_completion: false
+
+  # --- Analytics ---
+
+  - id: update_pipeline_metrics
+    name: "Update Pipeline Metrics"
+    type: field_update
+    config:
+      updates:
+        Last_Updated: "{{now}}"
+        Days_In_Pipeline: "{{days_since_entry}}"
+        Total_Content_Views: "{{Content_Views}}"
+        Referral_Revenue: "{{Tracked_Revenue}}"

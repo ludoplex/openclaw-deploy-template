@@ -1,0 +1,183 @@
+# Mighty House Inc - Supplier API Management SOP
+# Automates supplier onboarding, API credential tracking, and order processing
+
+id: mhi_supplier_management
+name: "MHI Supplier API Management"
+version: "1.0"
+entity: mighty_house_inc
+module: Accounts
+description: "Manages supplier accounts, API credentials, and automated order workflows"
+enabled: true
+priority: 15
+tags: [suppliers, api, automation, mhi]
+
+triggers:
+  - type: record_create
+    condition: "Account_Type == 'Supplier'"
+    
+  - type: field_update
+    field: API_Status
+    
+  - type: field_update
+    field: Supplier_Tier
+
+steps:
+  # Step 1: Validate supplier information
+  - id: validate_supplier
+    name: "Validate Supplier Data"
+    type: validation
+    rules:
+      - field: Account_Name
+        required: true
+      - field: Supplier_Type
+        required: true
+        allowed_values: 
+          - "TDSynnex"
+          - "Ingram Micro"
+          - "D&H"
+          - "DigiKey"
+          - "Mouser"
+          - "VEX Robotics"
+          - "XYAB"
+          - "Etilize"
+          - "Other"
+      - field: Primary_Contact_Email
+        required: true
+        format: email
+      - field: Supplier_Tier
+        allowed_values: ["Preferred", "Approved", "Pending", "Inactive"]
+    on_failure: notify_admin
+
+  # Step 2: Notify procurement team
+  - id: notify_procurement
+    name: "Notify Procurement Team"
+    type: notification
+    recipients:
+      - "channel:mhi-contracts"
+      - "role:Procurement"
+    template: sop_started
+    level: info
+
+  # Step 3: Create API setup tasks for new suppliers
+  - id: api_setup_tasks
+    name: "Create API Setup Tasks"
+    type: create_task
+    condition: "API_Status == 'Not Configured'"
+    tasks:
+      - subject: "Request API Access: ${Account_Name}"
+        due_days: 2
+        assign_to: "role:IT_Admin"
+        priority: High
+        description: "Contact ${Account_Name} to request API credentials"
+      - subject: "Configure API Integration: ${Account_Name}"
+        due_days: 7
+        assign_to: "role:IT_Admin"
+        priority: Normal
+        description: "Set up API integration for ${Supplier_Type} supplier"
+      - subject: "Test API Connection: ${Account_Name}"
+        due_days: 10
+        assign_to: "role:IT_Admin"
+        priority: Normal
+        description: "Validate API connectivity and authentication"
+      - subject: "Document API Credentials: ${Account_Name}"
+        due_days: 12
+        assign_to: "role:IT_Admin"
+        priority: High
+        description: "Securely store API credentials in vault"
+
+  # Step 4: Preferred supplier special handling
+  - id: preferred_supplier_setup
+    name: "Preferred Supplier Setup"
+    type: create_task
+    condition: "Supplier_Tier == 'Preferred'"
+    tasks:
+      - subject: "Negotiate Volume Pricing: ${Account_Name}"
+        due_days: 5
+        assign_to: "role:Procurement"
+        priority: High
+        description: "Negotiate volume discounts with preferred supplier"
+      - subject: "Set Up Auto-Ordering: ${Account_Name}"
+        due_days: 14
+        assign_to: "role:IT_Admin"
+        priority: Normal
+        description: "Configure automated purchase order workflows"
+
+  # Step 5: Update supplier record
+  - id: update_supplier
+    name: "Update Supplier Record"
+    type: field_update
+    updates:
+      Onboarding_Status: "In Progress"
+      SOP_Triggered_Date: "${TODAY}"
+      Last_Review_Date: "${TODAY}"
+
+  # Step 6: Alert on API credential expiry
+  - id: api_expiry_alert
+    name: "API Credential Expiry Alert"
+    type: notification
+    condition: "API_Credential_Expiry <= '30 days'"
+    recipients:
+      - "role:IT_Admin"
+      - "channel:mhi-support"
+    template: validation_failed
+    level: warning
+
+---
+# Supplier Order Processing Sub-SOP
+id: mhi_supplier_order
+name: "MHI Supplier Order Processing"
+version: "1.0"
+entity: mighty_house_inc
+module: Purchase_Orders
+description: "Automates purchase order creation and supplier communication"
+enabled: true
+priority: 25
+tags: [suppliers, orders, mhi]
+
+triggers:
+  - type: record_create
+  
+  - type: field_update
+    field: PO_Status
+
+steps:
+  - id: validate_po
+    name: "Validate Purchase Order"
+    type: validation
+    rules:
+      - field: Supplier
+        required: true
+      - field: Total_Amount
+        required: true
+        min_value: 0.01
+      - field: Required_Date
+        required: true
+    on_failure: block_transition
+
+  - id: notify_supplier
+    name: "Notify Supplier Team"
+    type: notification
+    condition: "Total_Amount >= 1000"
+    recipients:
+      - "channel:mhi-contracts"
+    template: sop_started
+    level: info
+
+  - id: approval_tasks
+    name: "Create Approval Tasks"
+    type: create_task
+    condition: "Total_Amount >= 5000"
+    tasks:
+      - subject: "Approve PO: ${PO_Number} - $${Total_Amount}"
+        due_days: 1
+        assign_to: "role:Procurement_Manager"
+        priority: High
+        description: "Review and approve purchase order for ${Supplier}"
+
+  - id: update_po_status
+    name: "Update PO Status"
+    type: field_update
+    updates:
+      Processing_Status: "Submitted"
+      Submitted_Date: "${TODAY}"
+
