@@ -38,5 +38,11 @@ Thumbs.db
 .secrets
 credentials.json
 
+# Large binary files (local LLM)
+bin/
+models/
+*.gguf
+*.llamafile
+
 # Keep memory but ignore sensitive content
 # memory/*.md is tracked

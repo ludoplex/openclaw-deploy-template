@@ -2,23 +2,32 @@
 
 Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
 
-## Local LLM (Ollama)
+## Local LLM (llamafile - APE)
 
-- **Ollama**: v0.15.2
-- **Model**: qwen2.5:7b (4.7GB)
-- **Path**: `C:\Users\user\AppData\Local\Programs\Ollama\`
-- **API**: `http://localhost:11434`
-- **GPU**: RTX 4060 (8GB VRAM)
-- **Performance**: ~0.2s warm, ~51s cold start
+- **llamafile**: v0.9.3 (Cosmopolitan APE binary)
+- **Model**: Qwen2.5-7B-Instruct Q3_K_M (3.5GB)
+- **Binary**: `bin/llamafile.exe`
+- **Model**: `models/qwen2.5-7b-instruct-q3_k_m.gguf`
+- **GPU**: RTX 4060 (8GB VRAM, 29/29 layers offloaded)
+- **Performance**: ~23ms/token, ~43 tok/s
 
-### Usage
-```python
-import requests
-response = requests.post(
-    'http://localhost:11434/api/generate',
-    json={"model": "qwen2.5:7b", "prompt": "...", "stream": False}
-)
-print(response.json()["response"])
+### Why llamafile?
+- Single portable executable (Cosmopolitan Libc)
+- No daemon/service required
+- Cross-platform (Windows/Linux/Mac)
+- Aligns with ApeSwarm/jart philosophy
+
+### Usage (CLI)
+```bash
+./bin/llamafile.exe -m models/qwen2.5-7b-instruct-q3_k_m.gguf \
+  -p "Your prompt here" -n 100 --no-display-prompt -ngl 99
+```
+
+### Usage (Server mode)
+```bash
+./bin/llamafile.exe -m models/qwen2.5-7b-instruct-q3_k_m.gguf \
+  --server --port 8081 -ngl 99
+# API at http://localhost:8081/v1/chat/completions
 ```
 
 ### Delegate to Local LLM
@@ -33,6 +42,11 @@ print(response.json()["response"])
 - Multi-step planning  
 - Code generation with context
 - Tool use coordination
+
+### Also Installed (Ollama)
+- Ollama v0.15.2 also available at `localhost:11434`
+- Model: qwen2.5:7b (4.7GB)
+- Can run both if needed
 
 ---
 

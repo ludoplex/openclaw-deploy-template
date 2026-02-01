@@ -4,21 +4,24 @@
 
 Run a local LLM on RTX 4060 (8GB VRAM) to handle simple tasks, saving Claude tokens for complex reasoning.
 
+**Philosophy:** We use llamafile (Cosmopolitan APE) for portability and alignment with ApeSwarm patterns.
+
 ## Hardware
 
 - **GPU:** NVIDIA GeForce RTX 4060
 - **VRAM:** 8GB (6.8GB available)
-- **Sufficient for:** 7B Q4 quantized models
+- **Sufficient for:** 7B Q3/Q4 quantized models
 
-## Recommended Models
+## Current Setup
 
-| Model | Size | VRAM | Best For |
-|-------|------|------|----------|
-| Qwen2.5-7B-Instruct-Q4_K_M | 4.5GB | ~5GB | General tasks, good reasoning |
-| Mistral-7B-Instruct-v0.3-Q4_K_M | 4.3GB | ~5GB | Fast, good at following instructions |
-| Llama-3.2-3B-Instruct-Q4_K_M | 2GB | ~3GB | Very fast, simpler tasks |
+| Component | Details |
+|-----------|---------|
+| Binary | `bin/llamafile.exe` (v0.9.3, 307MB) |
+| Model | `models/qwen2.5-7b-instruct-q3_k_m.gguf` (3.5GB) |
+| GPU Layers | 29/29 offloaded to CUDA |
+| Performance | ~23ms/token, ~43 tok/s |
 
-## Option 1: Ollama (Recommended - Easiest)
+## Option 1: llamafile (Recommended - APE Philosophy)
 
 ```powershell
 # Install Ollama
