@@ -105,25 +105,87 @@ docker compose logs -f  # Watch logs
 
 ---
 
-## For Local Development (Windows)
+## Deployment Options
 
-Since MixPost needs public domain for OAuth callbacks, options:
-
-1. **ngrok** - Tunnel localhost to public URL
-2. **Cloudflare Tunnel** - Free tunnel service
-3. **Deploy to VPS** - DigitalOcean/Linode/etc
-
-### Using ngrok
+### 1. Railway (Easiest) ⭐
+One-click Laravel deployment with managed databases.
 
 ```bash
-# Install ngrok
+# Install Railway CLI
+npm i -g @railway/cli
+
+# From mixpost-malone directory
+railway login
+railway init
+railway up
+
+# Add MySQL + Redis from Railway dashboard
+# Set APP_URL to Railway domain
+```
+
+**Pros:** Zero config, GitHub auto-deploy, free tier
+**Cost:** ~$5/month for small instance
+
+### 2. Fly.io (Global PoPs)
+Edge deployment with multiple regions.
+
+```bash
+# Install Fly CLI
+curl -L https://fly.io/install.sh | sh
+
+# From mixpost-malone directory
+fly launch  # Auto-detects Laravel
+fly deploy
+
+# Add Postgres + Redis
+fly postgres create
+fly redis create
+```
+
+**Pros:** Global edge, great latency, free allowance
+**Cost:** ~$5-10/month
+
+### 3. Render
+Simple Docker deployment.
+
+```yaml
+# render.yaml
+services:
+  - type: web
+    name: mixpost
+    env: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_KEY
+        generateValue: true
+databases:
+  - name: mixpost-db
+    databaseName: mixpost
+```
+
+**Pros:** Easy setup, managed SSL
+**Cost:** ~$7/month
+
+### 4. Self-Hosted Docker
+Full control on any VPS (DigitalOcean, Linode, Hetzner).
+
+See Docker Compose setup above.
+
+**Pros:** Full control, cheapest at scale
+**Cost:** $5-20/month VPS
+
+### 5. Local Development (Windows)
+
+For testing OAuth flows locally:
+
+```bash
+# Option A: ngrok tunnel
 choco install ngrok
-
-# Start tunnel
 ngrok http 8000
+# Use https://xxx.ngrok.io as APP_DOMAIN
 
-# Note the https://xxx.ngrok.io URL
-# Use this as APP_DOMAIN
+# Option B: Cloudflare Tunnel (free)
+cloudflared tunnel --url http://localhost:8000
 ```
 
 ---
@@ -133,6 +195,28 @@ ngrok http 8000
 1. Configure social providers (Twitter, Facebook, etc.)
 2. Connect accounts
 3. Test posting from SOP Dashboard
+
+---
+
+## Puter.js for AI Features
+
+Puter.js provides free browser-based AI (Claude, GPT, Gemini) with user-pays model.
+
+**Use for:** Content generation UI, image analysis, frontend AI features.
+
+```html
+<script src="https://js.puter.com/v2/"></script>
+<script>
+// Generate social post with AI
+puter.ai.chat('Write a tweet about our new product launch', {
+  model: 'claude-sonnet-4'
+}).then(puter.print);
+</script>
+```
+
+**Not for:** Backend hosting (use Railway/Fly.io for MixPost itself)
+
+---
 
 ## Using Our Fork (mixpost-malone)
 
