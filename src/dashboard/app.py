@@ -74,9 +74,20 @@ except Exception as e:
     print(f"Zoho integration not available: {e}")
     ZOHO_AVAILABLE = False
     _zoho_handler = None
-    
-    def get_scheduler():
-        return None
+
+# Import Media Generator Pipeline
+try:
+    from src.content.prompt_templates import get_prompt_library, MediaType
+    from src.content.media_generator import (
+        get_media_pipeline, 
+        MediaRequest, 
+        RequestStatus,
+        OutputFormat
+    )
+    MEDIA_PIPELINE_AVAILABLE = True
+except Exception as e:
+    print(f"Media pipeline not available: {e}")
+    MEDIA_PIPELINE_AVAILABLE = False
 
 # Setup paths
 BASE_DIR = Path(__file__).parent
@@ -940,6 +951,361 @@ async def get_zoho_status():
                 }
     except Exception as e:
         return {"available": True, "connected": False, "error": str(e)}
+
+
+# =============================================================================
+# MEDIA CONTENT PIPELINE
+# =============================================================================
+
+@app.get("/media", response_class=HTMLResponse)
+async def media_pipeline_page(request: Request):
+    """Media generation pipeline dashboard."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        return templates.TemplateResponse("error.html", {
+            "request": request,
+            "error": "Media pipeline not available"
+        })
+    
+    library = get_prompt_library()
+    pipeline = get_media_pipeline()
+    
+    # Get library stats
+    lib_stats = library.to_dict()
+    
+    # Get pending approvals and recent requests
+    pending = pipeline.get_pending_approvals()
+    recent = sorted(
+        pipeline.requests.values(), 
+        key=lambda r: r.created_at, 
+        reverse=True
+    )[:10]
+    
+    return templates.TemplateResponse("media_pipeline.html", {
+        "request": request,
+        "library_stats": lib_stats,
+        "pending_approvals": [r.to_dict() for r in pending],
+        "recent_requests": [r.to_dict() for r in recent],
+        "pipeline_stats": pipeline.get_stats(),
+        "categories": library.get_categories(),
+        "entities": ["mighty_house_inc", "dsaic", "computer_store"],
+    })
+
+
+@app.get("/api/media/prompts")
+async def api_list_prompts(
+    entity: Optional[str] = None,
+    category: Optional[str] = None,
+    media_type: Optional[str] = None,
+    search: Optional[str] = None,
+    limit: int = 50
+):
+    """API: List marketing prompts from library."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Media pipeline not available")
+    
+    library = get_prompt_library()
+    
+    if search:
+        prompts = library.search_prompts(search)[:limit]
+    else:
+        mt = MediaType(media_type) if media_type else None
+        prompts = library.get_all_prompts(entity, category, mt)[:limit]
+    
+    return {
+        "prompts": [
+            {
+                "id": p.id,
+                "service_id": p.service_id,
+                "service_name": p.service_name,
+                "price": p.price,
+                "media_type": p.media_type.value,
+                "variant": p.variant,
+                "category": p.category,
+                "entity": p.entity,
+                "prompt_preview": p.prompt[:200] + "..." if len(p.prompt) > 200 else p.prompt,
+            }
+            for p in prompts
+        ],
+        "total": len(prompts),
+    }
+
+
+@app.get("/api/media/prompts/{entity}/{service_id}")
+async def api_get_service_prompts(entity: str, service_id: int):
+    """API: Get all prompts for a specific service."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Media pipeline not available")
+    
+    library = get_prompt_library()
+    service = library.get_service(entity, service_id)
+    
+    if not service:
+        raise HTTPException(status_code=404, detail="Service not found")
+    
+    return {
+        "service_id": service.service_id,
+        "name": service.name,
+        "price": service.price,
+        "category": service.category,
+        "entity": service.entity,
+        "canva_prompts": service.canva_prompts,
+        "sora2_prompts": service.sora2_prompts,
+    }
+
+
+@app.post("/api/media/request/image", response_class=HTMLResponse)
+async def create_image_request(
+    request: Request,
+    entity: str = Form(...),
+    service_id: int = Form(...),
+    variant: int = Form(1),
+    output_format: str = Form("1080x1080"),
+    custom_prompt: Optional[str] = Form(None)
+):
+    """Create an image generation request."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        return HTMLResponse("<div class='text-red-400'>Media pipeline not available</div>")
+    
+    library = get_prompt_library()
+    pipeline = get_media_pipeline()
+    
+    service = library.get_service(entity, service_id)
+    if not service:
+        return HTMLResponse(f"<div class='text-red-400'>Service {service_id} not found</div>")
+    
+    # Get the specific prompt
+    canva_prompts = service.get_prompts(MediaType.CANVA)
+    if variant > len(canva_prompts):
+        return HTMLResponse(f"<div class='text-red-400'>Variant {variant} not found</div>")
+    
+    prompt = canva_prompts[variant - 1]
+    
+    # Create request
+    media_request = pipeline.create_image_request(
+        prompt=prompt,
+        output_format=OutputFormat(output_format),
+    )
+    
+    # Apply custom prompt if provided
+    if custom_prompt:
+        pipeline.update_prompt(media_request.id, custom_prompt)
+    
+    return HTMLResponse(f'''
+        <div class="p-4 bg-green-900 rounded-lg">
+            <p class="text-green-300 font-bold">✓ Image Request Created</p>
+            <p class="text-sm text-gray-300 mt-2">Request ID: {media_request.id}</p>
+            <p class="text-sm text-gray-400">Service: {service.name}</p>
+            <p class="text-sm text-gray-400">Format: {output_format}</p>
+            <div class="mt-3 flex gap-2">
+                <button hx-post="/api/media/request/{media_request.id}/submit" 
+                        hx-target="#requestResult"
+                        class="px-3 py-1 bg-blue-600 text-white rounded text-sm">
+                    Submit for Approval
+                </button>
+                <a href="/api/media/request/{media_request.id}/export/canva" 
+                   class="px-3 py-1 bg-gray-600 text-white rounded text-sm">
+                    Export Prompt
+                </a>
+            </div>
+        </div>
+    ''')
+
+
+@app.post("/api/media/request/video", response_class=HTMLResponse)
+async def create_video_request(
+    request: Request,
+    entity: str = Form(...),
+    service_id: int = Form(...),
+    variant: int = Form(1),
+    output_format: str = Form("9:16"),
+    duration: int = Form(15),
+    custom_prompt: Optional[str] = Form(None)
+):
+    """Create a video generation request."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        return HTMLResponse("<div class='text-red-400'>Media pipeline not available</div>")
+    
+    library = get_prompt_library()
+    pipeline = get_media_pipeline()
+    
+    service = library.get_service(entity, service_id)
+    if not service:
+        return HTMLResponse(f"<div class='text-red-400'>Service {service_id} not found</div>")
+    
+    # Get the specific prompt
+    sora_prompts = service.get_prompts(MediaType.SORA2)
+    if variant > len(sora_prompts):
+        return HTMLResponse(f"<div class='text-red-400'>Variant {variant} not found</div>")
+    
+    prompt = sora_prompts[variant - 1]
+    
+    # Create request
+    media_request = pipeline.create_video_request(
+        prompt=prompt,
+        output_format=OutputFormat(output_format),
+        duration_seconds=duration,
+    )
+    
+    # Apply custom prompt if provided
+    if custom_prompt:
+        pipeline.update_prompt(media_request.id, custom_prompt)
+    
+    return HTMLResponse(f'''
+        <div class="p-4 bg-purple-900 rounded-lg">
+            <p class="text-purple-300 font-bold">🎬 Video Request Created</p>
+            <p class="text-sm text-gray-300 mt-2">Request ID: {media_request.id}</p>
+            <p class="text-sm text-gray-400">Service: {service.name}</p>
+            <p class="text-sm text-gray-400">Duration: {duration}s | Format: {output_format}</p>
+            <div class="mt-3 flex gap-2">
+                <button hx-post="/api/media/request/{media_request.id}/submit" 
+                        hx-target="#requestResult"
+                        class="px-3 py-1 bg-blue-600 text-white rounded text-sm">
+                    Submit for Approval
+                </button>
+                <a href="/api/media/request/{media_request.id}/export/sora" 
+                   class="px-3 py-1 bg-gray-600 text-white rounded text-sm">
+                    Export Prompt
+                </a>
+            </div>
+        </div>
+    ''')
+
+
+@app.post("/api/media/request/{request_id}/submit")
+async def submit_media_request(request_id: str):
+    """Submit a media request for approval."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Media pipeline not available")
+    
+    pipeline = get_media_pipeline()
+    
+    try:
+        req = pipeline.submit_for_approval(request_id)
+        return HTMLResponse(f'''
+            <div class="p-3 bg-yellow-900 rounded text-yellow-300 text-sm">
+                ⏳ Request {request_id} submitted for approval
+            </div>
+        ''')
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+
+@app.post("/api/media/request/{request_id}/approve")
+async def approve_media_request(
+    request_id: str,
+    approved_by: str = Form("dashboard")
+):
+    """Approve a media request."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Media pipeline not available")
+    
+    pipeline = get_media_pipeline()
+    
+    try:
+        req = pipeline.approve_request(request_id, approved_by)
+        return {"status": "approved", "request_id": request_id}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+
+@app.post("/api/media/request/{request_id}/reject")
+async def reject_media_request(
+    request_id: str,
+    reason: str = Form("")
+):
+    """Reject a media request."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Media pipeline not available")
+    
+    pipeline = get_media_pipeline()
+    
+    try:
+        req = pipeline.reject_request(request_id, reason)
+        return {"status": "rejected", "request_id": request_id}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+
+@app.get("/api/media/request/{request_id}/export/canva")
+async def export_canva_request(request_id: str):
+    """Export request as Canva-ready format."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Media pipeline not available")
+    
+    pipeline = get_media_pipeline()
+    
+    try:
+        return pipeline.export_for_canva(request_id)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get("/api/media/request/{request_id}/export/sora")
+async def export_sora_request(request_id: str):
+    """Export request as Sora 2-ready format."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Media pipeline not available")
+    
+    pipeline = get_media_pipeline()
+    
+    try:
+        return pipeline.export_for_sora(request_id)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get("/api/media/requests")
+async def list_media_requests(
+    status: Optional[str] = None,
+    entity: Optional[str] = None,
+    limit: int = 50
+):
+    """List media requests with filters."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Media pipeline not available")
+    
+    pipeline = get_media_pipeline()
+    
+    if status:
+        requests = pipeline.get_requests_by_status(RequestStatus(status))
+    elif entity:
+        requests = pipeline.get_requests_by_entity(entity)
+    else:
+        requests = list(pipeline.requests.values())
+    
+    # Sort by created_at descending
+    requests = sorted(requests, key=lambda r: r.created_at, reverse=True)[:limit]
+    
+    return {
+        "requests": [r.to_dict() for r in requests],
+        "total": len(requests),
+    }
+
+
+@app.post("/api/media/brief")
+async def generate_content_brief(
+    entity: str = Form(...),
+    category: Optional[str] = Form(None),
+    count: int = Form(5)
+):
+    """Generate a content brief with AI recommendations."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Media pipeline not available")
+    
+    pipeline = get_media_pipeline()
+    brief = pipeline.generate_content_brief(entity, category, count=count)
+    
+    return {"brief": brief, "entity": entity, "count": len(brief)}
+
+
+@app.get("/api/media/stats")
+async def get_media_stats():
+    """Get media pipeline statistics."""
+    if not MEDIA_PIPELINE_AVAILABLE:
+        return {"available": False}
+    
+    pipeline = get_media_pipeline()
+    return {"available": True, **pipeline.get_stats()}
 
 
 # =============================================================================

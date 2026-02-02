@@ -1,503 +1,309 @@
+# src/content/prompt_templates.py
 """
-Prompt Templates for Multi-Entity Content Generation.
-
-Entity-specific voice profiles, content templates, and media prompts
-for Canva (images) and Sora 2 (videos).
+Marketing prompt template system.
+Parses and serves Canva/Sora 2 prompts from marketing-prompts.md files.
 """
 
+import re
 from typing import Dict, Any, List, Optional
+from pathlib import Path
+from dataclasses import dataclass, field
 from enum import Enum
-from dataclasses import dataclass
 
 
-class ContentType(Enum):
-    SOCIAL_POST = "social_post"
-    IMAGE_PROMPT = "image_prompt"
-    VIDEO_PROMPT = "video_prompt"
-    BLOG_POST = "blog_post"
-    EMAIL = "email"
-    PRESS_RELEASE = "press_release"
-
-
-class Platform(Enum):
-    TWITTER = "twitter"
-    LINKEDIN = "linkedin"
-    FACEBOOK = "facebook"
-    INSTAGRAM = "instagram"
-    DISCORD = "discord"
-    TIKTOK = "tiktok"
-    YOUTUBE = "youtube"
-    TWITCH = "twitch"
-    WHATNOT = "whatnot"
+class MediaType(Enum):
+    CANVA = "canva"
+    SORA2 = "sora2"
 
 
 @dataclass
-class VoiceProfile:
-    """Brand voice configuration."""
+class MediaPrompt:
+    """A single media generation prompt."""
+    service_id: int
+    service_name: str
+    price: str
+    media_type: MediaType
+    variant: int  # 1 or 2
+    prompt: str
+    category: str
+    entity: str
+    
+    @property
+    def id(self) -> str:
+        """Unique identifier for this prompt."""
+        return f"{self.entity}_{self.service_id}_{self.media_type.value}_{self.variant}"
+
+
+@dataclass
+class ServicePrompts:
+    """All prompts for a single service."""
+    service_id: int
     name: str
-    tone: str
-    personality: str
-    keywords: List[str]
-    emoji_style: str
-    hashtags: List[str]
-    avoid: List[str]
-
-
-# =============================================================================
-# ENTITY VOICE PROFILES
-# =============================================================================
-
-VOICE_PROFILES: Dict[str, VoiceProfile] = {
-    "mighty_house_inc": VoiceProfile(
-        name="Mighty House Inc.",
-        tone="Professional, trustworthy, community-focused",
-        personality="Your reliable local tech experts who treat every customer like family",
-        keywords=["local", "trusted", "expert", "community", "quality", "reliable"],
-        emoji_style="moderate",  # Professional but warm
-        hashtags=["#MightyHouseInc", "#LocalTech", "#TechRepair", "#WheatlandWY", "#CommunityTech"],
-        avoid=["slang", "overly casual", "aggressive sales language"]
-    ),
+    price: str
+    category: str
+    entity: str
+    canva_prompts: List[str] = field(default_factory=list)
+    sora2_prompts: List[str] = field(default_factory=list)
     
-    "dsaic": VoiceProfile(
-        name="DSAIC",
-        tone="Developer-friendly, innovative, technical but approachable",
-        personality="Fellow developers who understand the craft and ship quality tools",
-        keywords=["developer", "tools", "productivity", "open-source", "API", "integration"],
-        emoji_style="minimal",  # Clean, dev-focused
-        hashtags=["#DevTools", "#SaaS", "#DeveloperExperience", "#API", "#OpenSource"],
-        avoid=["marketing speak", "buzzwords without substance", "non-technical hype"]
-    ),
+    def get_prompts(self, media_type: MediaType) -> List[MediaPrompt]:
+        """Get all prompts of a specific type."""
+        prompts = self.canva_prompts if media_type == MediaType.CANVA else self.sora2_prompts
+        return [
+            MediaPrompt(
+                service_id=self.service_id,
+                service_name=self.name,
+                price=self.price,
+                media_type=media_type,
+                variant=i + 1,
+                prompt=p,
+                category=self.category,
+                entity=self.entity,
+            )
+            for i, p in enumerate(prompts)
+        ]
+
+
+class PromptTemplateLibrary:
+    """
+    Library of marketing prompts parsed from markdown files.
+    """
     
-    "computer_store": VoiceProfile(
-        name="The Computer Store",
-        tone="Fun, energetic, gaming-enthusiast, community hub",
-        personality="Your local gaming hangout run by people who actually play",
-        keywords=["gaming", "LAN party", "esports", "community", "fun", "tournament"],
-        emoji_style="heavy",  # Gaming culture loves emojis
-        hashtags=["#GamingCommunity", "#LANParty", "#LocalEsports", "#PCGaming", "#WheatlandGamers"],
-        avoid=["boring corporate speak", "outdated gaming references"]
-    ),
-}
-
-
-# =============================================================================
-# PLATFORM CONSTRAINTS
-# =============================================================================
-
-PLATFORM_LIMITS: Dict[str, Dict[str, Any]] = {
-    "twitter": {"max_chars": 280, "supports_threads": True, "hashtag_limit": 3},
-    "linkedin": {"max_chars": 3000, "supports_articles": True, "professional": True},
-    "facebook": {"max_chars": 63206, "supports_long": True},
-    "instagram": {"max_chars": 2200, "hashtag_limit": 30, "visual_required": True},
-    "discord": {"max_chars": 2000, "supports_embeds": True, "no_markdown_tables": True},
-    "tiktok": {"max_chars": 2200, "video_required": True, "trending_sounds": True},
-    "youtube": {"title_max": 100, "description_max": 5000},
-    "twitch": {"max_chars": 500, "streaming_focus": True},
-    "whatnot": {"max_chars": 1000, "commerce_focus": True},
-}
-
-
-# =============================================================================
-# CONTENT TEMPLATES
-# =============================================================================
-
-SOCIAL_TEMPLATES = {
-    # Contract Win Announcement
-    "contract_win": {
-        "twitter": """🎉 Exciting news! {company} has been awarded a {contract_type} contract!
-
-{brief_description}
-
-Thank you to our amazing team and partners who made this possible.
-
-{hashtags}""",
+    def __init__(self):
+        self.services: Dict[str, ServicePrompts] = {}  # key: entity_service_id
+        self.by_entity: Dict[str, List[ServicePrompts]] = {}
+        self.by_category: Dict[str, List[ServicePrompts]] = {}
+        self._loaded_files: List[str] = []
+    
+    def load_from_markdown(self, filepath: Path, entity: str) -> int:
+        """
+        Parse marketing prompts from a markdown file.
         
-        "linkedin": """🏆 Contract Award Announcement
-
-{company} is proud to announce that we have been awarded a {contract_type} contract for {project_name}.
-
-{detailed_description}
-
-This achievement reflects our commitment to delivering excellence in {service_area}. We're grateful for the trust placed in our team and look forward to exceeding expectations.
-
-Key Highlights:
-• {highlight_1}
-• {highlight_2}
-• {highlight_3}
-
-{hashtags}""",
+        Returns number of services loaded.
+        """
+        if not filepath.exists():
+            return 0
+            
+        content = filepath.read_text(encoding='utf-8')
+        self._loaded_files.append(str(filepath))
         
-        "discord": """🎊 **BIG NEWS!**
-
-We just won a {contract_type} contract!
-
-{brief_description}
-
-Thank you to everyone who made this happen! 🙏""",
-    },
-    
-    # Gaming Event
-    "gaming_event": {
-        "twitter": """🎮 {event_type} ALERT!
-
-📅 {date}
-🕐 {time}
-🏆 {prize_info}
-
-{brief_description}
-
-Sign up: {signup_link}
-
-{hashtags}""",
+        # Track current category and service
+        current_category = "General"
+        current_service: Optional[ServicePrompts] = None
+        service_count = 0
         
-        "discord": """# 🎮 {event_name}
-
-**When:** {date} at {time}
-**Where:** The Computer Store, Wheatland
-**Prize Pool:** {prize_info}
-
-{detailed_description}
-
-**Games:**
-{game_list}
-
-**How to Enter:**
-{entry_info}
-
-React with 🎮 if you're coming!""",
+        # Regex patterns
+        category_pattern = re.compile(r'^## [🔧📚📱🎮💱🔍💰🎨]\s*(.+)$', re.MULTILINE)
+        service_pattern = re.compile(r'^### (\d+)\.\s*(.+?)(?:\s*\(([^)]+)\))?$', re.MULTILINE)
         
-        "tiktok": """🔥 {event_type} this {day}!
-
-{prize_info} up for grabs 💰
-{game} tournament 🎮
-
-Link in bio to sign up ⬆️
-
-{hashtags}""",
+        lines = content.split('\n')
+        i = 0
         
-        "facebook": """🎮 {event_name} 🎮
-
-Join us for an epic {event_type} at The Computer Store!
-
-📅 Date: {date}
-⏰ Time: {time}
-📍 Location: The Computer Store, Wheatland, WY
-🏆 Prizes: {prize_info}
-
-{detailed_description}
-
-{entry_info}
-
-Tag your squad! 👥
-
-{hashtags}""",
-    },
-    
-    # Product Launch
-    "product_launch": {
-        "twitter": """🚀 Introducing {product_name}!
-
-{value_proposition}
-
-{key_feature}
-
-Try it now: {link}
-
-{hashtags}""",
+        while i < len(lines):
+            line = lines[i]
+            
+            # Check for category header
+            cat_match = category_pattern.match(line)
+            if cat_match:
+                current_category = cat_match.group(1).strip()
+                i += 1
+                continue
+            
+            # Check for service header
+            svc_match = service_pattern.match(line)
+            if svc_match:
+                # Save previous service if exists
+                if current_service:
+                    key = f"{entity}_{current_service.service_id}"
+                    self.services[key] = current_service
+                    self._index_service(current_service)
+                    service_count += 1
+                
+                service_id = int(svc_match.group(1))
+                service_name = svc_match.group(2).strip()
+                price = svc_match.group(3) or "TBD"
+                
+                current_service = ServicePrompts(
+                    service_id=service_id,
+                    name=service_name,
+                    price=price,
+                    category=current_category,
+                    entity=entity,
+                )
+                i += 1
+                continue
+            
+            # Check for prompt blocks
+            if current_service and line.startswith('**Canva Prompt'):
+                prompt = self._extract_code_block(lines, i + 1)
+                if prompt:
+                    current_service.canva_prompts.append(prompt)
+                i += 1
+                continue
+                
+            if current_service and line.startswith('**Sora 2 Prompt'):
+                prompt = self._extract_code_block(lines, i + 1)
+                if prompt:
+                    current_service.sora2_prompts.append(prompt)
+                i += 1
+                continue
+            
+            i += 1
         
-        "linkedin": """🚀 Announcing {product_name}
-
-We're excited to introduce our latest solution for {target_audience}.
-
-**The Problem:**
-{problem_statement}
-
-**Our Solution:**
-{product_name} provides {solution_description}
-
-**Key Features:**
-• {feature_1}
-• {feature_2}
-• {feature_3}
-
-{cta}
-
-{hashtags}""",
+        # Save last service
+        if current_service:
+            key = f"{entity}_{current_service.service_id}"
+            self.services[key] = current_service
+            self._index_service(current_service)
+            service_count += 1
         
-        "discord": """# 🚀 New Release: {product_name}
-
-{value_proposition}
-
-**What's New:**
-{feature_list}
-
-**Get Started:**
-{getting_started}
-
-Questions? Drop them below! 👇""",
-    },
+        return service_count
     
-    # Live Show (Whatnot/Twitch)
-    "live_show": {
-        "whatnot": """🔴 GOING LIVE!
-
-{show_title}
-
-{show_description}
-
-Starting at {time}!
-
-Follow to get notified 🔔""",
+    def _extract_code_block(self, lines: List[str], start_idx: int) -> Optional[str]:
+        """Extract content from a markdown code block."""
+        # Find opening ```
+        i = start_idx
+        while i < len(lines) and not lines[i].strip().startswith('```'):
+            i += 1
         
-        "twitch": """🔴 LIVE NOW
-
-{stream_title}
-
-{game_or_activity}
-
-Come hang out! 💬""",
+        if i >= len(lines):
+            return None
         
-        "discord": """# 🔴 LIVE IN {countdown}!
-
-**{show_title}**
-
-{show_description}
-
-**Platform:** {platform}
-**Time:** {time}
-
-Set a reminder! 🔔""",
-    },
-}
-
-
-# =============================================================================
-# IMAGE PROMPT TEMPLATES (for Canva/DALL-E/Midjourney)
-# =============================================================================
-
-IMAGE_PROMPTS = {
-    "contract_win": {
-        "celebration": """Create a professional celebration graphic for a government contract win. 
-Include: handshake silhouette, American flag elements (subtle), achievement badge/trophy icon.
-Colors: Navy blue, gold accents, white.
-Text space for: Company name, "Contract Awarded", contract value.
-Style: Corporate, trustworthy, patriotic but not over-the-top.
-Dimensions: {dimensions}""",
+        i += 1  # Skip opening ```
+        content_lines = []
         
-        "announcement": """Design a professional announcement banner for a business achievement.
-Include: Company logo placeholder, confetti elements (subtle), upward arrow or growth icon.
-Colors: {brand_colors}
-Text: "{headline}"
-Style: LinkedIn-appropriate, professional, celebratory.
-Dimensions: {dimensions}""",
-    },
-    
-    "gaming_event": {
-        "tournament": """Create an exciting esports tournament announcement graphic.
-Include: Gaming controllers, trophy icon, neon glow effects, energy/action elements.
-Colors: {brand_colors}, neon accents (purple, cyan, pink).
-Text space for: Event name, date, prize pool.
-Style: Gaming/esports aesthetic, energetic, modern.
-Dimensions: {dimensions}""",
+        while i < len(lines) and not lines[i].strip().startswith('```'):
+            content_lines.append(lines[i])
+            i += 1
         
-        "lan_party": """Design a LAN party event poster.
-Include: Multiple gaming setups, social/community vibe, RGB lighting effects.
-Colors: Dark background with {brand_colors} accents.
-Text: "{event_name}" prominently displayed.
-Style: Gaming community, fun, welcoming to all skill levels.
-Dimensions: {dimensions}""",
-    },
+        return '\n'.join(content_lines).strip() if content_lines else None
     
-    "product_launch": {
-        "announcement": """Create a product launch announcement graphic.
-Include: Abstract tech elements, launch/rocket metaphor (subtle), feature icons.
-Colors: {brand_colors}
-Text space for: Product name, tagline, key feature.
-Style: Modern SaaS, clean, developer-friendly.
-Dimensions: {dimensions}""",
+    def _index_service(self, service: ServicePrompts):
+        """Add service to indexes."""
+        # By entity
+        if service.entity not in self.by_entity:
+            self.by_entity[service.entity] = []
+        self.by_entity[service.entity].append(service)
         
-        "feature_highlight": """Design a feature highlight graphic for {feature_name}.
-Include: Icon representing the feature, before/after or problem/solution visual.
-Colors: {brand_colors}
-Style: Clean, informative, technical but accessible.
-Dimensions: {dimensions}""",
-    },
+        # By category
+        if service.category not in self.by_category:
+            self.by_category[service.category] = []
+        self.by_category[service.category].append(service)
     
-    "service_promo": {
-        "repair": """Create a tech repair service promotional graphic.
-Include: Tools icon, computer/phone being fixed, transformation visual (broken to fixed).
-Colors: {brand_colors}, trust-inspiring blue, problem-red to solution-green gradient.
-Text: "{service_name} - ${price}"
-Style: Professional, trustworthy, local business feel.
-Dimensions: {dimensions}""",
+    def get_service(self, entity: str, service_id: int) -> Optional[ServicePrompts]:
+        """Get a specific service's prompts."""
+        key = f"{entity}_{service_id}"
+        return self.services.get(key)
+    
+    def get_all_prompts(
+        self,
+        entity: Optional[str] = None,
+        category: Optional[str] = None,
+        media_type: Optional[MediaType] = None,
+    ) -> List[MediaPrompt]:
+        """
+        Get prompts with optional filters.
+        """
+        services = list(self.services.values())
         
-        "special_offer": """Design a special offer/discount promotional graphic.
-Include: Discount badge, service icon, urgency elements (limited time).
-Colors: {brand_colors}, attention-grabbing accents.
-Text: "{offer_headline}", "{discount_amount}"
-Style: Eye-catching but not cheap-looking, trustworthy.
-Dimensions: {dimensions}""",
-    },
-}
-
-
-# =============================================================================
-# VIDEO PROMPT TEMPLATES (for Sora 2/Runway/Pika)
-# =============================================================================
-
-VIDEO_PROMPTS = {
-    "contract_win": {
-        "celebration": """Professional celebration video for contract win announcement.
-Scene 1 (3s): Office team working diligently, focused atmosphere.
-Scene 2 (3s): Email/notification arrives with good news, excitement begins.
-Scene 3 (4s): Team celebration - handshakes, high-fives, professional joy.
-Scene 4 (5s): Text overlay: "{company} Awarded {contract_type}" with logo.
-Style: Corporate, warm, authentic joy. Not over-the-top.
-Music: Uplifting, professional, subtle build to celebration.
-Duration: 15 seconds.""",
-    },
-    
-    "gaming_event": {
-        "tournament_hype": """Exciting esports tournament promotional video.
-Scene 1 (2s): Dramatic close-up of gaming peripherals, RGB lights.
-Scene 2 (3s): Quick cuts of intense gameplay moments.
-Scene 3 (3s): Crowd/community reaction shots, cheering.
-Scene 4 (3s): Trophy/prize reveal with spotlight.
-Scene 5 (4s): Event details text overlay with registration CTA.
-Style: High energy, esports broadcast quality, modern gaming aesthetic.
-Music: Electronic, building intensity, drop at trophy reveal.
-Duration: 15 seconds.""",
+        if entity:
+            services = [s for s in services if s.entity == entity]
         
-        "lan_party_invite": """Welcoming LAN party invitation video.
-Scene 1 (3s): Empty gaming center, lights coming on.
-Scene 2 (4s): Time-lapse of people arriving, setting up.
-Scene 3 (4s): Fun moments - laughing, high-fives, snacks.
-Scene 4 (4s): Event details with "Join Us!" message.
-Style: Warm, inclusive, community-focused. All skill levels welcome vibe.
-Music: Fun, upbeat, not aggressive.
-Duration: 15 seconds.""",
-    },
+        if category:
+            services = [s for s in services if s.category == category]
+        
+        prompts = []
+        for service in services:
+            if media_type is None or media_type == MediaType.CANVA:
+                prompts.extend(service.get_prompts(MediaType.CANVA))
+            if media_type is None or media_type == MediaType.SORA2:
+                prompts.extend(service.get_prompts(MediaType.SORA2))
+        
+        return prompts
     
-    "product_launch": {
-        "announcement": """Product launch announcement video for developers.
-Scene 1 (3s): Developer frustrated with old way of doing things.
-Scene 2 (4s): Discovery moment - finding the new product.
-Scene 3 (4s): Clean UI demo showing key features.
-Scene 4 (4s): Satisfaction/productivity boost visualization.
-End card: Product name, tagline, website.
-Style: Clean, minimal, developer-friendly aesthetic.
-Music: Modern, subtle, tech-forward.
-Duration: 15 seconds.""",
-    },
+    def get_categories(self, entity: Optional[str] = None) -> List[str]:
+        """Get unique categories."""
+        if entity:
+            services = self.by_entity.get(entity, [])
+            return list(set(s.category for s in services))
+        return list(self.by_category.keys())
     
-    "repair_service": {
-        "problem_solution": """Tech repair service promotional video.
-Scene 1 (3s): Customer with broken device, frustrated expression.
-Scene 2 (4s): Brings device to repair shop, friendly greeting.
-Scene 3 (4s): Technician working on device, professional environment.
-Scene 4 (4s): Happy customer receiving fixed device, relief/joy.
-End card: Service name, price, "Same Day Service" badge.
-Style: Warm, trustworthy, local business authenticity.
-Music: Problem-to-solution arc, starts tense, ends uplifting.
-Duration: 15 seconds.""",
-    },
-}
-
-
-# =============================================================================
-# HELPER FUNCTIONS
-# =============================================================================
-
-def get_voice_profile(entity: str) -> VoiceProfile:
-    """Get voice profile for an entity."""
-    return VOICE_PROFILES.get(entity, VOICE_PROFILES["mighty_house_inc"])
-
-
-def get_platform_limits(platform: str) -> Dict[str, Any]:
-    """Get character limits and constraints for a platform."""
-    return PLATFORM_LIMITS.get(platform, {"max_chars": 2000})
-
-
-def get_template(content_type: str, template_name: str, platform: str = None) -> Optional[str]:
-    """Get a content template."""
-    if content_type == "social":
-        templates = SOCIAL_TEMPLATES.get(template_name, {})
-        if platform:
-            return templates.get(platform)
-        return templates
-    elif content_type == "image":
-        return IMAGE_PROMPTS.get(template_name, {})
-    elif content_type == "video":
-        return VIDEO_PROMPTS.get(template_name, {})
-    return None
-
-
-def fill_template(template: str, variables: Dict[str, Any]) -> str:
-    """Fill a template with variables."""
-    result = template
-    for key, value in variables.items():
-        result = result.replace(f"{{{key}}}", str(value))
-    return result
-
-
-def generate_hashtags(entity: str, topic: str, count: int = 5) -> List[str]:
-    """Generate relevant hashtags for content."""
-    profile = get_voice_profile(entity)
-    base_tags = profile.hashtags[:3]  # Always include brand tags
+    def get_random_prompt(
+        self,
+        entity: Optional[str] = None,
+        category: Optional[str] = None,
+        media_type: Optional[MediaType] = None,
+    ) -> Optional[MediaPrompt]:
+        """Get a random prompt matching filters."""
+        import random
+        prompts = self.get_all_prompts(entity, category, media_type)
+        return random.choice(prompts) if prompts else None
     
-    # Topic-specific tags would be generated by LLM
-    # This is a placeholder for the structure
-    topic_tags = [f"#{topic.replace(' ', '')}" for _ in range(count - 3)]
+    def search_prompts(self, query: str) -> List[MediaPrompt]:
+        """Search prompts by keyword."""
+        query_lower = query.lower()
+        results = []
+        
+        for prompt in self.get_all_prompts():
+            if (query_lower in prompt.service_name.lower() or
+                query_lower in prompt.prompt.lower() or
+                query_lower in prompt.category.lower()):
+                results.append(prompt)
+        
+        return results
     
-    return base_tags + topic_tags[:count - len(base_tags)]
+    def to_dict(self) -> Dict[str, Any]:
+        """Export library stats."""
+        return {
+            "total_services": len(self.services),
+            "entities": list(self.by_entity.keys()),
+            "categories": list(self.by_category.keys()),
+            "services_by_entity": {
+                entity: len(services) 
+                for entity, services in self.by_entity.items()
+            },
+            "total_prompts": {
+                "canva": sum(len(s.canva_prompts) for s in self.services.values()),
+                "sora2": sum(len(s.sora2_prompts) for s in self.services.values()),
+            },
+            "loaded_files": self._loaded_files,
+        }
 
 
-def adapt_for_platform(content: str, platform: str) -> str:
-    """Adapt content for platform-specific requirements."""
-    limits = get_platform_limits(platform)
-    max_chars = limits.get("max_chars", 2000)
+# Global library instance
+_library: Optional[PromptTemplateLibrary] = None
+
+
+def get_prompt_library() -> PromptTemplateLibrary:
+    """Get or create the global prompt library."""
+    global _library
+    if _library is None:
+        _library = PromptTemplateLibrary()
+        _load_default_prompts(_library)
+    return _library
+
+
+def _load_default_prompts(library: PromptTemplateLibrary):
+    """Load prompt files from default locations."""
+    # Project root
+    project_root = Path(__file__).parent.parent.parent
+    sops_dir = project_root / "sops"
     
-    # Truncate if needed
-    if len(content) > max_chars:
-        content = content[:max_chars - 3] + "..."
+    # Entity mappings
+    entity_dirs = {
+        "mighty-house-inc": "mighty_house_inc",
+        "dsaic": "dsaic", 
+        "computer-store": "computer_store",
+    }
     
-    # Platform-specific adjustments
-    if platform == "discord" and limits.get("no_markdown_tables"):
-        # Convert tables to bullet lists (simplified)
-        content = content.replace("|", "•")
-    
-    return content
+    for dir_name, entity_id in entity_dirs.items():
+        prompts_file = sops_dir / dir_name / "marketing-prompts.md"
+        if prompts_file.exists():
+            count = library.load_from_markdown(prompts_file, entity_id)
+            print(f"Loaded {count} services from {prompts_file.name} for {entity_id}")
 
 
-# =============================================================================
-# BRAND COLOR SCHEMES
-# =============================================================================
-
-BRAND_COLORS = {
-    "mighty_house_inc": {
-        "primary": "#1E3A5F",  # Navy blue
-        "secondary": "#4A90D9",  # Lighter blue
-        "accent": "#FFD700",  # Gold
-        "background": "#FFFFFF",
-        "text": "#333333",
-    },
-    "dsaic": {
-        "primary": "#6366F1",  # Indigo
-        "secondary": "#818CF8",  # Light indigo
-        "accent": "#10B981",  # Green
-        "background": "#0F172A",  # Dark slate
-        "text": "#F8FAFC",
-    },
-    "computer_store": {
-        "primary": "#8B5CF6",  # Purple
-        "secondary": "#06B6D4",  # Cyan
-        "accent": "#F472B6",  # Pink
-        "background": "#1F2937",  # Dark gray
-        "text": "#FFFFFF",
-    },
-}
-
-
-def get_brand_colors(entity: str) -> Dict[str, str]:
-    """Get brand colors for an entity."""
-    return BRAND_COLORS.get(entity, BRAND_COLORS["mighty_house_inc"])
+def reload_library():
+    """Force reload of the prompt library."""
+    global _library
+    _library = None
+    return get_prompt_library()
