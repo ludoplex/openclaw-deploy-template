@@ -121,8 +121,21 @@ templates = Jinja2Templates(directory=TEMPLATES_DIR)
 # HELPERS
 # =============================================================================
 
-def load_sops() -> dict:
-    """Load all SOPs from the sops directory."""
+# SOP cache with TTL (Qwen-suggested pattern)
+_sop_cache = None
+_sop_cache_time = 0
+_SOP_CACHE_TTL = 60  # Reload every 60 seconds max
+
+def load_sops(force_reload: bool = False) -> dict:
+    """Load all SOPs from the sops directory (cached)."""
+    global _sop_cache, _sop_cache_time
+    import time
+    
+    # Return cache if valid
+    now = time.time()
+    if not force_reload and _sop_cache and (now - _sop_cache_time) < _SOP_CACHE_TTL:
+        return _sop_cache
+    
     sops = {
         "mighty_house_inc": [],
         "dsaic": [],
@@ -150,11 +163,13 @@ def load_sops() -> dict:
                 except Exception as e:
                     print(f"Error loading {sop_file}: {e}")
     
+    _sop_cache = sops
+    _sop_cache_time = now
     return sops
 
 
 def get_sop_stats() -> dict:
-    """Get SOP statistics."""
+    """Get SOP statistics (uses cached data)."""
     sops = load_sops()
     return {
         "total": sum(len(v) for v in sops.values()),
