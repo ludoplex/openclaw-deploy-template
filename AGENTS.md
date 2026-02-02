@@ -155,6 +155,16 @@ Before starting any task, check `WORKFLOW.md` for the 3-phase approach:
 
 **Token-saving rule:** If a shell command or local LLM can do it, don't use Claude.
 
+### 📋 WORKFLOW.md - Task Execution Framework
+
+Before starting any task, check `WORKFLOW.md` for the 3-phase approach:
+
+1. **Planning** → Use lmarena.ai (multi-model brainstorm)
+2. **Setup** → Use templates (cookiecutter), local Qwen, puter.js
+3. **Execution** → Use shell tools, scripts, apps (not tokens)
+
+**Token-saving rule:** If a shell command or local LLM can do it, don't use Claude.
+
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
 **📝 Platform Formatting:**

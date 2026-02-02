@@ -99,6 +99,21 @@ Before using Claude for a task, ask: "Can Qwen handle this?"
 - Security-sensitive code
 - Tool orchestration
 
+### ⚠️ CRITICAL: Workflow Applies to ALL Work
+**Added: 2026-02-02**
+
+User explicitly stated: workflow enforcement applies to EVERYTHING, not just specific projects.
+
+**Before ANY task:**
+1. Run `.\scripts\should-use-claude.ps1 "task description"` 
+2. Or mentally route: Qwen → Shell → lmarena → Claude (escalate only when needed)
+
+**For planning/architecture:**
+- Open lmarena.ai for multi-model comparison
+- Document decision in memory
+
+**This is not optional.** Token cost matters.
+
 ---
 
 ## Blockers
