@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Approvals - SOP Dashboard{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+        <div>
+            <h1 class="text-3xl font-bold text-white">✅ Approval Queue</h1>
+            <p class="text-gray-400 mt-1">Review and approve pending SOP steps</p>
+        </div>
+        <div class="flex gap-2">
+            <span class="px-4 py-2 bg-yellow-900 text-yellow-300 rounded-lg">
+                {{ pending_approvals|length }} Pending
+            </span>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    {% if stats %}
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Total Requests</p>
+            <p class="text-2xl font-bold text-white">{{ stats.total or 0 }}</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Pending</p>
+            <p class="text-2xl font-bold text-yellow-400">{{ stats.pending or 0 }}</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Approved</p>
+            <p class="text-2xl font-bold text-green-400">{{ stats.by_status.approved or 0 }}</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Rejected</p>
+            <p class="text-2xl font-bold text-red-400">{{ stats.by_status.rejected or 0 }}</p>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Pending Approvals -->
+    <div class="bg-gray-800 rounded-lg border border-gray-700">
+        <div class="p-4 border-b border-gray-700">
+            <h2 class="text-xl font-bold text-white">Pending Approvals</h2>
+        </div>
+        
+        {% if pending_approvals %}
+        <div class="divide-y divide-gray-700">
+            {% for approval in pending_approvals %}
+            <div class="p-4" id="approval-{{ approval.id }}">
+                <div class="flex justify-between items-start">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">⏳</span>
+                            <div>
+                                <h3 class="text-white font-medium">{{ approval.step_name }}</h3>
+                                <p class="text-sm text-gray-400">
+                                    SOP: {{ approval.sop_name }} | Entity: {{ approval.entity.replace('_', ' ').title() }}
+                                </p>
+                            </div>
+                        </div>
+                        
+                        {% if approval.context.message %}
+                        <div class="mt-3 p-3 bg-gray-700 rounded text-sm text-gray-300">
+                            {{ approval.context.message }}
+                        </div>
+                        {% endif %}
+                        
+                        <div class="mt-2 text-xs text-gray-500">
+                            Requested: {{ approval.created_at[:16] }}
+                            {% if approval.expires_at %}
+                            | Expires: {{ approval.expires_at[:16] }}
+                            {% endif %}
+                            | Approvers: {{ approval.approvers|join(', ') }}
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-2 ml-4">
+                        <form hx-post="/api/approvals/{{ approval.id }}/approve" 
+                              hx-target="#approval-{{ approval.id }}"
+                              hx-swap="outerHTML"
+                              class="inline">
+                            <input type="hidden" name="approved_by" value="dashboard">
+                            <button type="submit" 
+                                    class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium">
+                                ✓ Approve
+                            </button>
+                        </form>
+                        
+                        <button onclick="document.getElementById('reject-form-{{ approval.id }}').classList.toggle('hidden')"
+                                class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium">
+                            ✗ Reject
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Reject form (hidden by default) -->
+                <form id="reject-form-{{ approval.id }}" 
+                      hx-post="/api/approvals/{{ approval.id }}/reject"
+                      hx-target="#approval-{{ approval.id }}"
+                      hx-swap="outerHTML"
+                      class="hidden mt-4 p-4 bg-red-900/20 rounded-lg border border-red-800">
+                    <label class="block text-sm text-gray-300 mb-2">Reason for rejection:</label>
+                    <input type="hidden" name="rejected_by" value="dashboard">
+                    <textarea name="reason" rows="2" 
+                              class="w-full bg-gray-700 border border-gray-600 text-white rounded px-3 py-2 text-sm"
+                              placeholder="Optional reason..."></textarea>
+                    <div class="mt-2 flex gap-2">
+                        <button type="submit" class="px-3 py-1 bg-red-600 text-white rounded text-sm">
+                            Confirm Rejection
+                        </button>
+                        <button type="button" 
+                                onclick="document.getElementById('reject-form-{{ approval.id }}').classList.add('hidden')"
+                                class="px-3 py-1 bg-gray-600 text-white rounded text-sm">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="p-8 text-center text-gray-500">
+            <div class="text-5xl mb-4">✅</div>
+            <p>No pending approvals</p>
+            <p class="text-sm mt-2">All caught up!</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -954,6 +954,77 @@ async def get_zoho_status():
 
 
 # =============================================================================
+# APPROVALS
+# =============================================================================
+
+@app.get("/approvals", response_class=HTMLResponse)
+async def approvals_page(request: Request):
+    """Approval queue page."""
+    if not SOP_ENGINE_AVAILABLE:
+        return templates.TemplateResponse("error.html", {
+            "request": request,
+            "error": "SOP engine not available"
+        })
+    
+    engine = get_sop_engine()
+    pending = engine.get_pending_approvals()
+    
+    return templates.TemplateResponse("approvals.html", {
+        "request": request,
+        "pending_approvals": pending,
+        "stats": engine.approval_manager.get_stats() if hasattr(engine, 'approval_manager') else {},
+    })
+
+
+@app.get("/api/approvals")
+async def api_list_approvals(entity: Optional[str] = None):
+    """API: List pending approvals."""
+    if not SOP_ENGINE_AVAILABLE:
+        return {"pending": [], "error": "SOP engine not available"}
+    
+    engine = get_sop_engine()
+    return {
+        "pending": engine.get_pending_approvals(entity),
+        "stats": engine.approval_manager.get_stats() if hasattr(engine, 'approval_manager') else {},
+    }
+
+
+@app.post("/api/approvals/{approval_id}/approve")
+async def api_approve(
+    approval_id: str,
+    approved_by: str = Form("dashboard"),
+    note: str = Form("")
+):
+    """Approve a pending request and resume SOP execution."""
+    if not SOP_ENGINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="SOP engine not available")
+    
+    engine = get_sop_engine()
+    result = engine.resume_from_approval(approval_id, approved=True, resolved_by=approved_by, note=note)
+    
+    if not result.get("success", False):
+        raise HTTPException(status_code=400, detail=result.get("error", "Approval failed"))
+    
+    return {"status": "approved", "approval_id": approval_id, "execution": result}
+
+
+@app.post("/api/approvals/{approval_id}/reject")
+async def api_reject(
+    approval_id: str,
+    rejected_by: str = Form("dashboard"),
+    reason: str = Form("")
+):
+    """Reject a pending request."""
+    if not SOP_ENGINE_AVAILABLE:
+        raise HTTPException(status_code=503, detail="SOP engine not available")
+    
+    engine = get_sop_engine()
+    result = engine.resume_from_approval(approval_id, approved=False, resolved_by=rejected_by, note=reason)
+    
+    return {"status": "rejected", "approval_id": approval_id}
+
+
+# =============================================================================
 # MEDIA CONTENT PIPELINE
 # =============================================================================
 

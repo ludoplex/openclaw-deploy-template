@@ -19,6 +19,7 @@ from .social_handler import (
     SocialPostHandler, ContentGenerateHandler, CrossEntityTriggerHandler,
     StepResult,
 )
+from .approval import get_approval_manager, ApprovalStatus
 
 # CRM integration
 try:
@@ -68,6 +69,9 @@ class EnhancedSOPEngine:
         # CRM handler
         self.crm_handler = CRMStepHandler() if CRM_AVAILABLE else None
         
+        # Approval manager
+        self.approval_manager = get_approval_manager()
+        
         # Extended step handlers
         self._extended_handlers = {
             StepType.SOCIAL_POST: self.social_handler.handle,
@@ -79,6 +83,8 @@ class EnhancedSOPEngine:
             StepType.DATA_SYNC: self._handle_data_sync,
             StepType.LOOP: self._handle_loop,
             StepType.TRANSFORM: self._handle_transform,
+            StepType.APPROVAL: self._handle_approval,
+            StepType.CONDITION: self._handle_condition,
         }
         
         # Add CRM handlers if available
@@ -547,6 +553,172 @@ class EnhancedSOPEngine:
             error=result.get("error"),
             data=result
         )
+    
+    def _handle_approval(
+        self,
+        step: Any,
+        event: Dict[str, Any],
+        sop: Any,
+    ) -> StepResult:
+        """
+        Handle approval step - pause execution and wait for human approval.
+        
+        Config options:
+        - approvers: List of approver identifiers (roles, users, channels)
+        - message: Message to show approvers
+        - expires_in_hours: Optional expiration time
+        - on_approve: Steps to run when approved
+        - on_reject: Steps to run when rejected
+        """
+        config = getattr(step, 'config', {}) or {}
+        
+        approvers = config.get("approvers", ["role:Admin"])
+        message = config.get("message", f"Approval required for step: {step.name}")
+        expires_in_hours = config.get("expires_in_hours")
+        
+        # Check if we're resuming from an approved request
+        if event.get("_approval_resolution"):
+            resolution = event["_approval_resolution"]
+            if resolution.get("status") == "approved":
+                return StepResult(
+                    step_id=step.id,
+                    step_name=step.name,
+                    success=True,
+                    data={
+                        "approved": True,
+                        "approved_by": resolution.get("resolved_by"),
+                        "note": resolution.get("note", ""),
+                    }
+                )
+            else:
+                return StepResult(
+                    step_id=step.id,
+                    step_name=step.name,
+                    success=False,
+                    error=f"Approval rejected: {resolution.get('note', 'No reason given')}"
+                )
+        
+        # Create approval request
+        request = self.approval_manager.create_request(
+            sop_id=sop.sop_id if hasattr(sop, 'sop_id') else str(sop),
+            sop_name=sop.name if hasattr(sop, 'name') else "Unknown SOP",
+            step_id=step.id,
+            step_name=step.name,
+            entity=sop.entity if hasattr(sop, 'entity') else "unknown",
+            approvers=approvers,
+            requester=event.get("trigger_source", "system"),
+            context={
+                "message": message,
+                "event_data": event.get("data", {}),
+            },
+            execution_state={
+                "step_index": event.get("_step_index", 0),
+                "event": event,
+            },
+            expires_in_hours=expires_in_hours,
+        )
+        
+        # Return pending result - execution should pause here
+        return StepResult(
+            step_id=step.id,
+            step_name=step.name,
+            success=True,  # Step executed successfully, but workflow pauses
+            data={
+                "pending_approval": True,
+                "approval_id": request.id,
+                "approvers": approvers,
+                "message": message,
+                "expires_at": request.expires_at.isoformat() if request.expires_at else None,
+            }
+        )
+    
+    def _handle_condition(
+        self,
+        step: Any,
+        event: Dict[str, Any],
+        sop: Any,
+    ) -> StepResult:
+        """
+        Handle condition step - evaluate expression and optionally branch.
+        
+        Config options:
+        - expression: Condition to evaluate
+        - on_true: Step ID or list of steps to execute if true
+        - on_false: Step ID or list of steps to execute if false
+        """
+        config = getattr(step, 'config', {}) or {}
+        
+        expression = config.get("expression", "true")
+        on_true = config.get("on_true")
+        on_false = config.get("on_false")
+        description = config.get("description", "")
+        
+        # Evaluate condition
+        result = self._evaluate_condition(expression, event)
+        
+        return StepResult(
+            step_id=step.id,
+            step_name=step.name,
+            success=True,
+            data={
+                "expression": expression,
+                "result": result,
+                "description": description,
+                "branch": on_true if result else on_false,
+            }
+        )
+    
+    def resume_from_approval(
+        self,
+        approval_id: str,
+        approved: bool,
+        resolved_by: str,
+        note: str = "",
+    ) -> Dict[str, Any]:
+        """
+        Resume SOP execution from an approved/rejected approval request.
+        
+        Args:
+            approval_id: The approval request ID
+            approved: Whether the request was approved
+            resolved_by: Who resolved the request
+            note: Optional resolution note
+            
+        Returns:
+            Execution result
+        """
+        # Get the approval request
+        request = self.approval_manager.get_request(approval_id)
+        if not request:
+            return {"success": False, "error": f"Approval request {approval_id} not found"}
+        
+        if request.status != ApprovalStatus.PENDING:
+            return {"success": False, "error": f"Request is not pending (status: {request.status.value})"}
+        
+        # Resolve the request
+        if approved:
+            self.approval_manager.approve(approval_id, resolved_by, note)
+        else:
+            self.approval_manager.reject(approval_id, resolved_by, note)
+        
+        # Restore execution state and resume
+        execution_state = request.execution_state
+        event = execution_state.get("event", {})
+        
+        # Add resolution info to event
+        event["_approval_resolution"] = {
+            "status": "approved" if approved else "rejected",
+            "resolved_by": resolved_by,
+            "note": note,
+        }
+        event["_step_index"] = execution_state.get("step_index", 0)
+        
+        # Re-execute the SOP from the approval step
+        return self.execute_sop(request.sop_id, event=event)
+    
+    def get_pending_approvals(self, entity: Optional[str] = None) -> List[Dict]:
+        """Get all pending approval requests."""
+        return [r.to_dict() for r in self.approval_manager.get_pending(entity)]
     
     def get_history(self, limit: int = 100) -> List[Dict]:
         """Get recent execution history."""
