@@ -108,7 +108,7 @@ Output valid JSON with the field names as keys:"""
             end = result.rfind('}') + 1
             if start >= 0 and end > start:
                 return json.loads(result[start:end])
-        except:
+        except (json.JSONDecodeError, ValueError):
             pass
         
         return {}
@@ -190,20 +190,8 @@ Output only the hashtags, one per line, starting with #:"""
         Returns:
             Content brief with suggested content, hashtags, timing
         """
-        prompt = f"""Create a social media content brief.
-Entity: {entity}
-Category: {category}
-Topic: {topic}
-
-Output JSON with these fields:
-- headline: Catchy headline (max 10 words)
-- body: Main content (2-3 sentences)
-- cta: Call to action
-- suggested_platforms: List of best platforms for this content
-
-Output only valid JSON:"""
-        
-        result = generate_json(f"content brief for {entity} about {topic}")
+        # Generate JSON content brief using local LLM
+        result = generate_json(f"content brief for {entity} about {topic} in {category} category")
         
         # Add hashtags
         if "body" in result:

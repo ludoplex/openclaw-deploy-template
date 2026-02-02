@@ -380,7 +380,7 @@ async def execution_history(request: Request):
                 started = datetime.fromisoformat(exec_data.get('started_at', ''))
                 completed = datetime.fromisoformat(exec_data.get('completed_at', ''))
                 duration_ms = int((completed - started).total_seconds() * 1000)
-            except:
+            except (ValueError, TypeError, KeyError):
                 duration_ms = 0
             
             executions.append({
@@ -424,7 +424,7 @@ async def generate_calendar_content(request: Request):
         html += "<h3 class='text-green-300 font-bold mb-3'>✨ Generated Content Ideas</h3>"
         html += "<div class='space-y-2'>"
         for item in all_content[:10]:  # Limit to 10
-            html += f"<div class='text-sm text-gray-300'>"
+            html += "<div class='text-sm text-gray-300'>"
             html += f"<span class='text-gray-500'>{item['date']}</span> - "
             html += f"<span class='font-medium'>{item['topic']}</span> "
             html += f"<span class='text-xs text-gray-500'>({item['platform']})</span>"
