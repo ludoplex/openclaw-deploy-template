@@ -1,60 +1,67 @@
-# src/content/__init__.py
 """
-Content management module for social media automation.
+Content Generation and Management System.
+
+Provides:
+- AI content generation (local LLM)
+- Entity-specific voice profiles
+- Multi-platform content templates
+- Image and video prompt generation
+- Content approval workflow
+- Content calendar management
 """
 
-from .templates import (
-    ContentCategory,
-    ContentTemplate,
+from .generator import generate_post, generate_hashtags
+from .templates import ContentTemplates
+from .calendar import ContentCalendar
+from .ai_generator import AIContentGenerator
+from .prompt_templates import (
+    VOICE_PROFILES,
+    SOCIAL_TEMPLATES,
+    IMAGE_PROMPTS,
+    VIDEO_PROMPTS,
+    get_voice_profile,
+    get_platform_limits,
     get_template,
-    get_templates_by_entity,
-    get_templates_by_category,
-    render_template,
-    list_templates,
-    MHI_TEMPLATES,
-    DSAIC_TEMPLATES,
-    CS_TEMPLATES,
-    ALL_TEMPLATES,
+    fill_template,
+    get_brand_colors,
 )
-
-from .calendar import (
-    AudienceType,
-    Platform,
-    PostingWindow,
-    ScheduledPost,
-    get_optimal_posting_time,
-    get_weekly_schedule,
-    get_monthly_theme,
-    get_upcoming_key_dates,
-    should_avoid_posting,
-    WEEKLY_SCHEDULE,
-    MONTHLY_THEMES,
+from .approval import (
+    ContentStatus,
+    ContentItem,
+    ContentApprovalManager,
+    get_approval_manager,
+    get_pending_reviews,
+    quick_approve,
+    quick_reject,
 )
 
 __all__ = [
+    # Generation
+    "generate_post",
+    "generate_hashtags",
+    "ContentTemplates",
+    "AIContentGenerator",
+    
     # Templates
-    "ContentCategory",
-    "ContentTemplate",
+    "VOICE_PROFILES",
+    "SOCIAL_TEMPLATES", 
+    "IMAGE_PROMPTS",
+    "VIDEO_PROMPTS",
+    "get_voice_profile",
+    "get_platform_limits",
     "get_template",
-    "get_templates_by_entity",
-    "get_templates_by_category",
-    "render_template",
-    "list_templates",
-    "MHI_TEMPLATES",
-    "DSAIC_TEMPLATES",
-    "CS_TEMPLATES",
-    "ALL_TEMPLATES",
+    "fill_template",
+    "get_brand_colors",
+    
+    # Approval
+    "ContentStatus",
+    "ContentItem",
+    "ContentApprovalManager",
+    "get_approval_manager",
+    "get_pending_reviews",
+    "quick_approve",
+    "quick_reject",
     
     # Calendar
-    "AudienceType",
-    "Platform",
-    "PostingWindow",
-    "ScheduledPost",
-    "get_optimal_posting_time",
-    "get_weekly_schedule",
-    "get_monthly_theme",
-    "get_upcoming_key_dates",
-    "should_avoid_posting",
-    "WEEKLY_SCHEDULE",
-    "MONTHLY_THEMES",
+    "ContentCalendar",
 ]
