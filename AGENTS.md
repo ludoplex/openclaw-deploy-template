@@ -117,6 +117,34 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
 
+### 🔀 WORKFLOW ENFORCEMENT - Use the Right Tool!
+
+**BEFORE starting any task**, run the router or ask yourself:
+
+```powershell
+.\scripts\should-use-claude.ps1 "description of task"
+```
+
+**Quick Decision Tree:**
+| Task Type | Use This | NOT Claude |
+|-----------|----------|------------|
+| Simple code gen, boilerplate | Local Qwen (`local_llm.py`) | ❌ |
+| JSON/format/transform | Qwen or jq/sed | ❌ |
+| Architecture decisions | lmarena.ai (multi-model) | ❌ |
+| File search/ops | rg, fd, grep, PowerShell | ❌ |
+| Git operations | git, gh CLI | ❌ |
+| API testing | curl, Invoke-WebRequest | ❌ |
+| Complex reasoning | Claude | ✅ |
+| Multi-file refactoring | Claude | ✅ |
+| Tool orchestration | Claude | ✅ |
+
+**Installed hooks:**
+- `scripts/task-router.ps1` - Interactive task routing menu
+- `scripts/should-use-claude.ps1` - Quick single-task check (uses Qwen)
+- Git pre-commit hook reminds on large commits
+
+**Remember:** Cheapest tool first. Escalate only when needed.
+
 ### 📋 WORKFLOW.md - Task Execution Framework
 
 Before starting any task, check `WORKFLOW.md` for the 3-phase approach:
