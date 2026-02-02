@@ -2,12 +2,13 @@
   "lastChecks": {
     "prReview": 1738467731,
     "services": 1738467731,
-    "backup": null,
+    "backup": 1738481885,
     "email": null,
     "calendar": null
   },
   "notes": {
     "prReview": "PR #1 fixes confirmed pushed, Sourcery re-review triggered",
-    "services": "Dashboard:8080 UP, LLM:8081 UP"
+    "services": "Dashboard:8080 UP, LLM:8081 UP",
+    "backup": "sop-dashboard-2026-02-02_001805.zip (0.32 MB) → Local + OneDrive + Google Drive"
   }
 }

@@ -4,9 +4,8 @@
 - Run `scripts/backup.ps1` if last backup > 4 hours ago
 - Verify GitHub is in sync (no uncommitted changes)
 
-## PR Reviews (check every 2 hours until merged)
-- [ ] mixpost-malone PR #1: `.\scripts\pr-review.ps1 -Repo "ludoplex/mixpost-malone" -PR 1`
-- Fix any issues flagged by Copilot/Sourcery, push updates
+## PR Reviews
+*(none active)*
 
 ## Project Status
 - SOP Dashboard actively in development
