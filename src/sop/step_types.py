@@ -37,6 +37,13 @@ class StepType(Enum):
     LOOP = "loop"
     TRANSFORM = "transform"
     WEBHOOK_SEND = "webhook_send"
+    
+    # --- CRM Steps (Zoho integration) ---
+    CRM_CREATE = "crm_create"
+    CRM_UPDATE = "crm_update"
+    CRM_SEARCH = "crm_search"
+    CRM_DEAL_STAGE = "crm_deal_stage"
+    CRM_CREATE_TASK = "crm_create_task"
 
 
 class Entity(Enum):

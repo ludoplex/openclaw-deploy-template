@@ -63,6 +63,21 @@ except Exception as e:
     def get_scheduler():
         return None
 
+# Import Zoho CRM integration
+try:
+    from src.integrations.zoho.crm_handler import ZohoCRMHandler
+    from src.integrations.zoho.webhooks import ZohoWebhookHandler, setup_webhook_mappings
+    ZOHO_AVAILABLE = True
+    _zoho_handler = ZohoWebhookHandler()
+    setup_webhook_mappings(_zoho_handler)
+except Exception as e:
+    print(f"Zoho integration not available: {e}")
+    ZOHO_AVAILABLE = False
+    _zoho_handler = None
+    
+    def get_scheduler():
+        return None
+
 # Setup paths
 BASE_DIR = Path(__file__).parent
 TEMPLATES_DIR = BASE_DIR / "templates"
@@ -836,8 +851,95 @@ async def api_status():
     return {
         "status": "running",
         "local_llm": LOCAL_LLM_AVAILABLE,
+        "zoho_crm": ZOHO_AVAILABLE,
         "sops": get_sop_stats()
     }
+
+
+# =============================================================================
+# ZOHO WEBHOOKS
+# =============================================================================
+
+@app.post("/webhooks/zoho")
+async def receive_zoho_webhook(request: Request):
+    """Receive Zoho CRM webhook."""
+    if not ZOHO_AVAILABLE or not _zoho_handler:
+        raise HTTPException(status_code=503, detail="Zoho integration not available")
+    
+    try:
+        data = await request.json()
+        signature = request.headers.get("X-Zoho-Signature")
+        
+        result = _zoho_handler.process_webhook(data, signature)
+        
+        if not result["success"]:
+            raise HTTPException(status_code=400, detail=result.get("error", "Processing failed"))
+        
+        # Trigger SOPs if any matched
+        engine = get_sop_engine()
+        triggered = []
+        if engine and result.get("triggered_sops"):
+            for trigger in result["triggered_sops"]:
+                try:
+                    exec_result = engine.execute_sop(
+                        trigger["sop_id"],
+                        event=trigger["event"]
+                    )
+                    triggered.append({
+                        "sop_id": trigger["sop_id"],
+                        "success": exec_result.get("success", False)
+                    })
+                except Exception as e:
+                    triggered.append({
+                        "sop_id": trigger["sop_id"],
+                        "success": False,
+                        "error": str(e)
+                    })
+        
+        return {
+            "status": "ok",
+            "event_type": result.get("event_type"),
+            "sops_triggered": triggered
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/zoho/mappings")
+async def get_zoho_mappings():
+    """Get Zoho webhook to SOP mappings."""
+    if not ZOHO_AVAILABLE or not _zoho_handler:
+        return {"available": False, "mappings": {}}
+    return {
+        "available": True,
+        **_zoho_handler.get_mappings_summary()
+    }
+
+
+@app.get("/api/zoho/status")
+async def get_zoho_status():
+    """Check Zoho CRM connection status."""
+    if not ZOHO_AVAILABLE:
+        return {"available": False, "connected": False, "error": "Zoho integration not loaded"}
+    
+    try:
+        from src.integrations.zoho.crm_handler import ZohoCRMHandler
+        with ZohoCRMHandler() as crm:
+            if crm.connected:
+                return {
+                    "available": True,
+                    "connected": True,
+                    "message": "Connected to Zoho CRM"
+                }
+            else:
+                return {
+                    "available": True,
+                    "connected": False,
+                    "error": crm._last_error
+                }
+    except Exception as e:
+        return {"available": True, "connected": False, "error": str(e)}
 
 
 # =============================================================================

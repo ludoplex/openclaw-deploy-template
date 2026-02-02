@@ -20,6 +20,14 @@ from .social_handler import (
     StepResult,
 )
 
+# CRM integration
+try:
+    from ..integrations.zoho.crm_handler import CRMStepHandler, ZohoCRMHandler
+    CRM_AVAILABLE = True
+except ImportError:
+    CRM_AVAILABLE = False
+    CRMStepHandler = None
+
 
 class EnhancedSOPEngine:
     """
@@ -57,6 +65,9 @@ class EnhancedSOPEngine:
         self.content_handler = ContentGenerateHandler(ai_client)
         self.cross_entity_handler = CrossEntityTriggerHandler(self)
         
+        # CRM handler
+        self.crm_handler = CRMStepHandler() if CRM_AVAILABLE else None
+        
         # Extended step handlers
         self._extended_handlers = {
             StepType.SOCIAL_POST: self.social_handler.handle,
@@ -69,6 +80,16 @@ class EnhancedSOPEngine:
             StepType.LOOP: self._handle_loop,
             StepType.TRANSFORM: self._handle_transform,
         }
+        
+        # Add CRM handlers if available
+        if self.crm_handler:
+            self._extended_handlers.update({
+                StepType.CRM_CREATE: self._handle_crm_step,
+                StepType.CRM_UPDATE: self._handle_crm_step,
+                StepType.CRM_SEARCH: self._handle_crm_step,
+                StepType.CRM_DEAL_STAGE: self._handle_crm_step,
+                StepType.CRM_CREATE_TASK: self._handle_crm_step,
+            })
         
         # Loaded definitions (local + base)
         self._definitions: Dict[str, Any] = {}
@@ -489,6 +510,42 @@ class EnhancedSOPEngine:
             step_name=step.name,
             success=True,
             data={"message": "Transform step placeholder", "config": config}
+        )
+    
+    def _handle_crm_step(
+        self,
+        step: Any,
+        event: Dict[str, Any],
+        sop: Any,
+    ) -> StepResult:
+        """Handle CRM steps - Zoho CRM operations."""
+        if not self.crm_handler:
+            return StepResult(
+                step_id=step.id if hasattr(step, 'id') else 'unknown',
+                step_name=step.name if hasattr(step, 'name') else 'CRM Step',
+                success=False,
+                error="CRM integration not available"
+            )
+        
+        step_type = step.type if hasattr(step, 'type') else 'crm_create'
+        config = getattr(step, 'config', {}) or {}
+        
+        # Build context with variables from event
+        context = {
+            "variables": event.get("variables", event.get("data", {})),
+            "event": event,
+            "entity": sop.entity if hasattr(sop, 'entity') else None,
+        }
+        
+        # Execute CRM operation
+        result = self.crm_handler.handle_step(step_type, config, context)
+        
+        return StepResult(
+            step_id=step.id if hasattr(step, 'id') else 'unknown',
+            step_name=step.name if hasattr(step, 'name') else 'CRM Step',
+            success=result.get("success", False),
+            error=result.get("error"),
+            data=result
         )
     
     def get_history(self, limit: int = 100) -> List[Dict]:
