@@ -89,6 +89,14 @@ except Exception as e:
     print(f"Media pipeline not available: {e}")
     MEDIA_PIPELINE_AVAILABLE = False
 
+# Import Content Review Workflow
+try:
+    from src.content.review_workflow import get_review_workflow, ContentStatus
+    REVIEW_WORKFLOW_AVAILABLE = True
+except Exception as e:
+    print(f"Review workflow not available: {e}")
+    REVIEW_WORKFLOW_AVAILABLE = False
+
 # Setup paths
 BASE_DIR = Path(__file__).parent
 TEMPLATES_DIR = BASE_DIR / "templates"
@@ -1022,6 +1030,170 @@ async def api_reject(
     result = engine.resume_from_approval(approval_id, approved=False, resolved_by=rejected_by, note=reason)
     
     return {"status": "rejected", "approval_id": approval_id}
+
+
+# =============================================================================
+# CONTENT REVIEW WORKFLOW
+# =============================================================================
+
+@app.get("/drafts", response_class=HTMLResponse)
+async def drafts_page(request: Request):
+    """Content drafts review page."""
+    if not REVIEW_WORKFLOW_AVAILABLE:
+        return templates.TemplateResponse("error.html", {
+            "request": request,
+            "error": "Review workflow not available"
+        })
+    
+    workflow = get_review_workflow()
+    
+    return templates.TemplateResponse("drafts.html", {
+        "request": request,
+        "pending_review": [d.to_dict() for d in workflow.get_pending_review()],
+        "approved": [d.to_dict() for d in workflow.get_approved()],
+        "scheduled": [d.to_dict() for d in workflow.get_scheduled()],
+        "stats": workflow.get_stats(),
+        "entities": ["mighty_house_inc", "dsaic", "computer_store"],
+        "platforms": ["twitter", "linkedin", "discord", "facebook", "instagram", "tiktok"],
+    })
+
+
+@app.post("/api/drafts/generate", response_class=HTMLResponse)
+async def api_generate_draft(
+    request: Request,
+    entity: str = Form(...),
+    platform: str = Form(...),
+    topic: str = Form(...),
+    context: str = Form("")
+):
+    """Generate an AI draft."""
+    if not REVIEW_WORKFLOW_AVAILABLE:
+        return HTMLResponse("<div class='text-red-400'>Review workflow not available</div>")
+    
+    try:
+        workflow = get_review_workflow()
+        draft = workflow.create_ai_draft(
+            entity=entity,
+            platform=platform,
+            topic=topic,
+            context=context if context else None,
+        )
+        
+        return HTMLResponse(f'''
+            <div class="p-4 bg-green-900 rounded-lg">
+                <p class="text-green-300 font-bold">✨ Draft Generated</p>
+                <p class="text-sm text-gray-300 mt-2">ID: {draft.id}</p>
+                <div class="mt-3 p-3 bg-gray-800 rounded text-sm text-white whitespace-pre-wrap">{draft.content}</div>
+                <p class="text-xs text-gray-400 mt-2">Hashtags: {" ".join(draft.hashtags)}</p>
+                <div class="mt-3 flex gap-2">
+                    <button hx-post="/api/drafts/{draft.id}/submit"
+                            hx-target="#draftResult"
+                            class="px-3 py-1 bg-blue-600 text-white rounded text-sm">
+                        Submit for Review
+                    </button>
+                </div>
+            </div>
+        ''')
+    except Exception as e:
+        return HTMLResponse(f"<div class='text-red-400'>Error: {str(e)}</div>")
+
+
+@app.post("/api/drafts/{draft_id}/submit")
+async def api_submit_draft(draft_id: str):
+    """Submit a draft for review."""
+    if not REVIEW_WORKFLOW_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Review workflow not available")
+    
+    workflow = get_review_workflow()
+    try:
+        draft = workflow.submit_for_review(draft_id)
+        return {"status": "pending_review", "draft_id": draft_id}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+
+@app.post("/api/drafts/{draft_id}/approve")
+async def api_approve_draft(
+    draft_id: str,
+    reviewed_by: str = Form("dashboard"),
+    notes: str = Form(""),
+    edited_content: str = Form(None)
+):
+    """Approve a draft."""
+    if not REVIEW_WORKFLOW_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Review workflow not available")
+    
+    workflow = get_review_workflow()
+    try:
+        draft = workflow.approve(
+            draft_id,
+            reviewed_by=reviewed_by,
+            notes=notes,
+            edited_content=edited_content if edited_content else None,
+        )
+        return {"status": "approved", "draft_id": draft_id}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+
+@app.post("/api/drafts/{draft_id}/reject")
+async def api_reject_draft(
+    draft_id: str,
+    reviewed_by: str = Form("dashboard"),
+    reason: str = Form("")
+):
+    """Reject a draft."""
+    if not REVIEW_WORKFLOW_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Review workflow not available")
+    
+    workflow = get_review_workflow()
+    try:
+        draft = workflow.reject(draft_id, reviewed_by=reviewed_by, reason=reason)
+        return {"status": "rejected", "draft_id": draft_id}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+
+@app.post("/api/drafts/{draft_id}/publish")
+async def api_publish_draft(draft_id: str):
+    """Publish an approved draft."""
+    if not REVIEW_WORKFLOW_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Review workflow not available")
+    
+    workflow = get_review_workflow()
+    try:
+        draft = workflow.publish(draft_id)
+        return {"status": "published", "draft_id": draft_id, "result": draft.publish_result}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.get("/api/drafts")
+async def api_list_drafts(
+    status: Optional[str] = None,
+    entity: Optional[str] = None
+):
+    """List content drafts."""
+    if not REVIEW_WORKFLOW_AVAILABLE:
+        return {"drafts": [], "error": "Review workflow not available"}
+    
+    workflow = get_review_workflow()
+    
+    if status == "pending_review":
+        drafts = workflow.get_pending_review(entity)
+    elif status == "approved":
+        drafts = workflow.get_approved(entity)
+    elif status == "scheduled":
+        drafts = workflow.get_scheduled()
+    else:
+        drafts = list(workflow.drafts.values())
+        if entity:
+            drafts = [d for d in drafts if d.entity == entity]
+    
+    return {
+        "drafts": [d.to_dict() for d in drafts],
+        "stats": workflow.get_stats(),
+    }
 
 
 # =============================================================================

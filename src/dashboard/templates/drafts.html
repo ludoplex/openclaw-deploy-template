@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block title %}Content Drafts - SOP Dashboard{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+        <div>
+            <h1 class="text-3xl font-bold text-white">📝 Content Drafts</h1>
+            <p class="text-gray-400 mt-1">AI Draft → Review → Publish workflow</p>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Total Drafts</p>
+            <p class="text-2xl font-bold text-white">{{ stats.total or 0 }}</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Pending Review</p>
+            <p class="text-2xl font-bold text-yellow-400">{{ stats.pending_review or 0 }}</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Approved</p>
+            <p class="text-2xl font-bold text-green-400">{{ stats.approved or 0 }}</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Scheduled</p>
+            <p class="text-2xl font-bold text-blue-400">{{ stats.scheduled or 0 }}</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Generate Draft Panel -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-4">
+            <h2 class="text-xl font-bold text-white mb-4">✨ Generate AI Draft</h2>
+            
+            <form hx-post="/api/drafts/generate" hx-target="#draftResult" class="space-y-4">
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Entity</label>
+                    <select name="entity" class="w-full bg-gray-700 border border-gray-600 text-white rounded px-3 py-2">
+                        {% for entity in entities %}
+                        <option value="{{ entity }}">{{ entity.replace('_', ' ').title() }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Platform</label>
+                    <select name="platform" class="w-full bg-gray-700 border border-gray-600 text-white rounded px-3 py-2">
+                        {% for platform in platforms %}
+                        <option value="{{ platform }}">{{ platform.title() }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Topic</label>
+                    <input type="text" name="topic" required
+                           class="w-full bg-gray-700 border border-gray-600 text-white rounded px-3 py-2"
+                           placeholder="e.g., Weekend Tournament">
+                </div>
+                
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Context (optional)</label>
+                    <textarea name="context" rows="2"
+                              class="w-full bg-gray-700 border border-gray-600 text-white rounded px-3 py-2 text-sm"
+                              placeholder="Additional context..."></textarea>
+                </div>
+                
+                <button type="submit" class="w-full px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded font-medium">
+                    ✨ Generate Draft
+                </button>
+            </form>
+            
+            <div id="draftResult" class="mt-4"></div>
+        </div>
+
+        <!-- Pending Review -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-4">
+            <h2 class="text-xl font-bold text-white mb-4">⏳ Pending Review</h2>
+            
+            {% if pending_review %}
+            <div class="space-y-3 max-h-[500px] overflow-y-auto">
+                {% for draft in pending_review %}
+                <div class="bg-gray-700 rounded p-3" id="draft-{{ draft.id }}">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <span class="text-xs px-2 py-1 bg-gray-600 rounded">{{ draft.platform }}</span>
+                            <span class="text-xs text-gray-400 ml-2">{{ draft.entity.replace('_', ' ').title() }}</span>
+                        </div>
+                        <span class="text-xs text-gray-500">{{ draft.created_at[:16] }}</span>
+                    </div>
+                    <p class="text-sm text-gray-300 whitespace-pre-wrap mb-2">{{ draft.content[:200] }}{% if draft.content|length > 200 %}...{% endif %}</p>
+                    <div class="flex gap-2">
+                        <form hx-post="/api/drafts/{{ draft.id }}/approve" hx-target="#draft-{{ draft.id }}" hx-swap="outerHTML" class="inline">
+                            <input type="hidden" name="reviewed_by" value="dashboard">
+                            <button type="submit" class="px-2 py-1 bg-green-600 text-white rounded text-xs">✓ Approve</button>
+                        </form>
+                        <form hx-post="/api/drafts/{{ draft.id }}/reject" hx-target="#draft-{{ draft.id }}" hx-swap="outerHTML" class="inline">
+                            <input type="hidden" name="reviewed_by" value="dashboard">
+                            <input type="hidden" name="reason" value="Needs revision">
+                            <button type="submit" class="px-2 py-1 bg-red-600 text-white rounded text-xs">✗ Reject</button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-gray-500 text-center py-8">No drafts pending review</p>
+            {% endif %}
+        </div>
+
+        <!-- Approved / Ready to Publish -->
+        <div class="bg-gray-800 rounded-lg border border-gray-700 p-4">
+            <h2 class="text-xl font-bold text-white mb-4">✅ Ready to Publish</h2>
+            
+            {% if approved %}
+            <div class="space-y-3 max-h-[500px] overflow-y-auto">
+                {% for draft in approved %}
+                <div class="bg-gray-700 rounded p-3" id="approved-{{ draft.id }}">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <span class="text-xs px-2 py-1 bg-green-900 text-green-300 rounded">{{ draft.platform }}</span>
+                        </div>
+                        <span class="text-xs text-gray-500">{{ draft.entity.replace('_', ' ').title() }}</span>
+                    </div>
+                    <p class="text-sm text-gray-300 whitespace-pre-wrap mb-2">{{ draft.content[:150] }}{% if draft.content|length > 150 %}...{% endif %}</p>
+                    <form hx-post="/api/drafts/{{ draft.id }}/publish" hx-target="#approved-{{ draft.id }}" hx-swap="outerHTML">
+                        <button type="submit" class="px-3 py-1 bg-blue-600 text-white rounded text-sm">🚀 Publish</button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-gray-500 text-center py-8">No approved drafts</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
