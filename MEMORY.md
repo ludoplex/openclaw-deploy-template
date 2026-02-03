@@ -125,4 +125,34 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 
 ---
 
+## Deployment Lessons
+
+### Docker Not Always Easier (2026-02-02)
+For **mixpost-malone** deployment, Docker via GitHub Codespaces added friction:
+- Codespaces stuck in "Queued" state
+- Services showing "No running process"
+- No SSH access without sshd feature
+
+**Solution**: Direct PHP devcontainer without Docker. Simpler = faster debugging.
+
+### Mixpost is a Package
+Mixpost needs a Laravel host app. Setup:
+```bash
+composer create-project laravel/laravel mixpost-app
+cd mixpost-app
+composer config repositories.mixpost-malone path ../mixpost-malone
+composer require inovector/mixpost:@dev --ignore-platform-req=ext-pcntl
+composer require laravel/breeze --dev --ignore-platform-req=ext-pcntl
+php artisan breeze:install blade --no-interaction
+php artisan migrate
+```
+
+### pcntl Extension Workaround
+Horizon requires pcntl (Unix process control). In dev containers without it:
+```bash
+composer install --ignore-platform-req=ext-pcntl
+```
+
+---
+
 *Update this file with significant learnings and decisions.*
