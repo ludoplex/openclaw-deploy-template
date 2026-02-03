@@ -44,6 +44,29 @@ from local_llm import ask_local, generate_json, summarize, format_for_platform
 - **Stack:** FastAPI + HTMX, llamafile for content gen
 - **Target:** 2026-02-07
 
+### Mixpost-Malone (Social Media Manager) - PAUSED
+- **Repo:** https://github.com/ludoplex/mixpost-malone
+- **Status:** Entity/brand feature complete, local deploy ready
+- **Local:** `C:\dev\mixpost-app` (Docker) + `C:\dev\mixpost-malone` (package)
+- **Waiting on:** Entity websites for MHI, DSAIC, Computer Store
+- **Resume:** See `memory/2026-02-03.md` for full details
+
+### Entity Websites - IN PLANNING
+**MHI (Mighty House Inc):**
+- Domain: mightyhouseinc.com ✅ EXISTS
+- GovCon, EDWOSB, HUBZONE, IT Solutions
+- Location: 977 Gilchrist St, Wheatland WY 82201
+
+**DSAIC (Data Science Applications, Inc):**
+- Domain: dsaic.ai (NEED TO REGISTER)
+- SaaS/ML/DL - original + IBM/Climb Channel reseller
+- Independent brand, MHI-backed
+
+**Computer Store:**
+- Domain: computerstore.mightyhouseinc.com (FREE SUBDOMAIN)
+- Clearly MHI-affiliated
+- Retail + Esports/LAN + Training/Certification
+
 ---
 
 ## Lessons Learned
