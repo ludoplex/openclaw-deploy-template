@@ -10,9 +10,11 @@
 
 ### In Progress
 - [ ] Wire auth routes (login/register actual functionality)
-- [ ] Wire orders API to real DB operations
-- [ ] Wire members API to real DB operations  
-- [ ] Wire training API to real DB operations
+
+### Recently Completed
+- [x] Wire orders API to real DB operations (commit 574ac93)
+- [x] Wire members API to real DB operations (commit 574ac93)
+- [x] Wire training API to real DB operations (commit 574ac93)
 
 ### Integrations
 - [ ] **ggLeap sync** - API docs captured, need to implement JWT auth + data sync
