@@ -190,12 +190,11 @@ Pattern doc: `~/.openclaw/workspace/patterns/RECURSIVE_REASONING.md`
 ### Computer Store Stripe - PENDING
 Need API keys from dashboard.stripe.com
 
-### workflow-enforcer Hook (DISABLED)
-**Added: 2026-02-03**
-Hook causes `sessions_spawn` to fail with `.trim()` error.
+### workflow-enforcer Hook (RE-ENABLED)
+**Added: 2026-02-03 | Fixed: 2026-02-04**
+Previously caused `sessions_spawn` to fail with `.trim()` error.
 - Issue: https://github.com/openclaw/openclaw/issues/8445
-- Workaround: Keep `hooks.internal.entries.workflow-enforcer.enabled: false`
-- Don't re-enable until OpenClaw team fixes bootstrap file injection
+- Status: ✅ Fixed per user confirmation, re-enabled 2026-02-04
 
 ---
 
