@@ -169,6 +169,10 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 All agents follow: `PLAN → IMPLEMENT → VERIFY → REFLECT → REPEAT (max 5)`
 Pattern doc: `~/.openclaw/workspace/patterns/RECURSIVE_REASONING.md`
 
+### Recursive Reasoning Pattern
+All agents follow: `PLAN → IMPLEMENT → VERIFY → REFLECT → REPEAT (max 5)`
+Pattern doc: `~/.openclaw/workspace/patterns/RECURSIVE_REASONING.md`
+
 ---
 
 ## Blockers

@@ -1,129 +1,62 @@
 # Recursive Reasoning Pattern
 
-A workflow pattern for AI-assisted development that ensures correctness through iterative verification.
+## Overview
+
+All agents in this fleet can use recursive reasoning for complex problems.
 
 ## The Loop
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│   ┌─────────┐    ┌───────────┐    ┌────────┐    ┌────────┐ │
-│   │  PLAN   │───▶│ IMPLEMENT │───▶│ VERIFY │───▶│ PASS?  │ │
-│   └─────────┘    └───────────┘    └────────┘    └────────┘ │
-│        ▲                                             │      │
-│        │              ┌──────────┐                   │      │
-│        └──────────────│ REFLECT  │◀──────NO─────────┘      │
-│                       └──────────┘           │              │
-│                                              YES            │
-│                                              │              │
-│                                         ┌────▼────┐         │
-│                                         │  DONE   │         │
-│                                         └─────────┘         │
-└─────────────────────────────────────────────────────────────┘
+PLAN → IMPLEMENT → VERIFY → REFLECT → REPEAT (max 5)
 ```
 
-## Phases
+## When to Use
 
-### 1. Plan (max 5 bullets)
-- Identify what needs to be done
-- List affected files
-- Propose implementation strategy
-- Identify potential risks
+- Complex multi-step problems
+- Debugging that isn't working
+- Research with uncertainty
+- Any task where first attempt might fail
 
-### 2. Implement
-- Apply minimal, focused changes
-- One file at a time
-- Follow language/framework conventions
-- Document non-obvious decisions
+## How to Invoke
 
-### 3. Verify
-- Run ALL verification commands
-- Check for: syntax errors, lint warnings, type errors, test failures, build errors
-- Capture FULL error output
+Simply state: "Using recursive reasoning:" then follow the loop.
 
-### 4. Reflect (on failure)
-- Read error messages CAREFULLY
-- Identify root cause (not symptoms)
-- Update mental model
-- Return to Plan with new context
+Or use the `reason` skill if installed.
 
-## Iteration Limits
+## Constraints
 
-| Complexity | Max Iterations |
-|------------|----------------|
-| Simple fix | 3 |
-| New feature | 5 |
-| Refactor | 7 |
-| Complex debug | 10 |
+1. **Max 5 iterations** — Prevents infinite loops
+2. **Progress required** — Each iteration must advance
+3. **Approach change after 2 stuck** — Don't repeat failures
+4. **Persist learnings** — Write reflections to memory
 
-If limit reached without success → escalate to human.
+## Skills Support
 
-## Per-Language Verification
+| Skill | Purpose |
+|-------|---------|
+| `reason` | Framework injection |
+| `decompose` | Feynman-style breakdown |
+| `reframe` | Cross-domain analogies |
+| `confidence` | Bayesian tracking |
 
-### Luau (Roblox)
-```bash
-stylua --check src
-selene src
-rojo build -o build.rbxlx
+## Hook Support
+
+| Hook | Event | Purpose |
+|------|-------|---------|
+| `reasoning-tracker` | `agent:bootstrap` | Inject framework |
+| `session-memory` | `command:new` | Capture reflections |
+
+## Installation
+
+Skills and hooks available from skillsmith agent:
+```
+~/.openclaw/agents/skillsmith/templates/
+├── skills/
+│   ├── reason/SKILL.md
+│   └── decompose/SKILL.md
+├── hooks/
+│   └── reasoning-tracker/
+└── REASONING.md
 ```
 
-### Python
-```bash
-ruff check .
-ruff format --check .
-python -m pytest
-```
-
-### TypeScript
-```bash
-tsc --noEmit
-eslint .
-npm test
-```
-
-### C (Cosmopolitan)
-```bash
-cosmocc -Wall -Werror -c *.c
-# or make with strict flags
-```
-
-### Assembly
-```bash
-nasm -f elf64 -o out.o in.asm
-# Check for assembler errors
-```
-
-## Integration with OpenClaw
-
-### Agent System Prompt Addition
-```
-When developing, follow the Recursive Reasoning Pattern:
-1. Plan (5 bullets max)
-2. Implement (minimal changes)
-3. Verify (run ALL checks)
-4. If fail: Reflect, identify root cause, return to 1
-5. Max iterations: 5
-6. If stuck: summarize attempts and ask for human guidance
-```
-
-### Hook Trigger
-Agents can trigger verification via:
-- `make check` (if Makefile exists)
-- Direct command execution
-- File watcher hooks
-
-## Anti-Patterns
-
-❌ **Don't**: Make multiple changes without verifying
-❌ **Don't**: Ignore lint warnings
-❌ **Don't**: Skip verification "just this once"
-❌ **Don't**: Exceed iteration limit without escalating
-❌ **Don't**: Fix symptoms instead of root cause
-
-## Success Metrics
-
-✅ Verification passes on first try: Excellent
-✅ 1-2 iterations: Good
-✅ 3-5 iterations: Acceptable
-⚠️ 5+ iterations: Review approach
-❌ Hit limit without success: Escalate
+Copy to agent workspace as needed.
