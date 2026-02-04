@@ -9,11 +9,17 @@
 **Running:** http://localhost:8003 (ports 8000-8002 have ghost connections)
 
 ### In Progress
-- [ ] Create protected routes middleware (require auth for checkout, etc.)
-- [ ] Email verification flow
+- [ ] Email verification flow (send actual emails)
 - [ ] Password reset flow
+- [ ] Connect checkout page to Stripe
 
 ### Recently Completed
+- [x] **Protected routes & user pages** (commit 6af48c5):
+  - Protected routes: /account, /checkout, /orders, /orders/{id}
+  - Redirect to login with ?next= param
+  - Updated nav with user dropdown when authenticated
+  - New templates: account.html, checkout.html, orders.html, order_detail.html
+  - Profile update + password change endpoints
 - [x] **Auth implementation** (commit 8ec2846):
   - User model with password hashing (bcrypt)
   - JWT tokens with python-jose
