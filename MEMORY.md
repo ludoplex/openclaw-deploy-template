@@ -139,6 +139,34 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 
 ---
 
+## Multi-Agent Fleet
+**Added: 2026-02-03**
+
+12 specialized agents with isolated workspaces at `~/.openclaw/agents/`:
+
+| Agent | Focus |
+|-------|-------|
+| main | Personal, general (default) |
+| ops | MHI/DSAIC/ComputerStore business, Zoho |
+| webdev | FastAPI, HTMX, Python |
+| cosmo | Cosmopolitan/jart, APE, C |
+| social | Mixpost, social media |
+| course | Training/certification content |
+| pearsonvue | Testing center operations |
+| ggleap | LAN center management |
+| asm | AMD64, AArch64, MASM64 |
+| metaquest | Meta Quest 3 VR |
+| neteng | Network/systems/deployment/AD |
+| roblox | Roblox/Luau |
+
+**Switch:** `/agent <id>` or `sessions_spawn(agentId="...", task="...")`
+
+### Recursive Reasoning Pattern
+All agents follow: `PLAN → IMPLEMENT → VERIFY → REFLECT → REPEAT (max 5)`
+Pattern doc: `~/.openclaw/workspace/patterns/RECURSIVE_REASONING.md`
+
+---
+
 ## Blockers
 
 ### ggLeap API
