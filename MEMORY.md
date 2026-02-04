@@ -141,7 +141,7 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 **Updated: 2026-02-03** — Added cicd, testcov, seeker
 **Spawning enabled:** (config: main.subagents.allowAgents)
 
-15 specialized agents with isolated workspaces at `~/.openclaw/agents/`:
+16 specialized agents with isolated workspaces at `~/.openclaw/agents/`:
 
 | Agent | Focus |
 |-------|-------|
@@ -160,6 +160,7 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 | cicd🔄 | GitHub Actions, CI/CD workflows |
 | testcov🧪 | Test coverage, pytest, jest, property testing |
 | seeker🔍 | Advanced search: Fravia methods, Feynman decomposition, Bayesian game theory |
+| sitecraft🏗️ | Domain registration, hosting, website dev/maintenance |
 
 **Switch:** `/agent <id>` or `sessions_spawn(agentId="...", task="...")`
 
