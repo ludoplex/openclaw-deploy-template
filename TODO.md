@@ -9,11 +9,12 @@
 **Running:** http://localhost:8003
 
 ### Needs User Input
-- [ ] **SMTP config** - Need SMTP credentials for email verification
-  - Server, port, username, password, from address
-  - Suggest: Zoho Mail SMTP or any provider
+- [x] **SMTP config** - ✅ CONFIGURED (Zoho Mail rachelwilliams@mightyhouseinc.com)
+  - Tested and working 2026-02-03 21:50 MST
 - [ ] **Stripe keys** - Need live/test API keys in `.env`
   - `STRIPE_SECRET_KEY`, `STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET`
+- [ ] **ggLeap API key** - Need from ggLeap admin: https://admin.ggleap.com/settings/api
+  - `GGLEAP_API_KEY` in `.env`
 
 ### Needs Live Testing (ggLeap)
 - [ ] **ggLeap sync** - Code complete (commit 3d73c4a), needs live ggLeap environment
@@ -41,12 +42,32 @@
 ---
 
 ## 📊 SOP Automation Dashboard
-**Status:** Part of zoho-console-api-module-system
+**Status:** ✅ RUNNING
 **Location:** `C:\zoho-console-api-module-system`
-**Running:** http://localhost:8080 (uvicorn)
+**URL:** http://localhost:8085
 
-- [ ] Review current state of SOP module
-- [ ] Continue per `docs/zoho-crm-sop-plan.md`
+### Completed
+- [x] SOP Engine (`src/modules/sop/engine.py`) - Full workflow execution
+- [x] CRM Module (`src/modules/crm/`) - Records, blueprints, webhooks
+- [x] CLI for supplier email search
+- [x] **Web Dashboard** (FastAPI + HTMX) - `src/dashboard/`
+  - Dashboard home with stats by entity
+  - SOP list with filtering
+  - SOP detail view with manual trigger
+  - Execution history
+  - CRM webhook endpoint (`/webhook/crm`)
+- [x] Per-entity SOP definitions (9 total):
+  - MHI: 3 (New Lead, Lead Qualification, Deal Processing)
+  - DSAIC: 1 (Demo Request)
+  - Computer Store: 3 (Order, Student Enrollment, Certification)
+  - Cross-Entity: 2 (Student-to-Employee, Influencer Pipeline)
+
+### To Start Dashboard
+```powershell
+cd C:\zoho-console-api-module-system
+$env:PYTHONPATH="src"
+python -c "from src.dashboard.app import app; import uvicorn; uvicorn.run(app, host='127.0.0.1', port=8085)"
+```
 
 ---
 
@@ -76,16 +97,13 @@
 
 ---
 
-## 🔧 OpenClaw Agent Spawning
-**Status:** BLOCKED
-**Bug:** https://github.com/openclaw/openclaw/issues/8445
+## 🔧 OpenClaw Agent Fleet
+**Status:** ✅ WORKING (17 agents deployed)
+**Bug Fixed:** https://github.com/openclaw/openclaw/issues/8445
 
-All `sessions_spawn` calls fail with:
-```
-TypeError: Cannot read properties of undefined (reading 'trim')
-```
+Spawning works. Use `/agent <id>` or `sessions_spawn(agentId="...", task="...")`.
 
-Workaround: Work directly in main session until fixed.
+⚠️ Keep `hooks.internal.entries.workflow-enforcer.enabled: false` - causes .trim() error
 
 ---
 
