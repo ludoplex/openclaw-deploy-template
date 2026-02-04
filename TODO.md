@@ -6,15 +6,25 @@
 
 ## 🏪 Computer Store Platform
 **Repo:** https://github.com/ludoplex/computerstore-platform
-**Running:** http://localhost:8002 (port 8000 has ghost connections)
+**Running:** http://localhost:8003 (ports 8000-8002 have ghost connections)
 
 ### In Progress
-- [ ] Wire auth routes (login/register actual functionality)
+- [ ] Create protected routes middleware (require auth for checkout, etc.)
+- [ ] Email verification flow
+- [ ] Password reset flow
 
 ### Recently Completed
+- [x] **Auth implementation** (commit 8ec2846):
+  - User model with password hashing (bcrypt)
+  - JWT tokens with python-jose
+  - Login/register with HTMX flash messages
+  - Cookie-based sessions with remember-me
+  - Account lockout after failed attempts
+  - `/api/auth/register`, `/api/auth/login`, `/api/auth/logout`, `/api/auth/me`, `/api/auth/check`, `/api/auth/token`
 - [x] Wire orders API to real DB operations (commit 574ac93)
 - [x] Wire members API to real DB operations (commit 574ac93)
 - [x] Wire training API to real DB operations (commit 574ac93)
+- [x] Lint cleanup with ruff (commit 1c11752)
 
 ### Integrations
 - [ ] **ggLeap sync** - API docs captured, need to implement JWT auth + data sync
