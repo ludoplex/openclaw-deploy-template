@@ -4,6 +4,12 @@
 
 ---
 
+## 📌 PINNED: Computer Store Platform
+**Status:** Paused for multi-agent setup
+**Resume:** SMTP config for email verification, then ggLeap sync
+
+---
+
 ## 🏪 Computer Store Platform
 **Repo:** https://github.com/ludoplex/computerstore-platform
 **Running:** http://localhost:8003 (ports 8000-8002 have ghost connections)
