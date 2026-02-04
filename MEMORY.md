@@ -78,18 +78,15 @@ User prefers Cosmopolitan/APE philosophy (jart). Use llamafile for local LLM, no
 
 ## Ideas / Future Projects
 
-### Python 3 Cosmopolitan Port
-**Added: 2026-01-31**
+### Python 3 Cosmopolitan Port - ALREADY EXISTS ✅
+**Added: 2026-01-31 | Resolved: 2026-02-03**
 
-Port Python 3 to Cosmopolitan Libc as an updated version of the Python 2.7 portable.
+**No need to build!** `cosmo-python` by metaist already provides Python 3.10-3.14 as APE binaries.
+- Repo: https://github.com/metaist/cosmo-python
+- ~45MB single-file executables
+- Known limitations: no tkinter, no dlopen, ctypes callbacks broken on macOS ARM64
 
-- **Reference**: [awesome-cosmopolitan](https://github.com/shmup/awesome-cosmopolitan) - curated list of Cosmo projects
-- **Existing**: [cosmofy](https://github.com/metaist/cosmofy) - Cosmopolitan Python Bundler (wraps existing Python)
-- **Goal**: Native Python 3.x APE binary (single file runs on Windows/Linux/Mac/BSD)
-- **Why**: Aligns with jart/Cosmopolitan philosophy, enables truly portable Python
-- **Approach**: Compile CPython 3.12+ with cosmocc, handle platform-specific code
-- **Complexity**: High but achievable - llamafile proves complex C++ works with Cosmo
-- **Potential repo**: `ludoplex/cosmopolitan-python` or contribute to jart/cosmopolitan
+Use `cosmo-python` for interpreter, `cosmofy` to bundle apps, `cosmoext` for pre-compiled C extensions.
 
 ---
 
@@ -171,9 +168,15 @@ Pattern doc: `~/.openclaw/workspace/patterns/RECURSIVE_REASONING.md`
 ## Blockers
 
 ### ggLeap API
-**Status:** No public API documentation found
-**Tried:** ggleap.com, ggcircuit.com/developers, support URLs
-**Next:** Contact ggLeap support directly or check if API requires partner access
+**Status:** Docs require admin login; integration code written but untested
+**Next:** Test endpoints with live ggLeap credentials
+
+### workflow-enforcer Hook (DISABLED)
+**Added: 2026-02-03**
+Hook causes `sessions_spawn` to fail with `.trim()` error.
+- Issue: https://github.com/openclaw/openclaw/issues/8445
+- Workaround: Keep `hooks.internal.entries.workflow-enforcer.enabled: false`
+- Don't re-enable until OpenClaw team fixes bootstrap file injection
 
 ---
 
