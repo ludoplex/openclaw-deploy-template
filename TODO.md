@@ -67,7 +67,7 @@
 - [ ] Build website (GovCon, EDWOSB, HUBZONE, IT Solutions)
 
 ### DSAIC (Data Science Applications, Inc)
-- [ ] Register domain: dsaic.ai
+- [ ] Register domain for DSAIC (NOT .ai - avoid AI association)
 - [ ] Build website (SaaS/ML/DL, IBM/Climb Channel reseller)
 
 ### Computer Store

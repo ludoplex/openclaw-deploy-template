@@ -58,7 +58,7 @@ from local_llm import ask_local, generate_json, summarize, format_for_platform
 - Location: 977 Gilchrist St, Wheatland WY 82201
 
 **DSAIC (Data Science Applications, Inc):**
-- Domain: dsaic.ai (NEED TO REGISTER)
+- Domain: TBD (NOT .ai - user explicitly stated no AI association)
 - SaaS/ML/DL - original + IBM/Climb Channel reseller
 - Independent brand, MHI-backed
 
