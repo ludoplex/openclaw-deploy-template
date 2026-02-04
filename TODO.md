@@ -9,11 +9,22 @@
 **Running:** http://localhost:8003 (ports 8000-8002 have ghost connections)
 
 ### In Progress
-- [ ] Email verification flow (send actual emails)
-- [ ] Password reset flow
-- [ ] Connect checkout page to Stripe
+- [ ] Email verification flow (send actual emails - need SMTP config)
+- [ ] Add products to cart (frontend JS)
+- [ ] Set up Stripe keys in .env for live testing
 
 ### Recently Completed
+- [x] **Stripe checkout integration** (commit a8387a3):
+  - PaymentIntent creation API
+  - Stripe Elements in checkout page
+  - Webhook handler for payment_intent.succeeded
+  - Auto-create orders on successful payment
+  - Added stripe_customer_id to User, user_id to Order
+- [x] **Password reset flow** (commit 508acea):
+  - Forgot password page with email submission
+  - Token generation (1-hour expiry)
+  - Reset password page with token validation
+  - Clears lockout on password reset
 - [x] **Protected routes & user pages** (commit 6af48c5):
   - Protected routes: /account, /checkout, /orders, /orders/{id}
   - Redirect to login with ?next= param
