@@ -1,0 +1,73 @@
+# Reusable workflow for releasing APE binaries
+# Usage:
+#   jobs:
+#     release:
+#       uses: your-org/cosmo-toolchain/.github/workflows/release-ape.yml@main
+#       with:
+#         artifact-name: my-app-ape
+#         binary-name: myapp.com
+#       secrets:
+#         github-token: ${{ secrets.GITHUB_TOKEN }}
+
+name: Release APE
+
+on:
+  workflow_call:
+    inputs:
+      artifact-name:
+        description: 'Name of the artifact to download'
+        required: true
+        type: string
+      binary-name:
+        description: 'Name of the binary file'
+        required: true
+        type: string
+      create-checksums:
+        description: 'Create SHA256 checksums'
+        required: false
+        default: true
+        type: boolean
+    secrets:
+      github-token:
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    steps:
+      - name: Download APE artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+
+      - name: Create checksums
+        if: inputs.create-checksums
+        run: |
+          sha256sum ${{ inputs.binary-name }} > ${{ inputs.binary-name }}.sha256
+          echo "SHA256 checksum:"
+          cat ${{ inputs.binary-name }}.sha256
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ${{ inputs.binary-name }}
+            ${{ inputs.binary-name }}.sha256
+        env:
+          GITHUB_TOKEN: ${{ secrets.github-token }}
+
+      - name: Generate release notes
+        run: |
+          echo "## 🚀 Release Assets" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| File | Description |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-------------|" >> $GITHUB_STEP_SUMMARY
+          echo "| \`${{ inputs.binary-name }}\` | Actually Portable Executable (APE) - runs on Linux, macOS, Windows, FreeBSD, OpenBSD, NetBSD |" >> $GITHUB_STEP_SUMMARY
+          echo "| \`${{ inputs.binary-name }}.sha256\` | SHA256 checksum for verification |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Supported Platforms" >> $GITHUB_STEP_SUMMARY
+          echo "- Linux (x86_64, aarch64)" >> $GITHUB_STEP_SUMMARY
+          echo "- macOS (Intel x86_64, Apple Silicon arm64)" >> $GITHUB_STEP_SUMMARY
+          echo "- Windows (x86_64)" >> $GITHUB_STEP_SUMMARY
+          echo "- FreeBSD, OpenBSD, NetBSD" >> $GITHUB_STEP_SUMMARY

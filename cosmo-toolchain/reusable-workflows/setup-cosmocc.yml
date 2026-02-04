@@ -1,0 +1,79 @@
+# Reusable workflow for cosmocc setup
+# Usage in other workflows:
+#   jobs:
+#     build:
+#       uses: your-org/cosmo-toolchain/.github/workflows/setup-cosmocc.yml@main
+#       with:
+#         cosmocc-version: "3.9.7"
+
+name: Setup Cosmocc
+
+on:
+  workflow_call:
+    inputs:
+      cosmocc-version:
+        description: 'Cosmocc version to install'
+        required: false
+        default: '3.9.7'
+        type: string
+      install-ape-loader:
+        description: 'Install APE loader for Linux'
+        required: false
+        default: true
+        type: boolean
+    outputs:
+      cosmocc-path:
+        description: 'Path to cosmocc installation'
+        value: ${{ jobs.setup.outputs.cosmocc-path }}
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      cosmocc-path: ${{ steps.install.outputs.path }}
+    steps:
+      - name: Cache cosmocc toolchain
+        id: cache-cosmocc
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/cosmocc
+          key: cosmocc-${{ inputs.cosmocc-version }}-${{ runner.os }}-v3
+
+      - name: Install cosmocc toolchain
+        id: install
+        if: steps.cache-cosmocc.outputs.cache-hit != 'true'
+        run: |
+          set -ex
+          mkdir -p $GITHUB_WORKSPACE/cosmocc
+          cd $GITHUB_WORKSPACE/cosmocc
+          
+          echo "Downloading cosmocc toolchain..."
+          curl -fsSL "https://cosmo.zip/pub/cosmocc/cosmocc.zip" -o cosmocc.zip
+          
+          echo "Extracting..."
+          unzip -q cosmocc.zip
+          rm cosmocc.zip
+          
+          # Verify installation
+          echo "Installed cosmocc toolchain:"
+          ls -la $GITHUB_WORKSPACE/cosmocc/bin/ | head -10
+          $GITHUB_WORKSPACE/cosmocc/bin/cosmocc --version || true
+          
+          echo "path=$GITHUB_WORKSPACE/cosmocc" >> $GITHUB_OUTPUT
+
+      - name: Setup APE loader for Linux
+        if: inputs.install-ape-loader && runner.os == 'Linux'
+        run: |
+          # Register APE loader with binfmt_misc for direct execution
+          if [ -f $GITHUB_WORKSPACE/cosmocc/bin/ape-x86_64.elf ]; then
+            sudo cp $GITHUB_WORKSPACE/cosmocc/bin/ape-x86_64.elf /usr/bin/ape
+            sudo chmod +x /usr/bin/ape
+          elif [ -f $GITHUB_WORKSPACE/cosmocc/bin/ape.elf ]; then
+            sudo cp $GITHUB_WORKSPACE/cosmocc/bin/ape.elf /usr/bin/ape
+            sudo chmod +x /usr/bin/ape
+          fi
+          
+          # Register APE format (optional, improves performance)
+          if [ -f /proc/sys/fs/binfmt_misc/register ]; then
+            sudo sh -c "echo ':APE:M::MZqFpD::/usr/bin/ape:' >/proc/sys/fs/binfmt_misc/register" 2>/dev/null || true
+          fi
