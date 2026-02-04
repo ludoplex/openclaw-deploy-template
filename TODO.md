@@ -1,12 +1,25 @@
 # TODO.md - Active Tasks
 
-*Last updated: 2026-02-03*
+*Last updated: 2026-02-03 18:40*
 
 ---
 
-## 📌 PINNED: Computer Store Platform
-**Status:** Paused for multi-agent setup
-**Resume:** SMTP config for email verification, then ggLeap sync
+## 📌 PINNED: Multi-Agent Delegations Active
+**Status:** 4 agents working in parallel
+
+| Agent | Task | Status |
+|-------|------|--------|
+| 🌐 webdev | Computer Store: SMTP, Cart, Stripe | Running |
+| 🎮 ggleap | ggLeap API sync | Running |
+| 🧱 roblox | Recursive Reasoning Roblox env | Running |
+| 🌌 cosmo | Python 3 Cosmopolitan research | Running |
+
+---
+
+## 🏪 Computer Store Platform
+**Repo:** https://github.com/ludoplex/computerstore-platform
+**Running:** http://localhost:8003
+**Delegated to:** 🌐 webdev agent
 
 ---
 
@@ -99,12 +112,12 @@
 ---
 
 ## 🔧 OpenClaw Browser Extension
-**Status:** Workaround accepted
+**Status:** Documented ✅
 
 - [x] Diagnosed Chrome limitation (silent disconnect on cross-origin nav)
 - [x] Added persistentTabs + webNavigation listeners
-- [ ] Document cross-origin limitation in usage guide
-- [ ] Consider periodic "ping" to detect stale connections
+- [x] Document cross-origin limitation in usage guide → `docs/browser-extension-guide.md`
+- [ ] Consider periodic "ping" to detect stale connections (low priority)
 
 ---
 

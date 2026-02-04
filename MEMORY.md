@@ -141,6 +141,7 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 
 ## Multi-Agent Fleet
 **Added: 2026-02-03**
+**Spawning enabled: 2026-02-03** (config: main.subagents.allowAgents)
 
 12 specialized agents with isolated workspaces at `~/.openclaw/agents/`:
 
