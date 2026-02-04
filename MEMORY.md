@@ -138,24 +138,28 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 
 ## Multi-Agent Fleet
 **Added: 2026-02-03**
-**Spawning enabled: 2026-02-03** (config: main.subagents.allowAgents)
+**Updated: 2026-02-03** — Added cicd, testcov, seeker
+**Spawning enabled:** (config: main.subagents.allowAgents)
 
-12 specialized agents with isolated workspaces at `~/.openclaw/agents/`:
+15 specialized agents with isolated workspaces at `~/.openclaw/agents/`:
 
 | Agent | Focus |
 |-------|-------|
-| main | Personal, general (default) |
-| ops | MHI/DSAIC/ComputerStore business, Zoho |
-| webdev | FastAPI, HTMX, Python |
-| cosmo | Cosmopolitan/jart, APE, C |
-| social | Mixpost, social media |
-| course | Training/certification content |
-| pearsonvue | Testing center operations |
-| ggleap | LAN center management |
-| asm | AMD64, AArch64, MASM64 |
-| metaquest | Meta Quest 3 VR |
-| neteng | Network/systems/deployment/AD |
-| roblox | Roblox/Luau |
+| main🦞 | Personal, general (default) |
+| ops📊 | MHI/DSAIC/ComputerStore business, Zoho |
+| webdev🌐 | FastAPI, HTMX, Python |
+| cosmo🌌 | Cosmopolitan/jart, APE, C |
+| social📱 | Mixpost, social media |
+| course📚 | Training/certification content |
+| pearsonvue🎓 | Testing center operations |
+| ggleap🎮 | LAN center management |
+| asm⚙️ | AMD64, AArch64, MASM64 |
+| metaquest🥽 | Meta Quest 3 VR |
+| neteng🔌 | Network/systems/deployment/AD |
+| roblox🧱 | Roblox/Luau |
+| cicd🔄 | GitHub Actions, CI/CD workflows |
+| testcov🧪 | Test coverage, pytest, jest, property testing |
+| seeker🔍 | Advanced search: Fravia methods, Feynman decomposition, Bayesian game theory |
 
 **Switch:** `/agent <id>` or `sessions_spawn(agentId="...", task="...")`
 
