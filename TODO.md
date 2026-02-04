@@ -1,87 +1,52 @@
 # TODO.md - Active Tasks
 
-*Last updated: 2026-02-03 18:40*
-
----
-
-## 📌 PINNED: Multi-Agent Delegations Complete ✅
-**Status:** All 4 agents finished
-
-| Agent | Task | Result |
-|-------|------|--------|
-| 🌐 webdev | Computer Store: SMTP, Cart, Stripe | ✅ Done (commit 332e2ba) |
-| 🎮 ggleap | ggLeap API sync | ✅ Done (needs live testing) |
-| 🧱 roblox | Roblox toolchain setup | ✅ Done |
-| 🌌 cosmo | Python 3 Cosmopolitan research | ✅ Already exists (cosmo-python) |
+*Last updated: 2026-02-03 19:50*
 
 ---
 
 ## 🏪 Computer Store Platform
 **Repo:** https://github.com/ludoplex/computerstore-platform
 **Running:** http://localhost:8003
-**Delegated to:** 🌐 webdev agent
 
----
+### Needs User Input
+- [ ] **SMTP config** - Need SMTP credentials for email verification
+  - Server, port, username, password, from address
+  - Suggest: Zoho Mail SMTP or any provider
+- [ ] **Stripe keys** - Need live/test API keys in `.env`
+  - `STRIPE_SECRET_KEY`, `STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET`
 
-## 🏪 Computer Store Platform
-**Repo:** https://github.com/ludoplex/computerstore-platform
-**Running:** http://localhost:8003 (ports 8000-8002 have ghost connections)
+### Needs Live Testing (ggLeap)
+- [ ] **ggLeap sync** - Code complete (commit 3d73c4a), needs live ggLeap environment
+  - Test `/api/lan/ggleap/status` endpoint
+  - Test member sync
+  - Test station status monitoring
 
-### In Progress
-- [ ] Email verification flow (send actual emails - need SMTP config)
-- [ ] Add products to cart (frontend JS)
-- [ ] Set up Stripe keys in .env for live testing
-
-### Recently Completed
-- [x] **Stripe checkout integration** (commit a8387a3):
-  - PaymentIntent creation API
-  - Stripe Elements in checkout page
-  - Webhook handler for payment_intent.succeeded
-  - Auto-create orders on successful payment
-  - Added stripe_customer_id to User, user_id to Order
-- [x] **Password reset flow** (commit 508acea):
-  - Forgot password page with email submission
-  - Token generation (1-hour expiry)
-  - Reset password page with token validation
-  - Clears lockout on password reset
-- [x] **Protected routes & user pages** (commit 6af48c5):
-  - Protected routes: /account, /checkout, /orders, /orders/{id}
-  - Redirect to login with ?next= param
-  - Updated nav with user dropdown when authenticated
-  - New templates: account.html, checkout.html, orders.html, order_detail.html
-  - Profile update + password change endpoints
-- [x] **Auth implementation** (commit 8ec2846):
-  - User model with password hashing (bcrypt)
-  - JWT tokens with python-jose
-  - Login/register with HTMX flash messages
-  - Cookie-based sessions with remember-me
-  - Account lockout after failed attempts
-  - `/api/auth/register`, `/api/auth/login`, `/api/auth/logout`, `/api/auth/me`, `/api/auth/check`, `/api/auth/token`
-- [x] Wire orders API to real DB operations (commit 574ac93)
-- [x] Wire members API to real DB operations (commit 574ac93)
-- [x] Wire training API to real DB operations (commit 574ac93)
-- [x] Lint cleanup with ruff (commit 1c11752)
+### Recently Completed ✅
+- [x] **ggLeap integration** (commit 3d73c4a):
+  - GGLeapSyncService for bidirectional sync
+  - Member sync endpoints
+  - Station status monitoring
+  - Integration documentation
+- [x] **Cart functionality** - Full add-to-cart with localStorage + API validation
+- [x] **Stripe checkout** (commit a8387a3)
+- [x] **Email verification flow** (commit 332e2ba) - UI done, needs SMTP
+- [x] **Password reset** (commit 508acea)
+- [x] **Protected routes** (commit 6af48c5)
+- [x] **Auth system** (commit 8ec2846)
 
 ### Integrations
-- [ ] **ggLeap sync** - API docs captured, need to implement JWT auth + data sync
 - [ ] **Odyssey API** - Contact katie@withodyssey.com for direct API access
 - [ ] **Set up MHI Stripe account** for vendor payments (required for Odyssey)
-
-### Completed ✅
-- [x] All database models + Alembic migrations
-- [x] HTMX stack pivot (FastAPI + Jinja2 + Tailwind + Alpine.js)
-- [x] Products API with full CRUD, pagination, search
-- [x] All page templates (index, products, product_detail, training, lan, esa, cart, login, register)
-- [x] ggLeap API documentation captured
-- [x] Odyssey payment process documented (Net 30, Stripe ACH)
 
 ---
 
 ## 📊 SOP Automation Dashboard
-**Status:** Active development
-**Running:** http://localhost:8080
+**Status:** Part of zoho-console-api-module-system
+**Location:** `C:\zoho-console-api-module-system`
+**Running:** http://localhost:8080 (uvicorn)
 
-- [ ] Continue development per ROADMAP.md
+- [ ] Review current state of SOP module
+- [ ] Continue per `docs/zoho-crm-sop-plan.md`
 
 ---
 
@@ -111,20 +76,23 @@
 
 ---
 
-## 🔧 OpenClaw Browser Extension
-**Status:** Documented ✅
+## 🔧 OpenClaw Agent Spawning
+**Status:** BLOCKED
+**Bug:** https://github.com/openclaw/openclaw/issues/8445
 
-- [x] Diagnosed Chrome limitation (silent disconnect on cross-origin nav)
-- [x] Added persistentTabs + webNavigation listeners
-- [x] Document cross-origin limitation in usage guide → `docs/browser-extension-guide.md`
-- [ ] Consider periodic "ping" to detect stale connections (low priority)
+All `sessions_spawn` calls fail with:
+```
+TypeError: Cannot read properties of undefined (reading 'trim')
+```
+
+Workaround: Work directly in main session until fixed.
 
 ---
 
 ## 💡 Ideas / Backlog
 
-- [ ] **Python 3 Cosmopolitan Port** - Native APE binary (see MEMORY.md)
-- [ ] **ggLeap API blocker** - May need partner access, contact support
+- [ ] **cosmo-python** - Use metaist/cosmo-python for portable Python (APE)
+- [ ] **ggLeap API** - May need partner access for full docs
 
 ---
 
