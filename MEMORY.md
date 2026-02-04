@@ -177,9 +177,18 @@ Pattern doc: `~/.openclaw/workspace/patterns/RECURSIVE_REASONING.md`
 
 ## Blockers
 
-### ggLeap API
-**Status:** Docs require admin login; integration code written but untested
-**Next:** Test endpoints with live ggLeap credentials
+### ggLeap API - UNBLOCKED
+**Status:** Full API docs accessed via browser relay (admin.ggleap.com/public-api-documentation)
+**Base URL:** https://api.ggleap.com/production
+**Next:** Test endpoints with live credentials
+
+### Computer Store SMTP - RESOLVED
+**Configured:** 2026-02-03
+- Zoho Mail: rachelwilliams@mightyhouseinc.com
+- App password created for "Computer Store Platform"
+
+### Computer Store Stripe - PENDING
+Need API keys from dashboard.stripe.com
 
 ### workflow-enforcer Hook (DISABLED)
 **Added: 2026-02-03**
