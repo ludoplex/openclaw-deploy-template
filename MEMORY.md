@@ -96,6 +96,27 @@ User prefers Cosmopolitan/APE philosophy (jart). Use llamafile for local LLM, no
 
 ---
 
+## Claude.ai Skill Library (Created Jan 10, 2026)
+**Source:** Claude.ai Max plan conversation "Creating a skill together"
+**Location on Claude.ai:** `/mnt/skills/user/`
+**Status:** NOT ported to OpenClaw yet
+
+8 skills created in a marathon session:
+1. **operational-substrate** — Always-on Seven Lenses reasoning (G/F/R/B/E/X/L). Core loop: OBSERVE→ORIENT→SEEK→RETRIEVE→DECOMPOSE→ANALYZE→VERIFY→OUTPUT. Anti-patterns tracked. This is THE meta-cognition layer.
+2. **advanced-search** — Expert search operator combinations (Google/Bing/DDG). Query refinement, multi-engine tactics.
+3. **web-reconnaissance** — Tech stack fingerprinting, URI conventions, markup taxonomy, microformats, structured data.
+4. **gov-financial-intel** — SEC/CFIUS filings, super PACs, lobbyists, IRS/DOE/EPA/DOJ/BLM databases, wealth indices.
+5. **deep-directory-index** — Gov/corporate/nonprofit/academic directories, libraries, internet directories, offline resources.
+6. **industry-power-map** — NAICS-organized US industry dominance map. C-suite, activist investors, unions, foreign entities. Includes infra backbone, CDNs, carrier hotels, shipping.
+7. **tech-security-analysis** — Cybersecurity narrative vs reality. $215B spending gap analysis. Cross-references search + tech skills.
+8. **tampermonkey-llm-hub** — Browser automation via Tampermonkey + LLM_hub userscript.
+
+**Key principle:** operational-substrate is always-on, shapes all reasoning. No methodology theater — lenses work underneath.
+
+**TODO:** Port critical skills (operational-substrate, advanced-search, web-reconnaissance) to OpenClaw format for all 20 agents.
+
+---
+
 ## Ideas / Future Projects
 
 ### Python 3 Cosmopolitan Port - ALREADY EXISTS ✅
