@@ -117,6 +117,33 @@ User prefers Cosmopolitan/APE philosophy (jart). Use llamafile for local LLM, no
 
 ---
 
+### Claude.ai Skills Ported to OpenClaw ✅
+**Added: 2026-02-04**
+7 skills, 40 files, 293KB → `C:\Users\user\.openclaw\workspace\skills\`
+Committed `f44d87d`. NOT yet wired into gateway skill loader.
+Skills: operational-substrate, advanced-search, web-reconnaissance, gov-financial-intel, deep-directory-index, industry-power-map, tech-security-analysis
+
+### Statistical Analysis Agent (statanalysis 📈)
+**Added: 2026-02-04**
+Agent #21. Focus: anomaly detection, pattern recognition, statistical rigor.
+Workspace: `C:\Users\user\.openclaw\agents\statanalysis`
+
+### AI Void/Anomaly Analysis — 4 Public Repos
+**Added: 2026-02-04**
+- https://github.com/ludoplex/ai-void-analysis (main)
+- https://github.com/ludoplex/ai-elevenlabs-analysis
+- https://github.com/ludoplex/ai-arena-analysis
+- https://github.com/ludoplex/ai-grok-analysis
+ElevenLabs finding: 15.5% void cluster density, z=+6.69, p<0.00001
+Scope expanded to ALL anomalies, not just void.
+
+### Chrome Relay Lessons
+- Relay drops after gateway restarts and tab navigation
+- Blob URL download works for bulk data extraction
+- Don't navigate existing tabs — open new ones instead
+
+---
+
 ## Ideas / Future Projects
 
 ### Python 3 Cosmopolitan Port - ALREADY EXISTS ✅
