@@ -1,0 +1,29 @@
+name: Security
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  schedule:
+    - cron: '0 9 * * 1'
+
+permissions:
+  security-events: write
+  contents: read
+
+jobs:
+  codeql:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: c-cpp
+          queries: security-extended,security-and-quality
+      - name: Install deps
+        run: sudo apt-get update && sudo apt-get install -y libsqlite3-dev
+      - name: Build
+        run: make native
+      - name: Perform Analysis
+        uses: github/codeql-action/analyze@v3

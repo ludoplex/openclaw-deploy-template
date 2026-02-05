@@ -231,11 +231,13 @@ Pattern doc: `~/.openclaw/workspace/patterns/RECURSIVE_REASONING.md`
 ### Computer Store Stripe - PENDING
 Need API keys from dashboard.stripe.com
 
-### workflow-enforcer Hook - STILL BROKEN
-**Added: 2026-02-03**
-Causes `sessions_spawn` to fail with `.trim()` error.
+### workflow-enforcer Hook - FIXED ✅
+**Added: 2026-02-03 | Fixed: 2026-02-04**
+Was causing `sessions_spawn` to fail with `.trim()` error.
+- **Root cause:** OpenClaw loads `handler.ts` before `handler.js` in candidate order. Raw TypeScript import fails with `.trim()`.
+- **Fix:** Renamed `handler.ts` → `handler.ts.bak` so only compiled `handler.js` is found.
 - Issue: https://github.com/openclaw/openclaw/issues/8445
-- Status: ❌ Must stay DISABLED — re-enabling crashes agent spawning
+- Status: ✅ ENABLED and working
 
 ### GUNDOM PR #34 CI Failures
 3 checks failing: Database Tests, Swift Unit Tests, Verify Binary Linking

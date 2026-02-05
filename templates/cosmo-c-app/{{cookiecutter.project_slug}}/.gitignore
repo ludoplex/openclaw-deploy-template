@@ -1,0 +1,12 @@
+build/
+dist/
+vendor/
+*.db
+*.db-wal
+*.db-shm
+*.o
+*.obj
+*.exe
+*.com
+.env
+*.key

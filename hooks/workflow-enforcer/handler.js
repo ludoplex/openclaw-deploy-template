@@ -27,13 +27,14 @@ const WORKFLOW_REMINDER = `
 
 const handler = async (event) => {
   // Only trigger on agent:bootstrap
-  if (event.type !== "agent" || event.action !== "bootstrap") {
+  if (!event || event.type !== "agent" || event.action !== "bootstrap") {
     return;
   }
 
   // Inject workflow reminder into bootstrap files
-  if (event.context.bootstrapFiles) {
+  if (event.context && event.context.bootstrapFiles && Array.isArray(event.context.bootstrapFiles)) {
     event.context.bootstrapFiles.push({
+      name: "WORKFLOW_REMINDER.md",
       path: "WORKFLOW_REMINDER.md",
       content: WORKFLOW_REMINDER,
       source: "hook:workflow-enforcer",
@@ -43,4 +44,5 @@ const handler = async (event) => {
   }
 };
 
-export default handler;
+module.exports = handler;
+module.exports.default = handler;

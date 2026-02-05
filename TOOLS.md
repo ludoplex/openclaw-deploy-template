@@ -98,6 +98,20 @@ browser profile:"openclaw" action:"snapshot"
 - `profile="chrome"` — requires user to attach a Chrome tab via OpenClaw Browser Relay toolbar button
 - Use when you need the user's authenticated session (logged-in sites)
 
+## Cosmo-Python (APE)
+
+- **Binary**: `bin/python3-cosmo.com` (Python 3.14.2, ~55MB APE)
+- **Source**: metaist/cosmo-python release 20260119-034107
+- **Limitation**: Read-only /zip/ filesystem — can't pip install into it
+- **Use for**: Shipping Python apps as portable APE binaries (via cosmofy)
+- **NOT for**: Dev tooling (use system Python for cookiecutter, pip, etc.)
+
+## Cookiecutter
+
+- **Installed**: System Python 3.12 (`pip install cookiecutter`)
+- **Templates**: TODO — create `cosmo-c-app` template for C/Cosmopolitan projects
+- **Workflow**: `cookiecutter cosmo-c-app` → Qwen fills specifics → Claude for complex logic only
+
 ## What Goes Here
 
 Things like:

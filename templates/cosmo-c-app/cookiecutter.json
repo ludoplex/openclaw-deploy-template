@@ -1,0 +1,9 @@
+{
+  "project_name": "my-app",
+  "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+  "description": "A Cosmopolitan C application",
+  "author": "",
+  "use_sqlite": "yes",
+  "use_cimgui": "no",
+  "license": "MIT"
+}
