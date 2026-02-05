@@ -142,6 +142,9 @@ Scope expanded to ALL anomalies, not just void.
 - Relay drops after gateway restarts and tab navigation
 - Blob URL download works for bulk data extraction
 - Don't navigate existing tabs — open new ones instead
+- **Playwright CANNOT do Google SSO** — Google actively blocks automated browsers during sign-in
+- For any site using Google SSO, use Chrome relay (profile="chrome") instead of Playwright
+- NODE_PATH needed for Playwright scripts: `$env:NODE_PATH = "C:\Users\user\AppData\Roaming\npm\node_modules"`
 
 ---
 
