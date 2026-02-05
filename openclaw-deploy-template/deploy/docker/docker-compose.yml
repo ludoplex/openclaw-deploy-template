@@ -1,0 +1,73 @@
+# =============================================================================
+# OpenClaw Multi-Agent Gateway — Docker Compose
+# =============================================================================
+# Usage:
+#   cp ../../.env.example .env    # Copy and fill in values
+#   docker compose up -d          # Start
+#   docker compose logs -f        # View logs
+#   docker compose down           # Stop
+# =============================================================================
+
+services:
+  openclaw:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile
+    container_name: openclaw-gateway
+    restart: unless-stopped
+    
+    # Environment variables (from .env file)
+    env_file:
+      - ../../.env
+    
+    environment:
+      # Required
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - GATEWAY_TOKEN=${GATEWAY_TOKEN}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_ALLOWED_USER_ID=${TELEGRAM_ALLOWED_USER_ID}
+      
+      # Optional TTS
+      - ELEVENLABS_API_KEY=${ELEVENLABS_API_KEY:-}
+      - ELEVENLABS_VOICE_ID=${ELEVENLABS_VOICE_ID:-}
+      
+      # Internal
+      - OPENCLAW_HOME=/home/openclaw/.openclaw
+      - NODE_ENV=production
+    
+    ports:
+      - "18790:18790"
+    
+    volumes:
+      # Persist memory and session data across restarts
+      - openclaw-data:/home/openclaw/.openclaw/workspace/memory
+      - openclaw-sessions:/home/openclaw/.openclaw
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: "2.0"
+        reservations:
+          memory: 256M
+          cpus: "0.5"
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:18790/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  openclaw-data:
+    name: openclaw-data
+  openclaw-sessions:
+    name: openclaw-sessions

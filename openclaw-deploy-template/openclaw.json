@@ -1,0 +1,467 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.2",
+    "lastTouchedAt": "2026-02-05T00:06:07.895Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-01-31T20:07:06.289Z",
+    "lastRunVersion": "2026.1.30",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "browser": {
+    "profiles": {
+      "openclaw": {
+        "cdpPort": 18801,
+        "color": "#FF4500"
+      }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "token"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "${OPENCLAW_HOME}/workspace",
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "1h"
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "heartbeat": {
+        "every": "1h"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true,
+        "name": "Main",
+        "workspace": "${OPENCLAW_HOME}/workspace",
+        "identity": {
+          "emoji": "🦞"
+        },
+        "subagents": {
+          "allowAgents": [
+            "webdev",
+            "ggleap",
+            "roblox",
+            "cosmo",
+            "ops",
+            "social",
+            "course",
+            "pearsonvue",
+            "asm",
+            "metaquest",
+            "neteng",
+            "cicd",
+            "testcov",
+            "seeker",
+            "sitecraft",
+            "skillsmith",
+            "ballistics",
+            "climbibm",
+            "analyst"
+          ]
+        }
+      },
+      {
+        "id": "ops",
+        "name": "Business Ops",
+        "workspace": "${OPENCLAW_HOME}/agents/ops",
+        "identity": {
+          "name": "Ops Agent",
+          "emoji": "📊"
+        },
+        "tools": {
+          "profile": "full"
+        }
+      },
+      {
+        "id": "webdev",
+        "name": "Web Dev",
+        "workspace": "${OPENCLAW_HOME}/agents/webdev",
+        "identity": {
+          "name": "WebDev Agent",
+          "emoji": "🌐"
+        },
+        "tools": {
+          "profile": "coding"
+        }
+      },
+      {
+        "id": "cosmo",
+        "name": "Cosmopolitan",
+        "workspace": "${OPENCLAW_HOME}/agents/cosmo",
+        "identity": {
+          "name": "Cosmo Agent",
+          "emoji": "🌌"
+        },
+        "tools": {
+          "profile": "coding"
+        }
+      },
+      {
+        "id": "social",
+        "name": "Social Media",
+        "workspace": "${OPENCLAW_HOME}/agents/social",
+        "identity": {
+          "name": "Social Agent",
+          "emoji": "📱"
+        },
+        "tools": {
+          "profile": "messaging",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "course",
+        "name": "Course Creator",
+        "workspace": "${OPENCLAW_HOME}/agents/course",
+        "identity": {
+          "name": "Course Agent",
+          "emoji": "📚"
+        },
+        "tools": {
+          "profile": "coding",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "pearsonvue",
+        "name": "PearsonVUE",
+        "workspace": "${OPENCLAW_HOME}/agents/pearsonvue",
+        "identity": {
+          "name": "PearsonVUE Agent",
+          "emoji": "🎓"
+        },
+        "tools": {
+          "profile": "minimal",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "ggleap",
+        "name": "ggLeap",
+        "workspace": "${OPENCLAW_HOME}/agents/ggleap",
+        "identity": {
+          "name": "ggLeap Agent",
+          "emoji": "🎮"
+        },
+        "tools": {
+          "profile": "coding",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "asm",
+        "name": "Assembly",
+        "workspace": "${OPENCLAW_HOME}/agents/asm",
+        "identity": {
+          "name": "ASM Agent",
+          "emoji": "⚙️"
+        },
+        "tools": {
+          "profile": "coding"
+        }
+      },
+      {
+        "id": "metaquest",
+        "name": "Meta Quest 3",
+        "workspace": "${OPENCLAW_HOME}/agents/metaquest",
+        "identity": {
+          "name": "Quest Agent",
+          "emoji": "🥽"
+        },
+        "tools": {
+          "profile": "coding",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "neteng",
+        "name": "Network Engineer",
+        "workspace": "${OPENCLAW_HOME}/agents/neteng",
+        "identity": {
+          "name": "NetEng Agent",
+          "emoji": "🔌"
+        },
+        "tools": {
+          "profile": "coding",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "roblox",
+        "name": "Roblox",
+        "workspace": "${OPENCLAW_HOME}/agents/roblox",
+        "identity": {
+          "name": "Roblox Agent",
+          "emoji": "🧱"
+        },
+        "tools": {
+          "profile": "coding",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "cicd",
+        "name": "CI/CD",
+        "workspace": "${OPENCLAW_HOME}/agents/cicd",
+        "identity": {
+          "name": "Pipeline",
+          "emoji": "🔄"
+        },
+        "tools": {
+          "profile": "coding",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "testcov",
+        "name": "Test Coverage",
+        "workspace": "${OPENCLAW_HOME}/agents/testcov",
+        "identity": {
+          "name": "Sentinel",
+          "emoji": "🧪"
+        },
+        "tools": {
+          "profile": "coding",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "seeker",
+        "name": "Advanced Seeker",
+        "workspace": "${OPENCLAW_HOME}/agents/seeker",
+        "identity": {
+          "name": "Argus",
+          "emoji": "🔍"
+        },
+        "tools": {
+          "profile": "minimal",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch",
+            "browser"
+          ]
+        }
+      },
+      {
+        "id": "sitecraft",
+        "name": "SiteCraft",
+        "workspace": "${OPENCLAW_HOME}/agents/sitecraft",
+        "identity": {
+          "name": "Mason",
+          "emoji": "🏗️"
+        },
+        "tools": {
+          "profile": "coding",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch",
+            "browser"
+          ]
+        }
+      },
+      {
+        "id": "skillsmith",
+        "name": "SkillSmith",
+        "workspace": "${OPENCLAW_HOME}/agents/skillsmith",
+        "identity": {
+          "name": "Forge",
+          "emoji": "⚒️"
+        },
+        "tools": {
+          "profile": "coding",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "ballistics",
+        "name": "Ballistics",
+        "workspace": "${OPENCLAW_HOME}/agents/ballistics",
+        "identity": {
+          "name": "Ballistician",
+          "emoji": "🎯"
+        },
+        "tools": {
+          "profile": "coding",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch"
+          ]
+        }
+      },
+      {
+        "id": "climbibm",
+        "name": "Climb/IBM SaaS",
+        "workspace": "${OPENCLAW_HOME}/agents/climbibm",
+        "identity": {
+          "name": "Channel Partner",
+          "emoji": "🏔️"
+        },
+        "tools": {
+          "profile": "minimal",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch",
+            "browser"
+          ]
+        }
+      },
+      {
+        "id": "analyst",
+        "name": "Market Analyst",
+        "workspace": "${OPENCLAW_HOME}/agents/analyst",
+        "identity": {
+          "name": "Strategist",
+          "emoji": "📊"
+        },
+        "tools": {
+          "profile": "minimal",
+          "alsoAllow": [
+            "web_search",
+            "web_fetch",
+            "browser"
+          ]
+        }
+      }
+    ]
+  },
+  "tools": {
+    "agentToAgent": {
+      "enabled": true
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions",
+    "tts": {
+      "auto": "always",
+      "provider": "elevenlabs",
+      "elevenlabs": {
+        "apiKey": "${ELEVENLABS_API_KEY}",
+        "voiceId": "${ELEVENLABS_VOICE_ID}",
+        "modelId": "eleven_multilingual_v2",
+        "voiceSettings": {
+          "stability": 0.65,
+          "similarityBoost": 0.75,
+          "style": 0.15,
+          "useSpeakerBoost": true,
+          "speed": 1.2
+        }
+      }
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": false
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        },
+        "workflow-enforcer": {
+          "enabled": false
+        }
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "allowlist",
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "allowFrom": [
+        "${TELEGRAM_ALLOWED_USER_ID}"
+      ],
+      "groupPolicy": "allowlist",
+      "streamMode": "partial"
+    },
+    "imessage": {
+      "enabled": false,
+      "cliPath": "imsg",
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist"
+    }
+  },
+  "gateway": {
+    "port": 18790,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "${GATEWAY_TOKEN}"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "imessage": {
+        "enabled": false
+      },
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}

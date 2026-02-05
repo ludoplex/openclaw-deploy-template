@@ -1,0 +1,61 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: openclaw-gateway
+  labels:
+    app: openclaw
+spec:
+  template:
+    metadata:
+      annotations:
+        # Keep one instance warm (Telegram needs persistent connection)
+        autoscaling.knative.dev/minScale: "1"
+        autoscaling.knative.dev/maxScale: "1"
+        run.googleapis.com/cpu-throttling: "false"
+    spec:
+      containerConcurrency: 80
+      timeoutSeconds: 300
+      containers:
+        - image: gcr.io/PROJECT_ID/openclaw-gateway:latest
+          ports:
+            - containerPort: 18790
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+          env:
+            # Non-secret environment variables
+            - name: OPENCLAW_HOME
+              value: /home/openclaw/.openclaw
+            - name: NODE_ENV
+              value: production
+            - name: TELEGRAM_ALLOWED_USER_ID
+              value: "REPLACE_ME"
+            # Secrets from Google Secret Manager
+            - name: ANTHROPIC_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: openclaw-ANTHROPIC_API_KEY
+                  key: latest
+            - name: GATEWAY_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: openclaw-GATEWAY_TOKEN
+                  key: latest
+            - name: TELEGRAM_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: openclaw-TELEGRAM_BOT_TOKEN
+                  key: latest
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 18790
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 18790
+            periodSeconds: 30

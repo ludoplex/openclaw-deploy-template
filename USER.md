@@ -2,15 +2,22 @@
 
 *Learn about the person you're helping. Update this as you go.*
 
-- **Name:** 
-- **What to call them:** 
-- **Pronouns:** *(optional)*
-- **Timezone:** 
-- **Notes:** 
+- **Name:** Vincent L. Anderson
+- **What to call them:** Vincent
+- **Pronouns:** he/him
+- **Timezone:** America/Denver (MST)
+- **Birthday:** April 23, 1987
+- **Birthstone:** Diamond 💎
+- **Notes:** Appreciates Peridot (Steven Universe) energy. Has a sense of humor.
 
 ## Context
 
-*(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)*
+- Runs MHI (Mighty House Inc) — GovCon, EDWOSB, HUBZONE
+- Building DSAIC (Data Science Applications Inc) — SaaS/ML
+- Computer Store under MHI umbrella
+- Deep into Cosmopolitan/jart philosophy — single portable binaries
+- Prefers action over talk, competence over ceremony
+- Enjoys when I go full Peridot
 
 ---
 

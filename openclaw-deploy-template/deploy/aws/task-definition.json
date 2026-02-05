@@ -1,0 +1,66 @@
+{
+  "family": "openclaw-gateway",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::${AWS_ACCOUNT_ID}:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::${AWS_ACCOUNT_ID}:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "openclaw-gateway",
+      "image": "${ECR_URI}",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 18790,
+          "protocol": "tcp"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/openclaw/ANTHROPIC_API_KEY"
+        },
+        {
+          "name": "GATEWAY_TOKEN",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/openclaw/GATEWAY_TOKEN"
+        },
+        {
+          "name": "TELEGRAM_BOT_TOKEN",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/openclaw/TELEGRAM_BOT_TOKEN"
+        }
+      ],
+      "environment": [
+        {
+          "name": "TELEGRAM_ALLOWED_USER_ID",
+          "value": "${TELEGRAM_ALLOWED_USER_ID}"
+        },
+        {
+          "name": "OPENCLAW_HOME",
+          "value": "/home/openclaw/.openclaw"
+        },
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        }
+      ],
+      "healthCheck": {
+        "command": ["CMD-SHELL", "curl -f http://localhost:18790/health || exit 1"],
+        "interval": 30,
+        "timeout": 10,
+        "retries": 3,
+        "startPeriod": 15
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/openclaw-gateway",
+          "awslogs-region": "${AWS_REGION}",
+          "awslogs-stream-prefix": "ecs",
+          "awslogs-create-group": "true"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+# Environment
+.env
+.env.local
+.env.production
+
+# Secrets
+auth-profiles.json
+.elevenlabs_key
+
+# Session data (per-user, not template)
+**/sessions/
+**/memory/
+**/agent/
+
+# Models & binaries
+models/
+*.gguf
+bin/
+
+# Node
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# Audio/media generated files
+peridot-voice/
+tts_output/
+tts_samples/
+*.mp3
+*.wav
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temp
+tmp/
+*.tmp

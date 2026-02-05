@@ -44,6 +44,26 @@ from local_llm import ask_local, generate_json, summarize, format_for_platform
 - **Stack:** FastAPI + HTMX, llamafile for content gen
 - **Target:** 2026-02-07
 
+### GUNDOM — Ballistics Calculator
+- **Repo:** https://github.com/ludoplex/GUNDOM | **Path:** `C:\GUNDOM`
+- **PR #34:** Architecture refactor — deleted 6,195 lines Swift SQLite, replaced with C bridge (+2,660 lines)
+- **Rule:** C core IS the product. Swift/iOS is temporary skin. ALL persistence in C.
+- **CI Status:** 3 checks failing (Database Tests, Swift Unit Tests, Verify Binary Linking)
+- **Tests:** ~90+ added (SQLiteIntegrationTests, CBridgeIntegrationTests, etc.)
+- **Legacy:** `C:\BallisticsCalculator` is old prototype, NOT a git repo — don't use
+
+### Apeswarm — SaaS Composition Platform
+- **Repo:** https://github.com/ludoplex/apeswarm | **Path:** `C:\apeswarm`
+- **Pushed:** commit 2408bfd (security, performance, ~165 tests, CI/CD)
+- **SaaS priority:** IDP/RAG first (Q1), then AI Governance (Q2)
+- **Differentiator:** Portable datacenter + single-binary = air-gapped AI moat
+
+### Cosmo Toolchain
+- **tedit-cosmo:** `C:\tedit-cosmo` — disasm view integrated (commit eee9060), 90 Unity tests
+- **cosmo-disasm:** `C:\cosmo-disasm` → github.com/ludoplex/cosmo-disasm (3,027 lines)
+- **e9studio:** `C:\e9studio`
+- **llamafile-llm:** `C:\llamafile-llm`
+
 ### Mixpost-Malone (Social Media Manager) - PAUSED
 - **Repo:** https://github.com/ludoplex/mixpost-malone
 - **Status:** Entity/brand feature complete, local deploy ready
@@ -101,6 +121,28 @@ Use `cosmo-python` for interpreter, `cosmofy` to bundle apps, `cosmoext` for pre
 4. Fix issues, push updates
 5. Merge when approved
 
+### MHI Procurement Engine
+**Added: 2026-02-04**
+Cross-platform desktop procurement app. CImGui + Sokol + Cosmopolitan single APE binary (~15MB).
+- **Reference**: bullno1/cosmo-sokol (★33, active Jan 2026) — fork as starting point
+- **Stack**: C core, SQLite, Lua plugins for supplier adapters
+- **Suppliers**: Ingram Micro (REST v6, best), TD SYNNEX (Digital Bridge), D&H (REST OAS3), Climb (no API)
+- **Free MVP**: Best Buy API + eBay Browse (prices), ShipEngine free (shipping), Icecat (product data), Zoho manual tax
+- **Accounts**: Ingram #50-135152-000, Climb #CU0043054170, D&H #3270340000, TD SYNNEX #786379
+- ⚠️ Amazon PA-API dying April 2026 — don't build on it
+- ⚠️ Icecat > Etilize (free vs paid, same IT coverage)
+
+### Peridot TTS Voice
+**Added: 2026-02-04**
+- Free tier: MS Edge AriaNeural w/ pitch/rate boost → tts_peridot.py
+- Next: ElevenLabs for real Peridot voice (Shelby Rabara)
+- Utility: `~/.openclaw/agents/neteng/tts_peridot.py`
+
+### Research Rule
+**Added: 2026-02-04**
+DO NOT use Brave/web_search. Use Chrome relay (`profile="chrome"`) or headless (`profile="openclaw"`).
+Fallback chain: browser → web_fetch → web_search (last resort only).
+
 ### Qwen Delegation Checklist
 Before using Claude for a task, ask: "Can Qwen handle this?"
 
@@ -138,10 +180,10 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 
 ## Multi-Agent Fleet
 **Added: 2026-02-03**
-**Updated: 2026-02-03** — Added cicd, testcov, seeker
+**Updated: 2026-02-04** — 20 agents total (added ballistics, climbibm, analyst)
 **Spawning enabled:** (config: main.subagents.allowAgents)
 
-17 specialized agents with isolated workspaces at `~/.openclaw/agents/`:
+20 specialized agents with isolated workspaces at `~/.openclaw/agents/`:
 
 | Agent | Focus |
 |-------|-------|
@@ -162,12 +204,11 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 | seeker🔍 | Advanced search: Fravia methods, Feynman decomposition, Bayesian game theory |
 | sitecraft🏗️ | Domain registration, hosting, website dev/maintenance |
 | skillsmith⚒️ | Minimal skills, agent hooks, token optimization |
+| ballistics🎯 | GUNDOM ballistics SME — ADVISORY ONLY. Advises asm, cosmo, testcov, cicd, neteng. Does NOT code directly. |
+| climbibm🏔️ | IBM/Climb channel partnership |
+| analyst📊 | Market analysis, competitive research |
 
 **Switch:** `/agent <id>` or `sessions_spawn(agentId="...", task="...")`
-
-### Recursive Reasoning Pattern
-All agents follow: `PLAN → IMPLEMENT → VERIFY → REFLECT → REPEAT (max 5)`
-Pattern doc: `~/.openclaw/workspace/patterns/RECURSIVE_REASONING.md`
 
 ### Recursive Reasoning Pattern
 All agents follow: `PLAN → IMPLEMENT → VERIFY → REFLECT → REPEAT (max 5)`
@@ -190,11 +231,15 @@ Pattern doc: `~/.openclaw/workspace/patterns/RECURSIVE_REASONING.md`
 ### Computer Store Stripe - PENDING
 Need API keys from dashboard.stripe.com
 
-### workflow-enforcer Hook (RE-ENABLED)
-**Added: 2026-02-03 | Fixed: 2026-02-04**
-Previously caused `sessions_spawn` to fail with `.trim()` error.
+### workflow-enforcer Hook - STILL BROKEN
+**Added: 2026-02-03**
+Causes `sessions_spawn` to fail with `.trim()` error.
 - Issue: https://github.com/openclaw/openclaw/issues/8445
-- Status: ✅ Fixed per user confirmation, re-enabled 2026-02-04
+- Status: ❌ Must stay DISABLED — re-enabling crashes agent spawning
+
+### GUNDOM PR #34 CI Failures
+3 checks failing: Database Tests, Swift Unit Tests, Verify Binary Linking
+Copilot reviewed stale commit (pre-refactor), needs re-review after fix
 
 ---
 

@@ -74,6 +74,30 @@ formatted = format_for_platform(text, "discord")
 
 ---
 
+## Headless Browser (All Agents)
+
+Built-in headless browser available to all agents — no Chrome relay needed.
+
+- **Profile**: `profile="openclaw"` (autonomous, no user attachment required)
+- **CDP Port**: 18801
+- **Use for**: Google searches, JS-rendered sites, documentation, interactive pages
+- **Skill**: `browser-research` — see skill for full usage patterns
+
+```
+browser profile:"openclaw" action:"launch" url:"https://www.google.com/search?q=query"
+browser profile:"openclaw" action:"snapshot"
+```
+
+### Fallback Chain
+1. `browser` with `profile="openclaw"` — full browser, handles JS
+2. `web_fetch` — lightweight, static content only
+3. `web_search` — Brave API, quick search results
+
+## Chrome Browser Relay (Optional)
+
+- `profile="chrome"` — requires user to attach a Chrome tab via OpenClaw Browser Relay toolbar button
+- Use when you need the user's authenticated session (logged-in sites)
+
 ## What Goes Here
 
 Things like:

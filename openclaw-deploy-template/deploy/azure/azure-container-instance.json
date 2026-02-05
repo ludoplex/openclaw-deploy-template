@@ -1,0 +1,147 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerImage": {
+      "type": "string",
+      "defaultValue": "openclaw-gateway:latest",
+      "metadata": {
+        "description": "Docker image for OpenClaw gateway"
+      }
+    },
+    "anthropicApiKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Anthropic API key"
+      }
+    },
+    "gatewayToken": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Gateway authentication token"
+      }
+    },
+    "telegramBotToken": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Telegram bot token"
+      }
+    },
+    "telegramAllowedUserId": {
+      "type": "string",
+      "metadata": {
+        "description": "Allowed Telegram user ID"
+      }
+    },
+    "elevenlabsApiKey": {
+      "type": "securestring",
+      "defaultValue": "",
+      "metadata": {
+        "description": "ElevenLabs API key (optional)"
+      }
+    },
+    "elevenlabsVoiceId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "ElevenLabs voice ID (optional)"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Azure region"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2023-05-01",
+      "name": "openclaw-gateway",
+      "location": "[parameters('location')]",
+      "properties": {
+        "containers": [
+          {
+            "name": "openclaw-gateway",
+            "properties": {
+              "image": "[parameters('containerImage')]",
+              "ports": [
+                {
+                  "protocol": "TCP",
+                  "port": 18790
+                }
+              ],
+              "environmentVariables": [
+                {
+                  "name": "ANTHROPIC_API_KEY",
+                  "secureValue": "[parameters('anthropicApiKey')]"
+                },
+                {
+                  "name": "GATEWAY_TOKEN",
+                  "secureValue": "[parameters('gatewayToken')]"
+                },
+                {
+                  "name": "TELEGRAM_BOT_TOKEN",
+                  "secureValue": "[parameters('telegramBotToken')]"
+                },
+                {
+                  "name": "TELEGRAM_ALLOWED_USER_ID",
+                  "value": "[parameters('telegramAllowedUserId')]"
+                },
+                {
+                  "name": "ELEVENLABS_API_KEY",
+                  "secureValue": "[parameters('elevenlabsApiKey')]"
+                },
+                {
+                  "name": "ELEVENLABS_VOICE_ID",
+                  "value": "[parameters('elevenlabsVoiceId')]"
+                },
+                {
+                  "name": "OPENCLAW_HOME",
+                  "value": "/home/openclaw/.openclaw"
+                },
+                {
+                  "name": "NODE_ENV",
+                  "value": "production"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGB": 1.5
+                }
+              },
+              "livenessProbe": {
+                "httpGet": {
+                  "path": "/health",
+                  "port": 18790
+                },
+                "initialDelaySeconds": 15,
+                "periodSeconds": 30
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "TCP",
+              "port": 18790
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', 'openclaw-gateway')).ipAddress.ip]"
+    }
+  }
+}
