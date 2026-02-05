@@ -48,3 +48,7 @@ models/
 # memory/*.md is tracked
 
 .elevenlabs_key
+
+# Large audio files (keep local, too big for GitHub)
+peridot-voice/*.wav
+peridot-voice/separated/*.wav
