@@ -120,8 +120,9 @@ User prefers Cosmopolitan/APE philosophy (jart). Use llamafile for local LLM, no
 ### Claude.ai Skills Ported to OpenClaw ✅
 **Added: 2026-02-04**
 7 skills, 40 files, 293KB → `C:\Users\user\.openclaw\workspace\skills\`
-Committed `f44d87d`. NOT yet wired into gateway skill loader.
+Committed `f44d87d`. Now visible in `<available_skills>` and WORKING!
 Skills: operational-substrate, advanced-search, web-reconnaissance, gov-financial-intel, deep-directory-index, industry-power-map, tech-security-analysis
+tampermonkey-llm-hub intentionally NOT ported (browser-specific).
 
 ### Statistical Analysis Agent (statanalysis 📈)
 **Added: 2026-02-04**
