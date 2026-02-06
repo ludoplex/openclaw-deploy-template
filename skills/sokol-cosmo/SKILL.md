@@ -6,7 +6,7 @@ Use when building GUI/graphics applications with Sokol (or similar) that need to
 
 **Cosmopolitan has NO native OpenGL/GPU support.** For graphics, you MUST use `cosmo_dlopen()` to load platform-native libraries.
 
-**APE binaries use PKZIP format** for embedded assets. Files in `/zip/...` are accessible via standard file I/O.
+**APE binaries are PKZIP archives** that can **SELF EXTRACT** at runtime. The running executable reads from its own PKZIP section via `/zip/...` paths — no external tools needed.
 
 ## llamafile's Pattern (THE REFERENCE IMPLEMENTATION)
 
@@ -39,7 +39,7 @@ static bool link_cuda_dso(const char *dso, const char *dir) {
 }
 ```
 
-**Why extraction is required:** OS dynamic linker (ld.so, LoadLibrary) cannot read from APE's `/zip/` virtual filesystem. Libraries must exist on real filesystem for the OS to load them.
+**Why extraction to real filesystem is required:** The APE self-extracts via `/zip/...` paths, but OS dynamic linkers (ld.so, LoadLibrary) cannot read from this virtual filesystem. Dynamic libraries must exist on real filesystem for the OS to load them.
 
 ## The Correct Architecture
 
@@ -200,7 +200,7 @@ snprintf(tmp, sizeof(tmp), "/tmp/libgui.so");  // BAD
 
 1. **Platform detection is runtime** via `__hostos` global and `IsWindows()`, `IsLinux()`, etc.
 2. **NO native OpenGL/graphics** — examples are Windows-only or terminal-based
-3. **APE uses PKZIP format** for embedded assets, accessible via `/zip/...` paths
+3. **APE binaries are PKZIP archives** — self-extract at runtime via `/zip/...` paths
 4. **`cosmo_dlopen()` requires extraction** — OS loader can't read from `/zip/`
 5. **Fat binaries** = multiple ELF headers for different CPU architectures (x86_64, aarch64)
 
