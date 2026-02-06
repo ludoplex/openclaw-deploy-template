@@ -262,6 +262,14 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 
 **Switch:** `/agent <id>` or `sessions_spawn(agentId="...", task="...")`
 
+### Agent Collaboration Pattern (Added 2026-02-06)
+For complex strategic work, spawn specialized agents in parallel:
+- **ballistics** — Domain expertise, requirements, advisory (no direct coding)
+- **analyst** — Market analysis, competitive research, revenue projections
+- **seeker** — Advanced search, source discovery
+Then compile their outputs into unified deliverables for user review.
+All inter-agent discussions must be persisted (local files or Google Drive).
+
 ### Recursive Reasoning Pattern
 All agents follow: `PLAN → IMPLEMENT → VERIFY → REFLECT → REPEAT (max 5)`
 Pattern doc: `~/.openclaw/workspace/patterns/RECURSIVE_REASONING.md`
@@ -294,6 +302,17 @@ Was causing `sessions_spawn` to fail with `.trim()` error.
 ### GUNDOM PR #34 CI Failures
 3 checks failing: Database Tests, Swift Unit Tests, Verify Binary Linking
 Copilot reviewed stale commit (pre-refactor), needs re-review after fix
+
+### GUNDOM Market Strategy (Added 2026-02-06)
+**Commission:** WY Rep. Jeremy Haroldson for Old Glory Firearms
+**Revenue Hierarchy:** Gov/LE ($$$) > Sports ($) > Hunting (volume)
+**Differentiator:** EDWOSB sole-source up to $7M + true white-label (Applied Ballistics requires co-branding)
+**Key Events:**
+- SHOT Show 2027 — must book NOW (missed 2026)
+- NRA Annual Meeting 2026 — April 16-19, Houston TX
+- GAP Grind — precision rifle event, April timeframe
+**Investment Tiers:** Minimal $25-50K, Moderate $75-150K, Aggressive $200-400K, Dominant $500K+
+**Files:** `memory/gundom-market-segments.md`, `memory/gundom-events-calendar.md`, `memory/gundom-gtm-strategy.md`
 
 ---
 

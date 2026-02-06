@@ -6,7 +6,7 @@ param(
     [string]$Task
 )
 
-$LLMUrl = "http://127.0.0.1:8081/v1/chat/completions"
+$QwenUrl = "http://127.0.0.1:8081/v1/chat/completions"
 
 $prompt = @"
 You are a task router. Classify this task:
@@ -14,35 +14,35 @@ You are a task router. Classify this task:
 Task: $Task
 
 Rules:
-- LLM: Simple code gen, formatting, JSON, boilerplate, single-file changes
+- QWEN: Simple code gen, formatting, JSON, boilerplate, single-file changes
 - SHELL: File search, git commands, API calls (curl), bulk file ops
 - LMARENA: Architecture decisions, design choices, planning (needs human review)
 - CLAUDE: Multi-file refactoring, complex debugging, tool orchestration, security code
 
-Reply with EXACTLY one word: LLM, SHELL, LMARENA, or CLAUDE
+Reply with EXACTLY one word: QWEN, SHELL, LMARENA, or CLAUDE
 "@
 
 $body = @{
-    model = "local"
+    model = "qwen"
     messages = @(@{ role = "user"; content = $prompt })
     max_tokens = 10
     temperature = 0
 } | ConvertTo-Json -Depth 3
 
 try {
-    $response = Invoke-WebRequest -Uri $LLMUrl -Method POST -Body $body `
+    $response = Invoke-WebRequest -Uri $QwenUrl -Method POST -Body $body `
         -ContentType "application/json" -UseBasicParsing -TimeoutSec 10
     $result = ($response.Content | ConvertFrom-Json).choices[0].message.content.Trim().ToUpper()
     
     $colors = @{
-        "LLM" = "Green"
+        "QWEN" = "Green"
         "SHELL" = "Blue"
         "LMARENA" = "Yellow"
         "CLAUDE" = "Magenta"
     }
     
     $instructions = @{
-        "LLM" = "Use local LLM for this task"
+        "QWEN" = "Use local_llm.py: ask_local('$Task')"
         "SHELL" = "Use shell tools (rg, git, curl, jq)"
         "LMARENA" = "Open https://lmarena.ai for multi-model comparison"
         "CLAUDE" = "[OK] This task is appropriate for Claude"
@@ -57,9 +57,9 @@ try {
     return $result
     
 } catch {
-    Write-Host "[!] Local LLM offline - defaulting to checklist:" -ForegroundColor Yellow
+    Write-Host "[!] Qwen offline - defaulting to checklist:" -ForegroundColor Yellow
     Write-Host ""
-    Write-Host "Is it simple code/format/JSON? -> LOCAL LLM"
+    Write-Host "Is it simple code/format/JSON? -> QWEN (start llamafile)"
     Write-Host "Is it file/git/API ops?        -> SHELL"
     Write-Host "Is it a design decision?       -> LMARENA"
     Write-Host "Is it complex/multi-step?      -> CLAUDE [OK]"
