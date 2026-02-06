@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "description": "Integrity manifest for agent transcripts. SHA256 hashes computed at capture time.",
+  "entries": {
+    "analyst-2026-02-06T19-39-55.md": {
+      "sha256": "eb6cf06183c429be09af90d27fd5010f64e97b6afdef61d1ab7c5c5833f60234",
+      "capturedAt": "2026-02-06T19:39:55.050Z",
+      "agentId": "analyst",
+      "sessionId": "45442fce-3f2a-442e-a749-46166122fe85",
+      "size": 287059
+    },
+    "ballistics-2026-02-06T19-39-55.md": {
+      "sha256": "aff2dbc2e4583899d859f57206731524f1e2508e9720db8169e4ca609a803f88",
+      "capturedAt": "2026-02-06T19:39:55.091Z",
+      "agentId": "ballistics",
+      "sessionId": "ff7f8121-b2ce-4238-bb3d-81828832ce3e",
+      "size": 133560
+    }
+  }
+}

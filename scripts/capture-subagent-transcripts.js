@@ -11,10 +11,56 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
+const crypto = require('crypto');
 
 const WORKSPACE = process.env.OPENCLAW_WORKSPACE || path.join(process.env.USERPROFILE || process.env.HOME, '.openclaw', 'workspace');
 const AGENTS_DIR = path.join(process.env.USERPROFILE || process.env.HOME, '.openclaw', 'agents');
 const TRANSCRIPT_DIR = path.join(WORKSPACE, 'memory', 'agent-transcripts');
+const MANIFEST_PATH = path.join(TRANSCRIPT_DIR, '.manifest.json');
+
+/**
+ * Compute SHA256 hash of content
+ */
+function computeHash(content) {
+  return crypto.createHash('sha256').update(content).digest('hex');
+}
+
+/**
+ * Load or initialize manifest
+ */
+function loadManifest() {
+  if (fs.existsSync(MANIFEST_PATH)) {
+    return JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+  }
+  return { version: "1.0", description: "Integrity manifest for agent transcripts", entries: {} };
+}
+
+/**
+ * Save manifest
+ */
+function saveManifest(manifest) {
+  fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2));
+}
+
+/**
+ * Add entry to manifest with hash and metadata
+ */
+function addToManifest(filename, content, agentId, sessionId) {
+  const manifest = loadManifest();
+  const hash = computeHash(content);
+  const timestamp = new Date().toISOString();
+  
+  manifest.entries[filename] = {
+    sha256: hash,
+    capturedAt: timestamp,
+    agentId: agentId,
+    sessionId: sessionId,
+    size: content.length
+  };
+  
+  saveManifest(manifest);
+  return hash;
+}
 
 async function parseSessionTranscript(jsonlPath) {
   const content = {
@@ -135,9 +181,59 @@ async function main() {
   }
 
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-').substring(0, 19);
-  const outFile = path.join(TRANSCRIPT_DIR, `${agentId}-${timestamp}.md`);
+  const filename = `${agentId}-${timestamp}.md`;
+  const outFile = path.join(TRANSCRIPT_DIR, filename);
   fs.writeFileSync(outFile, markdown);
+  
+  // Add to manifest with hash
+  const hash = addToManifest(filename, markdown, agentId, content.metadata?.id || 'unknown');
   console.log(`Transcript saved: ${outFile}`);
+  console.log(`SHA256: ${hash}`);
+  console.log(`Manifest updated: ${MANIFEST_PATH}`);
 }
 
-main().catch(console.error);
+/**
+ * Verify integrity of all transcripts against manifest
+ */
+async function verify() {
+  const manifest = loadManifest();
+  let valid = 0, invalid = 0, missing = 0;
+  
+  console.log('Verifying transcript integrity...\n');
+  
+  for (const [filename, meta] of Object.entries(manifest.entries)) {
+    const filePath = path.join(TRANSCRIPT_DIR, filename);
+    
+    if (!fs.existsSync(filePath)) {
+      console.log(`❌ MISSING: ${filename}`);
+      missing++;
+      continue;
+    }
+    
+    const content = fs.readFileSync(filePath, 'utf8');
+    const currentHash = computeHash(content);
+    
+    if (currentHash === meta.sha256) {
+      console.log(`✅ VALID: ${filename}`);
+      valid++;
+    } else {
+      console.log(`❌ MODIFIED: ${filename}`);
+      console.log(`   Expected: ${meta.sha256}`);
+      console.log(`   Current:  ${currentHash}`);
+      invalid++;
+    }
+  }
+  
+  console.log(`\nSummary: ${valid} valid, ${invalid} modified, ${missing} missing`);
+  
+  if (invalid > 0 || missing > 0) {
+    process.exit(1);
+  }
+}
+
+// Main entry point
+if (process.argv[2] === '--verify') {
+  verify().catch(console.error);
+} else {
+  main().catch(console.error);
+}
