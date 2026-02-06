@@ -6,7 +6,7 @@ Use when building GUI/graphics applications with Sokol (or similar) that need to
 
 **Cosmopolitan has NO native OpenGL/GPU support.** For graphics, you MUST use `cosmo_dlopen()` to load platform-native libraries.
 
-**APE binaries use ZIP format** for embedded assets. Files in `/zip/...` are accessible via standard file I/O.
+**APE binaries use PKZIP format** for embedded assets. Files in `/zip/...` are accessible via standard file I/O.
 
 ## llamafile's Pattern (THE REFERENCE IMPLEMENTATION)
 
@@ -45,7 +45,7 @@ static bool link_cuda_dso(const char *dso, const char *dir) {
 
 ```
 ┌─────────────────────────────────────────────┐
-│  APE Binary (single file, ZIP format)       │
+│  APE Binary (single file, PKZIP format)       │
 │  Contains:                                  │
 │    - Main executable code                   │
 │    - /zip/libgui.so (Linux helper)         │
@@ -83,7 +83,7 @@ clang -dynamiclib -o libgui.dylib gui_impl.m -framework Metal -framework Cocoa
 
 ### 3. Bundle Helpers INTO the APE
 ```bash
-# APE uses ZIP format — just append the helpers
+# APE uses PKZIP format — just append the helpers
 zip -j myapp.com libgui.so libgui.dll libgui.dylib
 ```
 
@@ -200,7 +200,7 @@ snprintf(tmp, sizeof(tmp), "/tmp/libgui.so");  // BAD
 
 1. **Platform detection is runtime** via `__hostos` global and `IsWindows()`, `IsLinux()`, etc.
 2. **NO native OpenGL/graphics** — examples are Windows-only or terminal-based
-3. **APE uses ZIP format** for embedded assets, accessible via `/zip/...` paths
+3. **APE uses PKZIP format** for embedded assets, accessible via `/zip/...` paths
 4. **`cosmo_dlopen()` requires extraction** — OS loader can't read from `/zip/`
 5. **Fat binaries** = multiple ELF headers for different CPU architectures (x86_64, aarch64)
 
