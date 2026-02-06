@@ -1,13 +1,13 @@
 {
   "lastChecks": {
-    "backup": 1770235800,
-    "services": 1770235800,
+    "backup": 1770501418,
+    "services": 1770501418,
     "calendar": null,
     "email": null,
     "prReview": null
   },
   "notes": {
-    "backup": "Workspace synced to GitHub 2026-02-04 13:10 MST",
-    "services": "2 agents still running (apeswarm-performance-fixes, apeswarm-test-implementation)"
+    "backup": "Workspace synced 2026-02-06 09:16 MST, copied to OneDrive",
+    "services": "dashboard:8080 and llamafile:8081 both offline (expected if not in use)"
   }
 }
