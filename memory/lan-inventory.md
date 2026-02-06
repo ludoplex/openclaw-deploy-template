@@ -27,6 +27,7 @@
   - 1900/tcp — UPnP
 - **SSH Status:** Only offers `ssh-dss` + `diffie-hellman-group1-sha1` — deprecated crypto, modern clients refuse to connect
 - **Tested:** 2026-02-05 — Windows OpenSSH cannot negotiate
+- **Recommendation:** Flash OpenWrt — https://openwrt.org/toh/tp-link/archer_c54
 
 ---
 
@@ -42,7 +43,8 @@
   - 139/tcp — NetBIOS
   - 445/tcp — SMB
   - 5357/tcp — HTTPAPI (SSDP/UPnP)
-- **SSH Status:** Reachable, ED25519 host key, requires auth (publickey/password/keyboard-interactive)
+- **SSH Status:** ✅ Auth works (user/password), but cmd.exe disabled by policy
+- **Fix needed:** Set PowerShell as default SSH shell: `New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force`
 - **Tested:** 2026-02-05
 
 ### 192.168.1.66 — Windows PC
