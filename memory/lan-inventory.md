@@ -27,7 +27,9 @@
   - 1900/tcp — UPnP
 - **SSH Status:** Only offers `ssh-dss` + `diffie-hellman-group1-sha1` — deprecated crypto, modern clients refuse to connect
 - **Tested:** 2026-02-05 — Windows OpenSSH cannot negotiate
-- **Recommendation:** Flash OpenWrt — https://openwrt.org/toh/tp-link/archer_c54
+- **Hardware:** 4MB flash / 16MB RAM / VxWorks OS — ❌ CANNOT run OpenWrt
+- **Verdict:** Replace device. Too crippled for modern firmware (needs 8MB+ flash, 64MB+ RAM)
+- **Alternatives:** Archer C7, Xiaomi Mi Router 3G, GL.iNet GL-MT300N-V2
 
 ---
 
