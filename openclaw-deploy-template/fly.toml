@@ -1,0 +1,31 @@
+# fly.toml - Fly.io deployment configuration for OpenClaw
+# Deploy: fly deploy
+# Logs: fly logs
+# SSH: fly ssh console
+
+app = "openclaw-peridot"
+primary_region = "den"  # Denver - closest to you
+
+[build]
+  dockerfile = "deploy/docker/Dockerfile"
+
+[env]
+  OPENCLAW_HOME = "/home/openclaw/.openclaw"
+  NODE_ENV = "production"
+
+[http_service]
+  internal_port = 18790
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "1gb"
+
+[mounts]
+  source = "openclaw_data"
+  destination = "/home/openclaw/.openclaw"
+  initial_size = "1gb"
