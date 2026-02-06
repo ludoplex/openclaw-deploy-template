@@ -21,10 +21,12 @@
 - **Hostname:** ArcherC54.lan
 - **MAC:** 3C:6A:D2:3F:95:C4
 - **Services:**
-  - 22/tcp — SSH (OpenSSH 6.6.0) ⚠️ OLD VERSION
+  - 22/tcp — SSH (OpenSSH 6.6.0) ❌ UNUSABLE
   - 80/tcp — HTTP
   - 443/tcp — HTTPS
   - 1900/tcp — UPnP
+- **SSH Status:** Only offers `ssh-dss` + `diffie-hellman-group1-sha1` — deprecated crypto, modern clients refuse to connect
+- **Tested:** 2026-02-05 — Windows OpenSSH cannot negotiate
 
 ---
 
@@ -40,6 +42,8 @@
   - 139/tcp — NetBIOS
   - 445/tcp — SMB
   - 5357/tcp — HTTPAPI (SSDP/UPnP)
+- **SSH Status:** Reachable, ED25519 host key, requires auth (publickey/password/keyboard-interactive)
+- **Tested:** 2026-02-05
 
 ### 192.168.1.66 — Windows PC
 - **Hostname:** DESKTOP-01KC04G.lan
@@ -80,13 +84,14 @@
 
 ---
 
-## Unknown / Stealth
+## Gaming
 
-### 192.168.1.58 — Unknown Device
+### 192.168.1.58 — Nintendo Switch 2
 - **Hostname:** None
-- **MAC:** 94:8E:6D:29:C8:28 (Unknown vendor)
-- **Services:** All 100 ports closed
-- **Note:** Device is up but showing no services — possible IoT, stealth mode, or non-TCP device
+- **MAC:** 94:8E:6D:29:C8:28 (Nintendo Co., Ltd)
+- **OUI Registered:** 2025-05-28 (recent block = Switch 2)
+- **Services:** All ports closed (outbound-only, typical Nintendo behavior)
+- **Note:** Identified by MAC OUI lookup — Nintendo registered this prefix May 2025
 
 ---
 
@@ -103,10 +108,10 @@
 
 ## Security Notes
 
-1. **TP-Link AP (192.168.1.233)** running OpenSSH 6.6.0 — outdated, check for updates
-2. **192.168.1.58** is suspicious — up but no open ports, investigate
-3. **DESKTOP-6FPF6DO (.28)** has SSH enabled — good for remote access
-4. **DESKTOP-MOAPN35 (.223)** fully firewalled — verify this is intentional
+1. **TP-Link AP (192.168.1.233)** — CRITICAL: OpenSSH 6.6.0 with only ssh-dss/DH-group1. Deprecated crypto, cannot connect with modern clients. Firmware update or replace device.
+2. **192.168.1.58** — Identified as Nintendo Switch 2 (MAC lookup)
+3. **DESKTOP-6FPF6DO (.28)** — SSH working, requires credentials
+4. **DESKTOP-MOAPN35 (.223)** — Fully firewalled, all 100 ports filtered
 
 ---
 
