@@ -12,21 +12,17 @@ This is how llamafile accesses GPUs.
 
 ```
 ┌─────────────────────────────────────────────┐
-│  APE Binary (main app, built with cosmocc)  │
+│  APE Binary (single file, ZIP container)    │
 │  - Business logic, CLI, database            │
-│  - Calls cosmo_dlopen("libgui") at runtime  │
-├─────────────────────────────────────────────┤
-│  cosmo_dlopen() magic:                      │
-│  → Windows: loads libgui.dll                │
-│  → Linux: loads libgui.so                   │
-│  → macOS: loads libgui.dylib                │
-├─────────────────────────────────────────────┤
-│  Platform Helpers (built with native cc)    │
-│  - Sokol implementation per platform        │
-│  - Links native OpenGL/Vulkan/Metal/D3D11   │
-│  - Exports stable C interface               │
+│  - Embedded: libgui.so, libgui.dll, .dylib  │
+│  - Extracts correct helper at runtime       │
+│  - Calls cosmo_dlopen() on extracted file   │
 └─────────────────────────────────────────────┘
 ```
+
+**APE binaries are ZIP archives.** Embed all platform helpers inside. One file runs everywhere with full GUI.
+
+This is how **llamafile embeds model weights** — same pattern works for helper libraries.
 
 ## Build Process
 
@@ -47,8 +43,41 @@ cl /LD gui_impl.c opengl32.lib user32.lib gdi32.lib /Fe:libgui.dll
 clang -dynamiclib -o libgui.dylib gui_impl.m -framework Metal -framework Cocoa
 ```
 
-### 3. Distribution
-Ship APE binary + all platform helpers. User's system loads the right one.
+### 3. Bundle Helpers INTO the APE
+```bash
+# APE is a ZIP — just append the helpers
+zip -j myapp.com libgui.so libgui.dll libgui.dylib
+```
+
+### 4. Runtime Extraction
+```c
+#include "libc/zip.h"
+#include "libc/runtime/runtime.h"
+
+void* load_embedded_gui(void) {
+    const char* zip_path;
+    if (IsWindows()) zip_path = "/zip/libgui.dll";
+    else if (IsXnu()) zip_path = "/zip/libgui.dylib";
+    else zip_path = "/zip/libgui.so";
+    
+    // Extract to temp
+    char tmp[PATH_MAX];
+    snprintf(tmp, sizeof(tmp), "%s/libgui%s", 
+             IsWindows() ? getenv("TEMP") : "/tmp",
+             IsWindows() ? ".dll" : IsXnu() ? ".dylib" : ".so");
+    
+    // Copy from /zip/ to temp filesystem
+    int src = open(zip_path, O_RDONLY);
+    int dst = open(tmp, O_WRONLY|O_CREAT|O_TRUNC, 0755);
+    // ... copy bytes ...
+    close(src); close(dst);
+    
+    return cosmo_dlopen(tmp, RTLD_NOW);
+}
+```
+
+### 5. Distribution
+**ONE FILE.** Runs everywhere. GUI included. No separate helper downloads.
 
 ## Code Template
 
@@ -109,6 +138,16 @@ EXPORT void gui_shutdown(void) {
 ```
 
 ## Anti-Patterns (DO NOT DO)
+
+### ❌ Shipping helpers as separate files
+```bash
+# WRONG - APE is a ZIP container, embed them!
+myapp.com
+libgui.so
+libgui.dll
+libgui.dylib
+```
+**The whole point of APE is single-file distribution. Use it.**
 
 ### ❌ Static linking Sokol with cosmocc
 ```c
