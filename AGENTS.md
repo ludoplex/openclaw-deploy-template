@@ -255,6 +255,29 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## Subagent Transcript Capture (MANDATORY)
+
+**When spawning agents, you MUST capture their reasoning and discourse:**
+
+1. After subagent completes, run:
+   ```bash
+   node scripts/capture-subagent-transcripts.js <agentId>
+   ```
+
+2. This extracts from their session JSONL:
+   - Full thinking/reasoning blocks
+   - All tool calls with results
+   - Inter-agent discourse
+   - Final outputs
+
+3. Transcripts saved to: `memory/agent-transcripts/{agentId}-{timestamp}.md`
+
+4. For multi-agent collaboration, capture ALL agents and compile into a combined discourse file.
+
+**This is standard procedure — no exceptions.**
+
+---
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
