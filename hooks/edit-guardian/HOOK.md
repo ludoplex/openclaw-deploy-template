@@ -14,8 +14,13 @@ Prevents agents from editing files without proper due diligence:
 ### Rule 1: Read Before Edit
 Tracks files read via `tool:Read` in session state. If an edit is attempted on a file that wasn't read first, inject a warning and suggest reading it.
 
-### Rule 2: Specialist Routing
-For certain file patterns, remind the agent to consult specialists:
+### Rule 2: Specialist Routing (MANDATORY)
+For certain file patterns, the agent MUST:
+1. Call `agents_list()` to see all available specialists
+2. Call `sessions_list()` to check if a specialist is already working
+3. If a relevant specialist exists and isn't the current agent, delegate to them
+
+**Agents must NOT assume they are the appropriate handler without checking the roster.**
 
 | Pattern | Specialist | Reason |
 |---------|------------|--------|

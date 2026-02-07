@@ -31,6 +31,8 @@ const sessionState = {
   filesCreated: new Set(),
   specialistsConsulted: new Map(), // file -> [agents]
   warningsIssued: new Set(), // avoid duplicate warnings
+  rosterChecked: false, // has agent called agents_list?
+  activeSessionsChecked: false, // has agent called sessions_list?
 };
 
 function normalizePath(p) {
@@ -71,14 +73,41 @@ This prevents blind edits that break existing functionality.`;
   
   if (type === "specialist") {
     const { agents, domain } = details;
-    const agentList = agents.map(a => `\`${a}\``).join(" or ");
+    const agentList = agents.map(a => `\`${a}\``).join(", ");
+    
+    // Check if agent did due diligence
+    const checkedRoster = sessionState.rosterChecked;
+    const checkedSessions = sessionState.activeSessionsChecked;
+    
+    if (!checkedRoster || !checkedSessions) {
+      // HARD STOP - agent hasn't checked who's available
+      const missing = [];
+      if (!checkedRoster) missing.push("agents_list()");
+      if (!checkedSessions) missing.push("sessions_list()");
+      
+      return `🛑 **EDIT GUARDIAN — STOP**: You're editing \`${filePath}\` (${domain} domain) without checking the agent roster.
+
+**YOU MUST RUN THESE FIRST:**
+${missing.map(m => `- \`${m}\``).join("\n")}
+
+**Relevant specialists:** ${agentList}
+
+**You are NOT allowed to assume you are the right agent.** Another agent may already be handling this or have deeper expertise.
+
+Run the checks above, THEN decide whether to proceed or delegate.`;
+    }
+    
+    // Agent checked roster but may still need to delegate
     return `⚠️ **EDIT GUARDIAN**: \`${filePath}\` is in the **${domain}** domain.
 
-**Recommended:** Ask ${agentList} agent(s) before modifying.
+**Specialists for this file:** ${agentList}
 
-Use: \`sessions_spawn(agentId="${agents[0]}", task="Review proposed change to ${filePath}: [describe change]")\`
+You've checked the roster ✓. If one of these specialists is available and better suited, delegate:
+\`\`\`
+sessions_spawn(agentId="${agents[0]}", task="Review/fix ${filePath}: [describe issue]")
+\`\`\`
 
-Or proceed if you have domain expertise and understand the implications.`;
+Proceed only if you have domain expertise or no specialist is available.`;
   }
   
   return null;
@@ -90,6 +119,20 @@ const handler = async (event) => {
   }
   
   const { action, params } = event;
+  
+  // Track roster checks
+  if (action === "agents_list") {
+    sessionState.rosterChecked = true;
+    console.log("[edit-guardian] Agent checked available agents roster");
+    return;
+  }
+  
+  if (action === "sessions_list") {
+    sessionState.activeSessionsChecked = true;
+    console.log("[edit-guardian] Agent checked active sessions");
+    return;
+  }
+  
   const filePath = params?.file_path || params?.path || "";
   
   if (!filePath) return;
