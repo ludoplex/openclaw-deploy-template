@@ -174,15 +174,16 @@ Use `cosmo-python` for interpreter, `cosmofy` to bundle apps, `cosmoext` for pre
 5. Merge when approved
 
 ### MHI Procurement Engine
-**Added: 2026-02-04**
-Cross-platform desktop procurement app. CImGui + Sokol + Cosmopolitan single APE binary (~15MB).
-- **Reference**: bullno1/cosmo-sokol (★33, active Jan 2026) — fork as starting point
-- **Stack**: C core, SQLite, Lua plugins for supplier adapters
+**Added: 2026-02-04 | Updated: 2026-02-06**
+Cross-platform desktop procurement app using llamafile pattern.
+- **Repo**: https://github.com/ludoplex/mhi-procurement
+- **Path**: `C:\mhi-procurement`
+- **Architecture**: APE binary + embedded PKZIP GUI helpers (single file distribution)
+- **Stack**: C core, SQLite, cosmo_dlopen() for GUI, Sokol+CImGui in helpers
+- **Build**: `make dist-single` → one .com file runs everywhere with GUI
 - **Suppliers**: Ingram Micro (REST v6, best), TD SYNNEX (Digital Bridge), D&H (REST OAS3), Climb (no API)
-- **Free MVP**: Best Buy API + eBay Browse (prices), ShipEngine free (shipping), Icecat (product data), Zoho manual tax
 - **Accounts**: Ingram #50-135152-000, Climb #CU0043054170, D&H #3270340000, TD SYNNEX #786379
 - ⚠️ Amazon PA-API dying April 2026 — don't build on it
-- ⚠️ Icecat > Etilize (free vs paid, same IT coverage)
 
 ### Peridot TTS Voice
 **Added: 2026-02-04**
@@ -194,6 +195,18 @@ Cross-platform desktop procurement app. CImGui + Sokol + Cosmopolitan single APE
 **Added: 2026-02-04**
 DO NOT use Brave/web_search. Use Chrome relay (`profile="chrome"`) or headless (`profile="openclaw"`).
 Fallback chain: browser → web_fetch → web_search (last resort only).
+
+### Cosmopolitan + GUI: The llamafile Pattern
+**Added: 2026-02-06**
+Cosmopolitan has **NO native OpenGL/GPU support**. For GUI:
+1. APE binaries are **PKZIP archives** (not "ZIP" — PKZIP is correct)
+2. Embed platform helpers (.so/.dll/.dylib) in PKZIP section
+3. At runtime: **self-extract** from `/zip/...` to persistent app dir
+4. Use **mtime caching** — skip extraction if cached file is current
+5. `cosmo_dlopen()` the extracted file — OS loader needs real filesystem
+6. Reference: `llamafile/cuda.c` `extract_cuda_dso()` function
+
+**Skill:** `skills/sokol-cosmo/SKILL.md`
 
 ### Qwen Delegation Checklist
 Before using Claude for a task, ask: "Can Qwen handle this?"
