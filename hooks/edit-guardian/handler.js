@@ -97,17 +97,23 @@ ${missing.map(m => `- \`${m}\``).join("\n")}
 Run the checks above, THEN decide whether to proceed or delegate.`;
     }
     
-    // Agent checked roster but may still need to delegate
-    return `⚠️ **EDIT GUARDIAN**: \`${filePath}\` is in the **${domain}** domain.
+    // Agent checked roster — now MUST delegate unless they ARE the specialist
+    return `🛑 **EDIT GUARDIAN — DELEGATE**: \`${filePath}\` is in the **${domain}** domain.
 
-**Specialists for this file:** ${agentList}
+**Specialists:** ${agentList}
 
-You've checked the roster ✓. If one of these specialists is available and better suited, delegate:
+You've checked the roster ✓ — but checking is not enough.
+
+**YOU MUST DELEGATE THE WORK:**
 \`\`\`
-sessions_spawn(agentId="${agents[0]}", task="Review/fix ${filePath}: [describe issue]")
+sessions_spawn(agentId="${agents[0]}", task="[Describe the fix needed for ${filePath}]. Read the file, make the changes, test, and commit.")
 \`\`\`
 
-Proceed only if you have domain expertise or no specialist is available.`;
+**"Consult" ≠ "Delegate"**
+- ❌ WRONG: Get advice, do it yourself
+- ✅ RIGHT: Have the specialist DO the work
+
+Only proceed yourself if YOU ARE the designated specialist for this domain.`;
   }
   
   return null;
