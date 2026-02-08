@@ -174,16 +174,17 @@ Use `cosmo-python` for interpreter, `cosmofy` to bundle apps, `cosmoext` for pre
 5. Merge when approved
 
 ### MHI Procurement Engine
-**Added: 2026-02-04 | Updated: 2026-02-06**
-Cross-platform desktop procurement app using llamafile pattern.
+**Added: 2026-02-04 | Updated: 2026-02-07**
+Cross-platform desktop procurement app using **cosmo-sokol pattern** (NOT llamafile).
 - **Repo**: https://github.com/ludoplex/mhi-procurement
 - **Path**: `C:\mhi-procurement`
-- **Architecture**: APE binary + embedded PKZIP GUI helpers (single file distribution)
-- **Stack**: C core, SQLite, cosmo_dlopen() for GUI, Sokol+CImGui in helpers
-- **Build**: `make dist-single` → one .com file runs everywhere with GUI
+- **Architecture**: APE binary with ALL platform backends compiled in (cosmo-sokol pattern)
+- **Stack**: C core, SQLite, cosmo-sokol for GUI (prefix trick + runtime dispatch)
+- **Build**: Uses bullno1/cosmo-sokol generators for prefixed backends
 - **Suppliers**: Ingram Micro (REST v6, best), TD SYNNEX (Digital Bridge), D&H (REST OAS3), Climb (no API)
 - **Accounts**: Ingram #50-135152-000, Climb #CU0043054170, D&H #3270340000, TD SYNNEX #786379
 - ⚠️ Amazon PA-API dying April 2026 — don't build on it
+- ⚠️ **DOES NOT use separate helper DSOs** — everything is IN the APE
 
 ### Peridot TTS Voice
 **Added: 2026-02-04**
@@ -196,15 +197,26 @@ Cross-platform desktop procurement app using llamafile pattern.
 DO NOT use Brave/web_search. Use Chrome relay (`profile="chrome"`) or headless (`profile="openclaw"`).
 Fallback chain: browser → web_fetch → web_search (last resort only).
 
-### Cosmopolitan + GUI: The llamafile Pattern
-**Added: 2026-02-06**
-Cosmopolitan has **NO native OpenGL/GPU support**. For GUI:
-1. APE binaries are **PKZIP archives** (not "ZIP" — PKZIP is correct)
-2. Embed platform helpers (.so/.dll/.dylib) in PKZIP section
-3. At runtime: **self-extract** from `/zip/...` to persistent app dir
-4. Use **mtime caching** — skip extraction if cached file is current
-5. `cosmo_dlopen()` the extracted file — OS loader needs real filesystem
-6. Reference: `llamafile/cuda.c` `extract_cuda_dso()` function
+### ⚠️ CRITICAL: cosmo-sokol vs llamafile Pattern
+**Added: 2026-02-06 | CORRECTED: 2026-02-07**
+
+**These are TWO DIFFERENT patterns. Do NOT confuse them:**
+
+| Pattern | Use Case | How It Works |
+|---------|----------|--------------|
+| **cosmo-sokol** | GUI apps (Sokol) | ALL backends compiled INTO APE with prefixes. Runtime dispatch. NO separate helpers. dlopen for SYSTEM libs only (X11, GL). |
+| **llamafile** | GPU compute (CUDA/Metal) | Helper DSO embedded in PKZIP, extracted to app cache, loaded via cosmo_dlopen(). |
+
+**For Sokol GUI: Use cosmo-sokol pattern (bullno1/cosmo-sokol)**
+- Reference: https://github.com/bullno1/cosmo-sokol
+- Prefix trick: `sapp_run` → `linux_sapp_run` / `windows_sapp_run`
+- `sokol_cosmo.c` shim dispatches at runtime
+- ONE BINARY, no separate files
+
+**llamafile pattern is ONLY for:**
+- CUDA compute backends
+- Metal compute backends
+- Other GPU acceleration that requires platform-specific DSOs
 
 **Skill:** `skills/sokol-cosmo/SKILL.md`
 

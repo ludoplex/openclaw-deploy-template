@@ -1,226 +1,150 @@
-# Sokol + Cosmopolitan Integration
+# cosmo-sokol Integration (NOT raw Sokol!)
 
-Use when building GUI/graphics applications with Sokol (or similar) that need to run as Cosmopolitan APE binaries.
+## ⚠️ CRITICAL DISTINCTION
 
-## Core Truth
+| Term | Meaning |
+|------|---------|
+| **sokol** | Raw sokol library. Uses compile-time `#ifdef` for platform selection. NOT directly usable with Cosmopolitan. |
+| **cosmo-sokol** | The bullno1 pattern for Cosmopolitan. ALL backends compiled INTO the APE with prefixes. Runtime dispatch. NO separate helpers. |
 
-**Cosmopolitan has NO native OpenGL/GPU support.** For graphics, you MUST use `cosmo_dlopen()` to load platform-native libraries.
+**When building for Cosmopolitan APE, you MUST use the cosmo-sokol pattern, NOT raw sokol.**
 
-**APE binaries are PKZIP archives** that can **SELF EXTRACT** at runtime. The running executable reads from its own PKZIP section via `/zip/...` paths — no external tools needed.
+## The cosmo-sokol Pattern (bullno1/cosmo-sokol)
 
-## llamafile's Pattern (THE REFERENCE IMPLEMENTATION)
+Reference: https://github.com/bullno1/cosmo-sokol
 
-From `llamafile/cuda.c` — this is exactly how GPU support works:
+### How It Works
 
-```c
-// 1. Pre-built DSOs embedded in /zip/
-static bool extract_cuda_dso(const char *dso, const char *name) {
-    char zip[80];
-    strlcpy(zip, "/zip/", sizeof(zip));
-    strlcat(zip, name, sizeof(zip));
-    strlcat(zip, ".", sizeof(zip));
-    strlcat(zip, GetDsoExtension(), sizeof(zip));  // .so/.dll/.dylib
-    
-    if (!FileExists(zip))
-        return false;
-    
-    // Extract to app directory (persistent, cached)
-    return llamafile_extract(zip, dso);
-}
+1. **Compile ALL platform backends INTO the APE** (not ifdef, not separate files)
+2. **Prefix trick** to avoid symbol collisions:
+   ```c
+   // Before including sokol_app.h for Linux:
+   #define sapp_show_keyboard linux_sapp_show_keyboard
+   #define sapp_run linux_sapp_run
+   // ... all public functions
+   
+   // Before including for Windows:
+   #define sapp_show_keyboard windows_sapp_show_keyboard
+   #define sapp_run windows_sapp_run
+   ```
+3. **Runtime dispatch shim** (`sokol_cosmo.c`) selects the correct implementation:
+   ```c
+   void sapp_run(const sapp_desc* desc) {
+       if (IsWindows()) {
+           windows_sapp_run(desc);
+       } else if (IsXnu()) {
+           macos_sapp_run(desc);
+       } else {
+           linux_sapp_run(desc);
+       }
+   }
+   ```
+4. **System libraries loaded via dlopen** — X11, OpenGL, etc. are dynamically loaded from the HOST system
+5. **ONE APE BINARY** — everything is compiled in, no separate helper files
 
-// 2. Load extracted library via cosmo_dlopen
-static bool link_cuda_dso(const char *dso, const char *dir) {
-    void *lib = cosmo_dlopen(dso, RTLD_LAZY);
-    if (!lib) return false;
-    
-    // Import functions via cosmo_dlsym
-    ggml_cuda.buffer_type = cosmo_dlsym(lib, "ggml_backend_cuda_buffer_type");
-    // ...
-}
-```
+### What Gets dlopen'd
 
-**Why extraction to real filesystem is required:** The APE self-extracts via `/zip/...` paths, but OS dynamic linkers (ld.so, LoadLibrary) cannot read from this virtual filesystem. Dynamic libraries must exist on real filesystem for the OS to load them.
+The APE uses dlopen for **SYSTEM libraries only**:
+- Linux: `libX11.so`, `libGL.so`, `libXi.so`, `libXcursor.so`
+- Windows: Uses Cosmopolitan's NT import mechanism
+- macOS: Framework loading
 
-## The Correct Architecture
-
-```
-┌─────────────────────────────────────────────┐
-│  APE Binary (single file, PKZIP format)       │
-│  Contains:                                  │
-│    - Main executable code                   │
-│    - /zip/libgui.so (Linux helper)         │
-│    - /zip/libgui.dll (Windows helper)      │
-│    - /zip/libgui.dylib (macOS helper)      │
-├─────────────────────────────────────────────┤
-│  At runtime:                                │
-│  1. Detect platform via IsWindows() etc.   │
-│  2. Extract correct helper to app dir      │
-│  3. cosmo_dlopen() the extracted file      │
-│  4. Import functions via cosmo_dlsym()     │
-└─────────────────────────────────────────────┘
-```
-
-**ONE FILE. Runs everywhere. GUI included.**
-
-## Build Process
-
-### 1. Main APE Binary (cosmocc)
-```bash
-cosmocc -o myapp.com main.c database.c -lsqlite3
-```
-
-### 2. Platform Helpers (native toolchains)
-```bash
-# Linux
-gcc -shared -fPIC -o libgui.so gui_impl.c -lGL -lX11
-
-# Windows  
-cl /LD gui_impl.c opengl32.lib user32.lib gdi32.lib /Fe:libgui.dll
-
-# macOS
-clang -dynamiclib -o libgui.dylib gui_impl.m -framework Metal -framework Cocoa
-```
-
-### 3. Bundle Helpers INTO the APE
-```bash
-# APE uses PKZIP format — just append the helpers
-zip -j myapp.com libgui.so libgui.dll libgui.dylib
-```
-
-### 4. Runtime: Extract and Load
-```c
-#include <cosmo.h>
-#include <dlfcn.h>
-#include <sys/stat.h>
-
-// Get app directory (persistent, not temp)
-static void get_app_dir(char *buf, size_t size) {
-    if (IsWindows()) {
-        snprintf(buf, size, "%s/.myapp/", getenv("LOCALAPPDATA"));
-    } else {
-        snprintf(buf, size, "%s/.myapp/", getenv("HOME"));
-    }
-    mkdir(buf, 0755);
-}
-
-// Extract from /zip/ to app directory
-static bool extract_helper(const char *zip_path, const char *out_path) {
-    int src = open(zip_path, O_RDONLY);
-    if (src < 0) return false;
-    
-    int dst = open(out_path, O_WRONLY|O_CREAT|O_TRUNC, 0755);
-    if (dst < 0) { close(src); return false; }
-    
-    char buf[32768];
-    ssize_t n;
-    while ((n = read(src, buf, sizeof(buf))) > 0)
-        write(dst, buf, n);
-    
-    close(src);
-    close(dst);
-    return true;
-}
-
-void* load_gui_helper(void) {
-    // Determine correct helper
-    const char *zip_name;
-    const char *ext;
-    if (IsWindows()) { zip_name = "libgui.dll"; ext = ".dll"; }
-    else if (IsXnu()) { zip_name = "libgui.dylib"; ext = ".dylib"; }
-    else { zip_name = "libgui.so"; ext = ".so"; }
-    
-    // Build paths
-    char zip_path[PATH_MAX], out_path[PATH_MAX], app_dir[PATH_MAX];
-    get_app_dir(app_dir, sizeof(app_dir));
-    snprintf(zip_path, sizeof(zip_path), "/zip/%s", zip_name);
-    snprintf(out_path, sizeof(out_path), "%slibgui%s", app_dir, ext);
-    
-    // Extract if needed (check mtime for caching)
-    struct stat zst, ost;
-    if (stat(out_path, &ost) || stat(zip_path, &zst) || zst.st_mtime > ost.st_mtime) {
-        if (!extract_helper(zip_path, out_path)) {
-            fprintf(stderr, "Failed to extract GUI helper\n");
-            return NULL;
-        }
-    }
-    
-    // Load via cosmo_dlopen
-    return cosmo_dlopen(out_path, RTLD_NOW);
-}
-```
+**NOT** for our own code. Sokol code lives IN the APE.
 
 ## Anti-Patterns (DO NOT DO)
 
-### ❌ Shipping helpers as separate files
-```bash
-# WRONG - defeats the purpose of APE single-file distribution
+### ❌ WRONG: Separate helper DSOs (llamafile pattern misapplied)
+```
+# This is WRONG for cosmo-sokol:
 myapp.com
-libgui.so
-libgui.dll
-libgui.dylib
+libgui.so      # NO!
+libgui.dll     # NO!
+libgui.dylib   # NO!
+```
+The llamafile pattern (extract DSO from /zip/) is for GPU backends like CUDA/Metal compute — NOT for sokol GUI code.
+
+### ❌ WRONG: Raw sokol with cosmocc
+```bash
+# This will NOT work — sokol uses compile-time ifdefs
+cosmocc -o myapp.com main.c sokol_app.c sokol_gfx.c
 ```
 
-### ❌ Static linking Sokol with cosmocc
+### ❌ WRONG: Thinking Cosmopolitan has OpenGL
 ```c
-// WRONG - Cosmopolitan has no OpenGL!
-cosmocc -o myapp.com main.c sokol.c  
+// Cosmopolitan has NO native graphics!
+// You MUST dlopen system graphics libraries
 ```
 
-### ❌ Platform dispatchers on top of Sokol
-```c
-// WRONG - Sokol already handles this at compile time
-void my_gl_init() {
-    if (IsWindows()) { windows_gl_init(); }
-    else if (IsLinux()) { linux_gl_init(); }
-}
+## Correct Build Process
+
+### 1. Generate prefixed headers and shims
+Use bullno1's generator scripts:
+- `gen-sokol` — generates #define prefixes and cosmo shim
+- `gen-x11` — generates X11 function stubs for dlopen
+- `gen-gl` — generates OpenGL function stubs for dlopen
+
+### 2. Compile each platform backend with prefixes
+```bash
+# Linux backend (with linux_ prefix)
+cosmocc -c -DLINUX_BUILD sokol_linux.c -o sokol_linux.o
+
+# Windows backend (with windows_ prefix)  
+cosmocc -c -DWINDOWS_BUILD sokol_windows.c -o sokol_windows.o
+
+# macOS backend (with macos_ prefix)
+cosmocc -c -DMACOS_BUILD sokol_macos.c -o sokol_macos.o
 ```
 
-### ❌ Worrying about symbol collision in Sokol
-```c
-// UNNECESSARY - all Sokol internals are static
-// No _sapp_* or _sg_* symbols are exported
+### 3. Compile the runtime dispatch shim
+```bash
+cosmocc -c sokol_cosmo.c -o sokol_cosmo.o
 ```
 
-### ❌ Extracting to temp directory
-```c
-// WRONG - use persistent app directory for caching
-// Temp = re-extract every run = slow startup
-char tmp[PATH_MAX];
-snprintf(tmp, sizeof(tmp), "/tmp/libgui.so");  // BAD
+### 4. Link everything into ONE APE
+```bash
+cosmocc -o myapp.com main.o sokol_linux.o sokol_windows.o sokol_macos.o sokol_cosmo.o
 ```
 
-## Key Facts About Sokol
+### 5. Result: Single APE with all backends
+```
+myapp.com  # Contains Linux, Windows, macOS sokol code
+           # Runtime dispatch picks the right one
+           # dlopen loads system X11/GL/etc.
+```
 
-1. **All internal functions are `static`** — no symbol collision possible
-2. **Platform detection is compile-time** via `#ifdef _WIN32`, `__linux__`, etc.
-3. **Built-in GL loader for Windows** — no GLEW/GLAD needed
-4. **Single translation unit design** — one .c file includes all headers with `SOKOL_IMPL`
+## Key Facts
 
-## Key Facts About Cosmopolitan
+1. **Everything is in the APE** — no separate helper files to distribute
+2. **Prefix trick prevents collisions** — `linux_sapp_run` vs `windows_sapp_run`
+3. **Runtime dispatch** — `sokol_cosmo.c` checks `IsWindows()`, `IsLinux()`, etc.
+4. **System libs via dlopen** — X11, OpenGL come from the host system
+5. **cosmo-sokol ≠ sokol** — don't confuse them
 
-1. **Platform detection is runtime** via `__hostos` global and `IsWindows()`, `IsLinux()`, etc.
-2. **NO native OpenGL/graphics** — examples are Windows-only or terminal-based
-3. **APE binaries are PKZIP archives** — self-extract at runtime via `/zip/...` paths
-4. **`cosmo_dlopen()` requires extraction** — OS loader can't read from `/zip/`
-5. **Fat binaries** = multiple ELF headers for different CPU architectures (x86_64, aarch64)
+## When to Use This
 
-## When to Use This Pattern
-
-- GUI applications that need to be truly portable
+- GUI applications with Cosmopolitan APE
 - Games or visualization tools
-- Any APE binary that needs GPU access
+- Any APE that needs graphics
 
-## When NOT to Use This Pattern
+## When NOT to Use This
 
 - CLI tools (just use cosmocc directly)
-- Terminal UI apps (use ncurses or raw ANSI)
-- Server applications (no GUI needed)
+- Terminal UI (use ncurses)
+- Server applications
+
+## llamafile Pattern vs cosmo-sokol
+
+| Aspect | llamafile (CUDA/Metal compute) | cosmo-sokol (GUI) |
+|--------|-------------------------------|-------------------|
+| What's in APE | Stub + embedded DSO in /zip/ | ALL platform code compiled in |
+| What's extracted | GPU compute library | Nothing |
+| What's dlopen'd | Extracted DSO from app cache | System libs (X11, GL) |
+| Use case | GPU compute acceleration | Cross-platform GUI |
+
+**Do NOT mix these patterns.** cosmo-sokol does NOT use the /zip/ extraction pattern.
 
 ## References
 
-- **llamafile source** — `llamafile/cuda.c` shows the production pattern
-- Full analysis: `docs/cosmopolitan-internals.md`
-- Sokol deep dive: `docs/sokol-internals.md`
-- Build patterns: `docs/sokol-cosmo-build-patterns.md`
-- Test patterns: `docs/sokol-cosmo-testing.md`
-- Examples: `docs/sokol-examples-review.md`
+- **bullno1/cosmo-sokol**: https://github.com/bullno1/cosmo-sokol
+- Generator scripts in that repo: `gen-sokol`, `gen-x11`, `gen-gl`
+- Cosmopolitan docs: https://github.com/jart/cosmopolitan
