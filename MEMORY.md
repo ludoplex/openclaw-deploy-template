@@ -324,6 +324,30 @@ Was causing `sessions_spawn` to fail with `.trim()` error.
 - Issue: https://github.com/openclaw/openclaw/issues/8445
 - Status: ✅ ENABLED and working
 
+### OpenClaw Features Reference 📚
+**Added: 2026-02-07**
+**Path:** `C:\Users\user\openclaw-features-reference.md`
+
+Comprehensive documentation of ALL official OpenClaw features extracted from upstream `openclaw/openclaw` repo with exact source file, line, function, and variable references for each feature.
+
+**Contains:**
+- All 16+ agent tools with schemas and source locations
+- Hook system (ONLY events: `command`, `agent:bootstrap`, `gateway:startup`)
+- Cron/scheduling types and configuration
+- Memory system (search + get tools)
+- Agent-to-agent communication via `sessions_send` (NOT fictional primitives)
+- Workspace bootstrap files
+- Channel plugins (Discord, Telegram, Slack, WhatsApp, BlueBubbles)
+
+**CRITICAL - What DOES NOT exist:**
+- ❌ `agent_message()` / `agent_inbox()` - NOT real
+- ❌ `agent:spawn` / `agent:complete` hook events - NOT real
+- ❌ `tool:post-execute` hook events - NOT real
+- ❌ Direct inter-agent messaging - Use `sessions_send` instead
+- ❌ Hooks cannot spawn agents - Can ONLY mutate `bootstrapFiles`
+
+**Use this reference to avoid inventing APIs that don't exist.**
+
 ### GUNDOM PR #34 CI Failures
 3 checks failing: Database Tests, Swift Unit Tests, Verify Binary Linking
 Copilot reviewed stale commit (pre-refactor), needs re-review after fix

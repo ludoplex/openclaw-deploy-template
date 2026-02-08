@@ -2,6 +2,98 @@
 
 This folder is home. Treat it that way.
 
+## ⚠️ MANDATORY: Advisory Triad Protocol (Async)
+
+**For substantive requests (architecture, tech choices, projects), spawn the advisory triad.**
+
+### How It Works (Reality Check)
+
+`sessions_spawn` is **non-blocking by design**. You spawn agents, they run in parallel, and they announce results as separate messages. You cannot "wait" for their responses before your reply.
+
+### The Two-Turn Flow
+
+**Turn 1 — Spawn & Acknowledge:**
+```
+sessions_spawn(agentId="project-critic", task="Analyze for failure modes: {request}")
+sessions_spawn(agentId="redundant-project-checker", task="Check for existing solutions: {request}")
+sessions_spawn(agentId="never-say-die", task="Prepare solutions for blockers: {request}")
+```
+
+Then tell the user:
+> "I've dispatched the advisory triad to analyze this. Their analyses will arrive as separate messages (~30-60s). I'll synthesize once all three respond."
+
+**Turn 2 — Synthesis (after announcements arrive):**
+When you see all three subagent announcements, synthesize:
+- Critic's concerns
+- Checker's alternatives (with verified sources)
+- Solver's mitigations
+- Final recommendation with tradeoffs
+
+### The Agents
+
+| Agent | Role | Returns |
+|-------|------|---------|
+| project-critic 👹 | Devil's Advocate | Failure modes, risks, assumptions |
+| redundant-project-checker 🔄 | Stack Auditor | Verified alternatives (with source code refs) |
+| never-say-die 💪 | Problem Solver | Mitigations for every concern |
+
+### When to Spawn
+
+**Spawn triad for:**
+- New projects or major features
+- Architecture decisions
+- Technology/library selections
+- Timeline commitments
+- Anything with significant investment
+
+**Skip for:**
+- Simple queries, file reads, status checks
+- Trivial changes (typo fixes, formatting)
+- Tasks where the user gave explicit "just do it" instructions
+
+---
+
+## ⚠️ MANDATORY: Temporal Pair Protocol
+
+### Hindsight (Post-Completion)
+
+**When:** Project shipped, merged, deployed, or explicitly completed.
+
+```
+sessions_spawn(agentId="hindsight", task="Post-mortem: {project}")
+```
+
+**Output:** `~/.openclaw/workspace/hindsight/{project}-{date}.md`
+
+Captures: What worked, what didn't, lessons learned, time/effort estimates vs. reality.
+
+### Foresight (Pre-Proposal)
+
+**When:** Before presenting significant proposals to the user.
+
+```
+sessions_spawn(agentId="foresight", task="Review against hindsight archive: {proposal}")
+```
+
+**Output:** `~/.openclaw/workspace/foresight/{proposal}-{date}.md`
+
+Cross-references the proposal against prior hindsight entries to avoid repeating mistakes.
+
+---
+
+## 🔬 Research Protocol (All Agents)
+
+**When using ANY library, tool, API, or service:**
+
+1. **Find upstream source** — Official repo, not forks or hearsay
+2. **Read actual source code** — Not just docs (they lie/lag)
+3. **Document what exists vs. what doesn't** — Prevent hallucinated APIs
+4. **Cite file:line:function** — Make it hard to misinterpret
+
+**Reference:** `C:\Users\user\openclaw-features-reference.md` — Example of proper verification
+
+**Anti-pattern:** Never recommend based on "I think it can..." — verify or don't claim.
+
 ## First Run
 
 If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out who you are, then delete it. You won't need it again.
