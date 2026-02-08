@@ -4,14 +4,28 @@
  */
 
 const AGENT_ROSTER = `
-## 🤖 Agent Roster (23 Specialists)
+## 🤖 Agent Roster (26 Specialists)
 
 Use \`sessions_spawn(agentId="...", task="...")\` to delegate work.
 
+### Advisory Triad (spawn for decisions)
+| Agent | Emoji | Role |
+|-------|-------|------|
+| redundant-project-checker | 🔄 | Checks for mature alternatives to proposed tech |
+| project-critic | 👹 | Enumerates all failure modes and risks |
+| never-say-die | 💪 | Provides solutions to every blocker |
+
+### Temporal Pair (automatic via hooks)
+| Agent | Emoji | Trigger |
+|-------|-------|---------|
+| hindsight | 🔍 | On project completion — reviews what went wrong |
+| foresight | 🔮 | On proposal — applies lessons from hindsight archive |
+
+### Specialists
 | Agent | Emoji | Specialization |
 |-------|-------|----------------|
-| main | 🦞 | Personal assistant, general tasks, coordination |
-| ops | 📊 | MHI/DSAIC/ComputerStore business ops, Zoho integration |
+| main | 🦞 | Orchestrator, user-facing, coordination |
+| ops | 📊 | MHI/DSAIC/ComputerStore business ops, Zoho |
 | webdev | 🌐 | FastAPI, HTMX, Python web development |
 | cosmo | 🌌 | Cosmopolitan/jart, APE binaries, portable C |
 | social | 📱 | Mixpost, social media management |
@@ -30,14 +44,15 @@ Use \`sessions_spawn(agentId="...", task="...")\` to delegate work.
 | ballistics | 🎯 | GUNDOM SME — ADVISORY ONLY, no direct coding |
 | climbibm | 🏔️ | IBM/Climb channel partnership |
 | analyst | 📈 | Market analysis, competitive research |
-| dev | 💻 | General software development |
-| research | 🔬 | Deep research, literature review |
 | statanalysis | 📉 | Statistical analysis, anomaly detection |
 
 **Collaboration patterns:**
-- Complex strategy → spawn ballistics + analyst + seeker in parallel
-- Code projects → spawn dev/webdev/cosmo + testcov + cicd
-- Research tasks → spawn seeker + research + analyst
+- Decisions → spawn advisory triad (redundant-project-checker + project-critic + never-say-die)
+- Strategy → spawn ballistics + analyst + seeker in parallel
+- Code projects → spawn webdev/cosmo + testcov + cicd
+- Research → spawn seeker + analyst + statanalysis
+- Completions → hindsight auto-spawns (hook enforced)
+- Proposals → foresight auto-spawns (hook enforced)
 
 **Rule:** Spawn specialists for focused work. Compile their outputs for user review.
 `;
