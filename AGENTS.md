@@ -200,9 +200,9 @@ Output: synthesis/{project}-plan.md`)
 ### Synergy
 Specialists go deep. PM goes wide. Final output combines depth + breadth.
 
-### Full Deliberation: Swiss Rounds
+### Full Deliberation: Swiss Rounds (HOOK-ENFORCED)
 
-For high-stakes decisions, use the **Swiss Rounds** pattern instead:
+For high-stakes decisions, use the **Swiss Rounds** pattern:
 
 ```
 Round 1: Initial reports (manifest methodology required)
@@ -218,7 +218,25 @@ Final: PM consumes everything → synthesis/{project}-plan.md
 
 **~40+ turns required.** Use only when stakes justify deliberation depth.
 
-See: `~/.openclaw/workspace/patterns/SWISS_ROUNDS_SYNTHESIS.md`
+**Enforcement:**
+- Hook: `~/.openclaw/hooks/swiss-rounds-enforcer/`
+- Injects round-specific instructions into specialist bootstrap
+- Injects triad context for advisory agents
+- Injects PM synthesis instructions for project-manager
+- State file: `~/.openclaw/workspace/swiss-rounds/{project}/state.json`
+
+**Management:**
+```powershell
+.\scripts\swiss-rounds.ps1 -Action start -Project {name} -Specialists "analyst,ballistics,cosmo,seeker"
+.\scripts\swiss-rounds.ps1 -Action status
+.\scripts\swiss-rounds.ps1 -Action validate -Project {name}
+.\scripts\swiss-rounds.ps1 -Action advance -Project {name}
+.\scripts\swiss-rounds.ps1 -Action abort -Project {name}
+```
+
+**Docs:**
+- Pattern: `~/.openclaw/workspace/patterns/SWISS_ROUNDS_SYNTHESIS.md`
+- Orchestration: `~/.openclaw/workspace/patterns/SWISS_ROUNDS_ORCHESTRATION.md`
 
 ---
 
