@@ -38,7 +38,7 @@
 
 param(
     [Parameter(Mandatory=$true)]
-    [ValidateSet("start", "status", "advance", "validate", "abort", "add-source", "verify-sources")]
+    [ValidateSet("start", "start-revision", "status", "advance", "validate", "abort", "add-source", "verify-sources")]
     [string]$Action,
     
     [string]$Project,
@@ -49,7 +49,11 @@ param(
     [string]$SourcePath,
     [string]$SourceRepo,
     [ValidateSet("source", "binary")]
-    [string]$SourceType = "source"
+    [string]$SourceType = "source",
+    
+    [string]$PriorPlanPath,
+    [string]$RevisionScope,
+    [string]$TriggeredBy = "user"
 )
 
 $SwissDir = "$env:USERPROFILE\.openclaw\workspace\swiss-rounds"
@@ -193,6 +197,71 @@ switch ($Action) {
         Write-Host "1. Add sources: .\swiss-rounds.ps1 -Action add-source -Project $Project -SourceName upstream -SourcePath C:\path\to\repo"
         Write-Host "2. Verify sources: .\swiss-rounds.ps1 -Action verify-sources -Project $Project"
         Write-Host "3. Then spawn specialists for Round 1"
+    }
+    
+    "start-revision" {
+        if (-not $Project) {
+            Write-Error "Project name required for start-revision action"
+            exit 1
+        }
+        if (-not $PriorPlanPath) {
+            Write-Error "PriorPlanPath required for revision mode"
+            exit 1
+        }
+        if (-not $RevisionScope) {
+            Write-Error "RevisionScope required for revision mode"
+            exit 1
+        }
+        
+        $specList = @($Specialists -split ",")
+        $projectDir = "$SwissDir\$Project"
+        
+        # Create directories
+        @("reports", "triad", "synthesis") | ForEach-Object {
+            $path = "$projectDir\$_"
+            if (-not (Test-Path $path)) { New-Item -ItemType Directory -Path $path -Force | Out-Null }
+        }
+        
+        # Create revision state
+        $state = @{
+            project = $Project
+            mode = "revision"
+            phase = "setup"
+            sources = @()
+            userVerified = $false
+            specialists = $specList
+            currentRound = 1
+            totalRounds = 5
+            rounds = @{}
+            pm = @{
+                started = $false
+                overarchingPlanComplete = $false
+                sequence = @()
+                specialistPlans = @{}
+                complete = $false
+            }
+            revision = @{
+                priorPlanPath = $PriorPlanPath
+                scope = $RevisionScope
+                triggeredBy = $TriggeredBy
+            }
+            startedAt = (Get-Date).ToUniversalTime().ToString("o")
+        }
+        
+        Save-State $state
+        
+        Write-Host "✅ Swiss Rounds REVISION started for: $Project" -ForegroundColor Green
+        Write-Host "   Mode: revision" -ForegroundColor Yellow
+        Write-Host "   Prior Plan: $PriorPlanPath"
+        Write-Host "   Scope: $RevisionScope"
+        Write-Host "   Triggered By: $TriggeredBy"
+        Write-Host "   Specialists: $($specList -join ', ')"
+        Write-Host "   State: $projectDir\state.json"
+        Write-Host ""
+        Write-Host "Next steps:" -ForegroundColor Yellow
+        Write-Host "1. Add/verify sources (same as new project)"
+        Write-Host "2. Spawn specialists - they will receive prior plan + revision scope as context"
+        Write-Host "3. Full Swiss Rounds process runs on the revision itself"
     }
     
     "add-source" {

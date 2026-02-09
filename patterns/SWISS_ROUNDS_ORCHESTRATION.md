@@ -172,20 +172,45 @@ PM follows the same source-truth-first pattern:
 
 ## Revision Mode
 
-For projects with existing PM plans that need major revision:
+Revision is NOT a shortcut. It's a **full Swiss Rounds run** focused on the revision scope.
+
+### Revision Flow
+
+| Step | Action |
+|------|--------|
+| **1. Trigger** | User or agents identify revision needed |
+| **2. Scope** | Define what's being revised and why |
+| **3. Approval** | User approves revision scope |
+| **4. Process** | Full Swiss Rounds (specialists → triad × 5 rounds → PM) |
+| **5. Apply** | Only after PM completes, revision applied to original plan |
+
+### Phase Appropriateness (Revision)
 
 | Phase | Condition | Action |
 |-------|-----------|--------|
-| **Revision Setup** | User requests revision to existing PM plan | Load `revision.priorPlanPath`, identify `revision.scope` |
-| **Revision Setup** | Scope confirmed with user | Set `mode: "revision"`, reset rounds, **spawn specialists** |
-| **Rounds** | (Same rhythm as new) | specialists → triad → repeat |
-| **PM** | All rounds complete | PM receives prior plan + revision scope + all outputs |
-| **Complete** | `pmComplete` | Deliver revised plan, archive prior version |
+| **Revision Setup** | Revision need identified | Document scope, get user approval |
+| **Revision Setup** | User approves scope | Set `mode: "revision"`, load prior plans, **spawn specialists** |
+| **Rounds** | (Same as new mode) | specialists → triad → repeat × 5 rounds |
+| **PM** | All rounds complete | PM produces updated plans referencing prior + revision |
+| **Apply** | `pmComplete` | Apply revision, archive prior version, deliver to user |
 
-**Key difference:** In revision mode, specialists receive:
-1. Prior PM plan (what was decided before)
-2. Revision scope (what's changing and why)
-3. Same source repos (re-verified if needed)
+### What Specialists Receive (Revision Mode)
+
+1. Prior PM overarching plan (context)
+2. Prior individual plans (context)  
+3. Revision scope (what's changing and why)
+4. Same source repos (re-read per manifest methodology)
+
+All specialists follow **Bootstrap (GENERIC)** — no shortcuts.
+
+### What PM Produces (Revision Mode)
+
+1. Updated overarching plan (referencing both prior + revision justification)
+2. Updated individual plans for affected specialists
+3. Updated stage prompts
+4. **Changelog** (what changed from prior plan and why)
+
+PM follows **PM Bootstrap** — source manifest first, then synthesis.
 
 ---
 
