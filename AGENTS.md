@@ -200,6 +200,26 @@ Output: synthesis/{project}-plan.md`)
 ### Synergy
 Specialists go deep. PM goes wide. Final output combines depth + breadth.
 
+### Full Deliberation: Swiss Rounds
+
+For high-stakes decisions, use the **Swiss Rounds** pattern instead:
+
+```
+Round 1: Initial reports (manifest methodology required)
+Round 2: Cross-read others → Addendum 1 (to own file)
+Round 3: Read own addendums → Retrospective Part 1
+Round 4: Cross-read retros → Addendum 2 (to others' files)
+Round 5: Read own addendum 2s → Final Retrospective Part 2
+
+⚠️ Advisory Triad runs AFTER EACH ROUND on all outputs
+
+Final: PM consumes everything → synthesis/{project}-plan.md
+```
+
+**~40+ turns required.** Use only when stakes justify deliberation depth.
+
+See: `~/.openclaw/workspace/patterns/SWISS_ROUNDS_SYNTHESIS.md`
+
 ---
 
 ## ⚠️ MANDATORY: Manifest Methodology (Anti-Hallucination)
