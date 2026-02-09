@@ -2,6 +2,15 @@
 
 This folder is home. Treat it that way.
 
+## 📁 MANDATORY: Full Paths in Discourse
+
+**ALWAYS use full file paths when talking to the user.**
+
+❌ Wrong: `automation/entity-profiles.json`  
+✅ Right: `C:\Users\user\.openclaw\workspace\automation\entity-profiles.json`
+
+No relative paths. No abbreviations. Full paths every time.
+
 ## ⚠️ MANDATORY: Advisory Triad Protocol (Async)
 
 **For substantive requests (architecture, tech choices, projects), spawn the advisory triad.**

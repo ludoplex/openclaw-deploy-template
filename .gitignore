@@ -41,3 +41,6 @@ automation/screenshots/
 
 # External session logs (may contain secrets)
 memory/external-sessions/
+
+# API keys
+.elevenlabs_key

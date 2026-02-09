@@ -1,7 +1,7 @@
 # GPU Server Setup Checklist — Wheatland Location
 
 **Target Date:** Wednesday, Feb 12, 2026  
-**Hardware:** 4× Tesla V100 32GB, AMD Threadripper, 128-512GB RAM, 10GbE  
+**Hardware:** 4× Tesla V100 32GB, AMD Threadripper, 256GB RAM (confirmed), 10GbE  
 **Location:** 977 Gilchrist St, Wheatland WY (Computer Store)
 
 ---
