@@ -405,6 +405,31 @@ Spawn in sequence, not parallel:
 
 Each agent must have context from prior agents.
 
+### Zoho Agent Created
+**Added: 2026-02-08**
+- **Agent ID:** zoho 🔷
+- **Workspace:** `C:\Users\user\.openclaw\agents\zoho`
+- **Codebase:** `C:\zoho-console-api-module-system\`
+- **OAuth Tokens:** Boss's (Rachel Williams) full-scope tokens in `.env`
+- **Scopes:** CRM.modules.ALL, CRM.settings.ALL, Books.*, Inventory.FullAccess.all, Mail.*
+- **Can spawn:** redundant-project-checker, project-critic, never-say-die, seeker
+
+### Triad Analysis Workflow Pattern
+**Added: 2026-02-08**
+**Pattern doc:** `C:\Users\user\.openclaw\workspace\patterns\TRIAD_ANALYSIS_WORKFLOW.md`
+
+Standard workflow for any project analysis:
+```
+redundant-project-checker → project-critic → never-say-die
+         ↓                        ↓                    ↓
+   spawns seeker            spawns seeker         final synthesis
+         ↓                        ↓                    ↓
+   redundancy.md    +      critique.md      =    solution.md
+```
+
+Each agent spawns seeker for research. Output files chain together.
+Use for: new features, refactoring, tech stack audits, implementation review.
+
 ### MHI Registration Numbers
 **Added: 2026-02-08**
 - **Phone:** (307) 331-1040
