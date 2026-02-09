@@ -11,40 +11,66 @@ This folder is home. Treat it that way.
 
 No relative paths. No abbreviations. Full paths every time.
 
-## ⚠️ MANDATORY: Advisory Triad Protocol (Async)
+## ⚠️ MANDATORY: Advisory Triad Protocol (Sequential Async)
 
-**For substantive requests (architecture, tech choices, projects), spawn the advisory triad.**
+**For substantive requests (architecture, tech choices, projects), run the advisory triad SEQUENTIALLY.**
 
-### How It Works (Reality Check)
+### OpenClaw Reality (from source manifest)
 
-`sessions_spawn` is **non-blocking by design**. You spawn agents, they run in parallel, and they announce results as separate messages. You cannot "wait" for their responses before your reply.
+- `sessions_spawn` is **non-blocking** — Returns immediately, announcements arrive async
+- **Cannot wait synchronously** — No blocking for subagent results
+- **Multi-turn orchestration required** — Spawn one, see announcement, spawn next
 
-### The Two-Turn Flow
+### The Sequence (MANDATORY ORDER)
 
-**Turn 1 — Spawn & Acknowledge:**
 ```
-sessions_spawn(agentId="project-critic", task="Analyze for failure modes: {request}")
-sessions_spawn(agentId="redundant-project-checker", task="Check for existing solutions: {request}")
-sessions_spawn(agentId="never-say-die", task="Prepare solutions for blockers: {request}")
+redundant-project-checker 🔄 → project-critic 👹 → never-say-die 💪
 ```
 
-Then tell the user:
-> "I've dispatched the advisory triad to analyze this. Their analyses will arrive as separate messages (~30-60s). I'll synthesize once all three respond."
+**Why sequential?** Each phase builds on the previous:
+- Critic needs redundancy findings to review
+- Solver needs both to address all concerns
 
-**Turn 2 — Synthesis (after announcements arrive):**
-When you see all three subagent announcements, synthesize:
-- Critic's concerns
-- Checker's alternatives (with verified sources)
-- Solver's mitigations
-- Final recommendation with tradeoffs
+### Multi-Turn Flow
+
+**Turn 1 — Spawn Redundancy Checker:**
+```
+sessions_spawn(agentId="redundant-project-checker", task="Analyze: {request}")
+```
+> "Phase 1/3: Dispatched redundancy-checker. Will spawn critic once analysis arrives."
+
+**Turn 2 — See announcement → Spawn Critic:**
+```
+sessions_spawn(agentId="project-critic", task="Review: {path to redundancy.md}")
+```
+> "Phase 2/3: Redundancy complete. Dispatched critic."
+
+**Turn 3 — See announcement → Spawn Solver:**
+```
+sessions_spawn(agentId="never-say-die", task="Solve using: {redundancy.md} AND {critique.md}")
+```
+> "Phase 3/3: Critique complete. Dispatched solver."
+
+**Turn 4 — Synthesize:**
+Read all three files, synthesize final recommendation with tradeoffs.
 
 ### The Agents
 
-| Agent | Role | Returns |
-|-------|------|---------|
-| project-critic 👹 | Devil's Advocate | Failure modes, risks, assumptions |
-| redundant-project-checker 🔄 | Stack Auditor | Verified alternatives (with source code refs) |
-| never-say-die 💪 | Problem Solver | Mitigations for every concern |
+| Order | Agent | Role | Needs |
+|-------|-------|------|-------|
+| 1 | redundant-project-checker 🔄 | Stack Auditor | Request only |
+| 2 | project-critic 👹 | Devil's Advocate | Redundancy analysis |
+| 3 | never-say-die 💪 | Problem Solver | Both analyses |
+
+### Track State Across Turns
+
+```markdown
+## Active Triad: {project}
+- Phase: 2/3
+- Redundancy: ✅ analysis/redundancy-{project}.md
+- Critique: pending
+- Solution: pending
+```
 
 ### When to Spawn
 
@@ -52,13 +78,15 @@ When you see all three subagent announcements, synthesize:
 - New projects or major features
 - Architecture decisions
 - Technology/library selections
-- Timeline commitments
 - Anything with significant investment
 
 **Skip for:**
 - Simple queries, file reads, status checks
 - Trivial changes (typo fixes, formatting)
-- Tasks where the user gave explicit "just do it" instructions
+- User says "just do it"
+
+### Full Pattern
+See: `~/.openclaw/workspace/patterns/TRIAD_ANALYSIS_WORKFLOW.md`
 
 ---
 
