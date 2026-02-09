@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-02-08T16:36:20.627925",
+  "accounts_searched": {
+    "boss": [
+      {
+        "isAlias": false,
+        "isPrimary": true,
+        "mailId": "rachelwilliams@mightyhouseinc.com",
+        "isConfirmed": true
+      }
+    ],
+    "mine": [
+      {
+        "isAlias": false,
+        "isPrimary": false,
+        "mailId": "theander.project@gmail.com",
+        "isConfirmed": true
+      },
+      {
+        "isAlias": false,
+        "isPrimary": true,
+        "mailId": "vincentlanderson@mightyhouseinc.com",
+        "isConfirmed": true
+      }
+    ]
+  },
+  "total_assets": 0,
+  "by_type": {},
+  "by_partner": {},
+  "assets": []
+}

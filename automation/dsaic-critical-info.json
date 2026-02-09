@@ -1,0 +1,164 @@
+{
+  "search_date": "2026-02-08T16:39:00",
+  "search_status": "completed_with_limitations",
+  "limitations": [
+    "Zoho Mail API heavily rate-limited during search",
+    "Wyoming SOS website requires CAPTCHA for business search",
+    "Web search API not configured (missing Brave API key)"
+  ],
+  
+  "company": {
+    "legal_name": "Data Science Applications, Inc.",
+    "dba": "DSAIC",
+    "entity_type": "Corporation",
+    "state_of_incorporation": "Wyoming",
+    "status": "Active (assumed - needs verification via WY SOS)",
+    "incorporation_date": null,
+    "filing_number": null,
+    "notes": "Subsidiary of Mighty House Inc. (MHI-backed financially)"
+  },
+  
+  "registered_address": {
+    "street": "977 Gilchrist St",
+    "city": "Wheatland",
+    "state": "WY",
+    "zip": "82201",
+    "country": "USA",
+    "notes": "Same address as Mighty House Inc. (parent company)"
+  },
+  
+  "registered_agent": {
+    "name": null,
+    "address": null,
+    "notes": "Not found in email search. Check Wyoming SOS records at: https://wyobiz.wyo.gov/Business/FilingSearch.aspx"
+  },
+  
+  "tax_ids": {
+    "ein": null,
+    "ein_notes": "Not found in available emails. May need to check IRS correspondence or tax documents.",
+    "wyoming_filing_id": null
+  },
+  
+  "government_registration": {
+    "duns": null,
+    "cage_code": null,
+    "uei": null,
+    "sam_status": null,
+    "notes": "DSAIC may not have separate SAM registration - check if using MHI's credentials"
+  },
+  
+  "ownership": {
+    "owner": {
+      "name": "Vincent L. Anderson",
+      "title": "Owner",
+      "email": null,
+      "phone": null
+    },
+    "parent_company": {
+      "name": "Mighty House Inc.",
+      "relationship": "MHI-backed financially, independent brand"
+    }
+  },
+  
+  "domains": {
+    "primary": null,
+    "planned": "TBD (explicitly NOT .ai per user preference)",
+    "suggested": ["dsaicorp.com", "dsaic.io", "datascienceapps.com"],
+    "notes": "User explicitly stated no .ai domain association"
+  },
+  
+  "banking": {
+    "accounts": [],
+    "notes": "No bank account setup emails found for DSAIC specifically"
+  },
+  
+  "insurance": {
+    "policies": [],
+    "notes": "No insurance emails found for DSAIC specifically"
+  },
+  
+  "contracts": [],
+  
+  "certifications": {
+    "active": [],
+    "notes": "DSAIC is SaaS-only, may not need same certs as MHI (EDWOSB, HUBZONE)"
+  },
+  
+  "business_context": {
+    "type": "SaaS Provider",
+    "target_market": ["Developers", "Tech", "Startups"],
+    "revenue_channels": ["SaaS Subscriptions", "White-label Services"],
+    "products_in_development": ["Apeswarm (IDP/RAG platform)", "AI Governance tools"],
+    "channel_partnerships": {
+      "ibm_climb": {
+        "account": "CU0043054170",
+        "status": "active",
+        "notes": "Uses MHI's Climb account"
+      }
+    }
+  },
+  
+  "related_entities": {
+    "parent": {
+      "name": "Mighty House Inc.",
+      "ein": null,
+      "duns": "081351838",
+      "cage_code": "8DFL3",
+      "uei": "NA1ZBSQTJ468",
+      "sam_status": "Active (as of 2025)",
+      "certifications": ["EDWOSB", "HUBZONE"]
+    },
+    "sibling": {
+      "name": "Computer Store",
+      "relationship": "MHI-operated retail brand",
+      "address": "977 Gilchrist St, Wheatland, WY 82201"
+    }
+  },
+  
+  "action_items": [
+    {
+      "priority": 1,
+      "action": "Verify DSAIC incorporation via Wyoming SOS",
+      "url": "https://wyobiz.wyo.gov/Business/FilingSearch.aspx",
+      "search_term": "Data Science Applications"
+    },
+    {
+      "priority": 2,
+      "action": "Locate DSAIC EIN",
+      "methods": ["Check IRS correspondence", "Ask owner directly", "Review tax returns"]
+    },
+    {
+      "priority": 3,
+      "action": "Confirm registered agent",
+      "notes": "May be same as MHI or owner Vincent L. Anderson"
+    },
+    {
+      "priority": 4,
+      "action": "Register DSAIC domain",
+      "recommendation": "dsaicorp.com (user preference)"
+    },
+    {
+      "priority": 5,
+      "action": "Set up DSAIC-specific business accounts if separate from MHI",
+      "includes": ["Bank account", "Stripe", "Business insurance"]
+    }
+  ],
+  
+  "source_files": [
+    "C:\\Users\\user\\.openclaw\\workspace\\automation\\entity-profiles.json",
+    "C:\\Users\\user\\.openclaw\\workspace\\entity-structure.md",
+    "C:\\Users\\user\\.openclaw\\workspace\\MEMORY.md",
+    "C:\\zoho-console-api-module-system\\docs\\organized\\entities\\dsaic.md",
+    "C:\\zoho-console-api-module-system\\config\\contact_mapping.json"
+  ],
+  
+  "mhi_reference_data": {
+    "notes": "Parent company (MHI) data included for reference - DSAIC may use shared resources",
+    "duns": "081351838",
+    "cage_code": "8DFL3",
+    "uei": "NA1ZBSQTJ468",
+    "phone": "(307) 331-1040",
+    "address": "977 Gilchrist St, Wheatland, WY 82201",
+    "website": "https://mightyhouseinc.com"
+  }
+}

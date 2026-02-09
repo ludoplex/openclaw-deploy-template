@@ -1,0 +1,126 @@
+{
+  "search_timestamp": "2026-02-08T16:32:00",
+  "search_status": "PARTIAL - Local files only",
+  "browser_issues": [
+    "Chrome relay: tabs detected but not attachable (need user to click OpenClaw Browser Relay toolbar icon)",
+    "Playwright: fresh browser profile, no Google/Microsoft accounts logged in",
+    "Google Drive redirects to login page without active session"
+  ],
+  
+  "entity": {
+    "legal_name": "Mighty House Inc",
+    "dba": ["MHI", "Computer Store"],
+    "entity_type": "Corporation",
+    "state_of_incorporation": "Wyoming",
+    "address": {
+      "street": "977 Gilchrist St",
+      "city": "Wheatland",
+      "state": "WY",
+      "zip": "82201",
+      "country": "USA"
+    },
+    "phone": "(307) 331-1040",
+    "website": "https://mightyhouseinc.com"
+  },
+  
+  "certifications_claimed": [
+    "EDWOSB (Economically Disadvantaged Woman-Owned Small Business)",
+    "HUBZone"
+  ],
+  
+  "critical_numbers": {
+    "ein": "NOT FOUND - Need to search Google Drive/OneDrive",
+    "duns": "NOT FOUND - Need to search Google Drive/OneDrive",
+    "cage_code": "NOT FOUND - Need to search Google Drive/OneDrive",
+    "sam_uei": "NOT FOUND - Need to search Google Drive/OneDrive",
+    "wyoming_id": "NOT FOUND - Need to search Wyoming SOS records"
+  },
+  
+  "supplier_accounts": {
+    "ingram_micro": {
+      "account": "50-135152-000",
+      "status": "active",
+      "source": "entity-profiles.json + Zoho email confirmation"
+    },
+    "td_synnex": {
+      "account": "786379",
+      "status": "active",
+      "source": "entity-profiles.json"
+    },
+    "dh": {
+      "account": "3270340000",
+      "status": "active",
+      "source": "entity-profiles.json"
+    },
+    "climb_ibm": {
+      "account": "CU0043054170",
+      "status": "active",
+      "source": "entity-profiles.json"
+    }
+  },
+  
+  "contacts": {
+    "owner": {
+      "name": "Rachel Williams",
+      "title": "Owner/CEO",
+      "email_business": "rachelwilliams@mightyhouseinc.com",
+      "email_personal": "racheljeannewilliams@gmail.com"
+    },
+    "it_director": {
+      "name": "Vincent L. Anderson",
+      "title": "IT Director",
+      "email_business": "vincentlanderson@mightyhouseinc.com",
+      "email_personal": "theanderproject@gmail.com"
+    }
+  },
+  
+  "email_accounts_to_search": [
+    "theanderproject@gmail.com (Google Drive)",
+    "racheljeannewilliams@gmail.com (Google Drive)",
+    "mightyhouseinc@gmail.com (Google Drive)",
+    "OneDrive (if Microsoft account logged in)"
+  ],
+  
+  "folders_to_check": [
+    "Critical Info",
+    "Business Documents",
+    "MHI",
+    "Mighty House",
+    "Legal",
+    "Tax",
+    "Registrations"
+  ],
+  
+  "search_terms_for_manual_search": [
+    "\"Mighty House\" EIN",
+    "\"Mighty House\" DUNS",
+    "CAGE code",
+    "Tax registration",
+    "Business license",
+    "Wyoming Secretary of State",
+    "SAM.gov registration",
+    "SBA certification",
+    "EDWOSB",
+    "HUBZone"
+  ],
+  
+  "related_emails_found": {
+    "sba_loan": "2025-12-22 from jsaunders@newtekone.com - SBA Loan Reinstated",
+    "pearson": "2025-08-21 - Pearson Skilling Partner Program welcome",
+    "ibm_terminated": "2025-10-06 - IBM CMR Agreement terminated for Mighty House Inc. (104rwn)"
+  },
+  
+  "notes": [
+    "EIN, DUNS, CAGE codes are marked as 'FILL IN MANUALLY' in entity-profiles.json",
+    "These sensitive fields were intentionally not committed to git",
+    "User needs to either: (1) Click OpenClaw Browser Relay icon on a Drive/OneDrive tab, or (2) Login to Google/Microsoft in Playwright browser manually",
+    "Wyoming SOS records at https://wyobiz.wyo.gov/ could verify incorporation details"
+  ],
+  
+  "next_steps": [
+    "User should attach a Chrome tab via OpenClaw Browser Relay for Drive access",
+    "Alternatively, manually login in Playwright browser (browser-state-drive folder)",
+    "Search Wyoming SOS for official filing: https://wyobiz.wyo.gov/",
+    "Check SAM.gov for registration: https://sam.gov/"
+  ]
+}

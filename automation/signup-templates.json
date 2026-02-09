@@ -1,0 +1,85 @@
+{
+  "reseller_applications": {
+    "ingram_micro": {
+      "url": "https://corp.ingrammicro.com/Become-a-Reseller.aspx",
+      "type": "distributor",
+      "fields": ["company", "address", "contact", "tax_id", "business_type", "annual_revenue"]
+    },
+    "td_synnex": {
+      "url": "https://www.tdsynnex.com/us/en/become-a-partner.html",
+      "type": "distributor", 
+      "fields": ["company", "address", "contact", "tax_id", "duns"]
+    },
+    "dh": {
+      "url": "https://www.dandh.com/v4/content/NewCustomer",
+      "type": "distributor",
+      "fields": ["company", "address", "contact", "tax_id"]
+    },
+    "techdata": {
+      "url": "https://www.techdata.com/content/become-a-partner.html",
+      "type": "distributor",
+      "fields": ["company", "address", "contact"]
+    }
+  },
+  "vendor_programs": {
+    "microsoft_csp": {
+      "url": "https://partner.microsoft.com/en-us/partnership/cloud-solution-provider",
+      "type": "vendor_program",
+      "requirements": ["MPN ID", "Business email", "Company verification"]
+    },
+    "dell_partner": {
+      "url": "https://www.delltechnologies.com/partner/en-us/partner/join.htm",
+      "type": "vendor_program",
+      "fields": ["company", "address", "contact", "annual_revenue"]
+    },
+    "hp_partner": {
+      "url": "https://partner.hp.com/s/",
+      "type": "vendor_program",
+      "fields": ["company", "address", "contact"]
+    },
+    "lenovo_partner": {
+      "url": "https://www.lenovo.com/us/en/business/benefits/become-a-partner/",
+      "type": "vendor_program",
+      "fields": ["company", "address", "contact"]
+    },
+    "cisco_partner": {
+      "url": "https://www.cisco.com/c/en/us/partners/partner-with-cisco.html",
+      "type": "vendor_program",
+      "fields": ["company", "address", "contact", "certifications"]
+    }
+  },
+  "platforms": {
+    "vast_ai": {
+      "url": "https://vast.ai/",
+      "type": "gpu_hosting",
+      "purpose": "GPU server rental income"
+    },
+    "pearsonvue": {
+      "url": "https://home.pearsonvue.com/test-center",
+      "type": "testing_center",
+      "purpose": "Certification testing center"
+    },
+    "comptia": {
+      "url": "https://partners.comptia.org/",
+      "type": "training_partner",
+      "purpose": "IT certification training"
+    },
+    "ggleap": {
+      "url": "https://ggleap.com/",
+      "type": "lan_center",
+      "purpose": "LAN center management"
+    }
+  },
+  "govcon_registrations": {
+    "sam_gov": {
+      "url": "https://sam.gov/",
+      "type": "required",
+      "fields": ["ein", "duns", "cage_code", "naics", "address"]
+    },
+    "dsbs": {
+      "url": "https://dsbs.sba.gov/",
+      "type": "certification",
+      "purpose": "EDWOSB/HUBZone certification"
+    }
+  }
+}

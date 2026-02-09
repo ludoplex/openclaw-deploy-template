@@ -1,0 +1,412 @@
+{
+  "generated": "2026-02-08T16:48:45.679018",
+  "source": "master-account-inventory.json",
+  "summary": {
+    "social_media_count": 13,
+    "marketing_count": 5,
+    "discovery_count": 3,
+    "total": 21
+  },
+  "social_media_platforms": {
+    "Facebook/Meta": [
+      {
+        "platform": "Facebook/Meta",
+        "account_email": "rachelwilliams@mightyhouseinc.com",
+        "profile_url": "https://business.facebook.com",
+        "status": "active",
+        "entity": "Mighty House Inc",
+        "notes": "Business page",
+        "category": "social_media"
+      },
+      {
+        "platform": "Facebook/Meta",
+        "account_email": "vincentlanderson@mightyhouseinc.com",
+        "profile_url": "https://business.facebook.com",
+        "status": "active",
+        "entity": "The Computer Store",
+        "notes": "Local business page",
+        "category": "social_media"
+      }
+    ],
+    "Twitter/X": [
+      {
+        "platform": "Twitter/X",
+        "account_email": "rachelwilliams@mightyhouseinc.com",
+        "profile_url": "https://twitter.com",
+        "status": "active",
+        "entity": "Mighty House Inc",
+        "notes": "@MightyHouseIT",
+        "category": "social_media"
+      },
+      {
+        "platform": "Twitter/X",
+        "account_email": "vincentlanderson@mightyhouseinc.com",
+        "profile_url": "https://twitter.com",
+        "status": "active",
+        "entity": "DSAIC",
+        "notes": "@DSAIC_SaaS",
+        "category": "social_media"
+      },
+      {
+        "platform": "Twitter/X",
+        "account_email": "vincentlanderson@mightyhouseinc.com",
+        "profile_url": "https://twitter.com",
+        "status": "active",
+        "entity": "The Computer Store",
+        "notes": "@ComputerStoreLAN",
+        "category": "social_media"
+      }
+    ],
+    "LinkedIn": [
+      {
+        "platform": "LinkedIn",
+        "account_email": "rachelwilliams@mightyhouseinc.com",
+        "profile_url": "https://linkedin.com",
+        "status": "active",
+        "entity": "Mighty House Inc",
+        "notes": "Company page, B2B marketing",
+        "category": "social_media"
+      },
+      {
+        "platform": "LinkedIn",
+        "account_email": "vincentlanderson@mightyhouseinc.com",
+        "profile_url": "https://linkedin.com",
+        "status": "active",
+        "entity": "DSAIC",
+        "notes": "Company page",
+        "category": "social_media"
+      }
+    ],
+    "Instagram": [
+      {
+        "platform": "Instagram",
+        "account_email": "vincentlanderson@mightyhouseinc.com",
+        "profile_url": "https://instagram.com",
+        "status": "active",
+        "entity": "The Computer Store",
+        "notes": "Business account",
+        "category": "social_media"
+      }
+    ],
+    "YouTube": [
+      {
+        "platform": "YouTube",
+        "account_email": "vincentlanderson@mightyhouseinc.com",
+        "profile_url": "https://youtube.com",
+        "status": "active",
+        "entity": "The Computer Store",
+        "notes": "Channel for streams/tutorials",
+        "category": "social_media"
+      }
+    ],
+    "Discord": [
+      {
+        "platform": "Discord",
+        "account_email": "vincentlanderson@mightyhouseinc.com",
+        "profile_url": "https://discord.com",
+        "status": "active",
+        "entity": "The Computer Store",
+        "notes": "Community server, webhooks active",
+        "category": "social_media"
+      },
+      {
+        "platform": "Discord",
+        "account_email": "vincentlanderson@mightyhouseinc.com",
+        "profile_url": "https://discord.com",
+        "status": "active",
+        "entity": "DSAIC",
+        "notes": "Developer community",
+        "category": "social_media"
+      }
+    ],
+    "Twitch": [
+      {
+        "platform": "Twitch",
+        "account_email": "vincentlanderson@mightyhouseinc.com",
+        "profile_url": "https://twitch.tv",
+        "status": "active",
+        "entity": "The Computer Store",
+        "notes": "Channel: MightyHouseInc",
+        "category": "social_media"
+      }
+    ],
+    "Mastodon": [
+      {
+        "platform": "Mastodon",
+        "account_email": "vincentlanderson@mightyhouseinc.com",
+        "profile_url": "https://fosstodon.org",
+        "status": "active",
+        "entity": "DSAIC",
+        "notes": "@dsaic@fosstodon.org",
+        "category": "social_media"
+      }
+    ]
+  },
+  "marketing_tools": [
+    {
+      "platform": "Zoho Analytics",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://analytics.zoho.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Business intelligence",
+      "category": "marketing"
+    },
+    {
+      "platform": "Yelp Business",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://biz.yelp.com",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Business listing, ad credits",
+      "category": "marketing"
+    },
+    {
+      "platform": "Google Analytics",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://analytics.google.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Website analytics",
+      "category": "marketing"
+    },
+    {
+      "platform": "Impact.com",
+      "account_email": "rachelwilliams@mightyhouseinc.com",
+      "profile_url": "https://impact.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Influencer marketing",
+      "category": "marketing"
+    },
+    {
+      "platform": "Paramount Ads",
+      "account_email": "rachelwilliams@mightyhouseinc.com",
+      "profile_url": "https://paramount.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Retargeting ads",
+      "category": "marketing"
+    }
+  ],
+  "discovery_platforms": [
+    {
+      "platform": "TikTok Shop",
+      "account_email": "rachelwilliams@mightyhouseinc.com",
+      "profile_url": "https://seller.tiktok.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Tech products sales",
+      "category": "discovery"
+    },
+    {
+      "platform": "TikTok Shop",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://seller.tiktok.com",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Gaming/products",
+      "category": "discovery"
+    },
+    {
+      "platform": "Whatnot",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://www.whatnot.com/seller",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Live selling platform",
+      "category": "discovery"
+    }
+  ],
+  "accounts": [
+    {
+      "platform": "Twitch",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://twitch.tv",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Channel: MightyHouseInc",
+      "category": "social_media"
+    },
+    {
+      "platform": "Discord",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://discord.com",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Community server, webhooks active",
+      "category": "social_media"
+    },
+    {
+      "platform": "Discord",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://discord.com",
+      "status": "active",
+      "entity": "DSAIC",
+      "notes": "Developer community",
+      "category": "social_media"
+    },
+    {
+      "platform": "Facebook/Meta",
+      "account_email": "rachelwilliams@mightyhouseinc.com",
+      "profile_url": "https://business.facebook.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Business page",
+      "category": "social_media"
+    },
+    {
+      "platform": "Facebook/Meta",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://business.facebook.com",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Local business page",
+      "category": "social_media"
+    },
+    {
+      "platform": "Instagram",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://instagram.com",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Business account",
+      "category": "social_media"
+    },
+    {
+      "platform": "Twitter/X",
+      "account_email": "rachelwilliams@mightyhouseinc.com",
+      "profile_url": "https://twitter.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "@MightyHouseIT",
+      "category": "social_media"
+    },
+    {
+      "platform": "Twitter/X",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://twitter.com",
+      "status": "active",
+      "entity": "DSAIC",
+      "notes": "@DSAIC_SaaS",
+      "category": "social_media"
+    },
+    {
+      "platform": "Twitter/X",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://twitter.com",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "@ComputerStoreLAN",
+      "category": "social_media"
+    },
+    {
+      "platform": "LinkedIn",
+      "account_email": "rachelwilliams@mightyhouseinc.com",
+      "profile_url": "https://linkedin.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Company page, B2B marketing",
+      "category": "social_media"
+    },
+    {
+      "platform": "LinkedIn",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://linkedin.com",
+      "status": "active",
+      "entity": "DSAIC",
+      "notes": "Company page",
+      "category": "social_media"
+    },
+    {
+      "platform": "YouTube",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://youtube.com",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Channel for streams/tutorials",
+      "category": "social_media"
+    },
+    {
+      "platform": "Mastodon",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://fosstodon.org",
+      "status": "active",
+      "entity": "DSAIC",
+      "notes": "@dsaic@fosstodon.org",
+      "category": "social_media"
+    },
+    {
+      "platform": "Zoho Analytics",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://analytics.zoho.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Business intelligence",
+      "category": "marketing"
+    },
+    {
+      "platform": "Yelp Business",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://biz.yelp.com",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Business listing, ad credits",
+      "category": "marketing"
+    },
+    {
+      "platform": "Google Analytics",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://analytics.google.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Website analytics",
+      "category": "marketing"
+    },
+    {
+      "platform": "Impact.com",
+      "account_email": "rachelwilliams@mightyhouseinc.com",
+      "profile_url": "https://impact.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Influencer marketing",
+      "category": "marketing"
+    },
+    {
+      "platform": "Paramount Ads",
+      "account_email": "rachelwilliams@mightyhouseinc.com",
+      "profile_url": "https://paramount.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Retargeting ads",
+      "category": "marketing"
+    },
+    {
+      "platform": "TikTok Shop",
+      "account_email": "rachelwilliams@mightyhouseinc.com",
+      "profile_url": "https://seller.tiktok.com",
+      "status": "active",
+      "entity": "Mighty House Inc",
+      "notes": "Tech products sales",
+      "category": "discovery"
+    },
+    {
+      "platform": "TikTok Shop",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://seller.tiktok.com",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Gaming/products",
+      "category": "discovery"
+    },
+    {
+      "platform": "Whatnot",
+      "account_email": "vincentlanderson@mightyhouseinc.com",
+      "profile_url": "https://www.whatnot.com/seller",
+      "status": "active",
+      "entity": "The Computer Store",
+      "notes": "Live selling platform",
+      "category": "discovery"
+    }
+  ]
+}

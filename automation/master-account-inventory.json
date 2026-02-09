@@ -1,0 +1,1113 @@
+{
+  "generated_at": "2026-02-08T16:45:00-07:00",
+  "data_sources": [
+    "Zoho email search results",
+    "Zoho folder structure",
+    "Organized documentation",
+    "Account configuration files"
+  ],
+  "entities": ["Mighty House Inc", "DSAIC", "The Computer Store", "Theander Project"],
+  "total_accounts": 127,
+  "categories": {
+    "EMAIL_SERVICES": 3,
+    "CLOUD_STORAGE": 4,
+    "PRODUCTIVITY": 12,
+    "FINANCIAL": 15,
+    "DOMAINS_HOSTING": 10,
+    "SOCIAL_MEDIA": 14,
+    "BUSINESS_CRM": 3,
+    "BUSINESS_PROJECT": 5,
+    "BUSINESS_COMM": 8,
+    "ECOMMERCE": 12,
+    "GOVERNMENT": 5,
+    "DEVELOPER": 8,
+    "MARKETING": 4,
+    "SECURITY": 3,
+    "HR_ACCOUNTING": 2,
+    "SUPPLIERS_DISTRIBUTORS": 9,
+    "GAMING_PLATFORMS": 6,
+    "PAYMENT_PROCESSING": 4
+  },
+  "accounts": [
+    {
+      "service_name": "Zoho Mail",
+      "category": "EMAIL_SERVICES",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://mail.zoho.com",
+      "notes": "Primary business email, linked to CRM"
+    },
+    {
+      "service_name": "Zoho Mail",
+      "category": "EMAIL_SERVICES",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://mail.zoho.com",
+      "notes": "Boss account, primary business operations"
+    },
+    {
+      "service_name": "Gmail",
+      "category": "EMAIL_SERVICES",
+      "email_used": "theander.project@gmail.com",
+      "signup_date": "unknown",
+      "entity": "Theander Project",
+      "status": "active",
+      "url": "https://mail.google.com",
+      "notes": "Linked to Zoho as alias"
+    },
+    {
+      "service_name": "Google Workspace",
+      "category": "PRODUCTIVITY",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://workspace.google.com",
+      "notes": "Google services integration"
+    },
+    {
+      "service_name": "Microsoft 365",
+      "category": "PRODUCTIVITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2026-01-17",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://office.com",
+      "notes": "Business Standard subscription renewed"
+    },
+    {
+      "service_name": "Zoho CRM",
+      "category": "BUSINESS_CRM",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://crm.zoho.com",
+      "notes": "Primary CRM for all entities"
+    },
+    {
+      "service_name": "Zoho Books",
+      "category": "FINANCIAL",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://books.zoho.com",
+      "notes": "Accounting and invoicing"
+    },
+    {
+      "service_name": "Zoho Inventory",
+      "category": "PRODUCTIVITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://inventory.zoho.com",
+      "notes": "Inventory management"
+    },
+    {
+      "service_name": "Zoho Desk",
+      "category": "BUSINESS_COMM",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://desk.zoho.com",
+      "notes": "Customer support ticketing"
+    },
+    {
+      "service_name": "Zoho Calendar",
+      "category": "PRODUCTIVITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://calendar.zoho.com",
+      "notes": "Appointment scheduling"
+    },
+    {
+      "service_name": "Zoho Projects",
+      "category": "BUSINESS_PROJECT",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://projects.zoho.com",
+      "notes": "Project management"
+    },
+    {
+      "service_name": "Zoho Sign",
+      "category": "PRODUCTIVITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://sign.zoho.com",
+      "notes": "E-signatures"
+    },
+    {
+      "service_name": "Zoho Analytics",
+      "category": "MARKETING",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://analytics.zoho.com",
+      "notes": "Business intelligence"
+    },
+    {
+      "service_name": "Stripe",
+      "category": "PAYMENT_PROCESSING",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://dashboard.stripe.com",
+      "notes": "Direct payments - acct_1QWmMVIe0t8rGTDV"
+    },
+    {
+      "service_name": "Stripe (ggCircuit)",
+      "category": "PAYMENT_PROCESSING",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://dashboard.stripe.com",
+      "notes": "GGLeap billing - acct_1Cn6rNGNUbSbxDkQ"
+    },
+    {
+      "service_name": "SumUp",
+      "category": "PAYMENT_PROCESSING",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://sumup.com",
+      "notes": "Mobile POS, daily payout reports"
+    },
+    {
+      "service_name": "Square",
+      "category": "PAYMENT_PROCESSING",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "unknown",
+      "url": "https://squareup.com",
+      "notes": "In-store POS"
+    },
+    {
+      "service_name": "Mercury",
+      "category": "FINANCIAL",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://mercury.com",
+      "notes": "Business banking, webinar invites received"
+    },
+    {
+      "service_name": "Chime",
+      "category": "FINANCIAL",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://chime.com",
+      "notes": "Banking"
+    },
+    {
+      "service_name": "Ingram Micro",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://www.ingrammicro.com",
+      "notes": "IT distributor, vendor authorization"
+    },
+    {
+      "service_name": "TD SYNNEX",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-09-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://www.tdsynnex.com",
+      "notes": "Customer #786379, Cisco LOA, OMNIA partner"
+    },
+    {
+      "service_name": "D&H Distributing",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://www.dandh.com",
+      "notes": "IT distributor, SMBUnite partner"
+    },
+    {
+      "service_name": "Climb Channel Solutions",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://www.ClimbCS.com",
+      "notes": "Customer #0043054170"
+    },
+    {
+      "service_name": "IBM Partner Plus",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://partnerportal.ibm.com",
+      "notes": "Enterprise ID: 104rwn, Service BPA: USSBIVW8XOZ"
+    },
+    {
+      "service_name": "HP Partner",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-09-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://partner.hp.com",
+      "notes": "Letter of Authorization obtained"
+    },
+    {
+      "service_name": "Lenovo Partner",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-10-01",
+      "entity": "Mighty House Inc",
+      "status": "pending_verification",
+      "url": "https://partner.lenovo.com",
+      "notes": "LOA requested"
+    },
+    {
+      "service_name": "Pax8",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2025-06-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://pax8.com",
+      "notes": "Partner Agreement signed"
+    },
+    {
+      "service_name": "Amazon Seller Central (US)",
+      "category": "ECOMMERCE",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://sellercentral.amazon.com",
+      "notes": "A-to-Z guarantee claims"
+    },
+    {
+      "service_name": "Amazon Seller Central (MX)",
+      "category": "ECOMMERCE",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://sellercentral.amazon.com.mx",
+      "notes": "Mexico marketplace"
+    },
+    {
+      "service_name": "eBay",
+      "category": "ECOMMERCE",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://www.ebay.com",
+      "notes": "Seller account, dedicated folder"
+    },
+    {
+      "service_name": "TikTok Shop",
+      "category": "ECOMMERCE",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://seller.tiktok.com",
+      "notes": "Tech products sales"
+    },
+    {
+      "service_name": "TikTok Shop",
+      "category": "ECOMMERCE",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://seller.tiktok.com",
+      "notes": "Gaming/products"
+    },
+    {
+      "service_name": "Whatnot",
+      "category": "ECOMMERCE",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://www.whatnot.com/seller",
+      "notes": "Live selling platform"
+    },
+    {
+      "service_name": "withOdyssey",
+      "category": "ECOMMERCE",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://withodyssey.com",
+      "notes": "ESA Marketplace - Wyoming/Utah approved"
+    },
+    {
+      "service_name": "Shopify",
+      "category": "ECOMMERCE",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "unknown",
+      "url": "https://shopify.com",
+      "notes": "E-commerce platform"
+    },
+    {
+      "service_name": "GGLeap / ggCircuit",
+      "category": "GAMING_PLATFORMS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://admin.ggleap.com",
+      "notes": "LAN Center management, subscription renewing"
+    },
+    {
+      "service_name": "ggRock",
+      "category": "GAMING_PLATFORMS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-01-01",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://ggrock.com",
+      "notes": "10 licenses @ $7/mo, PXE boot system"
+    },
+    {
+      "service_name": "Steam PC Cafe",
+      "category": "GAMING_PLATFORMS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://partner.steamgames.com/pccafe",
+      "notes": "Steam game licensing"
+    },
+    {
+      "service_name": "iGames.gg",
+      "category": "GAMING_PLATFORMS",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://igames.gg",
+      "notes": "Streaming brand: MightyHouseInc"
+    },
+    {
+      "service_name": "PlayStation",
+      "category": "GAMING_PLATFORMS",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://store.playstation.com",
+      "notes": "Holiday sale, 2025 wrap-up"
+    },
+    {
+      "service_name": "Xbox",
+      "category": "GAMING_PLATFORMS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://xbox.com",
+      "notes": "Gift card promotions"
+    },
+    {
+      "service_name": "Twitch",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://twitch.tv",
+      "notes": "Channel: MightyHouseInc"
+    },
+    {
+      "service_name": "Discord",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://discord.com",
+      "notes": "Community server, webhooks active"
+    },
+    {
+      "service_name": "Discord",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://discord.com",
+      "notes": "Developer community"
+    },
+    {
+      "service_name": "Facebook/Meta",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://business.facebook.com",
+      "notes": "Business page"
+    },
+    {
+      "service_name": "Facebook/Meta",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://business.facebook.com",
+      "notes": "Local business page"
+    },
+    {
+      "service_name": "Instagram",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://instagram.com",
+      "notes": "Business account"
+    },
+    {
+      "service_name": "Twitter/X",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://twitter.com",
+      "notes": "@MightyHouseIT"
+    },
+    {
+      "service_name": "Twitter/X",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://twitter.com",
+      "notes": "@DSAIC_SaaS"
+    },
+    {
+      "service_name": "Twitter/X",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://twitter.com",
+      "notes": "@ComputerStoreLAN"
+    },
+    {
+      "service_name": "LinkedIn",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://linkedin.com",
+      "notes": "Company page, B2B marketing"
+    },
+    {
+      "service_name": "LinkedIn",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://linkedin.com",
+      "notes": "Company page"
+    },
+    {
+      "service_name": "YouTube",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://youtube.com",
+      "notes": "Channel for streams/tutorials"
+    },
+    {
+      "service_name": "Mastodon",
+      "category": "SOCIAL_MEDIA",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://fosstodon.org",
+      "notes": "@dsaic@fosstodon.org"
+    },
+    {
+      "service_name": "SAM.gov",
+      "category": "GOVERNMENT",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://sam.gov",
+      "notes": "Government contracting registration"
+    },
+    {
+      "service_name": "USAspending",
+      "category": "GOVERNMENT",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://usaspending.gov",
+      "notes": "Federal spending analytics"
+    },
+    {
+      "service_name": "Wyoming Secretary of State",
+      "category": "GOVERNMENT",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://sos.wyo.gov",
+      "notes": "Business registration"
+    },
+    {
+      "service_name": "SBA",
+      "category": "GOVERNMENT",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://sba.gov",
+      "notes": "EDWOSB certification"
+    },
+    {
+      "service_name": "OMNIA Partners",
+      "category": "GOVERNMENT",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-09-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://omniapartners.com",
+      "notes": "Public sector procurement, dealer agreement signed"
+    },
+    {
+      "service_name": "GoDaddy",
+      "category": "DOMAINS_HOSTING",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://godaddy.com",
+      "notes": "Domain registrar"
+    },
+    {
+      "service_name": "Cloudflare",
+      "category": "DOMAINS_HOSTING",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://cloudflare.com",
+      "notes": "DNS, CDN, security"
+    },
+    {
+      "service_name": "Squarespace",
+      "category": "DOMAINS_HOSTING",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "unknown",
+      "url": "https://squarespace.com",
+      "notes": "Password reset in email search"
+    },
+    {
+      "service_name": "Vercel",
+      "category": "DOMAINS_HOSTING",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://vercel.com",
+      "notes": "App hosting"
+    },
+    {
+      "service_name": "Docker Hub",
+      "category": "DEVELOPER",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://hub.docker.com",
+      "notes": "Container registry, feature emails"
+    },
+    {
+      "service_name": "GitHub",
+      "category": "DEVELOPER",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://github.com",
+      "notes": "Code repositories"
+    },
+    {
+      "service_name": "OpenAI",
+      "category": "DEVELOPER",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://platform.openai.com",
+      "notes": "API access"
+    },
+    {
+      "service_name": "Anthropic",
+      "category": "DEVELOPER",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://console.anthropic.com",
+      "notes": "Claude API access"
+    },
+    {
+      "service_name": "Figma",
+      "category": "DEVELOPER",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://figma.com",
+      "notes": "Design collaboration"
+    },
+    {
+      "service_name": "Canva",
+      "category": "DEVELOPER",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://canva.com",
+      "notes": "Design tool"
+    },
+    {
+      "service_name": "Postman",
+      "category": "DEVELOPER",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://postman.com",
+      "notes": "API development"
+    },
+    {
+      "service_name": "Supabase",
+      "category": "DEVELOPER",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "DSAIC",
+      "status": "active",
+      "url": "https://supabase.com",
+      "notes": "Backend as a service"
+    },
+    {
+      "service_name": "Best Buy Business",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://www.bestbuy.com/site/business",
+      "notes": "Retail purchases, dedicated folder"
+    },
+    {
+      "service_name": "Dell Technologies",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://dell.com",
+      "notes": "Hardware supplier, marketing emails"
+    },
+    {
+      "service_name": "Microsoft Store",
+      "category": "PRODUCTIVITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://microsoftstore.com",
+      "notes": "Surface products, hardware"
+    },
+    {
+      "service_name": "Quill",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://quill.com",
+      "notes": "Office supplies, dedicated folder"
+    },
+    {
+      "service_name": "Staples",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://staples.com",
+      "notes": "Office supplies"
+    },
+    {
+      "service_name": "XYAB",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://xyab.com",
+      "notes": "TCG and gaming products distributor"
+    },
+    {
+      "service_name": "Upper Deck",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://my.upperdeck.com",
+      "notes": "Organized play support"
+    },
+    {
+      "service_name": "Verizon (VidaPay)",
+      "category": "BUSINESS_COMM",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://vidapay.com",
+      "notes": "Authorized retailer, weekly news"
+    },
+    {
+      "service_name": "Authorize.Net",
+      "category": "FINANCIAL",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-10-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://authorize.net",
+      "notes": "Reseller program"
+    },
+    {
+      "service_name": "MSP360",
+      "category": "PRODUCTIVITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-11-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://msp360.com",
+      "notes": "LOA obtained"
+    },
+    {
+      "service_name": "Pearson VUE",
+      "category": "PRODUCTIVITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2025-01-01",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://home.pearsonvue.com",
+      "notes": "Testing center, Skilling Partner agreement"
+    },
+    {
+      "service_name": "VyveBA",
+      "category": "BUSINESS_COMM",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2025-04-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://vyvebb.com",
+      "notes": "Referral partner agreement"
+    },
+    {
+      "service_name": "Ascend Cloud",
+      "category": "BUSINESS_COMM",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://ascendcloud.com",
+      "notes": "Voicemail service"
+    },
+    {
+      "service_name": "Zoom",
+      "category": "BUSINESS_COMM",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://zoom.us",
+      "notes": "Video conferencing"
+    },
+    {
+      "service_name": "Calendly",
+      "category": "BUSINESS_COMM",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://calendly.com",
+      "notes": "Appointment scheduling"
+    },
+    {
+      "service_name": "Yelp Business",
+      "category": "MARKETING",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://biz.yelp.com",
+      "notes": "Business listing, ad credits"
+    },
+    {
+      "service_name": "Google Analytics",
+      "category": "MARKETING",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://analytics.google.com",
+      "notes": "Website analytics"
+    },
+    {
+      "service_name": "Costco Business",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://costco.com",
+      "notes": "Membership, Groupon promotions"
+    },
+    {
+      "service_name": "Back Market",
+      "category": "ECOMMERCE",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://backmarket.com",
+      "notes": "Refurbished electronics"
+    },
+    {
+      "service_name": "VEVOR",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://vevor.com",
+      "notes": "Equipment supplier"
+    },
+    {
+      "service_name": "Exiger",
+      "category": "BUSINESS_PROJECT",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://exiger.com",
+      "notes": "WEF panels, compliance"
+    },
+    {
+      "service_name": "Bloomberg Government (BGOV)",
+      "category": "PRODUCTIVITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://bgov.com",
+      "notes": "Government news, transportation updates"
+    },
+    {
+      "service_name": "LAZ Parking",
+      "category": "PRODUCTIVITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://lazparking.com",
+      "notes": "Parking reservations"
+    },
+    {
+      "service_name": "Groupon",
+      "category": "ECOMMERCE",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://groupon.com",
+      "notes": "Deals and promotions"
+    },
+    {
+      "service_name": "Impact.com",
+      "category": "MARKETING",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://impact.com",
+      "notes": "Influencer marketing"
+    },
+    {
+      "service_name": "Paramount Ads",
+      "category": "MARKETING",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://paramount.com",
+      "notes": "Retargeting ads"
+    },
+    {
+      "service_name": "Yubico",
+      "category": "SECURITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://yubico.com",
+      "notes": "Security keys, YubiKey enrollment"
+    },
+    {
+      "service_name": "ASI Central",
+      "category": "ECOMMERCE",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://asicentral.com",
+      "notes": "Promotional products distributor"
+    },
+    {
+      "service_name": "HKTDC",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://hktdc.com",
+      "notes": "Hong Kong trade, sourcing support"
+    },
+    {
+      "service_name": "Summit HK",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://summits.com.hk",
+      "notes": "Samsung/Seagate distributor"
+    },
+    {
+      "service_name": "Above Phone",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "The Computer Store",
+      "status": "active",
+      "url": "https://abovephone.com",
+      "notes": "Privacy phones"
+    },
+    {
+      "service_name": "Magoo Tech",
+      "category": "PRODUCTIVITY",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://magoo.tech",
+      "notes": "Cybersecurity tips, MSP"
+    },
+    {
+      "service_name": "PCEDWY",
+      "category": "BUSINESS_COMM",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://pcedwy.org",
+      "notes": "Platte Valley Bank meetings"
+    },
+    {
+      "service_name": "Chamber of Commerce",
+      "category": "BUSINESS_PROJECT",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://chambermate.com",
+      "notes": "NextEra letters"
+    },
+    {
+      "service_name": "Office Garner",
+      "category": "SUPPLIERS_DISTRIBUTORS",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://officegarner.com",
+      "notes": "NET 30 office supplies"
+    },
+    {
+      "service_name": "ZeroFlux",
+      "category": "PRODUCTIVITY",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "unknown",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://zeroflux.io",
+      "notes": "Real estate analytics"
+    },
+    {
+      "service_name": "eSignLive",
+      "category": "PRODUCTIVITY",
+      "email_used": "rachelwilliams@mightyhouseinc.com",
+      "signup_date": "2024-09-01",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://esignlive.com",
+      "notes": "E-signatures for dealer agreements"
+    }
+  ]
+}

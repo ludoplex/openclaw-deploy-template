@@ -1,0 +1,225 @@
+{
+  "timestamp": "2026-02-08T16:33:39.480789",
+  "audit_status": "partial",
+  "audit_notes": "API rate limiting prevented full audit. Token refresh blocked temporarily by Zoho rate limits.",
+  "entities_checked": [
+    "MHI",
+    "DSAIC",
+    "Computer Store"
+  ],
+  "entity_definitions": {
+    "MHI": {
+      "full_name": "Mighty House Inc.",
+      "type": "IT Networking & Computing Solutions",
+      "target_market": "B2B, Government, Enterprise",
+      "expected_presence": ["CRM Account", "Books Org", "Inventory Org", "Desk Department"]
+    },
+    "DSAIC": {
+      "full_name": "DSAIC",
+      "type": "SaaS Provider",
+      "target_market": "Developers, Tech, Startups",
+      "expected_presence": ["CRM Account", "Books Org", "Desk Department"]
+    },
+    "Computer Store": {
+      "full_name": "Computer Store",
+      "type": "LAN Center, Retail, Training Center",
+      "target_market": "Gamers, Families, Students",
+      "expected_presence": ["CRM Account", "Books Org", "Inventory Org", "Desk Department"]
+    }
+  },
+  "applications": {
+    "zoho_crm": {
+      "connected": false,
+      "status": "rate_limited",
+      "api_url": "https://www.zohoapis.com/crm/v8",
+      "entities_found": [],
+      "accounts": [],
+      "missing_entities": [
+        {
+          "entity": "MHI",
+          "expected_name": "Mighty House Inc.",
+          "module": "Accounts",
+          "recommendation": "Create Account record for Mighty House Inc. in CRM"
+        },
+        {
+          "entity": "DSAIC",
+          "expected_name": "DSAIC",
+          "module": "Accounts",
+          "recommendation": "Create Account record for DSAIC in CRM"
+        },
+        {
+          "entity": "Computer Store",
+          "expected_name": "Computer Store",
+          "module": "Accounts",
+          "recommendation": "Create Account record for Computer Store in CRM"
+        }
+      ],
+      "errors": [
+        "API rate limit exceeded - token refresh blocked temporarily"
+      ],
+      "oauth_scopes_needed": [
+        "ZohoCRM.modules.ALL",
+        "ZohoCRM.settings.ALL",
+        "ZohoCRM.org.ALL"
+      ]
+    },
+    "zoho_books": {
+      "connected": false,
+      "status": "rate_limited",
+      "api_url": "https://www.zohoapis.com/books/v3",
+      "organizations": [],
+      "entities_found": [],
+      "missing_entities": [
+        {
+          "entity": "MHI",
+          "expected_name": "Mighty House Inc.",
+          "recommendation": "Create/verify organization for Mighty House Inc. in Zoho Books with tax info"
+        },
+        {
+          "entity": "DSAIC",
+          "expected_name": "DSAIC",
+          "recommendation": "Create/verify organization for DSAIC in Zoho Books with tax info"
+        },
+        {
+          "entity": "Computer Store",
+          "expected_name": "Computer Store",
+          "recommendation": "Create/verify organization for Computer Store in Zoho Books with tax info"
+        }
+      ],
+      "errors": [
+        "API rate limit exceeded - token refresh blocked temporarily"
+      ],
+      "oauth_scopes_needed": [
+        "ZohoBooks.settings.READ",
+        "ZohoBooks.settings.ALL",
+        "ZohoBooks.contacts.ALL"
+      ]
+    },
+    "zoho_inventory": {
+      "connected": false,
+      "status": "rate_limited",
+      "api_url": "https://www.zohoapis.com/inventory/v1",
+      "organizations": [],
+      "warehouses": [],
+      "entities_found": [],
+      "missing_entities": [
+        {
+          "entity": "MHI",
+          "expected_name": "Mighty House Inc.",
+          "recommendation": "Create/verify organization for Mighty House Inc. in Zoho Inventory"
+        },
+        {
+          "entity": "Computer Store",
+          "expected_name": "Computer Store",
+          "recommendation": "Create/verify organization for Computer Store in Zoho Inventory with warehouse setup"
+        }
+      ],
+      "notes": "DSAIC is SaaS-only, may not need Inventory",
+      "errors": [
+        "API rate limit exceeded - token refresh blocked temporarily"
+      ],
+      "oauth_scopes_needed": [
+        "ZohoInventory.settings.READ",
+        "ZohoInventory.settings.ALL",
+        "ZohoInventory.items.ALL"
+      ]
+    },
+    "zoho_desk": {
+      "connected": false,
+      "status": "scope_error",
+      "api_url": "https://desk.zoho.com/api/v1",
+      "organization": null,
+      "departments": [],
+      "entities_found": [],
+      "missing_entities": [
+        {
+          "entity": "MHI",
+          "expected_name": "Mighty House Inc.",
+          "recommendation": "Create department for Mighty House Inc. support in Zoho Desk"
+        },
+        {
+          "entity": "DSAIC",
+          "expected_name": "DSAIC",
+          "recommendation": "Create department for DSAIC support in Zoho Desk"
+        },
+        {
+          "entity": "Computer Store",
+          "expected_name": "Computer Store",
+          "recommendation": "Create department for Computer Store support in Zoho Desk"
+        }
+      ],
+      "errors": [
+        "OAuth scope missing: The OAuth Token does not contain the scope to perform this operation."
+      ],
+      "oauth_scopes_needed": [
+        "Desk.settings.READ",
+        "Desk.settings.ALL",
+        "Desk.tickets.ALL",
+        "Desk.contacts.ALL"
+      ]
+    }
+  },
+  "summary": {
+    "all_entities_synced": false,
+    "apps_connected": 0,
+    "apps_failed": 4,
+    "failure_reasons": {
+      "rate_limited": ["zoho_crm", "zoho_books", "zoho_inventory"],
+      "scope_missing": ["zoho_desk"]
+    },
+    "total_missing_setups": [
+      {"app": "zoho_crm", "entity": "MHI", "action": "Create Account"},
+      {"app": "zoho_crm", "entity": "DSAIC", "action": "Create Account"},
+      {"app": "zoho_crm", "entity": "Computer Store", "action": "Create Account"},
+      {"app": "zoho_books", "entity": "MHI", "action": "Create/Verify Organization"},
+      {"app": "zoho_books", "entity": "DSAIC", "action": "Create/Verify Organization"},
+      {"app": "zoho_books", "entity": "Computer Store", "action": "Create/Verify Organization"},
+      {"app": "zoho_inventory", "entity": "MHI", "action": "Create/Verify Organization"},
+      {"app": "zoho_inventory", "entity": "Computer Store", "action": "Create/Verify Organization + Warehouse"},
+      {"app": "zoho_desk", "entity": "MHI", "action": "Create Department"},
+      {"app": "zoho_desk", "entity": "DSAIC", "action": "Create Department"},
+      {"app": "zoho_desk", "entity": "Computer Store", "action": "Create Department"}
+    ],
+    "priority_actions": [
+      {
+        "priority": 1,
+        "action": "Update OAuth token scopes",
+        "details": "Add Desk scopes to the OAuth client: Desk.settings.READ, Desk.settings.ALL, Desk.tickets.ALL"
+      },
+      {
+        "priority": 2,
+        "action": "Wait for rate limit reset",
+        "details": "Zoho rate limiting on token refresh - wait 15-30 minutes before retrying"
+      },
+      {
+        "priority": 3,
+        "action": "Re-run audit after rate limit reset",
+        "details": "Run zoho_entity_audit.py again to get actual entity status"
+      },
+      {
+        "priority": 4,
+        "action": "Create missing entities manually if audit confirms gaps",
+        "details": "Use Zoho admin console to create orgs/accounts/departments as needed"
+      }
+    ]
+  },
+  "credentials": {
+    "oauth_client_id": "1000.1B2SG47NUYWWRRHAW4FSS8D96MWGUU",
+    "token_status": "valid_but_rate_limited",
+    "scopes_confirmed": ["ZohoMail.messages.ALL", "ZohoMail.folders.ALL"],
+    "scopes_missing": ["Desk.*"]
+  },
+  "next_steps": [
+    "1. Wait 15-30 minutes for Zoho rate limit to reset",
+    "2. Add missing OAuth scopes in Zoho Developer Console (https://api-console.zoho.com/)",
+    "3. Re-run: python C:\\zoho-console-api-module-system\\zoho_entity_audit.py",
+    "4. Review actual entity data and create missing configurations",
+    "5. Document tax IDs and addresses for each entity in Books/Inventory"
+  ],
+  "documentation_references": {
+    "entity_docs": "C:\\zoho-console-api-module-system\\docs\\organized\\entities\\",
+    "mhi_doc": "C:\\zoho-console-api-module-system\\docs\\organized\\entities\\mighty_house_inc.md",
+    "dsaic_doc": "C:\\zoho-console-api-module-system\\docs\\organized\\entities\\dsaic.md",
+    "computer_store_doc": "C:\\zoho-console-api-module-system\\docs\\organized\\entities\\computer_store.md"
+  }
+}
