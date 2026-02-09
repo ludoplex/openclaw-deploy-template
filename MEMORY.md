@@ -260,16 +260,16 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 
 ## Multi-Agent Fleet
 **Added: 2026-02-03**
-**Updated: 2026-02-04** — 20 agents total (added ballistics, climbibm, analyst)
+**Updated: 2026-02-09** — 24 agents total (added msft, aws, gcp, apple; expanded webdev)
 **Spawning enabled:** (config: main.subagents.allowAgents)
 
-20 specialized agents with isolated workspaces at `~/.openclaw/agents/`:
+24 specialized agents with isolated workspaces at `~/.openclaw/agents/`:
 
 | Agent | Focus |
 |-------|-------|
 | main🦞 | Personal, general (default) |
 | ops📊 | MHI/DSAIC/ComputerStore business, Zoho |
-| webdev🌐 | FastAPI, HTMX, Python |
+| webdev🌐 | Full-stack: Python/FastAPI + Node/Bun + HTMX/React + WASM |
 | cosmo🌌 | Cosmopolitan/jart, APE, C |
 | social📱 | Mixpost, social media |
 | course📚 | Training/certification content |
@@ -287,6 +287,10 @@ User explicitly stated: workflow enforcement applies to EVERYTHING, not just spe
 | ballistics🎯 | GUNDOM ballistics SME — ADVISORY ONLY. Advises asm, cosmo, testcov, cicd, neteng. Does NOT code directly. |
 | climbibm🏔️ | IBM/Climb channel partnership |
 | analyst📊 | Market analysis, competitive research |
+| msft☁️ | Azure, .NET, SharePoint, Graph API, Power Platform |
+| aws🔶 | EC2, Lambda, S3, CDK, boto3, GovCloud |
+| gcp🌈 | Cloud Run, BigQuery, Firebase, Vertex AI, Workspace |
+| apple🍏 | iCloud, ABM, MDM (Jamf focus), CloudKit |
 
 **Switch:** `/agent <id>` or `sessions_spawn(agentId="...", task="...")`
 
