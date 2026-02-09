@@ -1,230 +1,244 @@
-# Swiss Rounds Orchestration Guide
+# Swiss Rounds Orchestration
 
-**For: Main Agent (Peridot)**
-
-This guide documents how to orchestrate Swiss Rounds given OpenClaw's async-only `sessions_spawn`.
+**Version:** 2.0
+**Updated:** 2026-02-09
 
 ---
 
-## Starting a Project
+## Overview
+
+Swiss Rounds is a multi-agent deliberation workflow that produces high-quality, validated proposals through iterative cross-reading and feedback. This document defines the orchestration rules for the main agent.
+
+---
+
+## Bootstrap (GENERIC) — All Agents
+
+Every agent (specialists, triad, PM) follows these steps:
+
+```
+1. READ all sources listed in state.sources FIRST
+   - For type="source": Follow SOURCE_MANIFEST.md exactly
+   - For type="binary": Follow BINARY_MANIFEST.md exactly
+
+2. Distinguish each source UNIQUELY (upstream vs fork vs dependency)
+
+3. Create a file containing all information required by .md instructions 
+   in step 1 AND append your domain-specific analysis to it afterward
+
+4. Select an agent report to read and read ALL OF IT
+
+5. Provide feedback to selected agent report by appending to it, then 
+   if there is another agent report you have not yet read and provided 
+   feedback to this phase return to step 4, otherwise proceed to step 6
+
+6. REREAD ALL OF YOUR FILE CREATED IN step 3, NO EXCEPTIONS, then append 
+   a new enlightened proposal of your domain-specific work which must be done
+
+7. If you are main agent and all other agents have completed steps 1-6, 
+   spawn triad or PM depending on phase appropriateness
+```
+
+---
+
+## Phase Appropriateness Rules
+
+| Phase | Condition | Action |
+|-------|-----------|--------|
+| **Setup** | User requests proposal for described project | Clone all relevant repos |
+| **Setup** | Repos cloned AND verified with user | **Spawn specialists** (Round 1) |
+| **Rounds** | Specialists pending | Wait |
+| **Rounds** | Specialists complete, triad pending | **Spawn triad** |
+| **Rounds** | Triad complete, `currentRound < totalRounds` | Advance round, **spawn specialists** |
+| **PM** | `currentRound == totalRounds` AND triad complete | **Spawn PM** |
+| **Complete** | `pmComplete` | Deliver to user |
+
+**Rhythm:** `specialists → triad → specialists → triad → ... → PM → done`
+
+---
+
+## PM Bootstrap
+
+PM follows the same source-truth-first pattern:
+
+```
+1. READ all sources following SOURCE_MANIFEST.md / BINARY_MANIFEST.md
+
+2. CREATE overarching plan file containing all information required by 
+   .md instructions in step 1 (features/files/linenumbers/functions/variables)
+
+3. CONSUME all specialist domain reports completely
+
+4. APPEND overarching plan to the file created in step 2:
+   - Execution phases and dependencies
+   - Critical path
+   - Success criteria
+
+5. DECIDE specialist assignment sequence, APPEND to file:
+   - Ordered list with justification
+   - Write to state: pm.sequence = [...]
+
+6. FOR EACH specialist in pm.sequence:
+   a. REREAD that specialist's final report completely
+   b. CREATE individual plan: {project}/synthesis/{specialist}-plan.md
+   c. CREATE stage prompts: {project}/synthesis/{specialist}-prompts.md
+   d. UPDATE state: pm.specialistPlans[specialist].complete = true
+
+7. VERIFY all specialists assigned → pm.complete = true
+
+8. SIGNAL completion to main agent
+```
+
+---
+
+## State Schema
+
+```json
+{
+  "project": "example-project",
+  "mode": "new|revision",
+  "phase": "setup|rounds|pm|complete",
+  "sources": [
+    { 
+      "name": "upstream", 
+      "repo": "org/upstream", 
+      "path": "/path/to/upstream", 
+      "type": "source", 
+      "verified": true 
+    },
+    { 
+      "name": "fork", 
+      "repo": "user/fork", 
+      "path": "/path/to/fork", 
+      "type": "source", 
+      "verified": true 
+    },
+    { 
+      "name": "binary-dep", 
+      "path": "/path/to/binary", 
+      "type": "binary", 
+      "verified": true 
+    }
+  ],
+  "userVerified": true,
+  "specialists": ["seeker", "localsearch", "asm", "cosmo", "dbeng", "neteng", "cicd", "testcov"],
+  "currentRound": 2,
+  "totalRounds": 5,
+  "rounds": {
+    "1": { "specialistsComplete": true, "triadComplete": true, "completed": [...], "pending": [] },
+    "2": { "specialistsComplete": false, "triadComplete": false, "completed": ["seeker"], "pending": ["localsearch", "asm", ...] }
+  },
+  "pm": {
+    "started": false,
+    "overarchingPlanComplete": false,
+    "sequence": [],
+    "specialistPlans": {},
+    "complete": false
+  },
+  "revision": {
+    "priorPlanPath": null,
+    "scope": null,
+    "triggeredBy": null
+  },
+  "startedAt": "2026-02-09T20:00:00Z"
+}
+```
+
+---
+
+## Directory Structure
+
+```
+~/.openclaw/workspace/swiss-rounds/{project}/
+├── state.json
+├── reports/
+│   ├── seeker-{project}.md
+│   ├── localsearch-{project}.md
+│   ├── asm-{project}.md
+│   └── ... (one per specialist)
+├── triad/
+│   ├── round1-redundancy.md
+│   ├── round1-critique.md
+│   ├── round1-solution.md
+│   ├── round2-redundancy.md
+│   └── ... (three per round)
+└── synthesis/
+    ├── overarching-plan.md      ← PM creates (with source manifest first)
+    ├── seeker-plan.md           ← Individual plans
+    ├── seeker-prompts.md        ← Stage prompts
+    └── ... (two files per specialist)
+```
+
+---
+
+## Revision Mode
+
+For projects with existing PM plans that need major revision:
+
+| Phase | Condition | Action |
+|-------|-----------|--------|
+| **Revision Setup** | User requests revision to existing PM plan | Load `revision.priorPlanPath`, identify `revision.scope` |
+| **Revision Setup** | Scope confirmed with user | Set `mode: "revision"`, reset rounds, **spawn specialists** |
+| **Rounds** | (Same rhythm as new) | specialists → triad → repeat |
+| **PM** | All rounds complete | PM receives prior plan + revision scope + all outputs |
+| **Complete** | `pmComplete` | Deliver revised plan, archive prior version |
+
+**Key difference:** In revision mode, specialists receive:
+1. Prior PM plan (what was decided before)
+2. Revision scope (what's changing and why)
+3. Same source repos (re-verified if needed)
+
+---
+
+## Hook Enforcement
+
+The `swiss-rounds-enforcer` hook automatically injects:
+
+1. **On `command:new`:** Phase appropriateness context for main agent
+2. **On `agent:bootstrap` for specialists:** Generic Bootstrap with source manifest methodology
+3. **On `agent:bootstrap` for triad:** Triad Bootstrap (source-first, then validate reports)
+4. **On `agent:bootstrap` for PM:** PM Bootstrap (source manifest → overarching plan → individual plans)
+
+---
+
+## Management Script
 
 ```powershell
-.\scripts\swiss-rounds.ps1 -Action start -Project {name} -Specialists "analyst,ballistics,cosmo,seeker"
-```
+# Check status
+.\scripts\swiss-rounds.ps1 -Action status
 
-This creates:
-- `swiss-rounds/{project}/state.json` — Workflow state
-- `swiss-rounds/{project}/reports/` — Specialist reports
-- `swiss-rounds/{project}/triad/` — Triad validation outputs
-- `swiss-rounds/{project}/synthesis/` — PM outputs
+# Start new project
+.\scripts\swiss-rounds.ps1 -Action start -Project "my-project" -Specialists "seeker,asm,cosmo"
 
----
+# Validate current round
+.\scripts\swiss-rounds.ps1 -Action validate -Project "my-project"
 
-## Round 1: Initial Reports
+# Advance to next phase
+.\scripts\swiss-rounds.ps1 -Action advance -Project "my-project"
 
-### Turn 1 — Spawn All Specialists (Parallel OK)
-
-```
-sessions_spawn(agentId="analyst", task=`
-Swiss Rounds Round 1 — Initial Report for: {project}
-
-Read your SWISS_ROUND_INSTRUCTIONS.md (injected by hook).
-Produce: ~/.openclaw/workspace/swiss-rounds/{project}/reports/analyst-{project}.md
-
-Follow MANIFEST_METHODOLOGY. Be thorough.
-`)
-```
-
-Repeat for each specialist. They can run in parallel since Round 1 reports are independent.
-
-### Turns 2-N — Wait for Announcements
-
-Track completions. When ALL specialists announce, proceed to triad.
-
-### Triad Sequence (MUST BE SEQUENTIAL)
-
-```
-# Wait for all Round 1 reports
-
-sessions_spawn(agentId="redundant-project-checker", task=`
-Swiss Rounds Triad — Round 1 Validation
-
-Read all reports in: ~/.openclaw/workspace/swiss-rounds/{project}/reports/
-Output: ~/.openclaw/workspace/swiss-rounds/{project}/triad/round1-redundancy.md
-`)
-
-# Wait for announcement
-
-sessions_spawn(agentId="project-critic", task=`
-Swiss Rounds Triad — Round 1 Critique
-
-Read:
-- All reports: ~/.openclaw/workspace/swiss-rounds/{project}/reports/
-- Redundancy: ~/.openclaw/workspace/swiss-rounds/{project}/triad/round1-redundancy.md
-
-Output: ~/.openclaw/workspace/swiss-rounds/{project}/triad/round1-critique.md
-`)
-
-# Wait for announcement
-
-sessions_spawn(agentId="never-say-die", task=`
-Swiss Rounds Triad — Round 1 Solution
-
-Read:
-- All reports
-- round1-redundancy.md
-- round1-critique.md
-
-Output: ~/.openclaw/workspace/swiss-rounds/{project}/triad/round1-solution.md
-`)
-```
-
-### Advance to Round 2
-
-```powershell
-.\scripts\swiss-rounds.ps1 -Action advance -Project {project}
+# Abort project
+.\scripts\swiss-rounds.ps1 -Action abort -Project "my-project"
 ```
 
 ---
 
-## Round 2: Addendum 1 (Cross-Reading)
+## Anti-Patterns
 
-### Spawn All Specialists (Parallel OK)
-
-Each specialist reads others' reports and appends Addendum 1 to their OWN file.
-
-```
-sessions_spawn(agentId="analyst", task=`
-Swiss Rounds Round 2 — Addendum 1 for: {project}
-
-Read your SWISS_ROUND_INSTRUCTIONS.md for detailed instructions.
-
-Summary:
-1. Read ALL OTHER specialists' Round 1 reports
-2. Append "## Addendum 1 (Cross-Reading)" to YOUR report
-3. Include: Agreements, Disagreements, Questions, Synthesis
-`)
-```
-
-### Triad → Advance
-
-Same pattern: sequential triad on all addendums, then advance.
+❌ **Skipping source reading** — All agents MUST read sources first
+❌ **Conceptual analysis** — All claims must be verified against source
+❌ **Inflated scores** — Triad must challenge, not rubber-stamp
+❌ **PM without source truth** — PM file starts with manifest, not strategy
+❌ **Spawning without verification** — Main agent must confirm repos with user first
 
 ---
 
-## Round 3: Retrospective Part 1
+## Success Criteria
 
-Each specialist reads addendums written ABOUT their work (in other reports mentioning them), then adds retrospective to their own file.
+A Swiss Rounds run is successful when:
 
----
-
-## Round 4: Addendum 2 (Cross-Feedback)
-
-Each specialist reads others' Retrospective Part 1, then appends "Addendum 2 from {agentId}" to OTHERS' files.
-
-⚠️ **Multiple files modified per specialist** — They write to others' reports, not their own.
-
----
-
-## Round 5: Final Retrospective
-
-Each specialist reads Addendum 2s on their OWN file (written by others), produces final position.
-
----
-
-## PM Synthesis
-
-After Round 5 triad completes:
-
-```
-sessions_spawn(agentId="project-manager", task=`
-Swiss Rounds PM Synthesis for: {project}
-
-Read your SWISS_PM_INSTRUCTIONS.md for full details.
-
-Consume ALL:
-- 4 specialist reports (with all addendums + retrospectives)
-- 15 triad validation files (3 per round × 5 rounds)
-
-Produce:
-- synthesis/{project}-plan.md — Master plan
-- synthesis/{specialist}-plan.md — Per-agent implementation plans
-- Kickstart sessions_spawn commands for each specialist
-`)
-```
-
----
-
-## State Tracking Template
-
-Paste this into your working memory and update as you go:
-
-```markdown
-## Swiss Rounds: {project}
-**Started:** {date}
-**Specialists:** analyst, ballistics, cosmo, seeker
-
-### Round 1: Initial Reports
-- [ ] analyst: pending
-- [ ] ballistics: pending  
-- [ ] cosmo: pending
-- [ ] seeker: pending
-- [ ] Triad: redundancy → critique → solution
-
-### Round 2: Addendum 1
-- [ ] All specialists
-- [ ] Triad
-
-### Round 3: Retrospective Part 1
-- [ ] All specialists
-- [ ] Triad
-
-### Round 4: Addendum 2
-- [ ] All specialists
-- [ ] Triad
-
-### Round 5: Final Retrospective
-- [ ] All specialists
-- [ ] Triad
-
-### PM Synthesis
-- [ ] project-manager
-- [ ] Kickstart all agents
-```
-
----
-
-## Turn Estimation
-
-Per round:
-- Spawn specialists: 1 turn (parallel)
-- Wait for specialists: N turns (typically 4-8, depends on complexity)
-- Triad (3 sequential spawns): 3 turns minimum
-
-**5 rounds × ~7 turns = ~35 turns minimum**
-**Plus PM synthesis: ~2 turns**
-**Total: ~40 turns**
-
----
-
-## Validation Before Advancing
-
-Always run before `advance`:
-
-```powershell
-.\scripts\swiss-rounds.ps1 -Action validate -Project {project}
-```
-
-Never advance if artifacts are missing.
-
----
-
-## Abort
-
-If project needs to be cancelled:
-
-```powershell
-.\scripts\swiss-rounds.ps1 -Action abort -Project {project}
-```
-
-State file is deleted. Report files remain for potential restart.
+1. All sources verified by user before specialists spawn
+2. Each specialist produces manifest-based analysis (file:line:function)
+3. Each round includes genuine cross-reading and feedback
+4. Triad provides individual feedback per specialist
+5. PM produces overarching plan rooted in source manifest
+6. Each specialist receives individual plan + self-contained stage prompts
+7. All artifacts exist and reference actual source locations

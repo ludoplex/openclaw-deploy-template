@@ -202,40 +202,85 @@ Specialists go deep. PM goes wide. Final output combines depth + breadth.
 
 ### Full Deliberation: Swiss Rounds (HOOK-ENFORCED)
 
-For high-stakes decisions, use the **Swiss Rounds** pattern:
-
-```
-Round 1: Initial reports (manifest methodology required)
-Round 2: Cross-read others → Addendum 1 (to own file)
-Round 3: Read own addendums → Retrospective Part 1
-Round 4: Cross-read retros → Addendum 2 (to others' files)
-Round 5: Read own addendum 2s → Final Retrospective Part 2
-
-⚠️ Advisory Triad runs AFTER EACH ROUND on all outputs
-
-Final: PM consumes everything → synthesis/{project}-plan.md
-```
+For high-stakes decisions, use the **Swiss Rounds** pattern.
 
 **~40+ turns required.** Use only when stakes justify deliberation depth.
 
-**Enforcement:**
-- Hook: `~/.openclaw/hooks/swiss-rounds-enforcer/`
-- Injects round-specific instructions into specialist bootstrap
-- Injects triad context for advisory agents
-- Injects PM synthesis instructions for project-manager
-- State file: `~/.openclaw/workspace/swiss-rounds/{project}/state.json`
+#### Bootstrap (GENERIC) — All Agents
 
-**Management:**
+```
+1. READ all sources listed in state.sources FIRST
+   - For type="source": Follow SOURCE_MANIFEST.md exactly
+   - For type="binary": Follow BINARY_MANIFEST.md exactly
+
+2. Distinguish each source UNIQUELY (upstream vs fork vs dependency)
+
+3. Create a file containing all information required by .md instructions 
+   in step 1 AND append your domain-specific analysis to it afterward
+
+4. Select an agent report to read and read ALL OF IT
+
+5. Provide feedback to selected agent report by appending to it, then 
+   if there is another agent report you have not yet read and provided 
+   feedback to this phase return to step 4, otherwise proceed to step 6
+
+6. REREAD ALL OF YOUR FILE CREATED IN step 3, NO EXCEPTIONS, then append 
+   a new enlightened proposal of your domain-specific work which must be done
+
+7. If you are main agent and all other agents have completed steps 1-6, 
+   spawn triad or PM depending on phase appropriateness
+```
+
+#### Phase Appropriateness Rules
+
+| Phase | Condition | Action |
+|-------|-----------|--------|
+| **Setup** | User requests proposal for described project | Clone all relevant repos |
+| **Setup** | Repos cloned AND verified with user | **Spawn specialists** (Round 1) |
+| **Rounds** | Specialists pending | Wait |
+| **Rounds** | Specialists complete, triad pending | **Spawn triad** |
+| **Rounds** | Triad complete, `currentRound < totalRounds` | Advance round, **spawn specialists** |
+| **PM** | `currentRound == totalRounds` AND triad complete | **Spawn PM** |
+| **Complete** | `pmComplete` | Deliver to user |
+
+**Rhythm:** `specialists → triad → specialists → triad → ... → PM → done`
+
+#### PM Bootstrap
+
+```
+1. READ all sources following SOURCE_MANIFEST.md / BINARY_MANIFEST.md
+
+2. CREATE overarching plan file containing all manifest info 
+   (features/files/linenumbers/functions/variables) FIRST
+
+3. CONSUME all specialist domain reports completely
+
+4. APPEND overarching plan to file: phases, dependencies, success criteria
+
+5. DECIDE specialist assignment sequence, APPEND to file with justification
+
+6. FOR EACH specialist in sequence:
+   a. REREAD that specialist's final report
+   b. CREATE individual plan: {specialist}-plan.md
+   c. CREATE stage prompts: {specialist}-prompts.md (self-contained)
+
+7. VERIFY all specialists assigned → pm.complete = true
+```
+
+#### Enforcement
+- Hook: `~/.openclaw/hooks/swiss-rounds-enforcer/`
+- State: `~/.openclaw/workspace/swiss-rounds/{project}/state.json`
+
+#### Management
 ```powershell
-.\scripts\swiss-rounds.ps1 -Action start -Project {name} -Specialists "analyst,ballistics,cosmo,seeker"
+.\scripts\swiss-rounds.ps1 -Action start -Project {name} -Specialists "seeker,asm,cosmo"
 .\scripts\swiss-rounds.ps1 -Action status
 .\scripts\swiss-rounds.ps1 -Action validate -Project {name}
 .\scripts\swiss-rounds.ps1 -Action advance -Project {name}
 .\scripts\swiss-rounds.ps1 -Action abort -Project {name}
 ```
 
-**Docs:**
-- Pattern: `~/.openclaw/workspace/patterns/SWISS_ROUNDS_SYNTHESIS.md`
+#### Docs
 - Orchestration: `~/.openclaw/workspace/patterns/SWISS_ROUNDS_ORCHESTRATION.md`
 
 ---
