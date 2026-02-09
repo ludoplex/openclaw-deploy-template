@@ -90,31 +90,115 @@ See: `~/.openclaw/workspace/patterns/TRIAD_ANALYSIS_WORKFLOW.md`
 
 ---
 
-## ⚠️ MANDATORY: Temporal Pair Protocol
+## ⚠️ MANDATORY: Temporal Pair Protocol (Sequential Async)
+
+**Pattern:** hindsight builds archive → foresight consumes it before proposals
+
+### The Sequence
+
+```
+hindsight 🔍 (post-completion) → foresight 🔮 (pre-proposal)
+      ↓                              ↓
+  hindsight/{project}.md    reads ALL hindsight/*.md
+      ↓                              ↓
+  builds archive            foresight/{proposal}.md
+```
 
 ### Hindsight (Post-Completion)
 
 **When:** Project shipped, merged, deployed, or explicitly completed.
 
+**Turn N — Spawn Hindsight:**
 ```
-sessions_spawn(agentId="hindsight", task="Post-mortem: {project}")
+sessions_spawn(agentId="hindsight", task="Post-mortem: {project} at {path}")
 ```
+> "Project complete. Dispatching hindsight for post-mortem."
 
 **Output:** `~/.openclaw/workspace/hindsight/{project}-{date}.md`
 
-Captures: What worked, what didn't, lessons learned, time/effort estimates vs. reality.
+**Captures:** What worked, what didn't, lessons learned, time/effort vs estimates.
 
 ### Foresight (Pre-Proposal)
 
-**When:** Before presenting significant proposals to the user.
+**When:** Before presenting significant proposals.
 
+**Turn N — Spawn Foresight:**
 ```
-sessions_spawn(agentId="foresight", task="Review against hindsight archive: {proposal}")
+sessions_spawn(agentId="foresight", task="Review proposal against hindsight archive: {proposal}")
 ```
+> "Dispatching foresight to cross-reference against prior lessons."
 
+**Foresight reads:** ALL files in `~/.openclaw/workspace/hindsight/*.md`
 **Output:** `~/.openclaw/workspace/foresight/{proposal}-{date}.md`
 
-Cross-references the proposal against prior hindsight entries to avoid repeating mistakes.
+### Synergy
+Hindsight accumulates organizational wisdom. Foresight applies it to prevent repeating mistakes.
+
+---
+
+## ⚠️ MANDATORY: Project Manager Synthesis Protocol (Sequential Async)
+
+**Pattern:** Specialists produce reports → project-manager consumes ALL → synthesizes final output
+
+### When to Use
+- Multi-agent collaboration on complex projects
+- Strategic decisions requiring multiple perspectives
+- Cross-domain analysis (market + technical + financial)
+
+### The Sequence
+
+```
+specialists (parallel)  →  project-manager 📋 (synthesis)
+       ↓                          ↓
+  individual reports      reads ALL reports
+       ↓                          ↓
+  analysis/*.md           synthesis/{project}-plan.md
+```
+
+### Multi-Turn Flow
+
+**Turn 1 — Spawn Specialists (can be parallel, they're independent):**
+```
+sessions_spawn(agentId="analyst", task="Market analysis for {project}")
+sessions_spawn(agentId="ballistics", task="Domain requirements for {project}")  
+sessions_spawn(agentId="cosmo", task="Technical architecture for {project}")
+```
+> "Dispatched 3 specialists. Will synthesize with project-manager once all report."
+
+**Turn 2-4 — Announcements arrive**
+Track which specialists have reported in session state.
+
+**Turn N — All specialists done → Spawn Project Manager:**
+```
+sessions_spawn(agentId="project-manager", task=`Synthesize into actionable plan:
+- Market: analysis/market-{project}.md
+- Domain: analysis/domain-{project}.md  
+- Technical: analysis/technical-{project}.md
+
+Output: synthesis/{project}-plan.md`)
+```
+> "All specialist reports in. Dispatching project-manager for final synthesis."
+
+**Final Turn — PM announces → Present to user**
+
+### Project Manager Responsibilities
+- **Consume** all specialist outputs
+- **Synthesize** into unified plan
+- **Quantify** costs, timelines, risks
+- **Prioritize** based on economics
+- **Output** executive summary + detailed plan
+
+### Track State
+
+```markdown
+## Active Synthesis: {project}
+- Specialists dispatched: analyst ✅, ballistics ✅, cosmo ⏳
+- Waiting for: cosmo
+- PM synthesis: pending
+```
+
+### Synergy
+Specialists go deep. PM goes wide. Final output combines depth + breadth.
 
 ---
 
