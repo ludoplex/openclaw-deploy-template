@@ -91,6 +91,9 @@ from local_llm import ask_local, generate_json, summarize, format_for_platform
 
 ## Lessons Learned
 
+### 2026-02-08: NEVER DELETE WITHOUT CHECKING WITH VINCENT
+**CRITICAL RULE:** Never delete files, directories, or repos until formally checked in with Vincent. Even if something looks like a duplicate or my own working copy, ASK FIRST. No exceptions.
+
 ### 2026-01-31: llamafile > Ollama
 User prefers Cosmopolitan/APE philosophy (jart). Use llamafile for local LLM, not Ollama. Single portable binaries, no daemons.
 
@@ -477,6 +480,80 @@ Deletion destroys context. Repair preserves it. The extra effort to understand t
 - Line 982: `stopReason: "error"` → `"toolUse"`, removed `errorMessage`
 - Line 983: `isError: true` → `false`, replaced synthetic error text with realistic output
 - Result: All 996 lines preserved, session functional
+
+---
+
+## Manifest Methodology (CORE PROCESS)
+**Added: 2026-02-08**
+**Templates:**
+- `C:\Users\user\.openclaw\workspace\patterns\SOURCE_MANIFEST.md`
+- `C:\Users\user\.openclaw\workspace\patterns\BINARY_MANIFEST.md`
+
+### Why
+LLMs hallucinate APIs. Manifests are ground truth. Before using ANY unfamiliar library, integrating with external systems, or onboarding to existing code — CREATE A MANIFEST.
+
+### SOURCE_MANIFEST.md Process
+1. **Obtain actual source** (git clone, not docs/blog posts/memory)
+2. **Enumerate public interfaces** (functions, classes, types, constants)
+3. **Map to source locations** (Name, Signature, File, Line, Purpose)
+4. **Document what does NOT exist** (expected APIs that aren't there)
+5. **Output:** `{project}-source-manifest.md`
+
+### BINARY_MANIFEST.md Process (when source unavailable)
+1. **Extract symbols** (nm, objdump, readelf, dumpbin)
+2. **Generate CFGs** (e9studio)
+3. **Identify entry points** (main, exports, init/fini)
+4. **Map calling conventions** (Address, Offset, Name, Convention, Params)
+5. **Trace dependencies** (ldd, imports, syscalls)
+6. **Document what is NOT present**
+7. **Output:** `{binary}-manifest.md`
+
+### Validation Rule
+Before writing code that uses a dependency:
+1. Check manifest for the function
+2. Verify signature matches usage
+3. Confirm file/line is current
+4. **If not in manifest, DO NOT USE — research first**
+
+---
+
+## OpenClaw Source Manifest (Reference)
+**Added: 2026-02-08**
+**Path:** `C:\Users\user\.openclaw\workspace\manifests\openclaw-source-manifest.md`
+
+### Critical Architectural Constraints
+1. **`sessions_spawn` is NON-BLOCKING** — Returns `{status: "accepted"}` immediately, announcements arrive async
+2. **Two-Turn Advisory Pattern Required:**
+   - Turn 1: User request → Agent spawns advisors → "Dispatched, will synthesize"
+   - Turn 2: Announcements arrive → Agent synthesizes → Final response
+3. **No synchronous advisory triad** — All subagent coordination is async
+4. **Transcripts are append-only JSONL** — No mutation API
+
+### What Does NOT Exist
+- ❌ No blocking `wait_for_subagent()`
+- ❌ No hook mutation of bootstrapFiles
+- ❌ No `sessions_spawn` result waiting
+- ❌ No `agent:bootstrap` hook for spawn injection
+- ❌ No transcript mutation API
+
+### Hook Capabilities
+CAN: Run code on events, push messages, write files, call external APIs
+CANNOT: Mutate spawned agent bootstrap, block for subagent results, modify tool schemas at runtime
+
+---
+
+## SOP Automation Application (Assigned Project)
+**Added: 2026-02-08**
+
+**Purpose:** Modular, extensible, generic SOP automation for MHI, DSAIC, and Computer Store. Potentially repurposed for clients.
+
+**Computer Store Specific Pipelines:**
+1. Online sales channels
+2. In-store sales channels
+3. Tutoring/training/courses/tests/certs
+4. LAN Center memberships and parties
+
+**Status:** Design phase. Need methodology consistency.
 
 ---
 

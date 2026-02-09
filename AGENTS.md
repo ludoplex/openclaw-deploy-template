@@ -90,6 +90,48 @@ Cross-references the proposal against prior hindsight entries to avoid repeating
 
 ---
 
+## ⚠️ MANDATORY: Manifest Methodology (Anti-Hallucination)
+
+**LLMs hallucinate APIs. Manifests are ground truth.**
+
+### Before Using ANY Unfamiliar Library/API/Service:
+
+1. **Check if manifest exists:** `~/.openclaw/workspace/manifests/{project}-source-manifest.md`
+2. **If no manifest → CREATE ONE** using the methodology templates:
+   - **Source available:** `~/.openclaw/workspace/patterns/SOURCE_MANIFEST.md`
+   - **Binary only:** `~/.openclaw/workspace/patterns/BINARY_MANIFEST.md`
+
+### SOURCE_MANIFEST.md Process (When Source Available)
+1. **Obtain actual source** — `git clone`, not docs/blog posts/memory
+2. **Enumerate public interfaces** — Functions, classes, types, constants
+3. **Map to source locations** — Name | Signature | File | Line | Purpose
+4. **Document what does NOT exist** — Expected APIs that aren't there
+5. **Output:** `manifests/{project}-source-manifest.md`
+
+### BINARY_MANIFEST.md Process (When Only Binary Available)
+1. **Extract symbols** — nm, objdump, readelf, dumpbin
+2. **Generate CFGs** — e9studio
+3. **Identify entry points** — main, exports, init/fini
+4. **Map calling conventions** — Address | Offset | Name | Convention | Params
+5. **Trace dependencies** — ldd, imports, syscalls
+6. **Document what does NOT exist**
+7. **Output:** `manifests/{binary}-manifest.md`
+
+### Validation Rule (STRICT)
+Before writing code that uses a dependency:
+1. ✅ Check manifest for the function
+2. ✅ Verify signature matches usage
+3. ✅ Confirm file/line is current
+4. ❌ **If not in manifest → DO NOT USE → Research first**
+
+### Anti-Patterns (FORBIDDEN)
+- ❌ "I think this library can..."
+- ❌ Using APIs from memory without verification
+- ❌ Assuming features exist based on similar libraries
+- ❌ Trusting documentation without checking source
+
+---
+
 ## 🔬 Research Protocol (All Agents)
 
 **When using ANY library, tool, API, or service:**
