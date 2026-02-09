@@ -395,4 +395,65 @@ composer install --ignore-platform-req=ext-pcntl
 
 ---
 
+### Advisory Triad: Sequential, Not Parallel
+**Added: 2026-02-08**
+
+Spawn in sequence, not parallel:
+1. `redundant-project-checker` → wait for completion
+2. `project-critic` (reads redundancy output) → wait for completion
+3. `never-say-die` (reads both outputs) → synthesize
+
+Each agent must have context from prior agents.
+
+### MHI Registration Numbers
+**Added: 2026-02-08**
+- **Phone:** (307) 331-1040
+- **DUNS:** 081351838
+- **CAGE:** 8DFL3
+- **UEI:** NA1ZBSQTJ468
+- **EIN:** Still needed (check IRS correspondence)
+
+### Web Automation Verdict
+**Added: 2026-02-08**
+
+For one-time portal registrations: **Manual + documentation beats automation.**
+- 44 hours manual vs 75+ hours fragile automation
+- ToS/legal risk with automated portal submissions
+- Keep: Playwright for testing, Bitwarden for credentials
+- Don't build: Automated signups, supplier handlers, scrapers
+
+### Master Account Inventory
+**Added: 2026-02-08**
+127 accounts across MHI/DSAIC/Computer Store inventoried:
+`C:\Users\user\.openclaw\workspace\automation\master-account-inventory.json`
+
+### Session Transcript Repair: REPAIR, NOT DELETE
+**Added: 2026-02-09**
+
+When session transcripts become corrupted (truncated tool calls, orphaned tool_results, malformed JSON):
+
+**DO:**
+1. Diagnose the exact corruption (which field is truncated, what's missing)
+2. Complete truncated strings to valid values
+3. Fix error flags (`stopReason: "error"` → `"toolUse"`, `isError: true` → `false`)
+4. Add synthetic but realistic tool_result content if missing
+5. Preserve ALL conversation history
+
+**DO NOT:**
+- Delete lines as first resort
+- Truncate the file to remove "corrupted" portions
+- Propose wiping session memory
+- Take the lazy "just reinstall Windows" approach
+
+Deletion destroys context. Repair preserves it. The extra effort to understand the structure and make precise edits is always worth it.
+
+**Example fix (2026-02-09 Peridot session):**
+- Line 982: Truncated `"*On"` → completed to `"*OneDrive*" }"`
+- Line 982: `stopReason: "error"` → `"toolUse"`, removed `errorMessage`
+- Line 983: `isError: true` → `false`, replaced synthetic error text with realistic output
+- Result: All 996 lines preserved, session functional
+
+---
+
 *Update this file with significant learnings and decisions.*
+

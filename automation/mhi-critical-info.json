@@ -1,0 +1,1995 @@
+{
+    "extracted_at":  "2026-02-08T16:31:32.703728",
+    "entity":  "Mighty House Inc",
+    "ein":  [
+                "81-3474529"
+            ],
+    "duns":  [
+                 "081351838"
+             ],
+    "cage":  [
+                 "valid",
+                 "email",
+                 "offic",
+                 "reser",
+                 "Valid",
+                 "recor",
+                 "recei",
+                 "Revie",
+                 "calls",
+                 "Progr"
+             ],
+    "sam_uei":  [
+                    "334253668448",
+                    "181199728089",
+                    "Certificatio",
+                    "registration",
+                    "disconnected",
+                    "Assassinatio",
+                    "notification",
+                    "NA1ZBSQTJ468",
+                    "apexaccelera",
+                    "886911414900",
+                    "confidential",
+                    "159344794379",
+                    "requirements",
+                    "flarecfocons",
+                    "EmbeddedOnli",
+                    "Professional",
+                    "rachelwillia",
+                    "941782082869",
+                    "communicatio",
+                    "opportunitie",
+                    "certificatio",
+                    "635954166134",
+                    "representati",
+                    "SupplierGate",
+                    "PhotoAffecti",
+                    "436448623353",
+                    "Outperformer",
+                    "736332869606",
+                    "confirmation",
+                    "720054273855",
+                    "Consultation",
+                    "DOCUMENTATIO",
+                    "767480043438",
+                    "availability",
+                    "appropriatel",
+                    "746392589482",
+                    "advertisemen",
+                    "Identificati",
+                    "traceability",
+                    "authenticati",
+                    "4e6d7c47a97f",
+                    "Registration",
+                    "transactions",
+                    "entification",
+                    "VERIFICATION",
+                    "havenbrightu",
+                    "instructions",
+                    "638291316794",
+                    "ridiculously",
+                    "785230826120",
+                    "Administrati"
+                ],
+    "wyoming_id":  [
+                       "8082699766",
+                       "629364532476",
+                       "368860281206",
+                       "609838218486",
+                       "364153922925",
+                       "210890825752",
+                       "521117646512",
+                       "620054089135",
+                       "535502552088",
+                       "106129870722"
+                   ],
+    "phone_numbers":  [
+                          "786-375-5541",
+                          "949-384-5351",
+                          "719-781-0000",
+                          "703-885-9850",
+                          "480-936-2162",
+                          "800-456-8000",
+                          "800-700-2733",
+                          "904-569-6440",
+                          "307-459-0119",
+                          "877-413-0011",
+                          "207-705-5864",
+                          "307-322-2322",
+                          "571-502-8421",
+                          "801-231-5502",
+                          "909-444-5638",
+                          "864-349-4328",
+                          "773-839-8089",
+                          "786-504-5796",
+                          "212-273-8282",
+                          "317-528-9257",
+                          "217-318-3084",
+                          "855-763-9835",
+                          "800-237-8931",
+                          "307-532-5566",
+                          "678-660-5014",
+                          "847-876-5325",
+                          "908-616-1249",
+                          "719-781-9706",
+                          "303-359-9907",
+                          "307-777-5200",
+                          "877-352-2255",
+                          "866-867-2173",
+                          "855-650-4142",
+                          "915-566-4066",
+                          "307-322-4232",
+                          "202-384-6223",
+                          "240-534-3689",
+                          "844-624-6672"
+                      ],
+    "bank_info":  [
+
+                  ],
+    "certifications":  [
+
+                       ],
+    "insurance":  [
+
+                  ],
+    "relevant_emails":  [
+                            {
+                                "subject":  "Your DUNS Lookup Request for Mighty House Inc.",
+                                "from":  "DandB@click.dandb.com",
+                                "date":  "1729533787159",
+                                "account":  "boss",
+                                "query":  "subject:DUNS",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "800-700-2733"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Read: REF: 4281510: Results of your request - DUNS 081351838",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1728442364743",
+                                "account":  "boss",
+                                "query":  "subject:DUNS",
+                                "extracted":  {
+                                                  "duns":  [
+                                                               "081351838"
+                                                           ]
+                                              }
+                            },
+                            {
+                                "subject":  "REF: 4281510: Results of your request - DUNS 081351838",
+                                "from":  "tradeinvestigations@dnb.com",
+                                "date":  "1728383495583",
+                                "account":  "boss",
+                                "query":  "subject:DUNS",
+                                "extracted":  {
+                                                  "duns":  [
+                                                               "081351838"
+                                                           ]
+                                              }
+                            },
+                            {
+                                "subject":  "RESPONSE REQUIRED: UEI NA1ZBSQTJ468 - Commercial and Government Entity (CAGE) Code Office - System for Award Management (SAM) Registration - Verification needed",
+                                "from":  "CAGEREVIEW@DLA.MIL",
+                                "date":  "1754569827644",
+                                "account":  "boss",
+                                "query":  "subject:CAGE",
+                                "extracted":  {
+                                                  "cage":  [
+                                                               "email",
+                                                               "Revie",
+                                                               "recei",
+                                                               "recor",
+                                                               "reser",
+                                                               "calls",
+                                                               "offic"
+                                                           ],
+                                                  "sam":  [
+                                                              "NA1ZBSQTJ468",
+                                                              "Registration",
+                                                              "registration",
+                                                              "DOCUMENTATIO",
+                                                              "appropriatel",
+                                                              "VERIFICATION",
+                                                              "rachelwillia"
+                                                          ],
+                                                  "phone":  [
+                                                                "877-352-2255"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RESPONSE REQUIRED: UEI NA1ZBSQTJ468  - Commercial and Government Entity (CAGE) Code Office - System for Award Management (SAM) Registration - Verification needed",
+                                "from":  "cagereview@dla.mil",
+                                "date":  "1723550414834",
+                                "account":  "boss",
+                                "query":  "subject:CAGE",
+                                "extracted":  {
+                                                  "cage":  [
+                                                               "email",
+                                                               "Revie",
+                                                               "recei",
+                                                               "recor",
+                                                               "reser",
+                                                               "calls",
+                                                               "offic"
+                                                           ],
+                                                  "sam":  [
+                                                              "NA1ZBSQTJ468",
+                                                              "Registration",
+                                                              "registration",
+                                                              "DOCUMENTATIO",
+                                                              "appropriatel",
+                                                              "rachelwillia"
+                                                          ],
+                                                  "phone":  [
+                                                                "877-352-2255"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: CAGE Validation Update- 8DFL3/MIGHTY HOUSE INC.",
+                                "from":  "josh@entityhelp.net",
+                                "date":  "1722302152265",
+                                "account":  "boss",
+                                "query":  "subject:CAGE",
+                                "extracted":  {
+                                                  "cage":  [
+                                                               "Valid"
+                                                           ],
+                                                  "sam":  [
+                                                              "Administrati"
+                                                          ],
+                                                  "phone":  [
+                                                                "855-650-4142"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "CAGE Validation Update- 8DFL3/MIGHTY HOUSE INC.",
+                                "from":  "josh@entityhelp.net",
+                                "date":  "1722111383352",
+                                "account":  "boss",
+                                "query":  "subject:CAGE",
+                                "extracted":  {
+                                                  "cage":  [
+                                                               "Valid"
+                                                           ],
+                                                  "sam":  [
+                                                              "Administrati"
+                                                          ],
+                                                  "phone":  [
+                                                                "855-650-4142"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "15% Off Ink—Tax Time!",
+                                "from":  "inkcartridges@eml2.inkcartridges.com",
+                                "date":  "1770109181876",
+                                "account":  "boss",
+                                "query":  "subject:tax",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "ridiculously"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Back taxes",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1770065928514",
+                                "account":  "boss",
+                                "query":  "subject:tax",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119",
+                                                                "307-532-5566"
+                                                            ],
+                                                  "wyoming":  [
+                                                                  "8082699766"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Back taxes",
+                                "from":  "crissy.lopez@wyo.gov",
+                                "date":  "1770065225061",
+                                "account":  "boss",
+                                "query":  "subject:tax",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119",
+                                                                "307-532-5566"
+                                                            ],
+                                                  "wyoming":  [
+                                                                  "8082699766"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Back taxes",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1770058582754",
+                                "account":  "boss",
+                                "query":  "subject:tax",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119",
+                                                                "307-532-5566"
+                                                            ],
+                                                  "wyoming":  [
+                                                                  "8082699766"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Back taxes",
+                                "from":  "crissy.lopez@wyo.gov",
+                                "date":  "1770057446128",
+                                "account":  "boss",
+                                "query":  "subject:tax",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119",
+                                                                "307-532-5566"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wyoming sales tax return available",
+                                "from":  "wyifs-excise@wyo.gov",
+                                "date":  "1769996088322",
+                                "account":  "boss",
+                                "query":  "subject:tax",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-777-5200"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Back taxes",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1769896256361",
+                                "account":  "boss",
+                                "query":  "subject:tax",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Waiting Until April to Sort Out Your Taxes? You\u0026#39;re Already Behind",
+                                "from":  "support@ecombalance.com",
+                                "date":  "1769688195605",
+                                "account":  "boss",
+                                "query":  "subject:tax",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "communicatio"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Big News: EcomBalance Has Acquired a Tax Firm!",
+                                "from":  "support@ecombalance.com",
+                                "date":  "1769083399258",
+                                "account":  "boss",
+                                "query":  "subject:tax",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "disconnected",
+                                                              "communicatio"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Registration Activated for MIGHTY HOUSE INC. / NA1ZBSQTJ468 / 8DFL3 in the U.S. Government\u0026#39;s System for Award Management (SAM.gov)",
+                                "from":  "donotreply@sam.gov",
+                                "date":  "1755009978159",
+                                "account":  "boss",
+                                "query":  "subject:SAM.gov",
+                                "extracted":  {
+                                                  "cage":  [
+                                                               "Progr"
+                                                           ],
+                                                  "sam":  [
+                                                              "registration",
+                                                              "instructions",
+                                                              "apexaccelera"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Your System for Award Management (SAM.gov) Registration for MIGHTY HOUSE INC. / NA1ZBSQTJ468 / 8DFL3 is Expired",
+                                "from":  "donotreply@sam.gov",
+                                "date":  "1754949086063",
+                                "account":  "boss",
+                                "query":  "subject:SAM.gov",
+                                "extracted":  {
+                                                  "cage":  [
+                                                               "valid"
+                                                           ],
+                                                  "sam":  [
+                                                              "Registration",
+                                                              "registration",
+                                                              "instructions"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Early Notice before SAM.GOV",
+                                "from":  "PeterChung@deltek.com",
+                                "date":  "1754597095369",
+                                "account":  "boss",
+                                "query":  "subject:SAM.gov",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "opportunitie",
+                                                              "confidential"
+                                                          ],
+                                                  "phone":  [
+                                                                "703-885-9850",
+                                                                "571-502-8421"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "IRS TIN Match Validation Successful for MIGHTY HOUSE INC. / NA1ZBSQTJ468 in the U.S. Government\u0026#39;s System for Award Management (SAM.gov)",
+                                "from":  "donotreply@sam.gov",
+                                "date":  "1754556831558",
+                                "account":  "boss",
+                                "query":  "subject:SAM.gov",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "registration",
+                                                              "Identificati",
+                                                              "apexaccelera"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "SAM.gov | Work in Progress Registration Started",
+                                "from":  "donotreply@sam.gov",
+                                "date":  "1754417375603",
+                                "account":  "boss",
+                                "query":  "subject:SAM.gov",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "Registration",
+                                                              "registration"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "ACTION REQUIRED: Your System for Award Management (SAM.gov) Entity Registration for MIGHTY HOUSE INC. / NA1ZBSQTJ468 / 8DFL3 will expire in 15 days.",
+                                "from":  "donotreply@sam.gov",
+                                "date":  "1753591706687",
+                                "account":  "boss",
+                                "query":  "subject:SAM.gov",
+                                "extracted":  {
+                                                  "cage":  [
+                                                               "valid"
+                                                           ],
+                                                  "sam":  [
+                                                              "Registration",
+                                                              "registration",
+                                                              "instructions"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "ACTION REQUIRED: Your System for Award Management (SAM.gov) Entity Registration for MIGHTY HOUSE INC. / NA1ZBSQTJ468 / 8DFL3 will expire in 30 days",
+                                "from":  "donotreply@sam.gov",
+                                "date":  "1752295635053",
+                                "account":  "boss",
+                                "query":  "subject:SAM.gov",
+                                "extracted":  {
+                                                  "cage":  [
+                                                               "valid"
+                                                           ],
+                                                  "sam":  [
+                                                              "Registration",
+                                                              "registration",
+                                                              "instructions"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "ACTION REQUIRED: Your System for Award Management (SAM.gov) Entity Registration for MIGHTY HOUSE INC. / NA1ZBSQTJ468 / 8DFL3 will expire in 60 days",
+                                "from":  "donotreply@sam.gov",
+                                "date":  "1749703577263",
+                                "account":  "boss",
+                                "query":  "subject:SAM.gov",
+                                "extracted":  {
+                                                  "cage":  [
+                                                               "valid"
+                                                           ],
+                                                  "sam":  [
+                                                              "Registration",
+                                                              "registration",
+                                                              "instructions"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Registration Activated for MIGHTY HOUSE INC. / NA1ZBSQTJ468 / 8DFL3 in the U.S. Government\u0026#39;s System for Award Management (SAM.gov)",
+                                "from":  "donotreply@sam.gov",
+                                "date":  "1723571171629",
+                                "account":  "boss",
+                                "query":  "subject:SAM.gov",
+                                "extracted":  {
+                                                  "cage":  [
+                                                               "Progr"
+                                                           ],
+                                                  "sam":  [
+                                                              "registration",
+                                                              "instructions",
+                                                              "apexaccelera"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "IRS TIN Match Validation Successful for MIGHTY HOUSE INC. / NA1ZBSQTJ468 in the U.S. Government\u0026#39;s System for Award Management (SAM.gov)",
+                                "from":  "donotreply@sam.gov",
+                                "date":  "1723549630316",
+                                "account":  "boss",
+                                "query":  "subject:SAM.gov",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "registration",
+                                                              "Identificati",
+                                                              "apexaccelera"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Up to 50% Off on Sam’s Club Membership",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1769865033544",
+                                "account":  "boss",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "720054273855",
+                                                              "Professional"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Up to 50% Off on Sam’s Club Membership",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1769174629862",
+                                "account":  "boss",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "785230826120",
+                                                              "Professional"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Sam\u0026#39;s Club Memberships for Just $25",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1767362065456",
+                                "account":  "boss",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "767480043438",
+                                                              "Professional"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "250Hz. 32” Curved. Only $149 at Sam’s Club",
+                                "from":  "member@msi.marketing",
+                                "date":  "1766023608832",
+                                "account":  "boss",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "159344794379"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Last Chance! Sam’s Club Membership - Just $15! 🛒",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1761873626206",
+                                "account":  "boss",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "635954166134",
+                                                              "PhotoAffecti"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Sam\u0026#39;s Club Memberships as Low as $15",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1760813295602",
+                                "account":  "boss",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "638291316794",
+                                                              "Professional"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "$15 Sam\u0026#39;s Club Membership for a Limited Time - Tick Tock! ⏰",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1760229974957",
+                                "account":  "boss",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "746392589482",
+                                                              "Professional"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Join Sam\u0026#39;s Club for $25 Today, Countless Savings Tomorrow",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1756430955559",
+                                "account":  "boss",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "736332869606",
+                                                              "Professional"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "$25 to Join Sam\u0026#39;s Club, Unlimited Ways to Save",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1755906884688",
+                                "account":  "boss",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "886911414900",
+                                                              "Professional",
+                                                              "notification"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "$25 to Join Sam’s Club? Now That’s a Steal",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1755302294330",
+                                "account":  "boss",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "941782082869",
+                                                              "Professional"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "SBA Loan Reinstated",
+                                "from":  "jsaunders@newtekone.com",
+                                "date":  "1766435716782",
+                                "account":  "boss",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "212-273-8282"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Final Check-In: Expedited SBA Working Capital Program",
+                                "from":  "clucas@celticloan.com",
+                                "date":  "1763321135282",
+                                "account":  "boss",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "801-231-5502"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: SBA Loan Request - Celtic Bank - MIGHTY HOUSE INC",
+                                "from":  "clucas@celticloan.com",
+                                "date":  "1748231427088",
+                                "account":  "boss",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "801-231-5502"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "SBA Loan Request - Celtic Bank - MIGHTY HOUSE INC",
+                                "from":  "clucas@celticloan.com",
+                                "date":  "1747691916948",
+                                "account":  "boss",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "801-231-5502"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Regarding your SBA 7(a) loan application for Mighty House Inc",
+                                "from":  "info@newitymarket.com",
+                                "date":  "1737375834039",
+                                "account":  "boss",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "773-839-8089"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Begin your SBA 7(a) Loan Application with Northeast Bank",
+                                "from":  "SBALoans@northeastbank.com",
+                                "date":  "1731216728446",
+                                "account":  "boss",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "207-705-5864"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "An SBA Loan Can Transform Your Business - See How",
+                                "from":  "info@newtekone.com",
+                                "date":  "1729429531495",
+                                "account":  "boss",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "855-763-9835"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Don’t Wait to Finish Your SBA Loan Request!",
+                                "from":  "info@newtekone.com",
+                                "date":  "1729342434555",
+                                "account":  "boss",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "855-763-9835"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Finish Your SBA Loan Request Today",
+                                "from":  "info@newtekone.com",
+                                "date":  "1729255014088",
+                                "account":  "boss",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "855-763-9835"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Important Update on Your SBA Loan Request",
+                                "from":  "info@newtekone.com",
+                                "date":  "1729119561393",
+                                "account":  "boss",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "855-763-9835"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wosb self certification",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1716498938511",
+                                "account":  "boss",
+                                "query":  "subject:WOSB",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "certificatio"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Fwd: WOSB Information",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1716492399274",
+                                "account":  "boss",
+                                "query":  "subject:WOSB",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "915-566-4066"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "WOSB Information",
+                                "from":  "maldeis@ephcc.org",
+                                "date":  "1716475325715",
+                                "account":  "boss",
+                                "query":  "subject:WOSB",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "915-566-4066"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Employer Feedback Requested - Help Wyoming\u0026#39;s Workforce",
+                                "from":  "donotreply@chambermate.com",
+                                "date":  "1770071477746",
+                                "account":  "boss",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-322-2322"
+                                                            ],
+                                                  "wyoming":  [
+                                                                  "364153922925"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Black Hills Energy Ready Wyoming Project Completion",
+                                "from":  "donotreply@chambermate.com",
+                                "date":  "1769719612448",
+                                "account":  "boss",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-322-2322"
+                                                            ],
+                                                  "wyoming":  [
+                                                                  "210890825752"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wyoming Sales Tax 50 Days Delinquent 800229 Mightyhouseinc",
+                                "from":  "crissy.lopez@wyo.gov",
+                                "date":  "1769018526862",
+                                "account":  "boss",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "instructions"
+                                                          ],
+                                                  "phone":  [
+                                                                "307-532-5566"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wyoming sales tax return available",
+                                "from":  "wyifs-excise@wyo.gov",
+                                "date":  "1767317582288",
+                                "account":  "boss",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-777-5200"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Wyoming Mental Health",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1764967964970",
+                                "account":  "boss",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wyoming sales tax return available",
+                                "from":  "wyifs-excise@wyo.gov",
+                                "date":  "1764639280543",
+                                "account":  "boss",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-777-5200"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Big things have been happening across Wyoming",
+                                "from":  "shaylee@wyomingwomen.org",
+                                "date":  "1764098691791",
+                                "account":  "boss",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "wyoming":  [
+                                                                  "368860281206"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wyoming Mental Health ",
+                                "from":  "sheena@wyomentalhealth.com",
+                                "date":  "1764030685823",
+                                "account":  "boss",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "wyoming":  [
+                                                                  "629364532476"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Complete your HPE Partner Portal registration",
+                                "from":  "approvalcasemanager@cs.mail.hpe.com",
+                                "date":  "1765469181535",
+                                "account":  "boss",
+                                "query":  "subject:registration",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "confirmation"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Microsoft Office 2024 Standard for Windows or Mac – Lifetime License",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1770384282779",
+                                "account":  "boss",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "Professional"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Get Windows 11 Pro or Home – Lifetime License and Instant Download",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1769951800585",
+                                "account":  "boss",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "Consultation"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Get Windows 11 Pro or Home – Lifetime License and Instant Download",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1769346865718",
+                                "account":  "boss",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "Consultation"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Get Windows 11 Pro or Home – Lifetime License and Instant Download",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1768656387009",
+                                "account":  "boss",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "Certificatio"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Submit proof of commercial liability insurance by August 31",
+                                "from":  "donotreply@amazon.com",
+                                "date":  "1754403015315",
+                                "account":  "boss",
+                                "query":  "subject:insurance",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "334253668448"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Submit proof of commercial liability insurance by July 31",
+                                "from":  "donotreply@amazon.com",
+                                "date":  "1750675279357",
+                                "account":  "boss",
+                                "query":  "subject:insurance",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "181199728089"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Unlock Skills with Online Notary Public Certification Course",
+                                "from":  "noreply@r.groupon.com",
+                                "date":  "1770348600648",
+                                "account":  "boss",
+                                "query":  "subject:certificate",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "notification"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Attention: Got a seller certification? Upload now",
+                                "from":  "no-reply@sell.amazon.com",
+                                "date":  "1757688747680",
+                                "account":  "boss",
+                                "query":  "subject:certificate",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "entification",
+                                                              "SupplierGate",
+                                                              "certificatio"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "New Opportunity: Direct View LED Installation Certification with ViewSonic",
+                                "from":  "david.manesse@viewsonic.com",
+                                "date":  "1757603182520",
+                                "account":  "boss",
+                                "query":  "subject:certificate",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "909-444-5638"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Bright \u0026 Early Wednesday: 7AM @ Platte Valley Bank",
+                                "from":  "jyoung@pcedwy.org",
+                                "date":  "1768938985317",
+                                "account":  "boss",
+                                "query":  "subject:bank",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-322-4232",
+                                                                "303-359-9907"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Bright \u0026 Early Wednesday: 7AM @ Platte Valley Bank",
+                                "from":  "jyoung@pcedwy.org",
+                                "date":  "1768922749921",
+                                "account":  "boss",
+                                "query":  "subject:bank",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119",
+                                                                "307-322-4232",
+                                                                "303-359-9907"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Bright \u0026 Early Wednesday: 7AM @ Platte Valley Bank",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1768898903607",
+                                "account":  "boss",
+                                "query":  "subject:bank",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119",
+                                                                "307-322-4232",
+                                                                "303-359-9907"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Bright \u0026 Early Wednesday: 7AM @ Platte Valley Bank",
+                                "from":  "jyoung@pcedwy.org",
+                                "date":  "1768890809045",
+                                "account":  "boss",
+                                "query":  "subject:bank",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-322-4232",
+                                                                "303-359-9907"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "1.5% cash back just made banking more fun.",
+                                "from":  "member@notify.chime.com",
+                                "date":  "1767810443697",
+                                "account":  "boss",
+                                "query":  "subject:bank",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "transactions"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Your ACH Payment has been successfully submitted",
+                                "from":  "wyifs-excise@wyo.gov",
+                                "date":  "1769895845035",
+                                "account":  "boss",
+                                "query":  "subject:ACH",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-777-5200"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Your ACH Payment has been successfully submitted",
+                                "from":  "wyifs-excise@wyo.gov",
+                                "date":  "1760301776194",
+                                "account":  "boss",
+                                "query":  "subject:ACH",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-777-5200"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Your ACH Payment has been successfully submitted",
+                                "from":  "wyifs-excise@wyo.gov",
+                                "date":  "1755298879407",
+                                "account":  "boss",
+                                "query":  "subject:ACH",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-777-5200"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Your ACH Payment has been successfully submitted",
+                                "from":  "wyifs-excise@wyo.gov",
+                                "date":  "1755298657100",
+                                "account":  "boss",
+                                "query":  "subject:ACH",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-777-5200"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Important update about your ACH service upgrade",
+                                "from":  "bmotps.communication@tps.bmo.com",
+                                "date":  "1748890862226",
+                                "account":  "boss",
+                                "query":  "subject:ACH",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "representati"
+                                                          ],
+                                                  "phone":  [
+                                                                "866-867-2173"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Reminder: We’re upgrading the ACH Payment service May 19",
+                                "from":  "bmotps.communication@tps.bmo.com",
+                                "date":  "1746205254731",
+                                "account":  "boss",
+                                "query":  "subject:ACH",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "representati"
+                                                          ],
+                                                  "phone":  [
+                                                                "866-867-2173"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Your ACH Payment has been successfully submitted",
+                                "from":  "wyifs-excise@wyo.gov",
+                                "date":  "1744664437827",
+                                "account":  "boss",
+                                "query":  "subject:ACH",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-777-5200"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "We’re upgrading the ACH Payment service May 19",
+                                "from":  "bmotps.communication@tps.bmo.com",
+                                "date":  "1744662653885",
+                                "account":  "boss",
+                                "query":  "subject:ACH",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "866-867-2173"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Revisiting Your Vendor Integration Project",
+                                "from":  "victoria.orduna@flxpoint.com",
+                                "date":  "1761165656163",
+                                "account":  "boss",
+                                "query":  "subject:vendor",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "904-569-6440"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Quick question on your sheet metal supplier bench",
+                                "from":  "jon@sierra-peakscorp.com",
+                                "date":  "1770410706866",
+                                "account":  "boss",
+                                "query":  "subject:supplier",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119",
+                                                                "317-528-9257"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Quick question on your sheet metal supplier bench",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1770407774335",
+                                "account":  "boss",
+                                "query":  "subject:supplier",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119",
+                                                                "317-528-9257"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Quick question on your sheet metal supplier bench",
+                                "from":  "jon@sierrapeaks-corp.com",
+                                "date":  "1770243334378",
+                                "account":  "boss",
+                                "query":  "subject:supplier",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "317-528-9257"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "One supplier’s journey from local to global",
+                                "from":  "hello@spscommerce.com",
+                                "date":  "1760457347571",
+                                "account":  "boss",
+                                "query":  "subject:supplier",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "requirements"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Mighty House - Funding",
+                                "from":  "db@workingcapitalmarketplace.biz",
+                                "date":  "1770159900143",
+                                "account":  "boss",
+                                "query":  "subject:Mighty House",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "949-384-5351"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Synnex acct 786379_Mighty House Inc_paid invoice ",
+                                "from":  "mikko.dizon@tdsynnex.com",
+                                "date":  "1769724854908",
+                                "account":  "boss",
+                                "query":  "subject:Mighty House",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "864-349-4328",
+                                                                "800-237-8931",
+                                                                "480-936-2162"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: Synnex acct 786379_Mighty House Inc_paid invoice ",
+                                "from":  "Debra.Thomason@tdsynnex.com",
+                                "date":  "1769721527097",
+                                "account":  "boss",
+                                "query":  "subject:Mighty House",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "864-349-4328",
+                                                                "480-936-2162",
+                                                                "800-237-8931"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Mightyhouse Inc 8002299 Balance",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1760475985110",
+                                "account":  "boss",
+                                "query":  "subject:MightyHouse",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119",
+                                                                "307-532-5566"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Mightyhouse Inc 8002299 Balance",
+                                "from":  "crissy.lopez@wyo.gov",
+                                "date":  "1760475821681",
+                                "account":  "boss",
+                                "query":  "subject:MightyHouse",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-532-5566"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Denims is live: BREAKING: Another Assassination Attempt?? | Sam Seder On Jubliee???? | Theo Von On Gaza | HOGWATCH FOR SUNDAY FUNDAY",
+                                "from":  "no-reply@twitch.tv",
+                                "date":  "1741531596235",
+                                "account":  "mine",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "Assassinatio"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Doug \u0026lt;\u0026gt; Sam | Flare",
+                                "from":  "sh@flarecfoconsult.com",
+                                "date":  "1732452032354",
+                                "account":  "mine",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "requirements",
+                                                              "flarecfocons"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Doug \u0026lt;\u0026gt; Sam | Flare",
+                                "from":  "sh@flarecfoconsult.com",
+                                "date":  "1732279478625",
+                                "account":  "mine",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "flarecfocons"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "KTLA posted: On Thursday, Sam Rubin spoke with actress Jane Seymour ...",
+                                "from":  "info@twitter.com",
+                                "date":  "1715456201939",
+                                "account":  "mine",
+                                "query":  "subject:SAM",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "436448623353",
+                                                              "EmbeddedOnli"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: Your SBA application is pending items Mighty House Inc",
+                                "from":  "cynthia.bernier@ibusinessfunding.com",
+                                "date":  "1718038473156",
+                                "account":  "mine",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "786-504-5796",
+                                                                "786-375-5541"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "FW: Your SBA application is pending items Mighty House Inc",
+                                "from":  "cynthia.bernier@ibusinessfunding.com",
+                                "date":  "1717619701070",
+                                "account":  "mine",
+                                "query":  "subject:SBA",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "786-504-5796",
+                                                                "786-375-5541"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Requesting Services for HUBZONE EDWOSB 8(a) Federal set aside contracting corporation",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1729626556660",
+                                "account":  "mine",
+                                "query":  "subject:EDWOSB",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "4e6d7c47a97f"
+                                                          ],
+                                                  "phone":  [
+                                                                "202-384-6223",
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wyoming ESA Update: Injunction Still in Place as State’s Appeal Continues",
+                                "from":  "WDE@public.govdelivery.com",
+                                "date":  "1760367709877",
+                                "account":  "mine",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "wyoming":  [
+                                                                  "106129870722"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wyoming ESA Update: A Message from Superintendent Degenfelder",
+                                "from":  "WDE@public.govdelivery.com",
+                                "date":  "1752786981128",
+                                "account":  "mine",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "wyoming":  [
+                                                                  "609838218486"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wyoming ESA Update: A Message from Superintendent Degenfelder",
+                                "from":  "WDE@public.govdelivery.com",
+                                "date":  "1752674494851",
+                                "account":  "mine",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "wyoming":  [
+                                                                  "535502552088"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Fwd: Wyoming ESA Update: Families Still Interested in Applying - Complete This Survey",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1752269679227",
+                                "account":  "mine",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wyoming ESA Update: Families Still Interested in Applying - Complete This Survey",
+                                "from":  "WDE@public.govdelivery.com",
+                                "date":  "1751919351025",
+                                "account":  "mine",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "wyoming":  [
+                                                                  "521117646512"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Wyoming ESA Update: A Message from Superintendent Degenfelder",
+                                "from":  "WDE@public.govdelivery.com",
+                                "date":  "1751583674215",
+                                "account":  "mine",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "wyoming":  [
+                                                                  "620054089135"
+                                                              ]
+                                              }
+                            },
+                            {
+                                "subject":  "Fwd: Wyoming ESA Update: A Message from Superintendent Degenfelder on the ESA Injunction",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1751308799081",
+                                "account":  "mine",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Fwd: Wyoming ESA Update: A Message from Superintendent Degenfelder",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1751308730916",
+                                "account":  "mine",
+                                "query":  "subject:Wyoming",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Tournament License Application: Approved",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1753658963979",
+                                "account":  "mine",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: Computer Store Gaming Events! - Tournament License Submission",
+                                "from":  "TournamentLicenseSubmission@noa.nintendo.com",
+                                "date":  "1753482288863",
+                                "account":  "mine",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: Computer Store Gaming Events! - Tournament License Submission",
+                                "from":  "vincentlanderson@mightyhouseinc.com",
+                                "date":  "1751493128701",
+                                "account":  "mine",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: Computer Store Gaming Events! - Tournament License Submission",
+                                "from":  "vincentlanderson@mightyhouseinc.com",
+                                "date":  "1751411698400",
+                                "account":  "mine",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: Computer Store Gaming Events! - Tournament License Submission",
+                                "from":  "vincentlanderson@mightyhouseinc.com",
+                                "date":  "1751404970286",
+                                "account":  "mine",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: Computer Store Gaming Events! - Tournament License Submission",
+                                "from":  "TournamentLicenseSubmission@noa.nintendo.com",
+                                "date":  "1751404535342",
+                                "account":  "mine",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: Computer Store Gaming Events! - Tournament License Submission",
+                                "from":  "vincentlanderson@mightyhouseinc.com",
+                                "date":  "1751403103173",
+                                "account":  "mine",
+                                "query":  "subject:license",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Multifamily insurance up 172% in 10 years",
+                                "from":  "hi@mail.zeroflux.io",
+                                "date":  "1756118609393",
+                                "account":  "mine",
+                                "query":  "subject:insurance",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "Outperformer"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Millions of homes lack flood insurance",
+                                "from":  "hi@mail.zeroflux.io",
+                                "date":  "1728552736332",
+                                "account":  "mine",
+                                "query":  "subject:insurance",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "traceability"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Cyber Security Tip: The shocking truth about bank fraud",
+                                "from":  "115@magoo.tech",
+                                "date":  "1766418025531",
+                                "account":  "mine",
+                                "query":  "subject:bank",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "authenticati"
+                                                          ],
+                                                  "phone":  [
+                                                                "217-318-3084",
+                                                                "844-624-6672"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Cyber Security Tip: Set up bank alerts – NOW!",
+                                "from":  "115@magoo.tech",
+                                "date":  "1749479329834",
+                                "account":  "mine",
+                                "query":  "subject:bank",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "217-318-3084",
+                                                                "844-624-6672"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Quick Clarification on Bank Statements",
+                                "from":  "Pav.dhaliwal@nowcorp.com",
+                                "date":  "1746659999798",
+                                "account":  "mine",
+                                "query":  "subject:bank",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "678-660-5014"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Cyber Security Tip: The shocking truth about bank fraud",
+                                "from":  "115@magoo.tech",
+                                "date":  "1734967117287",
+                                "account":  "mine",
+                                "query":  "subject:bank",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "authenticati"
+                                                          ],
+                                                  "phone":  [
+                                                                "217-318-3084",
+                                                                "844-624-6672"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Cyber Security Tip: The shocking truth about bank fraud",
+                                "from":  "maguirej@magoosvc.com",
+                                "date":  "1725886854462",
+                                "account":  "mine",
+                                "query":  "subject:bank",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "authenticati"
+                                                          ],
+                                                  "phone":  [
+                                                                "217-318-3084",
+                                                                "844-624-6672"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Need by end of day: Woocommerce site with Dwolla KYC, ACH to ACH, replacing old squarespace and godaddy",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1731192588723",
+                                "account":  "mine",
+                                "query":  "subject:ACH",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Reminder: Call with an Odyssey Marketplace Specialist with Vendor Marketplace Support at 04:15pm (Mountain Time - US \u0026 Canada) on Tuesday, July 1, 2025",
+                                "from":  "no-reply@calendly.com",
+                                "date":  "1751404510990",
+                                "account":  "mine",
+                                "query":  "subject:vendor",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Re: You’ve been approved as a vendor for the Wyoming Education Savings Account Program",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1749750414119",
+                                "account":  "mine",
+                                "query":  "subject:vendor",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119",
+                                                                "908-616-1249"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Fwd: Re: You’ve been approved as a vendor for the Wyoming Education Savings Account Program",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1746990763422",
+                                "account":  "mine",
+                                "query":  "subject:vendor",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "307-459-0119"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Fwd: Ingram vendor calls",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1729879807027",
+                                "account":  "mine",
+                                "query":  "subject:vendor",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "800-456-8000"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Authorization for Vendors",
+                                "from":  "vincentlanderson@mightyhouseinc.com",
+                                "date":  "1727905683609",
+                                "account":  "mine",
+                                "query":  "subject:vendor",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "800-456-8000"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Authorization for Vendors",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1727903849815",
+                                "account":  "mine",
+                                "query":  "subject:vendor",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "800-456-8000"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: [EXT]:Fwd: Re: Dedicated IT vendor needed Denver awards Mighty House Inc. and Quill",
+                                "from":  "Corey.Hill@quill.com",
+                                "date":  "1727789657534",
+                                "account":  "mine",
+                                "query":  "subject:vendor",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "847-876-5325",
+                                                                "877-413-0011",
+                                                                "719-781-9706",
+                                                                "719-781-0000"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: [EXT]:Fwd: Re: Dedicated IT vendor needed Denver awards Mighty House Inc. and Quill",
+                                "from":  "paul.chang@quill.com",
+                                "date":  "1727788183089",
+                                "account":  "mine",
+                                "query":  "subject:vendor",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "847-876-5325",
+                                                                "877-413-0011",
+                                                                "719-781-9706",
+                                                                "719-781-0000"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "RE: [EXT]:Fwd: Re: Dedicated IT vendor needed Denver awards Mighty House Inc. and Quill",
+                                "from":  "rachelwilliams@mightyhouseinc.com",
+                                "date":  "1727730789428",
+                                "account":  "mine",
+                                "query":  "subject:vendor",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "847-876-5325",
+                                                                "877-413-0011",
+                                                                "719-781-9706",
+                                                                "719-781-0000"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "Updates from your followed suppliers",
+                                "from":  "paservices@alerts.globalsources.com",
+                                "date":  "1745940009227",
+                                "account":  "mine",
+                                "query":  "subject:supplier",
+                                "extracted":  {
+                                                  "ein":  [
+                                                              "33-3333333"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Updates from your followed suppliers",
+                                "from":  "paservices@alerts.globalsources.com",
+                                "date":  "1735651847932",
+                                "account":  "mine",
+                                "query":  "subject:supplier",
+                                "extracted":  {
+                                                  "ein":  [
+                                                              "33-3333333"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Updates from your followed suppliers",
+                                "from":  "paservices@alerts.globalsources.com",
+                                "date":  "1734442594351",
+                                "account":  "mine",
+                                "query":  "subject:supplier",
+                                "extracted":  {
+                                                  "ein":  [
+                                                              "33-3333333"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Updates from your followed suppliers",
+                                "from":  "paservices@alerts.globalsources.com",
+                                "date":  "1733839839830",
+                                "account":  "mine",
+                                "query":  "subject:supplier",
+                                "extracted":  {
+                                                  "ein":  [
+                                                              "33-3333333"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Re: Doug - for Mighty House",
+                                "from":  "kimberly.gardner@havenbrightusa.co",
+                                "date":  "1768500379048",
+                                "account":  "mine",
+                                "query":  "subject:Mighty House",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "havenbrightu"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "MightyHouse/Corsica Intro",
+                                "from":  "ahartman@corsicatech.com",
+                                "date":  "1728564678915",
+                                "account":  "mine",
+                                "query":  "subject:MightyHouse",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "240-534-3689"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "MightyHouse/Corsica Intro",
+                                "from":  "ahartman@corsicatech.com",
+                                "date":  "1728485673885",
+                                "account":  "mine",
+                                "query":  "subject:MightyHouse",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "240-534-3689"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "MightyHouse/Corsica Intro",
+                                "from":  "ahartman@corsicatech.com",
+                                "date":  "1728484831983",
+                                "account":  "mine",
+                                "query":  "subject:MightyHouse",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "240-534-3689"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "MightyHouse/Corsica Intro",
+                                "from":  "ahartman@corsicatech.com",
+                                "date":  "1728481600290",
+                                "account":  "mine",
+                                "query":  "subject:MightyHouse",
+                                "extracted":  {
+                                                  "phone":  [
+                                                                "240-534-3689"
+                                                            ]
+                                              }
+                            },
+                            {
+                                "subject":  "iPad models from $299 - save on select models now",
+                                "from":  "BestBuy@email.bestbuy.com",
+                                "date":  "1770581109028",
+                                "account":  "mine",
+                                "query":  "from:irs.gov",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "availability",
+                                                              "advertisemen"
+                                                          ]
+                                              }
+                            },
+                            {
+                                "subject":  "Save on select OLED TVs at Best Buy",
+                                "from":  "BestBuy@email.bestbuy.com",
+                                "date":  "1770493568007",
+                                "account":  "mine",
+                                "query":  "from:irs.gov",
+                                "extracted":  {
+                                                  "sam":  [
+                                                              "availability",
+                                                              "advertisemen"
+                                                          ]
+                                              }
+                            }
+                        ],
+    "raw_extractions":  {
+
+                        }
+}

@@ -1,0 +1,96 @@
+{
+  "entities": {
+    "mhi": {
+      "legal_name": "Mighty House Inc",
+      "dba": "MHI",
+      "entity_type": "Corporation",
+      "state_of_incorporation": "Wyoming",
+      "ein": "81-3474529",
+      "duns": "081351838",
+      "cage_code": "8DFL3",
+      "uei": "NA1ZBSQTJ468",
+      "certifications": ["EDWOSB", "HUBZone"],
+      "naics_codes": [],
+      "address": {
+        "street": "977 Gilchrist St",
+        "city": "Wheatland",
+        "state": "WY",
+        "zip": "82201",
+        "country": "USA"
+      },
+      "phone": "(307) 331-1040",
+      "website": "https://mightyhouseinc.com",
+      "contacts": {
+        "owner": {
+          "name": "Rachel Williams",
+          "title": "Owner/CEO",
+          "email": "rachelwilliams@mightyhouseinc.com",
+          "email_personal": "racheljeannewilliams@gmail.com",
+          "phone": ""
+        },
+        "authorized_rep": {
+          "name": "Vincent L. Anderson",
+          "title": "IT Director",
+          "email": "vincentlanderson@mightyhouseinc.com",
+          "email_personal": "theanderproject@gmail.com",
+          "phone": ""
+        }
+      },
+      "email_accounts": [
+        "rachelwilliams@mightyhouseinc.com",
+        "vincentlanderson@mightyhouseinc.com",
+        "mightyhouseinc@gmail.com",
+        "racheljeannewilliams@gmail.com",
+        "theanderproject@gmail.com"
+      ],
+      "supplier_accounts": {
+        "ingram_micro": {"account": "50-135152-000", "status": "active"},
+        "td_synnex": {"account": "786379", "status": "active"},
+        "dh": {"account": "3270340000", "status": "active"},
+        "climb": {"account": "CU0043054170", "status": "active"}
+      }
+    },
+    "dsaic": {
+      "legal_name": "Data Science Applications, Inc",
+      "dba": "DSAIC",
+      "entity_type": "Corporation",
+      "state_of_incorporation": "Wyoming",
+      "ein": "81-3474529",
+      "address": {
+        "street": "977 Gilchrist St",
+        "city": "Wheatland",
+        "state": "WY",
+        "zip": "82201",
+        "country": "USA"
+      },
+      "contacts": {
+        "owner": {
+          "name": "Vincent L. Anderson",
+          "title": "Owner",
+          "email": "",
+          "phone": ""
+        }
+      }
+    },
+    "computer_store": {
+      "legal_name": "Mighty House Inc",
+      "dba": "Computer Store",
+      "address": {
+        "street": "977 Gilchrist St",
+        "city": "Wheatland", 
+        "state": "WY",
+        "zip": "82201",
+        "country": "USA"
+      },
+      "website": "https://computerstore.mightyhouseinc.com",
+      "contacts": {
+        "manager": {
+          "name": "Rachel Williams",
+          "email": "rachelwilliams@mightyhouseinc.com"
+        }
+      }
+    }
+  },
+  "_note": "FILL IN SENSITIVE FIELDS (EIN, DUNS, phones) MANUALLY - do not commit to git"
+}
+
