@@ -4,6 +4,25 @@
 
 ## Tools & Capabilities
 
+### 🔧 Critical Tools Index (READ FIRST EVERY SESSION)
+
+| Tool | Location | Purpose |
+|------|----------|---------|
+| **Supplier Email Search** | `C:\zoho-console-api-module-system\src\modules\supplier_search\` | Search Zoho Mail for API credentials from TDSynnex, D&H, Ingram, DigiKey, Mouser, VEX, XYAB, Etilize |
+| **SOP Engine** | `C:\zoho-console-api-module-system\src\modules\sop\` | Execute YAML-defined SOPs with Zoho integration |
+| **MHI Procurement** | `C:\mhi-procurement\` | C codebase with Ingram/SYNNEX/D&H sync already implemented |
+| **Zoho API Modules** | `C:\zoho-console-api-module-system\src\modules\` | CRM, Books, Inventory, Desk, Analytics, Projects, Sign, Cliq |
+
+**Cursor Plans (Reference):**
+- `C:\Users\user\.cursor\plans\multi-entity_sop_automation_cc9b81cc.plan.md`
+- `C:\Users\user\.cursor\plans\zoho_api_enumeration_plan_452e5be9.plan.md`
+- `C:\Users\user\.cursor\plans\zoho_email_api_search_50908dfa.plan.md`
+
+**Entity Docs:**
+- `C:\zoho-console-api-module-system\docs\organized\entities\mighty_house_inc.md`
+- `C:\zoho-console-api-module-system\docs\organized\entities\dsaic.md`
+- `C:\zoho-console-api-module-system\docs\organized\entities\computer_store.md`
+
 ### Local LLM Delegation
 **Added: 2026-01-31**
 
