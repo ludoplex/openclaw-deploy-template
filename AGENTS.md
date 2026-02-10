@@ -255,13 +255,15 @@ For high-stakes decisions, use the **Swiss Rounds** pattern.
 2. CONSUME all specialist domain reports completely
 
 3. APPEND overarching plan to file (result of step 2):
-   phases, dependencies, success criteria
+   phases, dependencies, success criteria, risk register,
+   timetable/milestones, USD budget, token budget
 
 4. DECIDE specialist assignment sequence, APPEND to file with justification
 
 5. FOR EACH specialist in sequence:
    a. REREAD that specialist's final report
    b. CREATE individual plan: {specialist}-plan.md
+      (scope, inputs, outputs, timetable, USD budget, token budget)
    c. CREATE stage prompts: {specialist}-prompts.md (self-contained)
 
 6. VERIFY all specialists assigned → pm.complete = true

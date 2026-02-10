@@ -71,6 +71,10 @@ PM follows the same source-truth-first pattern:
    - Execution phases and dependencies
    - Critical path
    - Success criteria
+   - Risk register
+   - Timetable with milestones
+   - USD budget (compute, API, infrastructure)
+   - Token budget (estimated per phase)
 
 4. DECIDE specialist assignment sequence, APPEND to file:
    - Ordered list with justification
@@ -79,6 +83,10 @@ PM follows the same source-truth-first pattern:
 5. FOR EACH specialist in pm.sequence:
    a. REREAD that specialist's final report completely
    b. CREATE individual plan: {project}/synthesis/{specialist}-plan.md
+      - Scope, inputs, outputs, dependencies
+      - Timetable with milestones
+      - USD budget allocation
+      - Token budget allocation
    c. CREATE stage prompts: {project}/synthesis/{specialist}-prompts.md
    d. UPDATE state: pm.specialistPlans[specialist].complete = true
 
