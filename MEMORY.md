@@ -91,6 +91,15 @@ from local_llm import ask_local, generate_json, summarize, format_for_platform
 
 ## Lessons Learned
 
+### 2026-02-09: ALWAYS USE FULL FILE PATHS
+**MANDATORY:** When referring to agent report files or any workspace files in discourse with the user, ALWAYS use full file paths.
+
+❌ Wrong: `validation/seeker-validation.md`
+❌ Wrong: `~/.openclaw/workspace/swiss-rounds/...`
+✅ Right: `C:\Users\user\.openclaw\workspace\swiss-rounds\cosmo-sokol-v3\validation\seeker-validation.md`
+
+No relative paths. No abbreviations. No tilde expansion. Full Windows paths every time.
+
 ### 2026-02-08: NEVER DELETE WITHOUT CHECKING WITH VINCENT
 **CRITICAL RULE:** Never delete files, directories, or repos until formally checked in with Vincent. Even if something looks like a duplicate or my own working copy, ASK FIRST. No exceptions.
 
