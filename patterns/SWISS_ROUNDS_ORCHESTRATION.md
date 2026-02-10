@@ -62,30 +62,29 @@ PM follows the same source-truth-first pattern:
 
 ```
 1. READ all sources following SOURCE_MANIFEST.md / BINARY_MANIFEST.md
+   THEN CREATE overarching-plan.md with manifest info per repo:
+   (features/filepaths/filenames/linenumbers/functions/variables)
 
-2. CREATE overarching plan file containing all information required by 
-   .md instructions in step 1 (features/files/linenumbers/functions/variables)
+2. CONSUME all specialist domain reports completely
 
-3. CONSUME all specialist domain reports completely
-
-4. APPEND overarching plan to the file created in step 2:
+3. APPEND overarching plan to the file (result of step 2):
    - Execution phases and dependencies
    - Critical path
    - Success criteria
 
-5. DECIDE specialist assignment sequence, APPEND to file:
+4. DECIDE specialist assignment sequence, APPEND to file:
    - Ordered list with justification
    - Write to state: pm.sequence = [...]
 
-6. FOR EACH specialist in pm.sequence:
+5. FOR EACH specialist in pm.sequence:
    a. REREAD that specialist's final report completely
    b. CREATE individual plan: {project}/synthesis/{specialist}-plan.md
    c. CREATE stage prompts: {project}/synthesis/{specialist}-prompts.md
    d. UPDATE state: pm.specialistPlans[specialist].complete = true
 
-7. VERIFY all specialists assigned → pm.complete = true
+6. VERIFY all specialists assigned → pm.complete = true
 
-8. SIGNAL completion to main agent
+7. SIGNAL completion to main agent
 ```
 
 ---

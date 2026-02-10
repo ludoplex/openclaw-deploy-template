@@ -249,22 +249,22 @@ For high-stakes decisions, use the **Swiss Rounds** pattern.
 
 ```
 1. READ all sources following SOURCE_MANIFEST.md / BINARY_MANIFEST.md
+   THEN CREATE overarching-plan.md with manifest info per repo
+   (features/filepaths/filenames/linenumbers/functions/variables)
 
-2. CREATE overarching plan file containing all manifest info 
-   (features/files/linenumbers/functions/variables) FIRST
+2. CONSUME all specialist domain reports completely
 
-3. CONSUME all specialist domain reports completely
+3. APPEND overarching plan to file (result of step 2):
+   phases, dependencies, success criteria
 
-4. APPEND overarching plan to file: phases, dependencies, success criteria
+4. DECIDE specialist assignment sequence, APPEND to file with justification
 
-5. DECIDE specialist assignment sequence, APPEND to file with justification
-
-6. FOR EACH specialist in sequence:
+5. FOR EACH specialist in sequence:
    a. REREAD that specialist's final report
    b. CREATE individual plan: {specialist}-plan.md
    c. CREATE stage prompts: {specialist}-prompts.md (self-contained)
 
-7. VERIFY all specialists assigned → pm.complete = true
+6. VERIFY all specialists assigned → pm.complete = true
 ```
 
 #### Enforcement
