@@ -3,8 +3,8 @@
 **Purpose:** Prevent agents from hallucinating APIs, reimplementing existing functionality, or writing code that never touches the actual tech stack.
 
 ## When to Apply
-
-- Before using any unfamiliar library/framework
+- Always, no exceptions
+- Before using any library/framework
 - Before integrating with any external system
 - When onboarding to an existing codebase
 - When source code is available (use BINARY_MANIFEST.md when it isn't)

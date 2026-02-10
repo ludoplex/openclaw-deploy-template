@@ -65,7 +65,9 @@ function Get-StateFile($proj) {
 function Load-State($proj) {
     $file = Get-StateFile $proj
     if (Test-Path $file) {
-        return Get-Content $file -Raw | ConvertFrom-Json -AsHashtable
+        $json = Get-Content $file -Raw | ConvertFrom-Json
+        # Convert PSObject to hashtable for easier manipulation
+        return $json
     }
     return $null
 }
@@ -390,7 +392,7 @@ switch ($Action) {
                 Write-Host "PM State:" -ForegroundColor Yellow
                 Write-Host "  Started: $(if ($state.pm.started) { '✅' } else { '⏳' })"
                 Write-Host "  Overarching Plan: $(if ($state.pm.overarchingPlanComplete) { '✅' } else { '⏳' })"
-                Write-Host "  Sequence: $($state.pm.sequence -join ' → ')"
+                Write-Host "  Sequence: $($state.pm.sequence -join ' -> ')"
                 Write-Host "  Complete: $(if ($state.pm.complete) { '✅' } else { '⏳' })"
             }
             
