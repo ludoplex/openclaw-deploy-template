@@ -2,10 +2,13 @@
 
 Generated: 2026-02-11
 Source: https://github.com/Aider-AI/aider @ main
+Path: `C:\aider`
 
 ## Overview
 
 Aider is an AI pair programming CLI that integrates with git repos and supports multiple LLM backends via LiteLLM. It provides rapid feedback through auto-commits, linting, testing, and repo-map context.
+
+**Secret Sauce:** tree-sitter for repo maps + auto-lint/auto-test after every edit with auto-fix loop.
 
 ## Core Architecture
 
@@ -171,6 +174,69 @@ pipx install aider-chat
 - `~/.aider.conf.yml` — Global config
 - `.aiderignore` — Files to exclude (gitignore syntax)
 - `.aider.model.settings.yml` — Custom model configs
+
+---
+
+## RepoMap (tree-sitter integration) (`aider/repomap.py`)
+
+| Name | Line | Purpose |
+|------|------|---------|
+| `RepoMap` class | ~48 | Builds token-limited repo context |
+| `RepoMap.__init__()` | ~48 | Initialize with max_map_tokens, root, model |
+| `RepoMap.get_repo_map()` | ~200 | Generate repo map string |
+| `RepoMap.get_ranked_tags()` | ~300 | Rank files by relevance |
+| `Tag` namedtuple | ~27 | (rel_fname, fname, line, name, kind) |
+| Uses `grep_ast.tsl.get_parser()` | ~25 | tree-sitter parsing |
+| Uses `grep_ast.TreeContext` | ~13 | Context extraction |
+
+## Linter (`aider/linter.py`)
+
+| Name | Line | Purpose |
+|------|------|---------|
+| `Linter` class | ~22 | Run lint commands on files |
+| `Linter.lint()` | ~75 | Run linter, return errors |
+| `Linter.run_cmd()` | ~45 | Execute lint command |
+| `Linter.py_lint()` | ~150 | Python-specific linting |
+| `Linter.set_linter()` | ~30 | Set custom lint command |
+
+## Command Execution (`aider/run_cmd.py`)
+
+| Name | Line | Purpose |
+|------|------|---------|
+| `run_cmd()` | ~11 | Run shell command |
+| `run_cmd_subprocess()` | ~43 | Subprocess-based execution |
+| `run_cmd_pexpect()` | ~80 | PTY-based execution |
+
+## Auto-Lint/Auto-Test Loop
+
+The magic loop in `aider/coders/base_coder.py`:
+
+```python
+# After LLM makes edits
+if self.auto_lint:
+    lint_errors = self.linter.lint(edited_files)
+    if lint_errors:
+        # Feed errors back to LLM for fixing
+        self.run(lint_errors)  # Recursive fix attempt
+
+if self.auto_test:
+    test_result = run_cmd(self.test_cmd)
+    if test_result.failed:
+        # Feed failures back to LLM
+        self.run(test_result.output)
+```
+
+## Key Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| `tree-sitter` | Code parsing for repo maps |
+| `grep-ast` | AST-aware grep, tree-sitter wrapper |
+| `litellm` | Multi-provider LLM abstraction |
+| `gitpython` | Git integration |
+| `prompt-toolkit` | Interactive CLI |
+| `rich` | Terminal formatting |
+| `tiktoken` | Token counting |
 
 ---
 
