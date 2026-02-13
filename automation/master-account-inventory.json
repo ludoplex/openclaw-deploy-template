@@ -7,7 +7,7 @@
     "Account configuration files"
   ],
   "entities": ["Mighty House Inc", "DSAIC", "The Computer Store", "Theander Project"],
-  "total_accounts": 127,
+  "total_accounts": 129,
   "categories": {
     "EMAIL_SERVICES": 3,
     "CLOUD_STORAGE": 4,
@@ -220,14 +220,44 @@
       "notes": "Banking"
     },
     {
-      "service_name": "Ingram Micro",
+      "service_name": "Ingram Micro (Xvantage Portal)",
       "category": "SUPPLIERS_DISTRIBUTORS",
       "email_used": "rachelwilliams@mightyhouseinc.com",
       "signup_date": "2024-01-01",
       "entity": "Mighty House Inc",
       "status": "active",
-      "url": "https://www.ingrammicro.com",
-      "notes": "IT distributor, vendor authorization"
+      "url": "https://usa.ingrammicro.com",
+      "notes": "IT distributor, customer #50-135152, $29k open invoices"
+    },
+    {
+      "service_name": "Ingram Micro Developer Portal",
+      "category": "DEVELOPER",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "2026-02-12",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://developer.ingrammicro.com",
+      "notes": "API access: Product Catalog, Orders, Quotes, Invoices v6. Sandbox app: 50-135152-SandboxApp. Client ID: 1qPrC4UGvKa9PokhHXdmWNoLerhSMisK"
+    },
+    {
+      "service_name": "Mouser Developer APIs",
+      "category": "DEVELOPER",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "2026-02-12",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://api.mouser.com",
+      "notes": "Search API: a09b3efd-1c80-49e4-898c-c675f0fdd590 (active). Order/Cart API: 3c046cee-c9f5-4427-b5fa-0585d67c993f (pending auth)"
+    },
+    {
+      "service_name": "element14/Farnell/Newark Partner API",
+      "category": "DEVELOPER",
+      "email_used": "vincentlanderson@mightyhouseinc.com",
+      "signup_date": "2026-02-12",
+      "entity": "Mighty House Inc",
+      "status": "active",
+      "url": "https://partner.element14.com",
+      "notes": "Product Search API: azbg69v9jfy25uf3dpkkn6wa (active). Username: mhi_vincenta"
     },
     {
       "service_name": "TD SYNNEX",
