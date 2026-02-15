@@ -1,0 +1,592 @@
+{
+  "meta": {
+    "generated": "2026-02-08T21:20:00-07:00",
+    "purpose": "Full project inventory for ROI prioritization",
+    "financial_context": {
+      "cash_available": 8000,
+      "loan_available": 12000,
+      "loan_due_days": "60-90",
+      "monthly_overhead": 2330,
+      "target_90_day_revenue": 8600,
+      "guaranteed_revenue_90_day": 2400
+    }
+  },
+  "projects": [
+    {
+      "id": "pearsonvue-testing",
+      "name": "PearsonVUE Testing Center",
+      "entity": "Computer Store",
+      "category": "revenue_stream",
+      "status": "planned",
+      "priority": "TIER_1_IMMEDIATE",
+      "description": "Authorized testing center for professional certifications",
+      "revenue_potential": {
+        "30_day": { "low": 500, "mid": 750, "high": 1000 },
+        "60_day": { "low": 1000, "mid": 1500, "high": 2000 },
+        "90_day": { "low": 1500, "mid": 2000, "high": 3500 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": 14,
+      "dependencies": ["complete_hardware_setup", "pearson_agreement_finalize"],
+      "blockers": [],
+      "notes": "FREE to become authorized - user corrected prior estimates of $10-26K",
+      "contacts": ["Shelley Morris", "Kara Flanagan", "Brian Zibricky"]
+    },
+    {
+      "id": "glendo-it-contract",
+      "name": "Glendo Municipal IT Contract",
+      "entity": "MHI",
+      "category": "revenue_stream",
+      "status": "negotiation",
+      "priority": "TIER_1_IMMEDIATE",
+      "description": "Town IT services similar to Services for Seniors model",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 500, "high": 1000 },
+        "60_day": { "low": 500, "mid": 1500, "high": 2500 },
+        "90_day": { "low": 1500, "mid": 2500, "high": 3000 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": 14,
+      "dependencies": ["contract_negotiation"],
+      "blockers": [],
+      "notes": "Already in negotiation per Dec 2025 email"
+    },
+    {
+      "id": "ibm-climb-resale",
+      "name": "IBM/Climb Channel Reselling",
+      "entity": "DSAIC",
+      "category": "revenue_stream",
+      "status": "active",
+      "priority": "TIER_1_IMMEDIATE",
+      "description": "Quick-win SaaS resale through Climb partnership",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 2500, "high": 5000 },
+        "60_day": { "low": 2500, "mid": 5000, "high": 10000 },
+        "90_day": { "low": 5000, "mid": 7500, "high": 15000 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": 21,
+      "dependencies": ["identify_resale_opportunities"],
+      "blockers": [],
+      "notes": "Account CU0043054170 active"
+    },
+    {
+      "id": "services-for-seniors",
+      "name": "Services for Seniors (SFS)",
+      "entity": "MHI",
+      "category": "revenue_stream",
+      "status": "active",
+      "priority": "TIER_1_IMMEDIATE",
+      "description": "Lite IT/Networking for nonprofit - GUARANTEED revenue",
+      "revenue_potential": {
+        "30_day": { "low": 800, "mid": 800, "high": 800 },
+        "60_day": { "low": 1600, "mid": 1600, "high": 1600 },
+        "90_day": { "low": 2400, "mid": 2400, "high": 2400 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": 0,
+      "dependencies": [],
+      "blockers": [],
+      "notes": "$800/month recurring - ALREADY CONTRACTED"
+    },
+    {
+      "id": "gpu-server-vastai",
+      "name": "GPU Server Vast.ai Hosting",
+      "entity": "MHI",
+      "category": "revenue_stream",
+      "status": "planned",
+      "priority": "TIER_1_IMMEDIATE",
+      "description": "4x V100 32GB monetization on Vast.ai",
+      "revenue_potential": {
+        "30_day": { "low": 36, "mid": 75, "high": 100 },
+        "60_day": { "low": 72, "mid": 150, "high": 200 },
+        "90_day": { "low": 150, "mid": 300, "high": 600 }
+      },
+      "investment_required": 86,
+      "investment_type": "monthly_power",
+      "time_to_revenue_days": 7,
+      "dependencies": ["gpu_server_setup_checklist"],
+      "blockers": [],
+      "notes": "Setup planned Wednesday Feb 12. Net revenue after power."
+    },
+    {
+      "id": "esa-withodyssey",
+      "name": "ESA/Withodyssey Training Enrollment",
+      "entity": "Computer Store",
+      "category": "revenue_stream",
+      "status": "active",
+      "priority": "TIER_2_30DAY",
+      "description": "Education Savings Account funded training - $7,000/student WY",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 7000 },
+        "60_day": { "low": 0, "mid": 7000, "high": 14000 },
+        "90_day": { "low": 7000, "mid": 14000, "high": 21000 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": 30,
+      "dependencies": ["marketing_to_esa_families"],
+      "blockers": [],
+      "notes": "MHI is ALREADY ESP/Vendor on Withodyssey platform"
+    },
+    {
+      "id": "lan-center-events",
+      "name": "LAN Center Revenue (ggLeap)",
+      "entity": "Computer Store",
+      "category": "revenue_stream",
+      "status": "active",
+      "priority": "TIER_2_30DAY",
+      "description": "Tournaments, memberships, hourly PC rental",
+      "revenue_potential": {
+        "30_day": { "low": 200, "mid": 500, "high": 800 },
+        "60_day": { "low": 500, "mid": 1000, "high": 1500 },
+        "90_day": { "low": 1000, "mid": 1500, "high": 3000 }
+      },
+      "investment_required": 170,
+      "investment_type": "monthly_existing",
+      "time_to_revenue_days": 0,
+      "dependencies": ["event_marketing"],
+      "blockers": [],
+      "notes": "Already paying $170/mo (ggLeap $70 + Steam Cafe $100)"
+    },
+    {
+      "id": "snack-beverage-sales",
+      "name": "Snack/Beverage Sales",
+      "entity": "Computer Store",
+      "category": "revenue_stream",
+      "status": "planned",
+      "priority": "TIER_2_30DAY",
+      "description": "High margin individually wrapped items (no food license)",
+      "revenue_potential": {
+        "30_day": { "low": 100, "mid": 250, "high": 400 },
+        "60_day": { "low": 250, "mid": 500, "high": 800 },
+        "90_day": { "low": 500, "mid": 750, "high": 1500 }
+      },
+      "investment_required": 500,
+      "time_to_revenue_days": 7,
+      "dependencies": ["initial_inventory_purchase"],
+      "blockers": [],
+      "notes": "50-100% margin on candy/snacks/sodas"
+    },
+    {
+      "id": "certification-training",
+      "name": "Pearson Certification Training Courses",
+      "entity": "Computer Store",
+      "category": "revenue_stream",
+      "status": "planned",
+      "priority": "TIER_2_30DAY",
+      "description": "Training courses synergized with PearsonVUE testing",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 500, "high": 1000 },
+        "60_day": { "low": 500, "mid": 1500, "high": 2500 },
+        "90_day": { "low": 2000, "mid": 3500, "high": 5000 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": 21,
+      "dependencies": ["curriculum_development", "pearsonvue_testing"],
+      "blockers": [],
+      "notes": "Courses: Touch typing, ASM, C programming, networking"
+    },
+    {
+      "id": "govcon-rfp",
+      "name": "GovCon RFP Responses",
+      "entity": "MHI",
+      "category": "revenue_stream",
+      "status": "active",
+      "priority": "TIER_3_60DAY",
+      "description": "Federal contract responses leveraging EDWOSB/HUBZone",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 5000 },
+        "90_day": { "low": 0, "mid": 10000, "high": 50000 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": 60,
+      "dependencies": ["rfp_evaluation", "mhi_website"],
+      "blockers": [],
+      "notes": "EDWOSB sole-source up to $7M. Active RFPs: Brighton MI, Kane County IL, Tucson AZ"
+    },
+    {
+      "id": "platte-county-edc",
+      "name": "Platte County Economic Development Council",
+      "entity": "MHI",
+      "category": "strategic_positioning",
+      "status": "planned",
+      "priority": "TIER_3_60DAY",
+      "description": "Position for infrastructure projects (rare earth, power, AI DC)",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": 365,
+      "dependencies": ["council_membership_application"],
+      "blockers": [],
+      "notes": "10-year infrastructure play - critical strategic positioning"
+    },
+    {
+      "id": "gundom-ballistics",
+      "name": "GUNDOM Ballistics Calculator",
+      "entity": "DSAIC",
+      "category": "software_product",
+      "status": "active",
+      "priority": "TIER_4_SOFTWARE",
+      "path": "C:\\GUNDOM",
+      "repo": "https://github.com/ludoplex/GUNDOM",
+      "description": "Professional ballistics calculator - Gov/LE/Sports/Hunting markets",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 25000,
+      "investment_type": "minimum_event_presence",
+      "time_to_revenue_days": 180,
+      "dependencies": ["fix_ci_failures", "event_presence"],
+      "blockers": ["pr_34_ci_failing", "no_marketing_budget"],
+      "notes": "PR #34 refactor: 3 CI checks failing. Events: NRA April 2026, SHOT Show 2027"
+    },
+    {
+      "id": "apeswarm-saas",
+      "name": "Apeswarm SaaS Platform",
+      "entity": "DSAIC",
+      "category": "software_product",
+      "status": "active",
+      "priority": "TIER_4_SOFTWARE",
+      "path": "C:\\apeswarm",
+      "repo": "https://github.com/ludoplex/apeswarm",
+      "description": "Portable datacenter + single-binary = air-gapped AI moat",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": 180,
+      "dependencies": ["customer_acquisition", "sales_motion"],
+      "blockers": ["no_sales_pipeline"],
+      "notes": "Commit 2408bfd, ~165 tests. Roadmap: IDP/RAG (Q1), AI Governance (Q2)"
+    },
+    {
+      "id": "sop-automation-dashboard",
+      "name": "SOP Automation Dashboard",
+      "entity": "MHI",
+      "category": "software_product",
+      "status": "active",
+      "priority": "TIER_4_SOFTWARE",
+      "path": "C:\\Users\\user\\.openclaw\\workspace\\sop-automation-dashboard",
+      "repo": "https://github.com/ludoplex/sop-automation-dashboard",
+      "description": "Multi-entity SOP execution, automation, and content pipeline",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": [],
+      "blockers": [],
+      "notes": "Internal efficiency tool - FastAPI + HTMX + llamafile. Runs at localhost:8085"
+    },
+    {
+      "id": "mhi-procurement",
+      "name": "MHI Procurement Engine",
+      "entity": "MHI",
+      "category": "software_product",
+      "status": "active",
+      "priority": "TIER_4_SOFTWARE",
+      "path": "C:\\mhi-procurement",
+      "repo": "https://github.com/ludoplex/mhi-procurement",
+      "description": "Cross-platform procurement app for Ingram/TD SYNNEX/D&H/Climb",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": [],
+      "blockers": [],
+      "notes": "Internal tool - streamlines purchasing. Accounts: Ingram #50-135152-000, D&H #3270340000, TD SYNNEX #786379"
+    },
+    {
+      "id": "tedit-cosmo",
+      "name": "tedit-cosmo Text Editor",
+      "entity": "DSAIC",
+      "category": "software_product",
+      "status": "active",
+      "priority": "TIER_4_SOFTWARE",
+      "path": "C:\\tedit-cosmo",
+      "description": "Portable text editor with disasm view",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": [],
+      "blockers": [],
+      "notes": "Disasm view integrated, 90 Unity tests. Technical foundation."
+    },
+    {
+      "id": "cosmo-disasm",
+      "name": "cosmo-disasm Library",
+      "entity": "DSAIC",
+      "category": "software_product",
+      "status": "active",
+      "priority": "TIER_4_SOFTWARE",
+      "path": "C:\\cosmo-disasm",
+      "repo": "https://github.com/ludoplex/cosmo-disasm",
+      "description": "Disassembly library for Cosmo toolchain",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": [],
+      "blockers": [],
+      "notes": "3,027 lines complete. Technical foundation."
+    },
+    {
+      "id": "e9studio",
+      "name": "e9studio Binary Rewriting",
+      "entity": "DSAIC",
+      "category": "software_product",
+      "status": "active",
+      "priority": "TIER_4_SOFTWARE",
+      "path": "C:\\e9studio",
+      "description": "Binary rewriting studio",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": [],
+      "blockers": [],
+      "notes": "Technical foundation. Part of Cosmo toolchain."
+    },
+    {
+      "id": "llamafile-llm",
+      "name": "llamafile LLM Integration",
+      "entity": "DSAIC",
+      "category": "software_product",
+      "status": "active",
+      "priority": "TIER_4_SOFTWARE",
+      "path": "C:\\llamafile-llm",
+      "description": "Local LLM integration via llamafile",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": [],
+      "blockers": [],
+      "notes": "Qwen 2.5 7B running. Saves Claude tokens."
+    },
+    {
+      "id": "mixpost-malone",
+      "name": "Mixpost-Malone Social Media Manager",
+      "entity": "DSAIC",
+      "category": "software_product",
+      "status": "paused",
+      "priority": "TIER_5_DEFERRED",
+      "path": "C:\\dev\\mixpost-malone",
+      "repo": "https://github.com/ludoplex/mixpost-malone",
+      "description": "Social media management SaaS with multi-entity support",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": ["mhi_website", "dsaic_website", "computerstore_website"],
+      "blockers": ["waiting_on_entity_websites"],
+      "notes": "Feature complete. Local: C:\\dev\\mixpost-app (Docker) + package"
+    },
+    {
+      "id": "mhi-website",
+      "name": "MHI Website",
+      "entity": "MHI",
+      "category": "web_presence",
+      "status": "planned",
+      "priority": "TIER_3_60DAY",
+      "description": "Professional GovCon website for EDWOSB/HUBZONE credibility",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": ["content_creation"],
+      "blockers": [],
+      "notes": "Domain mightyhouseinc.com EXISTS. Required for RFP responses."
+    },
+    {
+      "id": "dsaic-website",
+      "name": "DSAIC Website",
+      "entity": "DSAIC",
+      "category": "web_presence",
+      "status": "planned",
+      "priority": "TIER_5_DEFERRED",
+      "description": "SaaS/ML brand presence - separate from MHI",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 50,
+      "investment_type": "domain_registration",
+      "time_to_revenue_days": null,
+      "dependencies": ["domain_decision"],
+      "blockers": ["domain_tbd_not_ai"],
+      "notes": "Vincent prefers dsaicorp.com NOT .ai"
+    },
+    {
+      "id": "computerstore-website",
+      "name": "Computer Store Website",
+      "entity": "Computer Store",
+      "category": "web_presence",
+      "status": "planned",
+      "priority": "TIER_3_60DAY",
+      "description": "Retail/esports/LAN local presence",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": ["content_creation"],
+      "blockers": [],
+      "notes": "FREE subdomain: computerstore.mightyhouseinc.com"
+    },
+    {
+      "id": "computerstore-platform",
+      "name": "Computer Store Platform (Code)",
+      "entity": "Computer Store",
+      "category": "software_product",
+      "status": "active",
+      "priority": "TIER_4_SOFTWARE",
+      "repo": "https://github.com/ludoplex/computerstore-platform",
+      "description": "Full-stack platform for Computer Store operations",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": ["stripe_keys", "ggleap_api_key"],
+      "blockers": ["needs_live_credentials"],
+      "notes": "Running at localhost:8003. ggLeap integration code complete (commit 3d73c4a)"
+    },
+    {
+      "id": "zoho-api-system",
+      "name": "Zoho Console API Module System",
+      "entity": "MHI",
+      "category": "software_product",
+      "status": "active",
+      "priority": "TIER_4_SOFTWARE",
+      "path": "C:\\zoho-console-api-module-system",
+      "description": "Unified Zoho API access (CRM, Books, Inventory, Desk, etc.)",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 0, "high": 0 },
+        "90_day": { "low": 0, "mid": 0, "high": 0 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": null,
+      "dependencies": [],
+      "blockers": [],
+      "notes": "Internal tool. OAuth 2.0 with auto-refresh. Also hosts SOP Dashboard."
+    },
+    {
+      "id": "prepaid-mobile-sales",
+      "name": "Prepaid Mobile/SIM Sales",
+      "entity": "Computer Store",
+      "category": "revenue_stream",
+      "status": "planned",
+      "priority": "TIER_5_DEFERRED",
+      "description": "Phone sales + SIM activations",
+      "revenue_potential": {
+        "30_day": { "low": 0, "mid": 0, "high": 0 },
+        "60_day": { "low": 0, "mid": 100, "high": 200 },
+        "90_day": { "low": 100, "mid": 300, "high": 500 }
+      },
+      "investment_required": 500,
+      "time_to_revenue_days": 30,
+      "dependencies": ["carrier_agreements"],
+      "blockers": [],
+      "notes": "Lower margin than other priorities. Wyoming tax structure benefits."
+    },
+    {
+      "id": "retail-sales",
+      "name": "Computer Store Retail Sales",
+      "entity": "Computer Store",
+      "category": "revenue_stream",
+      "status": "active",
+      "priority": "TIER_2_30DAY",
+      "description": "DIY/homelab/senior/gamer electronics sales",
+      "revenue_potential": {
+        "30_day": { "low": 200, "mid": 500, "high": 1000 },
+        "60_day": { "low": 500, "mid": 1000, "high": 2000 },
+        "90_day": { "low": 1000, "mid": 2000, "high": 4000 }
+      },
+      "investment_required": 0,
+      "time_to_revenue_days": 0,
+      "dependencies": ["inventory_from_suppliers"],
+      "blockers": [],
+      "notes": "Wyoming 4% sales tax, no state income tax"
+    }
+  ],
+  "supplier_accounts": [
+    { "supplier": "Ingram Micro", "account": "50-135152-000", "status": "active", "api": "REST v6" },
+    { "supplier": "D&H", "account": "3270340000", "status": "active", "api": "REST OAS3" },
+    { "supplier": "TD SYNNEX", "account": "786379", "status": "active", "api": "Digital Bridge" },
+    { "supplier": "IBM/Climb", "account": "CU0043054170", "status": "active", "api": "none" }
+  ],
+  "registration_numbers": {
+    "phone": "(307) 331-1040",
+    "duns": "081351838",
+    "cage": "8DFL3",
+    "uei": "NA1ZBSQTJ468",
+    "ein": "PENDING_LOOKUP"
+  },
+  "summary": {
+    "total_projects": 27,
+    "by_entity": {
+      "MHI": 9,
+      "DSAIC": 10,
+      "Computer Store": 8
+    },
+    "by_status": {
+      "active": 16,
+      "planned": 8,
+      "paused": 1,
+      "negotiation": 1,
+      "deferred": 1
+    },
+    "by_priority": {
+      "TIER_1_IMMEDIATE": 5,
+      "TIER_2_30DAY": 5,
+      "TIER_3_60DAY": 4,
+      "TIER_4_SOFTWARE": 10,
+      "TIER_5_DEFERRED": 3
+    },
+    "90_day_revenue_projection": {
+      "low": 18850,
+      "mid": 36400,
+      "high": 73000,
+      "guaranteed": 2400
+    }
+  }
+}

@@ -44,3 +44,36 @@ memory/external-sessions/
 
 # API keys
 .elevenlabs_key
+
+# Large binaries/models (don't commit)
+bin/
+models/
+*.gguf
+*.exe
+*.dll
+*.so
+
+# Docker artifacts
+docker/volumes/
+docker/*.log
+
+# Log files
+*.log
+llama.log
+main.log
+
+# Temp files
+*.tmp
+*.bak
+*.swp
+
+# Database files (regenerated)
+*.db-shm
+*.db-wal
+localsearch-state/
+
+# Memory file backups (keep originals)
+memory-files-*.zip
+
+# Claude transcripts (may be large/sensitive)
+claude-transcripts/

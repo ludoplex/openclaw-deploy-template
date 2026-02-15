@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "generated": "2026-02-08T21:35:00-07:00",
+    "sources": ["github:ludoplex", "local:C:\\", "prior_inventory"],
+    "total_repos_github": 100,
+    "total_local_git": 19,
+    "total_unique_projects": 45
+  },
+  "MHI": {
+    "entity_full": "Mighty House Inc",
+    "type": "GovCon/IT Services",
+    "identifiers": {
+      "ein": "81-3474529",
+      "duns": "081351838",
+      "cage": "8DFL3",
+      "uei": "NA1ZBSQTJ468",
+      "phone": "(307) 331-1040"
+    },
+    "revenue_streams": [
+      {
+        "id": "services-for-seniors",
+        "name": "Services for Seniors",
+        "status": "active",
+        "revenue_90_day": {"guaranteed": 2400}
+      },
+      {
+        "id": "glendo-it",
+        "name": "Glendo IT Contract",
+        "status": "negotiation",
+        "revenue_90_day": {"low": 1500, "mid": 2500, "high": 3000}
+      },
+      {
+        "id": "gpu-server-vastai",
+        "name": "GPU Server Vast.ai",
+        "status": "planned",
+        "setup_date": "2026-02-12",
+        "revenue_90_day": {"low": 150, "mid": 300, "high": 600}
+      },
+      {
+        "id": "govcon-rfp",
+        "name": "GovCon RFP Responses",
+        "status": "active",
+        "revenue_90_day": {"low": 0, "mid": 10000, "high": 50000}
+      }
+    ],
+    "software": [
+      {"id": "zoho-console-api-module-system", "path": "C:\\zoho-console-api-module-system", "status": "active", "purpose": "Unified Zoho API"},
+      {"id": "sop-automation-dashboard", "path": "C:\\Users\\user\\.openclaw\\workspace", "status": "active", "purpose": "SOP execution"},
+      {"id": "mhi-procurement", "path": "C:\\mhi-procurement", "repo": "ludoplex/mhi-procurement", "status": "active", "purpose": "Supplier ordering"},
+      {"id": "mhi-ventoy", "path": "C:\\mhi-ventoy", "status": "active", "purpose": "USB deployment (Ventoy fork)"},
+      {"id": "mhi-usb-staging", "path": "C:\\mhi-usb-staging", "status": "active", "purpose": "USB staging"},
+      {"id": "apeswarm-zoho-sop-engine", "repo": "ludoplex/apeswarm-zoho-sop-engine", "status": "active", "purpose": "Zoho SOP bridge"}
+    ],
+    "strategic": [
+      {"id": "platte-county-edc", "name": "Platte County EDC Membership", "status": "planned", "timeline": "10-year"},
+      {"id": "mhi-website", "name": "MHI Website Redesign", "status": "backburner", "domain": "mightyhouseinc.com"}
+    ],
+    "total_projects": 12
+  },
+  "DSAIC": {
+    "entity_full": "Data Science Applications Inc",
+    "type": "SaaS/ML",
+    "revenue_streams": [
+      {
+        "id": "ibm-climb-resale",
+        "name": "IBM/Climb Channel Reselling",
+        "status": "active",
+        "account": "CU0043054170",
+        "revenue_90_day": {"low": 5000, "mid": 7500, "high": 15000}
+      }
+    ],
+    "software_products": [
+      {"id": "gundom", "name": "GUNDOM Ballistics Calculator", "path": "C:\\GUNDOM", "repo": "ludoplex/GUNDOM", "status": "active", "ci_status": "3 failing", "market": "Gov/LE/Sports/Hunting"},
+      {"id": "apeswarm", "name": "Apeswarm SaaS Platform", "path": "C:\\apeswarm", "repo": "ludoplex/apeswarm", "status": "active", "market": "Enterprise AI"},
+      {"id": "mixpost-malone", "name": "Mixpost-Malone Social Media", "path": "C:\\dev\\mixpost-malone", "repo": "ludoplex/mixpost-malone", "status": "paused", "blocker": "waiting_on_websites"},
+      {"id": "tedit-cosmo", "name": "tedit-cosmo Text Editor", "path": "C:\\tedit-cosmo", "repo": "ludoplex/tedit-cosmo", "status": "active"},
+      {"id": "cosmo-disasm", "name": "cosmo-disasm Library", "path": "C:\\cosmo-disasm", "repo": "ludoplex/cosmo-disasm", "status": "active"},
+      {"id": "cosmo-bsd", "name": "Cosmo BSD Tooling", "path": "C:\\cosmo-bsd", "repo": "ludoplex/cosmo-bsd", "status": "active"},
+      {"id": "e9studio", "name": "e9studio Binary Rewriting", "path": "C:\\e9studio", "repo": "ludoplex/e9studio", "status": "active"},
+      {"id": "llamafile-llm", "name": "llamafile LLM Integration", "path": "C:\\llamafile-llm", "status": "active"}
+    ],
+    "research": [
+      {"id": "ai-void-analysis", "path": "C:\\ai-void-analysis", "repo": "ludoplex/ai-void-analysis", "status": "public"},
+      {"id": "ai-arena-analysis", "path": "C:\\ai-arena-analysis", "repo": "ludoplex/ai-arena-analysis", "status": "public"},
+      {"id": "ai-elevenlabs-analysis", "path": "C:\\ai-elevenlabs-analysis", "repo": "ludoplex/ai-elevenlabs-analysis", "status": "public"},
+      {"id": "ai-grok-analysis", "path": "C:\\ai-grok-analysis", "repo": "ludoplex/ai-grok-analysis", "status": "public"},
+      {"id": "ai-dc-market-analysis", "repo": "ludoplex/ai-dc-market-analysis", "status": "private"}
+    ],
+    "assembly_lowlevel": [
+      {"id": "masm64-framework", "path": "C:\\masm64-framework", "repo": "ludoplex/masm64-framework", "status": "public"},
+      {"id": "masm64-sdk-rev", "path": "C:\\masm64-sdk-rev", "status": "local_only"}
+    ],
+    "web_presence": [
+      {"id": "dsaic-website", "status": "planned", "domain_preference": "dsaicorp.com"}
+    ],
+    "total_projects": 18
+  },
+  "ComputerStore": {
+    "entity_full": "Computer Store (MHI subsidiary)",
+    "type": "Retail/Gaming/Training",
+    "revenue_streams": [
+      {"id": "pearsonvue-testing", "name": "PearsonVUE Testing Center", "status": "planned", "investment": 0, "revenue_90_day": {"low": 1500, "mid": 2000, "high": 3500}},
+      {"id": "esa-withodyssey", "name": "ESA/Withodyssey Training", "status": "active", "revenue_90_day": {"low": 7000, "mid": 14000, "high": 21000}},
+      {"id": "lan-center", "name": "LAN Center (ggLeap)", "status": "active", "monthly_cost": 170, "revenue_90_day": {"low": 1000, "mid": 1500, "high": 3000}},
+      {"id": "certification-training", "name": "Certification Training Courses", "status": "planned", "revenue_90_day": {"low": 2000, "mid": 3500, "high": 5000}},
+      {"id": "snack-beverage", "name": "Snack/Beverage Sales", "status": "planned", "investment": 500, "revenue_90_day": {"low": 500, "mid": 750, "high": 1500}},
+      {"id": "retail-sales", "name": "Retail Hardware Sales", "status": "active", "revenue_90_day": {"low": 1000, "mid": 2000, "high": 4000}}
+    ],
+    "software": [
+      {"id": "computerstore-platform", "path": "C:\\computerstore-platform", "repo": "ludoplex/computerstore-platform", "status": "active", "blockers": ["stripe_keys", "ggleap_api"]},
+      {"id": "lancache-manager", "repo": "ludoplex/lancache-manager", "status": "fork", "purpose": "Game caching for LAN"},
+      {"id": "restreamer", "repo": "ludoplex/restreamer", "status": "fork", "purpose": "Streaming for events"}
+    ],
+    "web_presence": [
+      {"id": "computerstore-website", "status": "backburner", "domain": "computerstore.mightyhouseinc.com"}
+    ],
+    "total_projects": 10
+  },
+  "Shared": {
+    "description": "Agent systems and shared infrastructure",
+    "projects": [
+      {"id": "openclaw-workspace", "path": "C:\\Users\\user\\.openclaw\\workspace", "status": "active"},
+      {"id": "openclaw-deploy-template", "repo": "ludoplex/openclaw-deploy-template", "status": "public"},
+      {"id": "agent-services", "repo": "ludoplex/agent-services", "status": "private"},
+      {"id": "universal-mcp", "repo": "ludoplex/universal-mcp", "status": "private"},
+      {"id": "cursor-setup-files", "repo": "ludoplex/cursor-setup-files", "status": "private"},
+      {"id": "cursor-vscdb-backup", "repo": "ludoplex/cursor-vscdb-backup", "status": "private"},
+      {"id": "llm-instructions", "repo": "ludoplex/llm-instructions", "status": "private"},
+      {"id": "CursorBackupSystem", "path": "C:\\Users\\user\\Documents\\CursorBackupSystem", "status": "local"}
+    ],
+    "total_projects": 8
+  },
+  "Forks": {
+    "description": "Third-party forks for reference or contribution",
+    "count": 60,
+    "notable": [
+      "llamafile", "openclaw", "cosmokramerpolitan", "llama.cpp", "binaryen",
+      "htmx", "gtirb", "cimgui", "dcimgui", "raygui", "SpartanEngine",
+      "is-Engine", "quakenite", "flatbuffers", "mir", "ubpf", "ebpf-for-windows"
+    ]
+  },
+  "summary": {
+    "by_entity": {
+      "MHI": 12,
+      "DSAIC": 18,
+      "ComputerStore": 10,
+      "Shared": 8,
+      "Forks": 60
+    },
+    "total_unique": 48,
+    "total_with_forks": 108,
+    "revenue_90_day_projection": {
+      "guaranteed": 2400,
+      "low": 18150,
+      "mid": 41050,
+      "high": 102100
+    }
+  }
+}
