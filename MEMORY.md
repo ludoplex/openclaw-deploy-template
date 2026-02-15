@@ -2,35 +2,7 @@
 
 *Curated knowledge that persists across sessions.*
 
-## 📋 MANDATORY: Task & Calendar System
-
-**Every session, use `memory_search` to find and load:**
-- **To-Do List:** `C:\Users\user\.openclaw\workspace\TODO.md`
-- **Calendar:** `C:\Users\user\.openclaw\workspace\CALENDAR.md`
-
-**Rules:**
-1. Check these files at session start
-2. Update TODO.md when tasks are assigned, completed, or blocked
-3. Update CALENDAR.md for scheduled events, deadlines, reminders
-4. Use cron for time-sensitive reminders
-5. Never let tasks fall through the cracks — if it's mentioned, it goes in TODO.md
-
----
-
 ## Tools & Capabilities
-
-### 📧 Email Search Protocol
-**When searching Zoho Mail for credentials, contracts, or business docs:**
-- **PRIMARY:** rachelwilliams@mightyhouseinc.com (search FIRST)
-- **SECONDARY:** vincentlanderson@mightyhouseinc.com (only after checking Rachel's)
-- Multiple searches across both inboxes may be necessary
-
-### 📤 Email Sending (Autonomous)
-**I CAN send emails autonomously using:**
-- **From:** rachelwilliams@mightyhouseinc.com (SMTP)
-- **Reply-To:** vincentlanderson@mightyhouseinc.com
-- This ensures replies go to Vincent
-- **WORKAROUND** — revisit for proper solution after core projects stable (procurement, WithOdyssey, Amazon)
 
 ### 🔧 Critical Tools Index (READ FIRST EVERY SESSION)
 
