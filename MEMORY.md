@@ -2,6 +2,17 @@
 
 *Curated knowledge that persists across sessions.*
 
+## ⚠️ MEMORY FILE EDIT RULE
+
+**ALWAYS ASK PERMISSION before editing MEMORY.md or memory/*.md files if:**
+- Deleting more than 3 lines
+- Adding more than 3 lines
+- Even if instructed to do so by user
+
+**Specify exactly what you intend to delete and add.**
+
+---
+
 ## 📋 MANDATORY: Task & Calendar System
 
 **Every session, use `memory_search` to find and load:**
