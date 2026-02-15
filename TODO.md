@@ -1,6 +1,6 @@
 # TODO.md - Active Task List
 
-*Updated: 2026-02-14 22:20 MST*
+*Updated: 2026-02-15 03:10 MST*
 
 ## 🔴 HIGH PRIORITY
 
@@ -60,6 +60,10 @@
 - [x] Create analyst reports: VPS options, supplier enumeration (2026-02-14)
 - [x] Identify API request status for D&H, TD SYNNEX (2026-02-14)
 - [x] Map all supplier contacts (Arrow, Ma Labs, ASI, XYAB) (2026-02-14)
+- [x] Fix memory index (swapped 2.6GB tmp with 29K embeddings to main.sqlite) (2026-02-15)
+- [x] Document WithOdyssey state portal URLs (Iowa, GA, LA, WY, UT, TX) (2026-02-15)
+- [x] Confirm MHI vendor approval status (Wyoming, Utah, LA GATOR confirmed) (2026-02-15)
+- [x] Audit config.ini for working APIs (Ingram✅, Mouser✅, Element14✅, Climb✅) (2026-02-15)
 
 ---
 
@@ -71,6 +75,7 @@
 | TD SYNNEX integration | No credentials | mikko.dizon@tdsynnex.com response |
 | Amazon automation | No SP-API access | Vincent to register developer account |
 | VPS setup | No server | Vincent to provision Hetzner |
+| WithOdyssey CSV upload | No login credentials | Vincent to provide password or trigger reset |
 
 ---
 
