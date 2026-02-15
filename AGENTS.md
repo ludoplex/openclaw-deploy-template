@@ -618,6 +618,20 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 
 ---
 
+## Token Conservation (MANDATORY)
+
+**Use local Qwen LLM (llamafile) whenever possible:**
+```python
+import sys; sys.path.insert(0, r"C:\Users\user\.openclaw\workspace")
+from local_llm import ask_local, generate_json, summarize, format_for_platform
+```
+
+**Delegate to Qwen:** Text formatting, summaries, JSON gen, data extraction, simple analysis
+**Keep on Claude:** Complex reasoning, multi-step planning, tool coordination, code with context
+
+**Pre-Compaction Protocol:**
+When context > 90%, save critical session state to `memory/overnight-YYYY-MM-DD.md` or similar non-LLM file before compaction occurs.
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
