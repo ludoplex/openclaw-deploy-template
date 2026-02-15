@@ -4,10 +4,11 @@
 
 ## ⚠️ MEMORY FILE EDIT RULE
 
-**ALWAYS ASK PERMISSION before editing MEMORY.md or memory/*.md files if:**
+**ALWAYS ASK PERMISSION before editing MEMORY.md, SOUL.md, or IDENTITY.md if:**
 - Deleting more than 3 lines
 - Adding more than 3 lines
 - Even if instructed to do so by user
+- Ping Vincent on Telegram even if mid-task
 
 **Specify exactly what you intend to delete and add.**
 
