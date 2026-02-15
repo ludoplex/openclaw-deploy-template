@@ -1,117 +1,76 @@
-# TODO.md - Active Tasks
+# TODO.md - Active Task List
 
-*Last updated: 2026-02-03 19:50*
+*Updated: 2026-02-14 22:20 MST*
 
----
+## 🔴 HIGH PRIORITY
 
-## 🏪 Computer Store Platform
-**Repo:** https://github.com/ludoplex/computerstore-platform
-**Running:** http://localhost:8003
+### Procurement App
+- [ ] Get D&H REST API credentials (request sent to RISmith@dandh.com)
+- [ ] Get TD SYNNEX Digital Bridge API credentials (request sent to mikko.dizon@tdsynnex.com)
+- [ ] Complete cosmo-sokol GUI implementation
+- [ ] Integrate Ingram Micro API (sandbox working)
+- [ ] Add Mouser API integration
 
-### Needs User Input
-- [x] **SMTP config** - ✅ CONFIGURED (Zoho Mail rachelwilliams@mightyhouseinc.com)
-  - Tested and working 2026-02-03 21:50 MST
-- [ ] **Stripe keys** - Need live/test API keys in `.env`
-  - `STRIPE_SECRET_KEY`, `STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET`
-- [ ] **ggLeap API key** - Need from ggLeap admin: https://admin.ggleap.com/settings/api
-  - `GGLEAP_API_KEY` in `.env`
+### VPS Autonomy Setup
+- [ ] Vincent provisions Hetzner VPS (AX41 or auction 64GB)
+- [ ] Bootstrap OpenClaw on VPS
+- [ ] Sync workspace via git
+- [ ] Migrate credentials
+- [ ] Test autonomous operation
 
-### Needs Live Testing (ggLeap)
-- [ ] **ggLeap sync** - Code complete (commit 3d73c4a), needs live ggLeap environment
-  - Test `/api/lan/ggleap/status` endpoint
-  - Test member sync
-  - Test station status monitoring
+### Amazon Automation
+- [ ] Register Amazon SP-API developer account
+- [ ] Build listing automation module
+- [ ] Integrate with procurement inventory
 
-### Recently Completed ✅
-- [x] **ggLeap integration** (commit 3d73c4a):
-  - GGLeapSyncService for bidirectional sync
-  - Member sync endpoints
-  - Station status monitoring
-  - Integration documentation
-- [x] **Cart functionality** - Full add-to-cart with localStorage + API validation
-- [x] **Stripe checkout** (commit a8387a3)
-- [x] **Email verification flow** (commit 332e2ba) - UI done, needs SMTP
-- [x] **Password reset** (commit 508acea)
-- [x] **Protected routes** (commit 6af48c5)
-- [x] **Auth system** (commit 8ec2846)
-
-### Integrations
-- [ ] **Odyssey API** - Contact katie@withodyssey.com for direct API access
-- [ ] **Set up MHI Stripe account** for vendor payments (required for Odyssey)
+### WithOdyssey CSV
+- [ ] Get CSV format specification
+- [ ] Build CSV generator from Zoho Inventory
+- [ ] Automate upload process
 
 ---
 
-## 📊 SOP Automation Dashboard
-**Status:** ✅ RUNNING
-**Location:** `C:\zoho-console-api-module-system`
-**URL:** http://localhost:8085
+## 🟡 MEDIUM PRIORITY
 
-### Completed
-- [x] SOP Engine (`src/modules/sop/engine.py`) - Full workflow execution
-- [x] CRM Module (`src/modules/crm/`) - Records, blueprints, webhooks
-- [x] CLI for supplier email search
-- [x] **Web Dashboard** (FastAPI + HTMX) - `src/dashboard/`
-  - Dashboard home with stats by entity
-  - SOP list with filtering
-  - SOP detail view with manual trigger
-  - Execution history
-  - CRM webhook endpoint (`/webhook/crm`)
-- [x] Per-entity SOP definitions (9 total):
-  - MHI: 3 (New Lead, Lead Qualification, Deal Processing)
-  - DSAIC: 1 (Demo Request)
-  - Computer Store: 3 (Order, Student Enrollment, Certification)
-  - Cross-Entity: 2 (Student-to-Employee, Influencer Pipeline)
-
-### To Start Dashboard
-```powershell
-cd C:\zoho-console-api-module-system
-$env:PYTHONPATH="src"
-python -c "from src.dashboard.app import app; import uvicorn; uvicorn.run(app, host='127.0.0.1', port=8085)"
-```
-
----
-
-## 🐦 Mixpost-Malone (Social Media Manager)
-**Status:** PAUSED
-**Repo:** https://github.com/ludoplex/mixpost-malone
-**Waiting on:** Entity websites for MHI, DSAIC, Computer Store
-
-- [ ] Resume after entity websites are ready
-- See `memory/2026-02-03.md` for full context
-
----
-
-## 🌐 Entity Websites
-
-### MHI (Mighty House Inc)
-- [x] Domain: mightyhouseinc.com (EXISTS)
-- [ ] Build website (GovCon, EDWOSB, HUBZONE, IT Solutions)
-
-### DSAIC (Data Science Applications, Inc)
-- [ ] Register domain for DSAIC (NOT .ai - avoid AI association)
-- [ ] Build website (SaaS/ML/DL, IBM/Climb Channel reseller)
+### Supplier Setup
+- [ ] Follow up with D&H if no response in 48h
+- [ ] Follow up with TD SYNNEX if no response in 48h
+- [ ] Apply for DigiKey API access (developer.digikey.com)
+- [ ] Apply for Arrow API access
+- [ ] Check Ma Labs for API availability
 
 ### Computer Store
-- [ ] Set up subdomain: computerstore.mightyhouseinc.com
-- [ ] Point to Computer Store Platform
+- [ ] VEX Robotics reseller account
+- [ ] XYAB inventory integration (contact: Kayla Osness)
 
 ---
 
-## 🔧 OpenClaw Agent Fleet
-**Status:** ✅ WORKING (17 agents deployed)
-**Bug Fixed:** https://github.com/openclaw/openclaw/issues/8445
+## 🟢 LOW PRIORITY / BACKLOG
 
-Spawning works. Use `/agent <id>` or `sessions_spawn(agentId="...", task="...")`.
-
-⚠️ Keep `hooks.internal.entries.workflow-enforcer.enabled: false` - causes .trim() error
+- [ ] Icecat product data integration (free)
+- [ ] ScanSource partner program evaluation
+- [ ] BlueStar POS equipment channel
 
 ---
 
-## 💡 Ideas / Backlog
+## ✅ COMPLETED
 
-- [ ] **cosmo-python** - Use metaist/cosmo-python for portable Python (APE)
-- [ ] **ggLeap API** - May need partner access for full docs
+- [x] Search Zoho email for supplier credentials (2026-02-14)
+- [x] Create analyst reports: VPS options, supplier enumeration (2026-02-14)
+- [x] Identify API request status for D&H, TD SYNNEX (2026-02-14)
+- [x] Map all supplier contacts (Arrow, Ma Labs, ASI, XYAB) (2026-02-14)
 
 ---
 
-*Update this file as tasks complete or change.*
+## 🚫 BLOCKED
+
+| Task | Blocker | Waiting On |
+|------|---------|------------|
+| D&H API integration | No credentials | RISmith@dandh.com response |
+| TD SYNNEX integration | No credentials | mikko.dizon@tdsynnex.com response |
+| Amazon automation | No SP-API access | Vincent to register developer account |
+| VPS setup | No server | Vincent to provision Hetzner |
+
+---
+
+*Update this file whenever tasks change. Use `memory_search("TODO")` to find.*
