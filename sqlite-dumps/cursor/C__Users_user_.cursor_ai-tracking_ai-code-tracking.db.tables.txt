@@ -1,0 +1,1189 @@
+﻿=== TABLE: ai_code_hashes ===
+hash      source    fileExtension  fileName                                                         requestId  conversationId                        timestamp      createdAt    
+--------  --------  -------------  ---------------------------------------------------------------  ---------  ------------------------------------  -------------  -------------
+46271e20  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+2136ace5  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+955bdbc2  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+d3b01146  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+861c3232  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+dda331c   composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+9903a377  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+9592362   composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+b0b98392  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+cd920d8f  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+6724cdf6  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+ee358c0d  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+73e8c438  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+276e3288  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+437f80ba  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+56e89ef2  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+b0cf2cd2  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+859817aa  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+4feb6cbe  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+233e0ce   composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+9b8e39f   composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+3884333a  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+9ac5c510  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+56cc6a17  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+1188b96b  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+ebe45c8   composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+9ef6963   composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+6d9dc1d4  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+11a8644f  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+32540d62  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+5d5c3fdc  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+4b472f72  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+ad0c35cd  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+c6f8b630  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+c181a11c  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+e591affd  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+376d5ede  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+70c2caa9  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+fdb29080  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+b37fc5b   composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+1bb6eb0c  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+d081bcab  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+fe7fd9f   composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+7b38c9b0  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+f1275dc3  composer  yml            /c:/masm64-framework/.github/workflows/build.yml                            36c42e2b-9a84-4196-aae0-7001c138d639  1768353263903  1768353263903
+6a3ba9fc  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+2d83c7ec  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+2c2cdde3  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+8d25403a  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+121f3aaa  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+bc3b6104  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+565a2d68  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+17ddf504  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+a572ace   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+6e56117f  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+bd075931  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+a3f4afb1  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+bd0b1002  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+6497213f  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+497abf8   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+988643c2  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+8d2553af  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+dddaa50   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+294fc216  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+da636822  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+a637524d  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+9956ab9f  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+1f08e7d3  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+56165d63  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+7eb2675a  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+c5f317ca  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+473b9ea   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+568a1ae   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+9ccc8802  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+7924762d  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+82e7ea5b  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+a17df448  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+561c4c92  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+7bc3de20  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+23025c0f  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+26be4328  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+270386d4  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+b94ce3b5  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+e284ba16  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+1fed54a   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+d0cb8884  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+34ecf824  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+34c0a5e8  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+4ca2d4b9  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+508a21db  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+daa86756  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+15f1410e  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+ca266c5e  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+1532ea85  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+4dd2df0e  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+f0bacdd0  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+359f1331  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+39b1842c  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+7677f4af  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+e0b709d4  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+fc9759b   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+9a2a6686  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+89c95eaa  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+c5ad7c1a  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+c4ace8c7  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+8c413f00  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+92c8495   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+71876659  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+23836d7f  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+d27ffa0   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+5cb65024  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+2d32094c  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+14b60480  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+9937b2be  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+7e464544  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+111234a8  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+a02fbd43  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+e783d3cf  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+fa761d73  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+63489789  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+7eb8c2c3  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+a235464   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+80ec88a   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+b072ad7b  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+28a85fce  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+79003b5a  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+186bd503  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+a71b5ee9  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+6bc4b31d  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+80b21cb5  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+4075df96  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+70c77212  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+2d968ec3  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+ac05d4f3  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+2006f53f  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+144ae2ad  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+400911c2  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+7da97ac8  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+91cdd9f6  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+5fc41da5  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+53d55553  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+48ef6ad0  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+3e43153f  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+7ef9738e  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+aa612e11  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+7f69e579  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+22c53812  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+d9af8085  composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+9a35e84   composer  yml            /c:/masm64-framework/.github/workflows/release.yml                          36c42e2b-9a84-4196-aae0-7001c138d639  1768353264207  1768353264208
+8222dffe  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+c8a05d1e  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+879b7d0f  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+1e3a5107  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+e233f193  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+28a328f7  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+497be2ea  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+daecca44  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+fe665729  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+da650641  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+9cbfe496  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+7f634fc0  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+ff9e0860  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+e073d661  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+ed4bc79a  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+6d99883a  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+f0f205e9  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+e9462f27  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+37eb3c06  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+843b9d1c  composer  yml            /c:/masm64-framework/.github/dependabot.yml                                 36c42e2b-9a84-4196-aae0-7001c138d639  1768353264484  1768353264484
+b513f067  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+1493d9e6  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+973598d5  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+189d0e58  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+e112d179  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+732d7b3a  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+f6a40977  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+d4c98f32  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+687d4c7d  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+9303082   composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+53eb107b  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+e5a9cc85  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+ccc4d3a3  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+a1a10823  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+5b9cee1c  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+bad95e61  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+40e1b2c2  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+b82c656b  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+97dd6888  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+8af7f934  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+db1e674   composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+2edd336d  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+d3764d77  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+14b06c35  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+acdc7061  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+d15bb7a   composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+aa82cbeb  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+e99888b8  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+670d3adf  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+cab542b7  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+4c2d60ed  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+5c3eeb2b  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+dd192857  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+677dbe96  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+fb67e469  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+68abb2ab  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+992c64a6  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+80434785  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+4fdb293   composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+5d241995  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+5300067   composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+a1902f4e  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+50e0935d  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+c6c46697  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+d765ce24  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+90e66544  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+d49f8b8e  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+2599ffae  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+cc7870bc  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+2caafb2f  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+1d426935  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+8932366f  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+33913f7d  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+b2bcaaec  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+50748edf  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+63c16c12  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+49fe6e8f  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+62c8b7d6  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+73838ed3  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+58be0e26  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+df00132e  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+78831103  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+89b7b894  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+ffe76fc8  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+292f14f0  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+f4431ff3  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+fc33e923  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+1a6812d2  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+aafcfaad  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+a8985e9e  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+ab743e82  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+c7fcab10  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+a5d5fd94  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+f85ba8a0  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+9a47f739  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+84b47b72  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/bug_report.yml                  36c42e2b-9a84-4196-aae0-7001c138d639  1768353264748  1768353264748
+e758945a  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+c7d7d79d  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+f5fbdbb   composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+9b7eb212  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+281b7508  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+368c5d6a  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+7bc77a1   composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+2f6d2147  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+1a7ecdf   composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+b44fbd86  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+5a8a3195  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+71377dea  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+f8aa9cb8  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+ee2ce7ea  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+12868552  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+c35dd1a2  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+5f85b179  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+d3ef99f6  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+9527b56b  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+14d5a383  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+f04356e5  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+94b8dd2a  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+420fa50e  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+30f05912  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+a7aaae80  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+bd74a11c  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+17192846  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+337e3964  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+328e3981  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+f70093dd  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+3be14a70  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+fa2a7952  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+39e475e8  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+bfe716a7  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+6b434f7c  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+29d64368  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+673ceb63  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+f66fee3c  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+ffac0f2e  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+536c04d0  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+4c068ab9  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+59cbd371  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+880c3413  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+5fea9a96  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+162e551e  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+513e74ce  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+74e996c7  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+f2c16819  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+c88de59e  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+bb6ad03a  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+90beaaf   composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+c52068eb  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+1d01ab81  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+800cc702  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+1e04650c  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+5cfe257a  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+12825ab3  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+8915eb8d  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+ea3406da  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+721a0635  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+27b967a6  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+8b1b2320  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+a2fa965d  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+278e4114  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+37c04bee  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+ad8c4977  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+8083e7a2  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+871e062c  composer  yml            /c:/masm64-framework/.github/ISSUE_TEMPLATE/feature_request.yml             36c42e2b-9a84-4196-aae0-7001c138d639  1768353265032  1768353265032
+c3a99454  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+20c3eecc  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+8808303f  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+aed40fd7  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+591268f1  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+c0223cad  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+b69ba5a5  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+e71f3045  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+2f2b3255  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+8fe9bd26  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+18852504  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+2b2c1a9   composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+be215021  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+4f523298  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+8b9726bd  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+6ea2bb8d  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+f7bcbb89  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+c969681c  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+db927416  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+f66c022a  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+c30a1ba4  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+f02ff5e7  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+25bb95b4  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+a5d93adf  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+8bb888cf  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+faa0e45e  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+430ff790  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+59a5d88c  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+735000d3  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+2fc5e6c6  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+c7c9ace6  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+ed83ed3a  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+97d85b58  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+9cfba3b8  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+18b3ad1d  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+94ae8fe6  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+6ad04218  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+effa530   composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+9c2ae468  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+5196b955  composer  md             /c:/masm64-framework/.github/PULL_REQUEST_TEMPLATE.md                       36c42e2b-9a84-4196-aae0-7001c138d639  1768353265313  1768353265313
+f42cd113  composer  asm            /c:/masm64-framework/examples/hashcheck/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355013853  1768355013854
+d24f1e92  composer  asm            /c:/masm64-framework/examples/hashcheck/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355013853  1768355013854
+4b847134  composer  asm            /c:/masm64-framework/examples/hashcheck/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355013853  1768355013854
+754e0848  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+4f6f862e  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+4a06f586  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+278ba0ec  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+a1155b59  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+416f11ca  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+f1282b17  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+f82cf6be  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+7cfd3d    composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+52de9ab3  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+868650c7  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+64cda432  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+8a84c6a8  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+e3b272a6  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+847c8314  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+8afdf564  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+846f60c7  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+4931fe6a  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+209287db  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+7c4886b3  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+e9520e3c  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+dbedf01a  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+759bb979  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+80902f26  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+5cda1b06  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+2188923d  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+2fa0bc3c  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+c0b5e132  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+c7522c3a  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+950f02b4  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+f3de19cb  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+d6990152  composer  bat            /c:/masm64-framework/examples/hashcheck/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014269  1768355014269
+97cba21a  composer  asm            /c:/masm64-framework/examples/colorpick/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355014558  1768355014559
+715fb2a9  composer  asm            /c:/masm64-framework/examples/colorpick/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355014558  1768355014559
+8f51feac  composer  asm            /c:/masm64-framework/examples/colorpick/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355014558  1768355014559
+5d8be342  composer  asm            /c:/masm64-framework/examples/colorpick/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355014558  1768355014559
+2fc2b347  composer  asm            /c:/masm64-framework/examples/colorpick/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355014558  1768355014559
+fc1ecad5  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+8a2c6a13  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+f7589c71  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+eb1024c6  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+fda11b1   composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+e7805c0   composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+32cfe15e  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+2ca7fa15  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+b6aeb169  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+cac41bb6  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+c471b09c  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+4c40f307  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+fa8cb54e  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+2ae6ddcb  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+97980484  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+520a5102  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+f2eb17c3  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+c368ff89  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+b43fca    composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+61a222a9  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+f40818b1  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+a7a8caee  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+f0b2c838  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+fa5cfaa7  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+ab250691  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+6f28b218  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+5bd0020b  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+bf0928a7  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+d74e0ca9  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+9e189411  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+f1ad515c  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+22da696   composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+4b0210a1  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+50de52b0  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+358a9a36  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+8e48bc81  composer  bat            /c:/masm64-framework/examples/colorpick/build.bat                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355014908  1768355014908
+44607070  composer  asm            /c:/masm64-framework/examples/shellex/shellex.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015164  1768355015164
+5cebcdf1  composer  asm            /c:/masm64-framework/examples/shellex/shellex.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015164  1768355015164
+af2a5bd3  composer  asm            /c:/masm64-framework/examples/shellex/shellex.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015164  1768355015164
+dcedc7c6  composer  asm            /c:/masm64-framework/examples/shellex/shellex.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015164  1768355015164
+48c992bd  composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+e0290191  composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+9cea6314  composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+e2d3396f  composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+55eb290b  composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+b7535512  composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+bf294bdb  composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+48993fde  composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+3e116cd5  composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+164cba87  composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+ca02e94   composer  def            /c:/masm64-framework/examples/shellex/exports.def                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015474  1768355015474
+d7524fa6  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+b151e018  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+c11fbd29  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+79b5b419  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+4ca3af3d  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+f4dbe279  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+5eaae28e  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+4edc6a7c  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+b2b0124c  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+2a9b4ad3  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+72711cfa  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+5966adfb  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+e3ad552b  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+65ec4fa7  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+3d81f1c   composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+4b5a9d19  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+324797e4  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+61fb43eb  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+53d982e3  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+93d97c4e  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+71878a3   composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+4e0e203d  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+c1e73881  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+4bddff69  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+5529d71a  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+3347f567  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+18978e43  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+227ae361  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+c2ca67ee  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+d91eb1ba  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+eea5c92f  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+9c0539f5  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+cb880fe8  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+b86b754e  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+7bf09a64  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+7d042359  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+f30c84bd  composer  bat            /c:/masm64-framework/examples/shellex/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355015729  1768355015729
+4951732   composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+c3cc12dd  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+ee8288c4  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+4822850e  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+c99d14f8  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+3741a7eb  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+347a9dcd  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+8e23d339  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+f498efb3  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+63593bb1  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+16597f5   composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+3cdbbad8  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+abf7508b  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+7fed147e  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+ff207710  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+f0ff7631  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+8e588e47  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+a20889ea  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+a6aa468e  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+5cf20f3e  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+60e0999b  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+71ca8e8   composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+a308d3e8  composer  asm            /c:/masm64-framework/examples/rawmouse/driver.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768355015989  1768355015990
+18bd2b2   composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+a2e23ebe  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+5df04a86  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+9ae2d8f5  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+fa219de7  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+e0f1631a  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+558ec838  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+9bac66d   composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+3ad959f6  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+59917f8   composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+bd2e5d45  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+e248d54e  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+dbc39fb9  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+dd22068c  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+6be293d6  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+4b6977fd  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+799b12e2  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+8844333   composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+9df036b4  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+fe8f9edf  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+16378f9a  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+35eb5b0   composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+dc3a3196  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+c92f7ed5  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+8677e9ea  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+6e4582d9  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+d04f497   composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+f42f847   composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+1c284405  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+bf8f00b0  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+c3bad9ae  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+c9ce1f9d  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+5dd8e97   composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+896839a5  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+4441482f  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+7e8de221  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+6a1c4159  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+1d5b6eb5  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+17cbb0f1  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+4a408f67  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+295a834   composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+1c7cf950  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+a65432d3  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+e7024400  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+5ae99506  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+1666e541  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+8cfabd3e  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+a7c8fc72  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+3e04ce23  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+ed9362f4  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+965ecb98  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+e6bb9a4   composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+334bad66  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+316878cc  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+a6b78a8c  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+13508b84  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+6271d4c8  composer  bat            /c:/masm64-framework/examples/rawmouse/build.bat                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355016295  1768355016295
+c24ff364  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768355016555  1768355016555
+dfe9225e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768355016555  1768355016555
+d1fd0e46  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+76e5af5b  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+6a5c6b8b  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+45605338  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+76aee6e8  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+30b3140   composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+b778d24f  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+1a8e203d  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+58aa98f5  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+a29a4e04  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+a9ff8d2f  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+b024ab64  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+e0e0c9d7  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+c9eee98b  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+ec3fb2da  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+e545f859  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+6f5b5eb6  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+68e1527f  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+ecbfab0a  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+7deacb3   composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+b5fda040  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+f1968276  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+9c58576b  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+67c2c89c  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+3f068c78  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+ad6fbcc6  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+dd3a2243  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+b4b13521  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+3216f25c  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+d7dc60c6  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+83aca205  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+8841658a  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+b9a48ea   composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+c16a450f  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+33f0163c  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+44ebff79  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+f376d2b3  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+880522ab  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+fada90d7  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+d3a7d824  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+77a8112d  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+b53e2b40  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+6964b23b  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+f9443006  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+4d2c712e  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+351eb42f  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+d6855b6f  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+e07ef2c   composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+35235387  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+d7c6d5e4  composer  bat            /c:/masm64-framework/examples/edrtest/build.bat                             36c42e2b-9a84-4196-aae0-7001c138d639  1768355016865  1768355016865
+206f8705  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+5e741512  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+e57a61f9  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+a081e342  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+5bbb92eb  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+1ce9bf9c  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+ce38eabf  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+deb0cea3  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+98969540  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+7a22d02d  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+b41ad3f7  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+a2db9012  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+f7ac6f28  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+f82fda66  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+44ec85cf  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+212fa3d2  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+3edfc1b7  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+fedceaf5  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+60ac2a0   composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+a90559a4  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+9cf67fa4  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+2f200fd0  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+70bc6166  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+e3d6890d  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+4b5fb59c  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+27c3c3ad  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+5227bb4e  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+cee31f54  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+1459a29e  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+d191ae9   composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+59373ccb  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+c8eebf23  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+3ada9fe3  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+d85295ff  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+5b591c57  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+c2d28452  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+650a34fe  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+1dcde80c  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+a6b8e2ed  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+7e715ec2  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+5fba14e9  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+c548e333  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+4b110591  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+264b20c0  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+68d32e53  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+dc2e5ce4  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+30f8ad78  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+c57d9630  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+cba9a526  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+3f5f9a60  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+472e3b04  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+35da5632  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+9b970e59  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+a45cb096  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+49cec62c  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+4c8d163c  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+5d556a67  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+356e0d82  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+4ffaafe2  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+e469d407  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+c505e7bd  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+61a0a6be  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+43139d56  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+76fcf1a6  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+842a6fbb  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+94ba828d  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+62106380  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+2f5736b7  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+154e92c0  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+db65321d  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+b07d5379  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+bf1731e4  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+e350bd1f  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+16982ad2  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+5b8f4dcd  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+ca8bc707  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+d6d03e31  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+22086ed4  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+442419ec  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+bfd917dd  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+58e2f7a5  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+4eeed9ca  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+10509c45  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+26a8dab2  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+50656a22  composer  py             /c:/masm64-framework/examples/edrtest/extract.py                            36c42e2b-9a84-4196-aae0-7001c138d639  1768355017132  1768355017132
+c001e25a  composer  asm            /c:/masm64-framework/examples/colorpick/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768512968741  1768512968742
+3009c5c   composer  asm            /c:/masm64-framework/examples/colorpick/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768512968741  1768512968742
+c3a2f940  composer  asm            /c:/masm64-framework/examples/colorpick/main.asm                            36c42e2b-9a84-4196-aae0-7001c138d639  1768512968741  1768512968742
+b2bbbd35  composer  asm            /c:/masm64-framework/examples/shellex/shellex.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768512969060  1768512969060
+e3a6b8c2  composer  asm            /c:/masm64-framework/examples/shellex/shellex.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768512969060  1768512969060
+731321a7  composer  asm            /c:/masm64-framework/examples/shellex/shellex.asm                           36c42e2b-9a84-4196-aae0-7001c138d639  1768512969060  1768512969060
+d389839f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+17edf05e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+f5a2da11  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+52fa69b9  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+4c32a5e0  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+4b2ce987  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+ed2cdd61  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e9d96ba6  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e6acdc0a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+fbe2f260  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5b671b0b  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+2b257b87  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e6d232af  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+204acd0   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6e610daa  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5861c70f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e3b7a2e5  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7fc0454e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+2ea9448b  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7e5cd07a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+ab57f589  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+3307582f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+eb76f934  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+3eb2e9d1  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+bca6d511  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1950374   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1a170e2   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c5e13c48  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+df05e811  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+d2bc67ce  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7ce3d38d  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+fdea902e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+14e7b4ba  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+52647af6  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6688f90   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5cb84b1c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+b0e7238   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e0c4f5f2  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a4b0252e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1bca50ba  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7ed7e8dc  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7561a6d4  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+ceecf6ae  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6fe9c13f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+ae056e31  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+91df8c36  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a1ab79e2  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+b38692a9  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+cca33a8f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a95ba682  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a5cc9189  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+77adca8c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+78eb786b  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7bf9ea65  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+ac72ddbb  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+20581792  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1258a671  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a769142a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+10bcd772  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+4b488011  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c9806d90  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+121505d   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e1009b3b  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+77f47e84  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+9794e315  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6f347d34  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+125d43d   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+2a642cd5  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+cb66b2fd  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+9605f263  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+76bce94   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+249d5660  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+22d2709f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+571ca1e9  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+62e39a0f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+d94827d0  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+819bb5d   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e34ec546  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+3e1e430e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5460fd80  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+75c9c175  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5f0a490c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+2f249ae   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+b5527528  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+60345d7f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+db45d8c2  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+4e352614  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5cf12358  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+279ab208  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1a8300fe  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+b27b39cc  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+27bb2114  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+557c4f6c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a63207eb  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a7994eee  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+443ada34  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a2070989  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+29ab46c8  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+86117655  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+87823732  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7f3e11f9  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+849421a2  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1576374b  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7e61f34c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5480c1af  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6f567f43  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+fbcdd028  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+71c0dcb5  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6ccfe417  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+cd0c27c9  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+2249d3c8  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+834f068a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+d9daf68a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+ac9653a   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+532dee80  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+ecf06523  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+8aa26d22  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e5b784a5  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a0092603  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+d53b119a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a962368a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+f898f9ae  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1beedef0  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c9d3d496  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+83537307  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+818941a6  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a33d6ee4  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+3f4d1d8f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+90cf907d  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+619c1ec7  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+cd9921e6  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+4f319163  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e9e43b33  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c52ea7f4  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+4a33b3b9  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+87f34     composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+d6586f8e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+62a54f01  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+37b5d838  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+f3ef8a3d  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+28c9947c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+cc74cac5  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+93dd82d   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+bdc63a5c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+597b9088  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+2600f3eb  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5b11e82c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+3bd0b09a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+2754630b  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+97c905ac  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+81ce87c4  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+eb107fc4  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+b5f4bcf7  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5c25f4e3  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+556ca31   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+9aa64c65  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+cba15734  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e2b4a672  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6f743027  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c0484e9d  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+64f6d64e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a101637a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1863fdd5  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+438412d1  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+16d11364  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+931cd2d   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e5ce4a4a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+928aa0d1  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+d1d82564  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6031a37f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+8eabdb37  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+2ab3ffed  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+fb5acd85  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+650c870e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c24021a7  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5342edca  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+615c70c4  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+b8ca4d56  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+bdbdd547  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+d878c027  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6612cbde  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+3b58b8e4  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+53f14edf  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6feef7e2  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+31c26744  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5f0aaf18  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c57e3989  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a8fe7447  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c4f145b5  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1bf034c0  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+f4bae929  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+53aa60a3  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5ef7b812  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+65b79297  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+2d347ec6  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+3c54b472  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+8e50244b  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+39a5849f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+180119af  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6c6592d   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+f948fa34  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7266c26a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+4aa7851   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+307f46df  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+27cc0e2f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+af007355  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+844cd21d  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+d870aafb  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+8a048133  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+fe4377b7  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1367be0e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+8a775370  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+8caa316b  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+477237fa  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+b1a29b4d  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+83b50985  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+22792e4c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c5f9dca   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+f5ceb07a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+cad4540a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7aef819e  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+701cd858  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+3599e5f0  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+bf5afe71  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+53a14993  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+f9d7812c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c6ae8640  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+eecc8076  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c26a27e7  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a0720c14  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7f54f31f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7b05f7cf  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+26215360  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+146f79f6  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+81e74510  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+79395fe7  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e142e98a  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+17abe794  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+63d41830  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+7c3dc44   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+435bd4a9  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+3ede9e34  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+eca6afaa  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+578d8c64  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+f0540b10  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+d4fb24a1  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e8f58ab3  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+4fc467cd  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+2b77bdd5  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+a24f4e77  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+5abb8ec   composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+f88ce73c  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+431ca123  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+537da7b8  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e6f6e899  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+1e3c7f8d  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+504dcad5  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+e8ffb08f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+bbe05065  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+b55f9b86  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+74c90742  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+6ef83548  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+67c6ba6f  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+af99e8ed  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c790c3e1  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+c3ca925d  composer  asm            /c:/masm64-framework/examples/edrtest/main.asm                              36c42e2b-9a84-4196-aae0-7001c138d639  1768512969315  1768512969315
+d42f961b  composer  gitignore      /c:/masm64-framework/examples/.gitignore                                    36c42e2b-9a84-4196-aae0-7001c138d639  1768512969611  1768512969611
+ef7fbe50  composer  gitignore      /c:/masm64-framework/examples/.gitignore                                    36c42e2b-9a84-4196-aae0-7001c138d639  1768512969611  1768512969611
+8ae83cf3  composer  gitignore      /c:/masm64-framework/examples/.gitignore                                    36c42e2b-9a84-4196-aae0-7001c138d639  1768512969611  1768512969611
+7b5d00e4  composer  gitignore      /c:/masm64-framework/examples/.gitignore                                    36c42e2b-9a84-4196-aae0-7001c138d639  1768512969611  1768512969611
+550e0db3  composer  gitignore      /c:/masm64-framework/examples/.gitignore                                    36c42e2b-9a84-4196-aae0-7001c138d639  1768512969611  1768512969611
+b24a2720  composer  gitignore      /c:/masm64-framework/examples/.gitignore                                    36c42e2b-9a84-4196-aae0-7001c138d639  1768512969611  1768512969611
+e2e98463  composer  gitignore      /c:/masm64-framework/examples/.gitignore                                    36c42e2b-9a84-4196-aae0-7001c138d639  1768512969611  1768512969611
+da15c884  composer  gitignore      /c:/masm64-framework/examples/.gitignore                                    36c42e2b-9a84-4196-aae0-7001c138d639  1768512969611  1768512969611
+b894d9e9  composer  gitignore      /c:/masm64-framework/examples/.gitignore                                    36c42e2b-9a84-4196-aae0-7001c138d639  1768512969611  1768512969611
+10d20766  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+e46be337  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+f93ae180  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+98dcfd1a  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+729b98d6  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+178e52d7  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+eec60f5   composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+6d3b5ec6  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+e83a332e  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+58f7b207  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+3cb95273  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+a2208fc6  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+344f8c9c  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+f0ecf755  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+b034ace1  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+32be9118  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+fc8edb22  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+e1437bc7  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+1f1b583f  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+a83352e9  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+c0631b95  composer  ps1            /c:/masm64-framework/tools/setup.ps1                                        36c42e2b-9a84-4196-aae0-7001c138d639  1768513678495  1768513678495
+
+=== TABLE: scored_commits ===
+commitHash                                branchName                           scoredAt     
+----------------------------------------  -----------------------------------  -------------
+f9384b5630bdd135c6b2fd43078fa58f87b94c7e  feature/sqlite-runtime-verification  1766878239671
+c5525b95c104253eed2e28658ad0dafd4191eaea  feature/sqlite-runtime-verification  1766878461929
+8f22ca2bf20d135d65055e4dd985a9af0d88adb0  feature/sqlite-runtime-verification  1766879657918
+fd7e620607f63979e907ab7a4bf6d3a785ab02a5  feature/sqlite-runtime-verification  1766880489326
+21d962e369443ff3d299edb0d3d55cfbc7d8a792  feature/sqlite-runtime-verification  1766881067067
+7c135e1d4cd6a2a8a05df24f6ec5208f1dd5321b  feature/ballistics-precalc-cache     1766883790115
+c4b8324b4422c1f62b75db62575d4288e810cea2  master                               1766885385369
+7766c8e95bb6933fe356e4e51a33ff41bc391c25  master                               1766885386554
+c4b8324b4422c1f62b75db62575d4288e810cea2  2025-12-27-9vus                      1766886073913
+7766c8e95bb6933fe356e4e51a33ff41bc391c25  2025-12-27-9vus                      1766886074543
+96aa864dc8617b62f8b7b54fbd6d0fdca4a83e2e  feature/benchmark-suite              1766892262089
+93c87b2d5d92b4f7e2f34b1a331dbffac980e897  feature/benchmark-suite              1766893784270
+4101608b24f51f5c445160b751962db1572ad896  feature/benchmark-suite              1766893805058
+cef60d34606b7f608e9d2ccbe0bb89cb737f7dbf  feature/benchmark-suite              1766893893080
+7961251f2604453d9d5c9e045dedfb7cc447c90a  feature/benchmark-suite              1766960832508
+a8c8aee48a1b386ebe85f4b7b6e6b4cd866d7ca8  feature/benchmark-suite              1766961110282
+c72dd4428d6a86e5fb58a550130cc9e00624124c  feature/benchmark-suite              1766961160070
+16f2da41e18eac6533a626e55a8d043f772459df  feature/benchmark-suite              1766962272029
+d2096597fabe7d7ddb1109ae9f3193cd76205ea7  feature/benchmark-suite              1766962616621
+dac0b62c58c75ed8171e36031e48e48920cce1b5  feature/benchmark-suite              1766963420343
+2413350e494e90fe7fb6605c1e86b27a6d756928  feature/benchmark-suite              1766963953196
+511e5b482a3a2704007b15ee23a12921b3397a04  2025-12-27-9vus                      1766974794218
+df767436d44d618b04b365d4307c37453fa36fa0  feature/gundom-api-consistency       1767159025382
+845a2b6e9477e2384d00ca73deebf69df339cc96  feature/gundom-api-consistency       1767159025834
+797335a54f292ee1bbc621e4f66f50f1949f6f1a  feature/gundom-api-consistency       1767159026860
+86444961214266cd47ca088dd0872dd42de62889  feature/gundom-api-consistency       1767159027292
+2413350e494e90fe7fb6605c1e86b27a6d756928  feature/gundom-api-consistency       1767159028338
+dac0b62c58c75ed8171e36031e48e48920cce1b5  feature/gundom-api-consistency       1767159028794
+d2096597fabe7d7ddb1109ae9f3193cd76205ea7  feature/gundom-api-consistency       1767159029229
+16f2da41e18eac6533a626e55a8d043f772459df  feature/gundom-api-consistency       1767159029647
+3fbb5ff2b2f4d24bd466162d806df813f326a447  fix/add-omitted-tests                1767159225466
+4cdb9476511f1a8560a67bedb421dc24fa6302e2  fix/add-omitted-tests                1767159438283
+df767436d44d618b04b365d4307c37453fa36fa0  fix/add-omitted-tests                1767159625616
+845a2b6e9477e2384d00ca73deebf69df339cc96  fix/add-omitted-tests                1767159626056
+797335a54f292ee1bbc621e4f66f50f1949f6f1a  fix/add-omitted-tests                1767159626991
+86444961214266cd47ca088dd0872dd42de62889  fix/add-omitted-tests                1767159627460
+2413350e494e90fe7fb6605c1e86b27a6d756928  fix/add-omitted-tests                1767159628252
+dac0b62c58c75ed8171e36031e48e48920cce1b5  fix/add-omitted-tests                1767159628719
+51d29eb94d41425d0e53529162275ee3343a441b  fix/add-omitted-tests                1767159692449
+629cace4080c7fbf242b2dce1bd9f022f4330fba  fix/add-omitted-tests                1767159857904
+df767436d44d618b04b365d4307c37453fa36fa0                                       1767321412539
+845a2b6e9477e2384d00ca73deebf69df339cc96                                       1767321412997
+797335a54f292ee1bbc621e4f66f50f1949f6f1a                                       1767321414140
+86444961214266cd47ca088dd0872dd42de62889                                       1767321414629
+2413350e494e90fe7fb6605c1e86b27a6d756928                                       1767321415413
+dac0b62c58c75ed8171e36031e48e48920cce1b5                                       1767321415901
+d2096597fabe7d7ddb1109ae9f3193cd76205ea7                                       1767321416367
+16f2da41e18eac6533a626e55a8d043f772459df                                       1767321416813
+4c7a98e841d398c598594117b4c159e35800e5f1  fix/add-omitted-tests                1767401649925
+e21ff1a7c93175af147f8f1ae7d66a6a3ddabe30  ci/add-omitted-tests-to-workflow     1767403407049
+86444961214266cd47ca088dd0872dd42de62889  feature/gundom-source-code           1767403456012
+2413350e494e90fe7fb6605c1e86b27a6d756928  feature/gundom-source-code           1767403456894
+dac0b62c58c75ed8171e36031e48e48920cce1b5  feature/gundom-source-code           1767403457538
+d2096597fabe7d7ddb1109ae9f3193cd76205ea7  feature/gundom-source-code           1767403458092
+16f2da41e18eac6533a626e55a8d043f772459df  feature/gundom-source-code           1767403458630
+c72dd4428d6a86e5fb58a550130cc9e00624124c  feature/gundom-source-code           1767403459173
+a8c8aee48a1b386ebe85f4b7b6e6b4cd866d7ca8  feature/gundom-source-code           1767403459711
+7961251f2604453d9d5c9e045dedfb7cc447c90a  feature/gundom-source-code           1767403460246
+cef60d34606b7f608e9d2ccbe0bb89cb737f7dbf  feature/gundom-source-code           1767403460814
+4e9b54a7aa360272c1740f895646323f87591cc4  feature/gundom-source-code           1767403509433
+8a97bbc759312214ca2f6de80cc6af3142699426  ci/include-all-remaining-tests       1767403863491
+4e9b54a7aa360272c1740f895646323f87591cc4  ci/include-all-remaining-tests       1767404056164
+86444961214266cd47ca088dd0872dd42de62889  ci/include-all-remaining-tests       1767404056722
+2413350e494e90fe7fb6605c1e86b27a6d756928  ci/include-all-remaining-tests       1767404057612
+dac0b62c58c75ed8171e36031e48e48920cce1b5  ci/include-all-remaining-tests       1767404058243
+d2096597fabe7d7ddb1109ae9f3193cd76205ea7  ci/include-all-remaining-tests       1767404058814
+16f2da41e18eac6533a626e55a8d043f772459df  ci/include-all-remaining-tests       1767404059351
+c72dd4428d6a86e5fb58a550130cc9e00624124c  ci/include-all-remaining-tests       1767404059876
+a8c8aee48a1b386ebe85f4b7b6e6b4cd866d7ca8  ci/include-all-remaining-tests       1767404060406
+de59c65bf84b2f14026f530647015ba68e206aae  ci/include-all-remaining-tests       1767404084595
+1560314c0ae4530694d2125e4985edb59e167e18  ci/include-all-remaining-tests       1767407056008
+c2d1ac7d656c10db38e9d52ab431328b7eb747d0  feature/gundom-source-code           1767409265141
+6a881f822a1227ffa83b70d7bf93ee6c156f9088  feature/gundom-source-code           1767409443090
+de59c65bf84b2f14026f530647015ba68e206aae  feature/gundom-source-code           1767409456046
+5638b028b2ce9c10fbb459b15d44188aec4fa13a  feature/gundom-source-code           1767409533605
+7e1cc850ca8225a19c9c6e2828b3a4f093cd260c  feature/gundom-source-code           1767410105478
+55f90a1f5283198a6da6b6b7d014019cbcf3a584  feature/gundom-source-code           1767410225673
+0e1f3a7867d87bb90e2acd35f11e84ccb8cf1a13  feature/gundom-source-code           1767411048112
+86444961214266cd47ca088dd0872dd42de62889  feature/gundom-source-code-only      1767411256173
+2413350e494e90fe7fb6605c1e86b27a6d756928  feature/gundom-source-code-only      1767411257089
+dac0b62c58c75ed8171e36031e48e48920cce1b5  feature/gundom-source-code-only      1767411257678
+d2096597fabe7d7ddb1109ae9f3193cd76205ea7  feature/gundom-source-code-only      1767411258235
+16f2da41e18eac6533a626e55a8d043f772459df  feature/gundom-source-code-only      1767411258754
+c72dd4428d6a86e5fb58a550130cc9e00624124c  feature/gundom-source-code-only      1767411259307
+a8c8aee48a1b386ebe85f4b7b6e6b4cd866d7ca8  feature/gundom-source-code-only      1767411259916
+7961251f2604453d9d5c9e045dedfb7cc447c90a  feature/gundom-source-code-only      1767411260519
+cef60d34606b7f608e9d2ccbe0bb89cb737f7dbf  feature/gundom-source-code-only      1767411261117
+51a1c3cf9e510513f66549d9501f6108b44526c8  feature/gundom-source-code-only      1767411289530
+d749e1f2f565c31810d67eb0201a829f1d0aa3fc  ci/gundom-workflow-updates           1767411358979
+86444961214266cd47ca088dd0872dd42de62889  ci/gundom-workflow-updates           1767412456073
+2413350e494e90fe7fb6605c1e86b27a6d756928  ci/gundom-workflow-updates           1767412456915
+dac0b62c58c75ed8171e36031e48e48920cce1b5  ci/gundom-workflow-updates           1767412457479
+d2096597fabe7d7ddb1109ae9f3193cd76205ea7  ci/gundom-workflow-updates           1767412458004
+16f2da41e18eac6533a626e55a8d043f772459df  ci/gundom-workflow-updates           1767412458516
+c72dd4428d6a86e5fb58a550130cc9e00624124c  ci/gundom-workflow-updates           1767412459046
+a8c8aee48a1b386ebe85f4b7b6e6b4cd866d7ca8  ci/gundom-workflow-updates           1767412459548
+7961251f2604453d9d5c9e045dedfb7cc447c90a  ci/gundom-workflow-updates           1767412460073
+3e372508dc7f581f256b763f892df5147346bf9d  feature/gundom-source-code-only      1767413030109
+86444961214266cd47ca088dd0872dd42de62889  feature/gundom-complete-api          1767418456093
+2413350e494e90fe7fb6605c1e86b27a6d756928  feature/gundom-complete-api          1767418457095
+dac0b62c58c75ed8171e36031e48e48920cce1b5  feature/gundom-complete-api          1767418457730
+d2096597fabe7d7ddb1109ae9f3193cd76205ea7  feature/gundom-complete-api          1767418458360
+16f2da41e18eac6533a626e55a8d043f772459df  feature/gundom-complete-api          1767418458967
+c72dd4428d6a86e5fb58a550130cc9e00624124c  feature/gundom-complete-api          1767418459606
+a8c8aee48a1b386ebe85f4b7b6e6b4cd866d7ca8  feature/gundom-complete-api          1767418460197
+7961251f2604453d9d5c9e045dedfb7cc447c90a  feature/gundom-complete-api          1767418460842
+cef60d34606b7f608e9d2ccbe0bb89cb737f7dbf  feature/gundom-complete-api          1767418461501
+532ad07b693a96c9479ee3f8023945497a0af4b4  feature/gundom-complete-api          1767418565918
+d2096597fabe7d7ddb1109ae9f3193cd76205ea7  main                                 1767419059357
+16f2da41e18eac6533a626e55a8d043f772459df  main                                 1767419059881
+c72dd4428d6a86e5fb58a550130cc9e00624124c  main                                 1767419060389
+a8c8aee48a1b386ebe85f4b7b6e6b4cd866d7ca8  main                                 1767419060913
+dac0b62c58c75ed8171e36031e48e48920cce1b5  main                                 1767419660350
+2413350e494e90fe7fb6605c1e86b27a6d756928  main                                 1767420611395
+532ad07b693a96c9479ee3f8023945497a0af4b4  main                                 1767421210938
+86444961214266cd47ca088dd0872dd42de62889  main                                 1767421211509
+c38ac76e59c3b178da7f9cd0ade3fbbc9ccd96f9  main                                 1767421811262
+96dd99946b62cab6148d1d7f3c5a65b714958c5d  main                                 1767421811750
+760c5b6d919ce6fd9714a9799751e49a1ff933b5  main                                 1767422411654
+d3852b713e79ea3b7acfbf6bf7d2ba648ab1e256  main                                 1767423011663
+3731f8dc51121cc73e6fe90362715a48bf0f32df  main                                 1767423612041
+61fcae23fc38e3d5e0960ea545d2b08517ceec3d  main                                 1767423612549
+c2298a72c395ce46d1478fc162ad60ca6eaaf289  main                                 1767424211392
+46af93301f50c17e1c5ff7d5fe470730397e78b1  main                                 1767424811778
+015299d0e772c33b73a3dec42544fcfa5a705fd0  main                                 1767468611514
+6fecded8e703163b2130289f31d4a376e727b458  main                                 1767485411353
+63f58824b269f908772ffa8d642fcf4fabfc1218  main                                 1767486010590
+458bd764911646f864b99e25104f3e2575bb381f  main                                 1767486011389
+7a36c8e6ee7bd068b0329fad29a2f586de529356  main                                 1767486012371
+d02599e10d63da1dd1b11c7af08c247d156ba766  main                                 1767486013011
+1a1953b7fb697f7ec87386becc182ec98a2ae01b  main                                 1767486610454
+9accae9feb758a2898a118660fd9827115b8f790  main                                 1767486611082
+1d8d2701c4199f4aa8b78a3af77020acc3fed4ed  main                                 1767486611701
+ef75a0edb4c835d19d4d7370c78f95582ed7ac3d  main                                 1767487211649
+058555604f79ce34e2acf5516d24903985d4dea2  main                                 1767550971153
+9b950e0c5c26681cd4b03ba58d0eb9a9880c8e58  main                                 1767550971690
+559a9686537b50e3ba222fdad2d39d4afaa20ede  main                                 1767550972236
+570579f6f71eb64932fb6828184703fadf45cf64  main                                 1767550972761
+6c278cfe5f23de082d06e46503dd81e6d780e494  main                                 1767550973299
+c9d7e0c6622dfac53b81ef7108f282e8c53bb758  main                                 1767550973815
+58de882e65fe5b2c2f339cc9e63827712e7231c8  main                                 1767550974340
+47b65b63a48f137cf4fca30f7815d2390cc97330  main                                 1767550974890
+aec07ce687533a7c9172459e1615875e840b5823  main                                 1767550975428
+a1c7ebee019e583990db90d790953b7577c552b2  main                                 1767550975995
+ede4a32d2a485ef8995d97ffd46f71362b5d8f2d  master                               1768115188855
+3afefd584f3216119b809548a28016c0f707295f  master                               1768115273669
+9503deee1c01a074b99bd4e20289dc064be74dbd  master                               1768514257345
+c382fd2a3dae80236b214c78bc84942ce3fba9a4  master                               1768514257977
+538e604b7b76420adce321aa8e84426d28379734  master                               1768514258663
+c66cac67b5a8db38312fb1ed098ee3a5f5a0c9a7  master                               1768514259289
+727ad4b5199db6ed0dafd7f547d911d6a4be8383  master                               1768514260109
+727ad4b5199db6ed0dafd7f547d911d6a4be8383  main                                 1768517262544
+c66cac67b5a8db38312fb1ed098ee3a5f5a0c9a7  main                                 1768517862706
+a605b76be749dd3f984f7708fb9c44f84ac1b9da  master                               1768709283409
+3d827856fea88a22fab48d343f0b9e600b4d23d2  master                               1768726262129
+35d3e620d055e243c9a8a6f3f33c205007f2419b  main                                 1769037159912
+e8594dccc401cba3b50b045a843f0499f64905ff  main                                 1769037160526
+2628f97a7216c104d7cc5beed37c51fd890816bd  main                                 1769037161179
+dd22a2d2723139f395eca8992dbfe1277de05ac6  main                                 1769037161773
+43c7c25672c0b1ea74e68557bc4cd4b5f9c85f25  main                                 1769037162371
+3bb07c931758eec4c6c960291e359e02ccd22a2e  main                                 1769037162966
+fb876cb63453869b593e72c5e26edbca21c61e9f  main                                 1769037163566
+9503deee1c01a074b99bd4e20289dc064be74dbd  main                                 1769037164183
+c382fd2a3dae80236b214c78bc84942ce3fba9a4  main                                 1769037164775
+538e604b7b76420adce321aa8e84426d28379734  main                                 1769037165435
+d7e2740c3a3a120437315ba0e5fdf2f57bd3f3b4  master                               1769928990084
+d3c883515adbfae0143306cd92911723ee37758a  master                               1769928991055
+3c92d8a0d35af8e878f3c89a1074b9c75e9d5b5a  master                               1769928991663
+04d20eb275e0e94abef9925b29140b86534ebfad  master                               1769928992260
+9c6615cc1b60583aad30622b6f5c3cb957793bc4  master                               1769928992912
+eafebd40ab7cd64039c2b37f1070745ace5ec420  master                               1769928993526
+220360f2c5644eac6a863c19a6550a93a12a6b8e  master                               1769928994112
+afe4ab0476469d476355191da82d4df2cc285b13  master                               1769928994800
+6284222a526c7b4eb18c5a7561724be760f3d8f6  master                               1770258050349
+dac2fbae27ab676b184ae9b72fdd4007ff918981  master                               1770696399416
+45f3a4c053937f0cc51174cbfc2b9d10878b25d9  master                               1770765108968
+
+=== TABLE: tracking_state ===
+key                value                      
+-----------------  ---------------------------
+trackingStartTime  {"timestamp":1766431039896}
+

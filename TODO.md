@@ -79,7 +79,7 @@
 | TD SYNNEX integration | No credentials | mikko.dizon@tdsynnex.com response |
 | Amazon automation | No SP-API access | Vincent to register developer account |
 | VPS setup | ✅ Creds found | theanderproject@gmail.com / MixPost2026!Hetzner (incomplete signup) |
-| WithOdyssey CSV upload | No login credentials | Vincent to provide password or trigger reset |
+| WithOdyssey CSV upload | ✅ Creds received | rachelwilliams@mightyhouseinc.com / 0rcaWar$ |
 
 ---
 

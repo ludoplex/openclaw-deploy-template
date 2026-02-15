@@ -1,0 +1,4207 @@
+{
+  "boss": {
+    "email": [
+      {
+        "isAlias": false,
+        "isPrimary": true,
+        "mailId": "rachelwilliams@mightyhouseinc.com",
+        "isConfirmed": true
+      }
+    ],
+    "emails": {
+      "1756994438143123900": {
+        "subject": "We fix GovCon back office problems",
+        "from": "dnathan@boostllc.net",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-04",
+        "receivedTime": "1756994438115",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GovCon"
+        ]
+      },
+      "1763739113352018900": {
+        "subject": "Government-Endorsed Investment Initiative",
+        "from": "support@aquamarina-distribution.fr",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-21",
+        "receivedTime": "1763739113293",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Government"
+        ]
+      },
+      "1761314923344153000": {
+        "subject": "Tomorrow: Power Your State Government Influence",
+        "from": "bgov@em.bgov.com",
+        "to": "&lt;RACHELWILLIAMS@MIGHTYHOUSEINC.COM&gt;",
+        "date": "2025-10-24",
+        "receivedTime": "1761314923310",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Government"
+        ]
+      },
+      "1761145337282154100": {
+        "subject": "[Tech demo] Operationalizing Governance with GitLab Custom Compliance Frameworks",
+        "from": "info@gitlab.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-22",
+        "receivedTime": "1761145337259",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Government"
+        ]
+      },
+      "1758722987750153000": {
+        "subject": "\ud83d\udd11 Your Key to Government Sales: Get 889 Certified (Free!)",
+        "from": "no-reply@sell.amazon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-24",
+        "receivedTime": "1758722987719",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Government"
+        ]
+      },
+      "1755536432638123900": {
+        "subject": "#TBOT 10: Meta\u2019s Content AI Abused By Governments, Police Surveillance at Your Hardware Store, Build Your Own Pay Phone, Private FOSS Keyboard",
+        "from": "mailer@mail.takebackourtech.org",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-18",
+        "receivedTime": "1755536432578",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Government"
+        ]
+      },
+      "1755529386926123900": {
+        "subject": "Make the most of August Recess with Bloomberg Government\u2019s newest features",
+        "from": "bgov@em.bgov.com",
+        "to": "&lt;RACHELWILLIAMS@MIGHTYHOUSEINC.COM&gt;",
+        "date": "2025-08-18",
+        "receivedTime": "1755529386884",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Government"
+        ]
+      },
+      "1766435716786153000": {
+        "subject": "SBA Loan Reinstated",
+        "from": "jsaunders@newtekone.com",
+        "to": "&quot;RACHEL WILLIAMS&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-22",
+        "receivedTime": "1766435716782",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "SBA"
+        ]
+      },
+      "1763321135289153000": {
+        "subject": "Final Check-In: Expedited SBA Working Capital Program",
+        "from": "clucas@celticloan.com",
+        "to": "&quot;RACHEL WILLIAMS&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-16",
+        "receivedTime": "1763321135282",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "SBA"
+        ]
+      },
+      "1769570059412143900": {
+        "subject": "Re: Brighton, Michigan | Information Technology Managed Services Contract | Request for Proposal (RFP)",
+        "from": "gthompson@govpointehqfocus.us",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-27",
+        "receivedTime": "1769570059408",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract",
+          "Proposal"
+        ]
+      },
+      "1769398710699153000": {
+        "subject": "Re: Brighton, Michigan | Information Technology Managed Services Contract | Request for Proposal (RFP)",
+        "from": "gthompson@govpointehqfocus.us",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-25",
+        "receivedTime": "1769398710694",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract",
+          "Proposal"
+        ]
+      },
+      "1769304654674153000": {
+        "subject": "Brighton, Michigan | Information Technology Managed Services Contract | Request for Proposal (RFP)",
+        "from": "gthompson@govpointehqfocus.us",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-24",
+        "receivedTime": "1769304654670",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract",
+          "Proposal"
+        ]
+      },
+      "1765621776350153000": {
+        "subject": "Glendo IT Networking contract and comparison info",
+        "from": "theanderproject@gmail.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-12-13",
+        "receivedTime": "1765621776310",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract",
+          "Glendo"
+        ]
+      },
+      "1765000806193019000": {
+        "subject": "\ud83d\udca1 Year-end tips: Contracts, QBI deductions, and holiday PTO",
+        "from": "team@email.rocketlawyer.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-05",
+        "receivedTime": "1765000806132",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1762315343632143900": {
+        "subject": "Draft of Software contract for Project GUNDOM, please edit as needed.",
+        "from": "vincentlanderson@mightyhouseinc.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-04",
+        "receivedTime": "1762315343637",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1761856982977154100": {
+        "subject": "CBP Awards Exiger Exclusive Contract to Detect Illicit Transshipment",
+        "from": "noreply@exiger.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-30",
+        "receivedTime": "1761856982951",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1761839578243153000": {
+        "subject": "Stop Chasing Contracts. Start Winning With Strategy.",
+        "from": "info@growwithhealthybusiness.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-30",
+        "receivedTime": "1761839578221",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1761759370668153000": {
+        "subject": "Stop Chasing Contracts. Start Winning With Strategy.",
+        "from": "info@growwithhealthybusiness.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-29",
+        "receivedTime": "1761759370649",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1761241572513154100": {
+        "subject": "New Contract Awarded? We\u2019ll Staff It Fast",
+        "from": "terrell.cummings@countryintel.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-23",
+        "receivedTime": "1761241572494",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1760541434892153001": {
+        "subject": "Your exclusive updates and insights | Zoho Contracts",
+        "from": "hello@zohocontracts.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-15",
+        "receivedTime": "1760541434864",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1760486515192154100": {
+        "subject": "Can a bad contract sink your business?",
+        "from": "team@email.rocketlawyer.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-14",
+        "receivedTime": "1760486515162",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1760463050404154100": {
+        "subject": "When Your Gov Contract Needs Talent \u2014 Fast",
+        "from": "terrell.cummings@countryintel.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-14",
+        "receivedTime": "1760463050383",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1759754018576153000": {
+        "subject": "Reminder: Automate subscription set-up after contract signing",
+        "from": "hello@zohocontracts.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-06",
+        "receivedTime": "1759754018558",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1758738558104153000": {
+        "subject": "Foxwoods (CT) - Native Federal Contracting Conference",
+        "from": "communications@commandholdingspqt.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-24",
+        "receivedTime": "1758738558061",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1758549036705153000": {
+        "subject": "Don&#39;t Let Your Contracts Disappear!",
+        "from": "reggie@sapphireinnovations.net",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-22",
+        "receivedTime": "1758549036684",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1758466384569153000": {
+        "subject": "Resolve your contract breach for FREE",
+        "from": "team@email.rocketlawyer.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-21",
+        "receivedTime": "1758466384548",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1757696500402153000": {
+        "subject": "Know your rights in a contract breach \ud83d\udd0d",
+        "from": "team@email.rocketlawyer.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-12",
+        "receivedTime": "1757696500374",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1755129583065123900": {
+        "subject": "\ud83d\udce3 New from Rocket Lawyer! FREE Contract Review",
+        "from": "team@email.rocketlawyer.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-13",
+        "receivedTime": "1755129583021",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1755114753284123900": {
+        "subject": "Action Needed \u2013 OMNIA R200803 Contract Renewal",
+        "from": "hayden.garbett@tdsynnex.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-13",
+        "receivedTime": "1755114753263",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1755114751260123900": {
+        "subject": "Action Needed \u2013 OMNIA R200803 Contract Renewal",
+        "from": "hayden.garbett@tdsynnex.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-13",
+        "receivedTime": "1755114751240",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1770590507280143900": {
+        "subject": "Your submission was received",
+        "from": "notifications@fillout.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770590507273",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770590293253143900": {
+        "subject": "Your one-time verification code",
+        "from": "otp@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770590293232",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770590006356143900": {
+        "subject": "Your one-time verification code",
+        "from": "otp@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770590006338",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770590002469143900": {
+        "subject": "Purchase Confirmed: Thank you for your purchase!",
+        "from": "orders@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770590002431",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770584981200143900": {
+        "subject": "For a limited time, earn $300 when you refer one of your friends \ud83d\udc4c",
+        "from": "member@notify.chime.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770584981183",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575960237154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575960233",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575960236154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575960233",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575958246154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575958242",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575950231154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575950228",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575850228154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575850224",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575850226154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575850222",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575842244154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575842239",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575836254154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575836250",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575834244154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575834239",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575826237154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575826234",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575822242154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575822238",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770575814236154200": {
+        "subject": "Undelivered Mail Returned to Sender",
+        "from": "mailer-daemon@mail.zoho.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770575814233",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770573713924143900": {
+        "subject": "Get your domain for $5",
+        "from": "noreply@mail.squarespace.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770573713904",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770567228598143900": {
+        "subject": "Webinar: Industry Insights from ASI Research",
+        "from": "distmarketing@asicentral.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770567228585",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770564580981143900": {
+        "subject": "\ud83c\udfc8 Seattle VS. New England",
+        "from": "news@subs.subway.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770564580955",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770556934584143900": {
+        "subject": "Windows 11 Lifetime Professional or Home Offer, Up to 90% Off",
+        "from": "noreply@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770556934541",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770555671681143900": {
+        "subject": "\ud83e\udd73\ud83d\udc0eCelebrate Lunar New Year with festive delights! \ud83c\udf89",
+        "from": "news@hmartmail.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770555671660",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770541035929143900": {
+        "subject": "Action Required: Confirm shipment of order Amazon.com",
+        "from": "order-update@amazon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770541035925",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770510071159143900": {
+        "subject": "Semaglutide or Tirzepatide Weight Loss with Consultation",
+        "from": "noreply@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770510071131",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770491381673143900": {
+        "subject": "Get more out of your Nintendo Switch 2 with Nintendo Switch Online.",
+        "from": "nintendo-noreply@nintendo.net",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770491381644",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770487744050143900": {
+        "subject": "A Message from the GOAT\ud83d\udc10",
+        "from": "Promotions@my.pizzahut.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770487744026",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770476664651153000": {
+        "subject": "Reminder: Delicious Profits Start Here",
+        "from": "betsonmarketing-betson.com@shared1.ccsend.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770476664637",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770472355963153000": {
+        "subject": "Windows 11 Home, Pro, or Enterprise Lifetime Activation Key with Digital Download",
+        "from": "noreply@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770472355929",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770470353496143900": {
+        "subject": "Professional Photography Packages & Print Deals - Save 81%",
+        "from": "noreply@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770470353462",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770469313170143901": {
+        "subject": "\u26ab\u26aa\ud83e\uddd1\u200d\ud83c\udf73Braising Essential \uc870\ub9bc \ud544\uc218\ud15c\ud83c\udf7d\ud83c\udf74",
+        "from": "news@hmartmail.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770469313144",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1756850871996123900": {
+        "subject": "Voicemail message from &quot;SVC FOR SENIORS (+13073223424)&quot; [00:00:14]",
+        "from": "voicemail@ascendcloud.com",
+        "to": "&quot;DeskphoneX101&quot;&lt;DeskphoneX101@mightyhouse.com&gt;,&quot;DeskphoneX101&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&quot;DeskphoneX101&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-02",
+        "receivedTime": "1756850871968",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Seniors",
+          "Senior"
+        ]
+      },
+      "1755552781824107700": {
+        "subject": "Services for seniors",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;Samantharachelleco&quot;&lt;samantharachelleco@outlook.com&gt;",
+        "date": "2025-08-18",
+        "receivedTime": "1755552781819",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Seniors",
+          "Senior"
+        ]
+      },
+      "1766688789057153000": {
+        "subject": "Requirements for Pearsonvue Test Center hardware",
+        "from": "theanderproject@gmail.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-25",
+        "receivedTime": "1766688789052",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "PearsonVUE",
+          "Testing"
+        ]
+      },
+      "1767889980765153000": {
+        "subject": "Pearson Skilling Partner Survey",
+        "from": "brian.zibricky@pearson.com",
+        "to": "&quot;Adam Monroe&quot;&lt;Adam.m@appliedtechac.com&gt;,&quot;allison.barrow@fastlane.net&quot;&lt;allison.barrow@fastlane.net&gt;,&quot;Anav Bogan&quot;&lt;anav@caregiverswithpleasure.com&gt;,&quot;Andre Schalk&quot;&lt;andre.schalk@newhorizons.de&gt;,&quot;Andreas Conrads&quot;&lt;Andreas.Conrads@NewHorizons.de&gt;,&quot;Angel Camasis&quot;&lt;angel@audentestechnologies.com&gt;,&quot;angela.mackay@fastlane.net&quot;&lt;angela.mackay@fastlane.net&gt;,&quot;Christian Roeder&quot;&lt;christian.roeder@newhorizons.de&gt;,&quot;Christine Harper&quot;&lt;christine.h@appliedtechac.com&gt;,&quot;Claude Apiou&quot;&lt;claude.apiou@seads.io&gt;,&quot;Darlene Cernoch&quot;&lt;Darlene.cernoch@mycomputercareer.edu&gt;,&quot;Dr. Yemer&quot;&lt;yemer@ssgc.consulting&gt;,&quot;Eric Fowler&quot;&lt;eric.fowler@mycomputercareer.com&gt;,&quot;Felice Juliano&quot;&lt;f.juliano@audentestechnologies.com&gt;,&quot;Francis Xavier Hernandez&quot;&lt;francis.hernandez@audentestechnologies.com&gt;,&quot;Greg Collier&quot;&lt;greg.collier@mycomputercareer.com&gt;,&quot;Jan Deckert&quot;&lt;Jan.Deckert@NewHorizons.de&gt;,&quot;Joe Mignano&quot;&lt;Joe.mignano@logicaloperations.com&gt;,&quot;Katja Firsching&quot;&lt;katja.firsching@newhorizons.de&gt;,&quot;Kim Alvarez&quot;&lt;kim.a@appliedtechac.com&gt;,&quot;lauren.jones@fastlane.net&quot;&lt;lauren.jones@fastlane.net&gt;,&quot;Lee Phillips&quot;&lt;lee.phillips@mycomputercareer.com&gt;,&quot;Liz P&quot;&lt;liz.p@appliedtechac.com&gt;,&quot;Lynn F&quot;&lt;lynn.f@appliedtechac.com&gt;,&quot;matt.rosenblum@fastlane.net&quot;&lt;matt.rosenblum@fastlane.net&gt;,&quot;Melanie Galati&quot;&lt;melanie.galati@mycomputercareer.com&gt;,&quot;Michelle Fike&quot;&lt;michelle.fike@mycomputercareer.com&gt;,&quot;Muhammad Ilyas&quot;&lt;abilyas@lifelongkuwait.com&gt;,&quot;Oscar Hahn&quot;&lt;Oscar.Hahn@newhorizonsfranchisezentrale.de&gt;,&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&quot;Sharlotte Cadila&quot;&lt;sharlotte@audentestechnologies.com&gt;,&quot;Stephan Scholtissek&quot;&lt;stephan.scholtissek@newhorizons.de&gt;,&quot;Tricia Ventura&quot;&lt;tricia@audentestechnologies.com&gt;,&quot;Verna Bogan&quot;&lt;verna@caregiverswithpleasure.com&gt;,&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;,&quot;Xenia Silva&quot;&lt;xenia.s@appliedtechac.com&gt;,&quot;Zachary Dowthitt&quot;&lt;zachary.dowthitt@mycomputercareer.com&gt;",
+        "date": "2026-01-08",
+        "receivedTime": "1767889980758",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1761750235369153000": {
+        "subject": "Pearson go to Market and Setup",
+        "from": "kara.flanagan@pearson.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-29",
+        "receivedTime": "1761750234653",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1761152405026153000": {
+        "subject": "Pearson Skilling Partner Program",
+        "from": "shelley.morris@pearson.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-22",
+        "receivedTime": "1761152405006",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755827063362124000": {
+        "subject": "Mighty House Inc - Welcome to the Pearson Skilling Partner Program!",
+        "from": "kara.flanagan@pearson.com",
+        "to": "&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-21",
+        "receivedTime": "1755827063363",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755285735670124000": {
+        "subject": "RE: Pearson Skilling Partner Program",
+        "from": "kara.flanagan@pearson.com",
+        "to": "&quot;Shelley Morris&quot;&lt;shelley.morris@pearson.com&gt;,&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-15",
+        "receivedTime": "1755285735671",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755283099262124100": {
+        "subject": "geri.bosco@pearson.com has asked vincentlanderson@mightyhouseinc.com to replace you as a signer of Mighty House Achieve Agreement",
+        "from": "adobesign@adobesign.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-15",
+        "receivedTime": "1755283099221",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755281643168124000": {
+        "subject": "Re: Pearson Skilling Partner Program",
+        "from": "shelley.morris@pearson.com",
+        "to": "&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-15",
+        "receivedTime": "1755281643170",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755280094876143900": {
+        "subject": "RE: Pearson Skilling Partner Program",
+        "from": "vincentlanderson@mightyhouseinc.com",
+        "to": "&quot;Shelley Morris&quot;&lt;shelley.morris@pearson.com&gt;",
+        "date": "2025-08-15",
+        "receivedTime": "1755280094877",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755267218689123900": {
+        "subject": "RE: Pearson Skilling Partner Program",
+        "from": "shelley.morris@pearson.com",
+        "to": "&quot;&#39;Rachel Williams&#39;&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-15",
+        "receivedTime": "1755267218674",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1770180626218153800": {
+        "subject": "Computer Store Platform - SMTP Test",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-03",
+        "receivedTime": "1770180626219",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Testing",
+          "Computer Store"
+        ]
+      },
+      "1770180625550153800": {
+        "subject": "Computer Store Platform - SMTP Test",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-03",
+        "receivedTime": "1770180625547",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Testing",
+          "Computer Store"
+        ]
+      },
+      "1769710206116143900": {
+        "subject": "Put your physical AI skills to the test at the Cosmos Cookoff",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-29",
+        "receivedTime": "1769710206086",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Testing",
+          "AI"
+        ]
+      },
+      "1768478646969153000": {
+        "subject": "Is Your Bookkeeper Doing Everything Right? Take Our Test",
+        "from": "support@ecombalance.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-15",
+        "receivedTime": "1768478646943",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1764702111212019000": {
+        "subject": "Exxact Newsletter - ExxactAccess+ Test Drive Program and more",
+        "from": "newsletter@exxactcorp.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-02",
+        "receivedTime": "1764702111144",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1762536926592138300": {
+        "subject": "Test to confirm migration and domain name records are fully functional",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;Jeni&quot;&lt;jeni@sfswy.org&gt;",
+        "date": "2025-11-07",
+        "receivedTime": "1762536928292",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1762532905905155000": {
+        "subject": "Test email",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;david&quot;&lt;david@sfswy.org&gt;",
+        "date": "2025-11-07",
+        "receivedTime": "1762532908190",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1760409151001153000": {
+        "subject": "Successful Completion-Impurity Removal Neutralization Tests",
+        "from": "info@americanree.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-13",
+        "receivedTime": "1760409150974",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1758819917692153000": {
+        "subject": "Bizarre COO Notices / Toy Testing Chaos / WA Ads Tax Coming",
+        "from": "ed@asgtg.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-25",
+        "receivedTime": "1758819917568",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1757458411746123900": {
+        "subject": "Meta lnc has invited you to test Ads Manager Suite",
+        "from": "delbertronnie965@gmail.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-09",
+        "receivedTime": "1757458411737",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1757013419934124100": {
+        "subject": "Meta lnc has invited you to test Ads Manager Suite",
+        "from": "sommerernstsofia@gmail.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-04",
+        "receivedTime": "1757013419925",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1755486080778123900": {
+        "subject": "Test Mining Commences at The Cowboy State Mine",
+        "from": "info@americanree.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-17",
+        "receivedTime": "1755486080716",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1770348600698153000": {
+        "subject": "Unlock Skills with Online Notary Public Certification Course",
+        "from": "noreply@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-05",
+        "receivedTime": "1770348600648",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification",
+          "Course"
+        ]
+      },
+      "1769710015311153000": {
+        "subject": "AODocs gains SAP certification + a new external portal",
+        "from": "newsletter@news.aodocs.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-29",
+        "receivedTime": "1769710015256",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1769397896715143900": {
+        "subject": "Online Bartender Training with Certificate- One or Two (Up to 98% Off)",
+        "from": "noreply@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-25",
+        "receivedTime": "1769397896685",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification",
+          "Training"
+        ]
+      },
+      "1760982700581153000": {
+        "subject": "Hupp Aerospace Achieves Perfect CMMC Level 2 Certification, Soaring to Elite Cybersecurity Heights with CMMC FastTrack\u2122",
+        "from": "spalamara@lifelinedatacenters.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-20",
+        "receivedTime": "1760982700548",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1759932774559154101": {
+        "subject": "FREE Certification Opportunity for Credentialed Sellers \ud83c\udf89",
+        "from": "no-reply@sell.amazon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-08",
+        "receivedTime": "1759932774529",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1759352786292153000": {
+        "subject": "Exciting Announcement: New Alliance to Accelerate CMMC Certification for DoD Contractors",
+        "from": "spalamara@lifelinedatacenters.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-01",
+        "receivedTime": "1759352786270",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1758896153249153000": {
+        "subject": "\u2728 Your Business Deserves This: FREE Certification Inside!",
+        "from": "no-reply@sell.amazon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-26",
+        "receivedTime": "1758896153213",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1757688747703153000": {
+        "subject": "Attention: Got a seller certification? Upload now",
+        "from": "no-reply@sell.amazon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-12",
+        "receivedTime": "1757688747680",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1757603182529153000": {
+        "subject": "New Opportunity: Direct View LED Installation Certification with ViewSonic",
+        "from": "david.manesse@viewsonic.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-11",
+        "receivedTime": "1757603182520",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1755606565933123900": {
+        "subject": "Re: your CMMC certification",
+        "from": "andrew.washington@cmmcnewsletter.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-19",
+        "receivedTime": "1755606565920",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1755116619558123900": {
+        "subject": "New Trust Portal Update from OpenAI: OpenAI&#39;s ISO/IEC 27001 Certificate is now available at trust.openai.com",
+        "from": "notifications@safebase.co",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-13",
+        "receivedTime": "1755116619521",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1755085720612123900": {
+        "subject": "Re: your CMMC certification",
+        "from": "andrew.washington@cmmcnewsletter.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-13",
+        "receivedTime": "1755085720600",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1770231219100153800": {
+        "subject": "Verify your email - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;fullflow@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231219095",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231217151153801": {
+        "subject": "Reset your password - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;test@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231217146",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231217151153800": {
+        "subject": "Verify your email - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;test@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231217146",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231210891153800": {
+        "subject": "Verify your email - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;newuser@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231210886",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231101454153800": {
+        "subject": "Verify your email - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;fullflow@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231101449",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231101450153801": {
+        "subject": "Reset your password - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;test@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231101442",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231101450153800": {
+        "subject": "Verify your email - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;test@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231101442",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231095344153800": {
+        "subject": "Verify your email - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;newuser@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231095337",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231085204153800": {
+        "subject": "Verify your email - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;fullflow@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231085200",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231083237153801": {
+        "subject": "Reset your password - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;test@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231083232",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231083237153800": {
+        "subject": "Verify your email - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;test@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231083232",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1770231075031153800": {
+        "subject": "Verify your email - Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;newuser@example.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770231075026",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1769785364638143900": {
+        "subject": "COMPUTER STORE by MIGHTY HOUSE INC., Start the year strong with disputes support and insights.",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-30",
+        "receivedTime": "1769785364600",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1769439789301153000": {
+        "subject": "COMPUTER STORE by MIGHTY HOUSE INC., Start the year strong with disputes support and insights.",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-26",
+        "receivedTime": "1769439789254",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1767753708947155300": {
+        "subject": "Computer Store: Computer Literacy Clinic - Free Workshop!",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;wheatlandkiwanis&quot;&lt;wheatlandkiwanis@gmail.com&gt;",
+        "date": "2026-01-06",
+        "receivedTime": "1767753768952",
+        "folderId": "7880305000000008016",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1767391937416153000": {
+        "subject": "Computer Store\u2014Your year at a glance",
+        "from": "noreply@messaging.squareup.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-02",
+        "receivedTime": "1767391937380",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1764947654014019000": {
+        "subject": "COMPUTER STORE by MIGHTY HOUSE INC., End the year strong with these insights for your business",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-05",
+        "receivedTime": "1764947653852",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1764897540723007300": {
+        "subject": "Computer store media",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;Marie&quot;&lt;Marie@307wyomingsentinel.com&gt;",
+        "date": "2025-12-04",
+        "receivedTime": "1764897543159",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1764895805182007300": {
+        "subject": "Re: Pricing and commission structure for services offered by Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;Vincent L. Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-12-04",
+        "receivedTime": "1764895807255",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1764894486860019100": {
+        "subject": "Pricing and commission structure for services offered by Computer Store",
+        "from": "vincentlanderson@mightyhouseinc.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-04",
+        "receivedTime": "1764894486862",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1764782602827019000": {
+        "subject": "Reminder: COMPUTER STORE by MIGHTY HOUSE INC., don&#39;t miss out on all the perks of Card acceptance",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-03",
+        "receivedTime": "1764782602662",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1764261201424019000": {
+        "subject": "COMPUTER STORE by MIGHTY HOUSE INC., don&#39;t miss out on all the perks of Card acceptance",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-27",
+        "receivedTime": "1764261201332",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1763652510997018900": {
+        "subject": "COMPUTER STORE by MIGHTY HOUSE INC.: reminder - explore resources through our collaboration with CO\u2014by U.S. Chamber of Commerce ",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-20",
+        "receivedTime": "1763652510864",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1763570941839018900": {
+        "subject": "Reminder: COMPUTER STORE by MIGHTY HOUSE INC., help attract additional customers this year",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-19",
+        "receivedTime": "1763570941745",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1763132609359153000": {
+        "subject": "COMPUTER STORE by MIGHTY HOUSE INC., explore resources through our collaboration with CO\u2014by U.S. Chamber of Commerce ",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-14",
+        "receivedTime": "1763132609328",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1762531283123153000": {
+        "subject": "COMPUTER STORE by MIGHTY HOUSE INC., let\u2019s get you ready for the holidays. ",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-07",
+        "receivedTime": "1762531283070",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1762360553475154101": {
+        "subject": "Reminder: COMPUTER STORE by MIGHTY HOUSE INC., help is just a click away",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-05",
+        "receivedTime": "1762360553439",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1761939912685153000": {
+        "subject": "Reminder: Weekly 1:00PM Friday Gaming event at (y)our Computer Store! by Mighty House Inc. @ Fri Oct 31, 2025 02:00 pm - 06:30 pm (America/Denver)",
+        "from": "noreply@zohocalendar.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-31",
+        "receivedTime": "1761939912671",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1769905834377153000": {
+        "subject": "\ud83d\udcc5 Save the Date | Fashion Seller LIVE Training | 2/5 & 2/12 @11AM PST",
+        "from": "sellersupport@shop.tiktok.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-31",
+        "receivedTime": "1769905834361",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Training"
+        ]
+      },
+      "1765306861372153000": {
+        "subject": "Maximize Training & Inference Speed with NVIDIA RTX PRO\u2122 Blackwell",
+        "from": "news@exxactcorp.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-09",
+        "receivedTime": "1765306861355",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Training",
+          "NVIDIA"
+        ]
+      },
+      "1760996296424154100": {
+        "subject": "Free live training from a QuickBooks Expert",
+        "from": "intuit@eq.intuit.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-20",
+        "receivedTime": "1760996296398",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Training"
+        ]
+      },
+      "1759158606837153000": {
+        "subject": "Notice of Award for Bid Invitation For Bid #0224-K - Check Point Appliances, Hardware, Software, Professional Services, Support and Training",
+        "from": "notices@publicpurchase.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-29",
+        "receivedTime": "1759158606829",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Training"
+        ]
+      },
+      "1758564070445153000": {
+        "subject": "Train 3\u00d7 Faster with NVIDIA\u00ae HGX\u2122 B200",
+        "from": "newsletter@exxactcorp.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-22",
+        "receivedTime": "1758564070422",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Training"
+        ]
+      },
+      "1756691342414124100": {
+        "subject": "Hand-Feed Bison on a Narrated Train Tour with Custom-Built Trains at Terry Bison Ranch (Up to 52% Off)",
+        "from": "noreply@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-31",
+        "receivedTime": "1756691342339",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Training"
+        ]
+      },
+      "1769443427643153000": {
+        "subject": "NVIDIA Course: The Art of Compressing LLMs",
+        "from": "sergiopdev@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-26",
+        "receivedTime": "1769443427634",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Course",
+          "NVIDIA"
+        ]
+      },
+      "1764871352840019000": {
+        "subject": "Applications Are NOW Open for BDTA Concourse 300 - Level Advance Course",
+        "from": "dentrainingacademy@flydenver.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-04",
+        "receivedTime": "1764871352803",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Course"
+        ]
+      },
+      "1763338800711153000": {
+        "subject": "\ud83c\udf81 Learn Smart. Save Big. 25% Off All Thinkwell Courses & Books",
+        "from": "support@thinkwell.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-16",
+        "receivedTime": "1763338800693",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Course"
+        ]
+      },
+      "1760196191093153000": {
+        "subject": "Bingo! You got a new course. \ud83e\udd29",
+        "from": "canvadesignschool@engage.canva.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-11",
+        "receivedTime": "1760196191050",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Course"
+        ]
+      },
+      "1760029748421154100": {
+        "subject": "\ud83c\udf89 Prime Day = Prime Savings! 15% Off All Thinkwell Courses & Books",
+        "from": "sam@thinkwell.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-09",
+        "receivedTime": "1760029748403",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Course"
+        ]
+      },
+      "1759110069139153000": {
+        "subject": "That Windows 11 Product Key deal? Of course you can buy it again!",
+        "from": "noreply@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-28",
+        "receivedTime": "1759110069107",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Course"
+        ]
+      },
+      "1758835922943153000": {
+        "subject": "Free Amazon Bookselling Course (From Sourcing to Repricing) \ud83d\udcda",
+        "from": "romer@roamer.biz",
+        "to": "&quot;Rachel&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-25",
+        "receivedTime": "1758835922913",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Course"
+        ]
+      },
+      "1758386444621153001": {
+        "subject": "That Microsoft Windows 11 Pro or Home deal? Of course you can buy it again!",
+        "from": "noreply@r.groupon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-20",
+        "receivedTime": "1758386444589",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Course"
+        ]
+      },
+      "1770314867234153000": {
+        "subject": "Limited-Time: Extended Discounts on NVIDIA RTX PRO\u2122 GPU Solutions",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-05",
+        "receivedTime": "1770314867202",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU",
+          "NVIDIA"
+        ]
+      },
+      "1770059389559153000": {
+        "subject": "Limited-Time: Extended Discounts on NVIDIA RTX PRO\u2122 GPU Solutions",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-02",
+        "receivedTime": "1770059389519",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU",
+          "NVIDIA"
+        ]
+      },
+      "1767711110863153000": {
+        "subject": "\u56de\u590d: To : Vincent Anderson : 200USD RTX 3060 700USD RTX 3090 graphic card gpu card -- Free shipping.",
+        "from": "Joe.szelecfac@outlook.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-06",
+        "receivedTime": "1767711110829",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1765817167729153000": {
+        "subject": "\u56de\u590d: To : Vincent Anderson : 200USD RTX 3060 700USD RTX 3090 graphic card gpu card -- Free shipping.",
+        "from": "Joe.szelecfac@outlook.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-15",
+        "receivedTime": "1765817167696",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1764606985326019000": {
+        "subject": "Cyber Monday: Up to 50% Off VPS, dedicated, managed & GPU hosting",
+        "from": "noreply@em.liquidweb.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-01",
+        "receivedTime": "1764606985281",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1764169948940019000": {
+        "subject": "\u56de\u590d: To : Vincent Anderson : 200USD RTX 3060 700USD RTX 3090 graphic card gpu card -- Free shipping.",
+        "from": "Joe.szelecfac@outlook.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-26",
+        "receivedTime": "1764169948830",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1763667641493018900": {
+        "subject": "First Access: Benchmark the New NVIDIA Blackwell & H200 GPUs",
+        "from": "news@exxactcorp.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-20",
+        "receivedTime": "1763667641457",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU",
+          "NVIDIA"
+        ]
+      },
+      "1762281105795154100": {
+        "subject": "Special Pricing Extended: NVIDIA RTX PRO\u2122 GPUs for Higher Education",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-04",
+        "receivedTime": "1762281105655",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU",
+          "NVIDIA"
+        ]
+      },
+      "1762196521890153000": {
+        "subject": "Experience GPU Acceleration with ExxactAccess+",
+        "from": "news@exxactcorp.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-03",
+        "receivedTime": "1762196521875",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1762019868529154100": {
+        "subject": "Special Pricing Extended: NVIDIA RTX PRO\u2122 GPUs for Higher Education",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-01",
+        "receivedTime": "1762019868302",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU",
+          "NVIDIA"
+        ]
+      },
+      "1761705987196154100": {
+        "subject": "\u56de\u590d: To : Vincent Anderson : 200USD RTX 3060 700USD RTX 3090 graphic card gpu card -- Free shipping.",
+        "from": "Joe.szelecfac@outlook.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-28",
+        "receivedTime": "1761705987174",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1761129506267153000": {
+        "subject": "\u56de\u590d: To : Vincent Anderson : 200USD RTX 3060 700USD RTX 3090 graphic card gpu card -- Free shipping.",
+        "from": "Joe.szelecfac@outlook.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-22",
+        "receivedTime": "1761129506248",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1760636308628154100": {
+        "subject": "Watch Now: CEO Interview on GPU Clusters, Datacenter Design, and What\u2019s Next in the Race to Scale AI Compute",
+        "from": "marketing@supermicro.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-16",
+        "receivedTime": "1760636308605",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1759341773504153000": {
+        "subject": "Exxact Newsletter - Accelerate work with the latest NVIDIA RTX PRO\u2122 Blackwell GPUs",
+        "from": "newsletter@exxactcorp.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-01",
+        "receivedTime": "1759341773485",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1758033585515153000": {
+        "subject": "\u56de\u590d: To : Vincent Anderson : 200USD RTX 3060 700USD RTX 3090 graphic card gpu card -- Free shipping.",
+        "from": "Joe.szelecfac@outlook.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-16",
+        "receivedTime": "1758033585496",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1756927886031124100": {
+        "subject": "Advanced GPUs for Education: NVIDIA RTX PRO Blackwell GPU Kits",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-03",
+        "receivedTime": "1756927885949",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1756918977618124100": {
+        "subject": "Whitepaper: How to Select Optimal GPU System Configurations to Accelerate Enterprise AI and Visual Workloads",
+        "from": "marketing@supermicro.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-03",
+        "receivedTime": "1756918977590",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1756407292418124100": {
+        "subject": "Advanced GPUs for Education: NVIDIA RTX PRO Blackwell GPU Kits",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-28",
+        "receivedTime": "1756407292355",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1755631613255124100": {
+        "subject": "Accelerate AI Development with 4x NVIDIA Blackwell GPUs",
+        "from": "newsletter@exxactcorp.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-19",
+        "receivedTime": "1755631613222",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1770331070467143900": {
+        "subject": "Your Personalized Developer News from NVIDIA",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-05",
+        "receivedTime": "1770331070396",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1770320672297153000": {
+        "subject": "Meet NVIDIA RTX PRO\u2122 5000 72GB Blackwell: Built for Your Most Demanding Workflows",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-05",
+        "receivedTime": "1770320672266",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1770214879552143900": {
+        "subject": "Compete in NVIDIA\u2019s physical AI challenge",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770214879528",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA",
+          "AI"
+        ]
+      },
+      "1770058907427143900": {
+        "subject": "Exxact Newsletter - Ends Today: Save $350 on your NVIDIA GTC pass",
+        "from": "newsletter@exxactcorp.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-02",
+        "receivedTime": "1770058907410",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1769625073125153000": {
+        "subject": "Last Chance to Register: Transform Your Data Center with NVIDIA Blackwell",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-28",
+        "receivedTime": "1769625073098",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1769193191072143900": {
+        "subject": "Catch up on NVIDIA robotics and physical AI news for January",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-23",
+        "receivedTime": "1769193191025",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA",
+          "AI"
+        ]
+      },
+      "1769113680630153000": {
+        "subject": "Your Personalized Developer News from NVIDIA",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-22",
+        "receivedTime": "1769113680564",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1768242596927153000": {
+        "subject": "Unleashing Next-Generation Data Center Power with NVIDIA RTX PRO\u2122 6000 Blackwell Server Edition",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-12",
+        "receivedTime": "1768242596898",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA",
+          "Server"
+        ]
+      },
+      "1767905684344153000": {
+        "subject": "Your Personalized Developer News from NVIDIA",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-08",
+        "receivedTime": "1767905684293",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1767740017562153000": {
+        "subject": "December Monthly Connect: Shipping New 4U and 2-OU (OCP) Liquid-Cooled NVIDIA HGX B300 Solutions and More News!",
+        "from": "marketing@supermicro.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-06",
+        "receivedTime": "1767740017542",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1767622007057143900": {
+        "subject": "Last chance: Up to 50% off NVIDIA Jetson robotics kits \ud83e\udd16",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-05",
+        "receivedTime": "1767622007031",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1767384587386153000": {
+        "subject": "Unwrap the Power of AI with NVIDIA DGX Spark\u2122 \u2014 Now Shipping",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-02",
+        "receivedTime": "1767384587255",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA",
+          "AI"
+        ]
+      },
+      "1766599398596153000": {
+        "subject": "Unwrap the Power of AI with NVIDIA DGX Spark\u2122 \u2014 Now Shipping",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-24",
+        "receivedTime": "1766599398567",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1765826573387153000": {
+        "subject": "Catch up on NVIDIA robotics and physical AI news for December",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-15",
+        "receivedTime": "1765826573313",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1765487543380153000": {
+        "subject": "Your Personalized Developer News from NVIDIA",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-11",
+        "receivedTime": "1765487543320",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1765305307540153000": {
+        "subject": "Unleashing Next-Generation Data Center Power with NVIDIA RTX PRO\u2122 6000 Blackwell Server Edition",
+        "from": "pnypro@pny.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-09",
+        "receivedTime": "1765305307516",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA",
+          "Server"
+        ]
+      },
+      "1764640422798019000": {
+        "subject": "Sold, ship now: [Expedited Shipping] 2W-OZ6G-ZI8E MSI Stealth 14 Studio 14&quot; 165Hz FHD+ Gaming Laptop: Intel Core i7-13620H, NVIDIA Geforce RTX 4060, 16GB DDR5, 1TB NVMe SSD, Thunderbolt 4, Win 11 Pro: Star Blue A13VF-250US",
+        "from": "seller-notification@amazon.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-01",
+        "receivedTime": "1764640422712",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1764183857917019000": {
+        "subject": "NVIDIA Jetson robotics kits: Up to 50% off \ud83c\udf89",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-26",
+        "receivedTime": "1764183857844",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1764093885144018900": {
+        "subject": "Supercomputing 2025: New Solutions Unveiled with NVIDIA",
+        "from": "marketing@supermicro.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-25",
+        "receivedTime": "1764093885084",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1763157457198153000": {
+        "subject": "Don&#39;t Miss These Speaker Sessions with NVIDIA at SC25",
+        "from": "marketing@supermicro.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-14",
+        "receivedTime": "1763157457180",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1763067554043153000": {
+        "subject": "Your Personalized Developer News from NVIDIA",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-13",
+        "receivedTime": "1763067553979",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1762555715608153000": {
+        "subject": "Supermicro Achieves First to Market Leadership on NVIDIA Marketplace",
+        "from": "marketing@supermicro.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-07",
+        "receivedTime": "1762555715594",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1761854516242154100": {
+        "subject": "Your Personalized Developer News from NVIDIA",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-30",
+        "receivedTime": "1761854516172",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1768490729423153000": {
+        "subject": "Gemini 3 Flash available via Firebase AI Logic, new server prompt templates, and more",
+        "from": "googledev-noreply@google.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-15",
+        "receivedTime": "1768490729398",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Server",
+          "AI"
+        ]
+      },
+      "1768328711277153000": {
+        "subject": "Approaches to Modernising Old Server Systems",
+        "from": "mylene.feliciano@c1sttech.info",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-13",
+        "receivedTime": "1768328711272",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1761285181738153000": {
+        "subject": "Win More with Lenovo Servers",
+        "from": "ncroteau@lenovo.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-23",
+        "receivedTime": "1761285181731",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1757516416075153000": {
+        "subject": "Learn More - Lenovo Server Solutions",
+        "from": "lpncomms@lph.lenovo.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-10",
+        "receivedTime": "1757516416043",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1757430107908123900": {
+        "subject": "A focus on MCP servers, managing your organization, and more.",
+        "from": "no-reply@github.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-09",
+        "receivedTime": "1757430107854",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1756987740974124100": {
+        "subject": "Exclusive Partner Benefits with Lenovo ThinkSystem & Windows Server 2025",
+        "from": "ncroteau@lenovo.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-04",
+        "receivedTime": "1756987740945",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1755408770161123900": {
+        "subject": "\ud83d\ude80 Unlock the Power of Lenovo Servers \u2013 Join Our Exclusive Webinar!",
+        "from": "ncroteau@lenovo.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-16",
+        "receivedTime": "1755408770144",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1770394374603143900": {
+        "subject": "ChatGPT outage, Firefox AI-block features, Snow Moon, and more on Reddit this week",
+        "from": "noreply@redditmail.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770394374577",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1770317166413153000": {
+        "subject": "[Webinar]: Ready for AI Checkout: The inventory setup behind Agentic Commerce",
+        "from": "marketing@katanamrp.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-05",
+        "receivedTime": "1770317166399",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1770044929334153000": {
+        "subject": "\ud83d\udce6 Monthly Scoop: Target beauty, Amazon retail plans, and AI-driven sales",
+        "from": "daniel@zentail.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-02",
+        "receivedTime": "1770044929309",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1769713635888143901": {
+        "subject": "How top organizations are leveraging AI for speed and scale",
+        "from": "webcasts@gitlab.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-29",
+        "receivedTime": "1769713635840",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1769706472678143900": {
+        "subject": "The overwhelmed person\u2019s guide to AI with Google Cloud: January 2026",
+        "from": "google-cloud-innovators-noreply@google.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-29",
+        "receivedTime": "1769706472624",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1769569031168143900": {
+        "subject": "Exclusive Prestige 14 Flip AI+ Bundles - Work Smarter. Create Freely. Go Beyond With AI.",
+        "from": "member@msi.marketing",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-27",
+        "receivedTime": "1769569031153",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1769561766414153000": {
+        "subject": "Navigate FAR Interpretations Smarter\u2014With Experience + AI",
+        "from": "robert@malysconsulting.com",
+        "to": "&quot;RACHEL WILLIAMS&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-27",
+        "receivedTime": "1769561766402",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1769537281605153000": {
+        "subject": "\ud83e\udded Your roadmap to AI in networking",
+        "from": "connect@cradlepoint.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-27",
+        "receivedTime": "1769537281581",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1769113069298153000": {
+        "subject": "What tech marketers revealed about AI in 2026",
+        "from": "hey@jasper.ai",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-22",
+        "receivedTime": "1769113069284",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1769108883138153000": {
+        "subject": "Reimagine your files with AI",
+        "from": "mail@e.adobe.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-22",
+        "receivedTime": "1769108883119",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1769103453624143900": {
+        "subject": "Register now: Southwest Airlines & Oracle reveal AI strategies",
+        "from": "webcasts@gitlab.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-22",
+        "receivedTime": "1769103453590",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1769100923178153000": {
+        "subject": "Stopping AI-driven attacks at the source",
+        "from": "resources@info.yubico.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-22",
+        "receivedTime": "1769100923126",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1768972916856153000": {
+        "subject": "Discover the New Prestige 14 Flip AI+ - Pre-Order Available Now!",
+        "from": "member@msi.marketing",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-20",
+        "receivedTime": "1768972916830",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1768924881472153000": {
+        "subject": "Turn Customer Reviews into Clear Product Insights with AI",
+        "from": "info@sellingpilot.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-20",
+        "receivedTime": "1768924881450",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1768917757554143900": {
+        "subject": "Exiger Unveils Free AI Tool for Companies to Find Forced Labor in Their Supply Chains",
+        "from": "noreply@exiger.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-20",
+        "receivedTime": "1768917757517",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1768910650814153000": {
+        "subject": "Amazon\u2019s AI Is Selecting Products\u2013Here\u2019s How to Adapt Your Listings",
+        "from": "support@ecombalance.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-20",
+        "receivedTime": "1768910650789",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1768446431859153000": {
+        "subject": "GTC 2026 session catalog is live. Plan your AI experience.",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-14",
+        "receivedTime": "1768446431820",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1768327378231153000": {
+        "subject": "Get exclusive BGOV insights on AI policy developments",
+        "from": "bgov@em.bgov.com",
+        "to": "&lt;RACHELWILLIAMS@MIGHTYHOUSEINC.COM&gt;",
+        "date": "2026-01-13",
+        "receivedTime": "1768327378212",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1768320079524153000": {
+        "subject": "Turn One Product Photo into Unlimited High-Converting Visuals with AI",
+        "from": "info@sellingpilot.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-13",
+        "receivedTime": "1768320079492",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1768028220411153000": {
+        "subject": "The Prestige 14 Flip AI+ Available For Pre-Order Now - Work Smarter. Create Freely. Go Beyond With AI. -",
+        "from": "member@msi.marketing",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-09",
+        "receivedTime": "1768028220395",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1767801683427153000": {
+        "subject": "Release 76: Image text extraction & editing, customizable AI support reply groups",
+        "from": "info@sellingpilot.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-07",
+        "receivedTime": "1767801683389",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1767796509204153000": {
+        "subject": "State of AI in Retail and CPG\u2014download now",
+        "from": "news@nvidia.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-07",
+        "receivedTime": "1767796509111",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1767727813160153000": {
+        "subject": "\u275725% off AI glasses ends soon",
+        "from": "quest@campaigns.meta.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-06",
+        "receivedTime": "1767727813075",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1767715285585153001": {
+        "subject": "Build Listings That Shopping AI Actually Recommends",
+        "from": "info@sellingpilot.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-06",
+        "receivedTime": "1767715285562",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1767373751109153000": {
+        "subject": "Get 63% off a mini desktop AI PC while you still can",
+        "from": "HP@us.mail.hp.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-02",
+        "receivedTime": "1767373751056",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1768938985378153000": {
+        "subject": "Re: Bright & Early Wednesday: 7AM @ Platte Valley Bank",
+        "from": "jyoung@pcedwy.org",
+        "to": "&quot;Janie Martines&quot;&lt;jmartines@chbef.com&gt;,&quot;Steve Shockley&quot;&lt;sshockley@plattecountywyoming.com&gt;,&quot;Derrick Sisson&quot;&lt;Derrick.Sisson@fsbwy.com&gt;,&quot;jill.k.goodrich@gmail.com&quot;&lt;jill.k.goodrich@gmail.com&gt;,&quot;anthony.bianchini@nee.com&quot;&lt;anthony.bianchini@nee.com&gt;,&quot;Banner Capital Bank&quot;&lt;cmccabe@bcbank.net&gt;,&quot;taylor.schmick@bannerhealth.com&quot;&lt;taylor.schmick@bannerhealth.com&gt;,&quot;Beth Hendon&quot;&lt;shepard_farms@hotmail.com&gt;,&quot;BG Livestock&quot;&lt;brookbrockman@gmail.com&gt;,&quot;Blue Raven&quot;&lt;blueravenrealty@gmail.com&gt;,&quot;BMO&quot;&lt;Heather.Paulson@BMO.com&gt;,&quot;bruwart@bobruwartmotors.com&quot;&lt;bruwart@bobruwartmotors.com&gt;,&quot;Bohlander, Natalie A&quot;&lt;natalie.bohlander@bannerhealth.com&gt;,&quot;Brian Artery&quot;&lt;bartery@ssjwyolaw.com&gt;,&quot;brian.dudeck@gridunited.com&quot;&lt;brian.dudeck@gridunited.com&gt;,&quot;Brook Brockman&quot;&lt;bbrockman@jgelliott.com&gt;,&quot;CHED Philip Ellis&quot;&lt;yippieyi@yahoo.com&gt;,&quot;Chuck Brown&quot;&lt;chuckbrown@wyoming.com&gt;,&quot;Chug Springs Butchery&quot;&lt;aspring@chugspringsbutchery.com&gt;,&quot;Chugwater Chili&quot;&lt;chugchili@chugwaterchili.com&gt;,&quot;Commissioner Jolovich&quot;&lt;ijolovich@plattecountywyoming.com&gt;,&quot;Dan Brecht (dcbrecht1951@gmail.com)&quot;&lt;dcbrecht1951@gmail.com&gt;,&quot;darin@thesmithgrouplaw.com&quot;&lt;darin@thesmithgrouplaw.com&gt;,&quot;director@plattechamber.com&quot;&lt;director@plattechamber.com&gt;,&quot;Drew Dietrich&quot;&lt;drew.dietrich@wyo.gov&gt;,&quot;EXP Realty&quot;&lt;derede.darden@exprealty.com&gt;,&quot;Frontier Furniture&quot;&lt;stacy@twinpineswy.com&gt;,&quot;Georgann Brown&quot;&lt;georgann.brown@fsbwy.com&gt;,&quot;Gittaway Ranch&quot;&lt;gittaway@gmail.com&gt;,&quot;Gorman Funeral Home&quot;&lt;tdean@gormanfh.com&gt;,&quot;Grady Winders&quot;&lt;grady.winders@iohk.io&gt;,&quot;Grid United&quot;&lt;alex.williams@gridunited.com&gt;,&quot;Guernsey Econ Dev (craigfrederick@hotmail.com)&quot;&lt;craigfrederick@hotmail.com&gt;,&quot;Gwen and Slick Seidel&quot;&lt;nailbender65@gmail.com&gt;,&quot;Heidi Adams&quot;&lt;heidi@hlabookkeeping.com&gt;,&quot;Hoffman Custom Construction&quot;&lt;SAHoffman@wyomingwisp.com&gt;,&quot;vilohop89@gmail.com&quot;&lt;vilohop89@gmail.com&gt;,&quot;jbaker@plattecountywyoming.com&quot;&lt;jbaker@plattecountywyoming.com&gt;,&quot;Jeff Wilhelm&quot;&lt;jwilhelm1950@outlook.com&gt;,&quot;jen@stoneweldingwy.com&quot;&lt;jen@stoneweldingwy.com&gt;,&quot;Joe Evers&quot;&lt;jevers@americanree.com&gt;,&quot;Justin Murphy&quot;&lt;jmurphy@pvbank.com&gt;,&quot;Kent Smith&quot;&lt;kesmith@wyoming.com&gt;,&quot;kevin.gross@twinpinebison.com&quot;&lt;kevin.gross@twinpinebison.com&gt;,&quot;Keystone Group&quot;&lt;larmar@laramiepeakmotors.com&gt;,&quot;Laramie Peak Motors Chuck Ruwart&quot;&lt;CHR3@laramiepeakmotors.com&gt;,&quot;Laurie Farkas&quot;&lt;laurie.farkas@blackhillscorp.com&gt;,&quot;ldshepardranch@gmail.com&quot;&lt;ldshepardranch@gmail.com&gt;,&quot;Linda Fabian&quot;&lt;lindafabianwy@gmail.com&gt;,&quot;LPL Financial Kelli Phifer&quot;&lt;kelli.phifer@lpl.com&gt;,&quot;mkukowski@pvbank.com&quot;&lt;mkukowski@pvbank.com&gt;,&quot;Mighty House Inc.&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&quot;Missouri Basin Electric&quot;&lt;lmickelsen@bepc.com&gt;,&quot;Mona and Steve Sherard&quot;&lt;rlsherard@gmail.com&gt;,&quot;Mountain West Technologies&quot;&lt;lthorvaldson@mwtcorp.net&gt;,&quot;Olind Construction Ellie Orr&quot;&lt;ellie@norbolind.com&gt;,&quot;Parks and Rec&quot;&lt;Curtis@plattecountyrecreation.com&gt;,&quot;PCSD1&quot;&lt;john.weigel@platte1.org&gt;,&quot;Piccadilly Play School&quot;&lt;lindsey@piccadillyplayschool.com&gt;,&quot;Picket Fence Realty LLC&quot;&lt;cindy.witt2004@gmail.com&gt;,&quot;Platte County&quot;&lt;mervin@plattecountywyoming.com&gt;,&quot;Platte County Parks and Rec&quot;&lt;steve@plattecountyrecreation.com&gt;,&quot;premiertitle@qwestoffice.net&quot;&lt;premiertitle@qwestoffice.net&gt;,&quot;RML Megan Hanneman&quot;&lt;megan@rmlcpas.com&gt;,&quot;sandy.dugger@bannerhealth.com&quot;&lt;sandy.dugger@bannerhealth.com&gt;,&quot;State Farm&quot;&lt;lynda@lyndalenz.com&gt;,&quot;Steil Survey&quot;&lt;brad@steilsurvey.com&gt;,&quot;Superior Contracting&quot;&lt;daren@scllc19.com&gt;,&quot;Tabitha Enniss&quot;&lt;t.enniss@townofwheatlandwy.org&gt;,&quot;TC Edwards&quot;&lt;cody@tcedwardswyo.com&gt;,&quot;TDS&quot;&lt;mainoffice@tdswy.com&gt;,&quot;Thrifty Foods&quot;&lt;jodi@thriftyfoods.us&gt;,&quot;Town of Glendo Brenda Hagen&quot;&lt;glendotownof@yahoo.com&gt;,&quot;kevin.gross@twinpinebison.com&quot;&lt;kevin.gross@twinpinebison.com&gt;,&quot;Wanderer on Gilchrist&quot;&lt;thewandererongilchrist@gmail.com&gt;,&quot;westernconstruction307@yahoo.com&quot;&lt;westernconstruction307@yahoo.com&gt;,&quot;Wheatland Golf Club&quot;&lt;wheatlandgolf@gmail.com&gt;,&quot;Wheatland REA&quot;&lt;bardranch@hotmail.com&gt;,&quot;Woolington Agency&quot;&lt;will@wyoagency.com&gt;,&quot;Workforce Services&quot;&lt;kim.yeoman@wyo.gov&gt;,&quot;Wyoming Pure Cindy Goertz&quot;&lt;info@wyomingpure.com&gt;,&quot;tracy@wyoagency.com&quot;&lt;tracy@wyoagency.com&gt;,&quot;ldmillikin@gmail.com&quot;&lt;ldmillikin@gmail.com&gt;,&quot;Tiffany Lange&quot;&lt;tiffany@leestowing247.com&gt;,&quot;Jeremy Lange&quot;&lt;plattecountyrepair@gmail.com&gt;,&quot;Bryanna Bruce&quot;&lt;hazwoper247@gmail.com&gt;,&quot;Heather Ferguson&quot;&lt;doubleamhllc@gmail.com&gt;,&quot;Shelley Marker&quot;&lt;shelleymarker@yahoo.com&gt;,&quot;Candy Wright&quot;&lt;wright@wyomingwireless.com&gt;,&quot;keri@thankersrest.com&quot;&lt;keri@thankersrest.com&gt;,&quot;LaQuendin J LTC USARMY NG WYARNG (USA) Counts&quot;&lt;laquendin.j.counts.mil@army.mil&gt;,&quot;Dan Sisson&quot;&lt;Daniel.Sisson@fsbwy.com&gt;,&quot;Tim Wilkins&quot;&lt;tim@patriotHoldings.com&gt;,&quot;Platte County Resource District&quot;&lt;bradyirvine@rocketmail.com&gt;,&quot;Lisa Weigel&quot;&lt;lweigel@gsviking.org&gt;,&quot;Brandon Graves (bgraves770@gmail.com)&quot;&lt;bgraves770@gmail.com&gt;,&quot;allisonwilliam1956@gmail.com&quot;&lt;allisonwilliam1956@gmail.com&gt;,&quot;Taft Love&quot;&lt;taft@millirontj.com&gt;,&quot;Cindy DeLancey&quot;&lt;CLDeLancey@hollandhart.com&gt;,&quot;Braden C. Douglas&quot;&lt;BDouglas@rollinghillsbank.com&gt;,&quot;Kara Bertoch&quot;&lt;kbertoch@rollinghillsbank.com&gt;,&quot;Kelly Mixson&quot;&lt;Kgmixson@gmail.com&gt;,&quot;Jason Evans&quot;&lt;J.evans@townofwheatlandwy.org&gt;,&quot;Oliver Ashenhurst&quot;&lt;spaghettioutwest@gmail.com&gt;,&quot;Aubrey Brown&quot;&lt;wavesofwyoming@gmail.com&gt;,&quot;Jeremy Haroldson&quot;&lt;jharoldson.impact@hotmail.com&gt;,&quot;Joshua Kaufman&quot;&lt;joshkaufman81@gmail.com&gt;,&quot;Brad Jenkins&quot;&lt;laramiepeakhvac@gmail.com&gt;,&quot;Josh Hopkins&quot;&lt;mayor@chugwater.com&gt;,&quot;Thane Ashenhurst&quot;&lt;thaneash@gmail.com&gt;,&quot;Danielle Fertig&quot;&lt;fertig.danielle@yahoo.com&gt;,&quot;Derrick Sisson&quot;&lt;Derrick.Sisson@fsbwy.com&gt;,&quot;Scott Perkins&quot;&lt;s.perkins@townofwheatlandwy.org&gt;,&quot;Angelina Johnson&quot;&lt;lotuswingscandc@gmail.com&gt;,&quot;Kayla King&quot;&lt;kking@projectsafe-wyo.org&gt;",
+        "date": "2026-01-20",
+        "receivedTime": "1768938985317",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Platte"
+        ]
+      },
+      "1768922749932143900": {
+        "subject": "Re: Bright & Early Wednesday: 7AM @ Platte Valley Bank",
+        "from": "jyoung@pcedwy.org",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-20",
+        "receivedTime": "1768922749921",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Platte"
+        ]
+      },
+      "1768898903620107900": {
+        "subject": "Re: Bright & Early Wednesday: 7AM @ Platte Valley Bank",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&lt;jyoung@pcedwy.org&gt;",
+        "date": "2026-01-20",
+        "receivedTime": "1768898903607",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Platte"
+        ]
+      },
+      "1768890809054143900": {
+        "subject": "Bright & Early Wednesday: 7AM @ Platte Valley Bank",
+        "from": "jyoung@pcedwy.org",
+        "to": "&quot;Derrick Sisson&quot;&lt;Derrick.Sisson@fsbwy.com&gt;,&quot;jill.k.goodrich@gmail.com&quot;&lt;jill.k.goodrich@gmail.com&gt;,&quot;anthony.bianchini@nee.com&quot;&lt;anthony.bianchini@nee.com&gt;,&quot;Banner Capital Bank&quot;&lt;cmccabe@bcbank.net&gt;,&quot;taylor.schmick@bannerhealth.com&quot;&lt;taylor.schmick@bannerhealth.com&gt;,&quot;Beth Hendon&quot;&lt;shepard_farms@hotmail.com&gt;,&quot;BG Livestock&quot;&lt;brookbrockman@gmail.com&gt;,&quot;Blue Raven&quot;&lt;blueravenrealty@gmail.com&gt;,&quot;BMO&quot;&lt;Heather.Paulson@BMO.com&gt;,&quot;bruwart@bobruwartmotors.com&quot;&lt;bruwart@bobruwartmotors.com&gt;,&quot;Bohlander, Natalie A&quot;&lt;natalie.bohlander@bannerhealth.com&gt;,&quot;Brian Artery&quot;&lt;bartery@ssjwyolaw.com&gt;,&quot;brian.dudeck@gridunited.com&quot;&lt;brian.dudeck@gridunited.com&gt;,&quot;Brook Brockman&quot;&lt;bbrockman@jgelliott.com&gt;,&quot;CHED Philip Ellis&quot;&lt;yippieyi@yahoo.com&gt;,&quot;Chuck Brown&quot;&lt;chuckbrown@wyoming.com&gt;,&quot;Chug Springs Butchery&quot;&lt;aspring@chugspringsbutchery.com&gt;,&quot;Chugwater Chili&quot;&lt;chugchili@chugwaterchili.com&gt;,&quot;Commissioner Jolovich&quot;&lt;ijolovich@plattecountywyoming.com&gt;,&quot;Dan Brecht (dcbrecht1951@gmail.com)&quot;&lt;dcbrecht1951@gmail.com&gt;,&quot;darin@thesmithgrouplaw.com&quot;&lt;darin@thesmithgrouplaw.com&gt;,&quot;director@plattechamber.com&quot;&lt;director@plattechamber.com&gt;,&quot;Drew Dietrich&quot;&lt;drew.dietrich@wyo.gov&gt;,&quot;EXP Realty&quot;&lt;derede.darden@exprealty.com&gt;,&quot;Frontier Furniture&quot;&lt;stacy@twinpineswy.com&gt;,&quot;Georgann Brown&quot;&lt;georgann.brown@fsbwy.com&gt;,&quot;Gittaway Ranch&quot;&lt;gittaway@gmail.com&gt;,&quot;Gorman Funeral Home&quot;&lt;tdean@gormanfh.com&gt;,&quot;Grady Winders&quot;&lt;grady.winders@iohk.io&gt;,&quot;Grid United&quot;&lt;alex.williams@gridunited.com&gt;,&quot;Guernsey Econ Dev (craigfrederick@hotmail.com)&quot;&lt;craigfrederick@hotmail.com&gt;,&quot;Gwen and Slick Seidel&quot;&lt;nailbender65@gmail.com&gt;,&quot;Heidi Adams&quot;&lt;heidi@hlabookkeeping.com&gt;,&quot;Hoffman Custom Construction&quot;&lt;SAHoffman@wyomingwisp.com&gt;,&quot;Janie Martines&quot;&lt;jmartines@chbef.com&gt;,&quot;jbaker@plattecountywyoming.com&quot;&lt;jbaker@plattecountywyoming.com&gt;,&quot;Jeff Wilhelm&quot;&lt;jwilhelm1950@outlook.com&gt;,&quot;jen@stoneweldingwy.com&quot;&lt;jen@stoneweldingwy.com&gt;,&quot;Joe Evers&quot;&lt;jevers@americanree.com&gt;,&quot;Justin Murphy&quot;&lt;jmurphy@pvbank.com&gt;,&quot;Kent Smith&quot;&lt;kesmith@wyoming.com&gt;,&quot;kevin.gross@twinpinebison.com&quot;&lt;kevin.gross@twinpinebison.com&gt;,&quot;Keystone Group&quot;&lt;larmar@laramiepeakmotors.com&gt;,&quot;Laramie Peak Motors Chuck Ruwart&quot;&lt;CHR3@laramiepeakmotors.com&gt;,&quot;Laurie Farkas&quot;&lt;laurie.farkas@blackhillscorp.com&gt;,&quot;ldshepardranch@gmail.com&quot;&lt;ldshepardranch@gmail.com&gt;,&quot;Linda Fabian&quot;&lt;lindafabianwy@gmail.com&gt;,&quot;LPL Financial Kelli Phifer&quot;&lt;kelli.phifer@lpl.com&gt;,&quot;mkukowski@pvbank.com&quot;&lt;mkukowski@pvbank.com&gt;,&quot;Mighty House Inc.&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&quot;Missouri Basin Electric&quot;&lt;lmickelsen@bepc.com&gt;,&quot;Mona and Steve Sherard&quot;&lt;rlsherard@gmail.com&gt;,&quot;Mountain West Technologies&quot;&lt;lthorvaldson@mwtcorp.net&gt;,&quot;Olind Construction Ellie Orr&quot;&lt;ellie@norbolind.com&gt;,&quot;Parks and Rec&quot;&lt;Curtis@plattecountyrecreation.com&gt;,&quot;PCSD1&quot;&lt;john.weigel@platte1.org&gt;,&quot;Piccadilly Play School&quot;&lt;lindsey@piccadillyplayschool.com&gt;,&quot;Picket Fence Realty LLC&quot;&lt;cindy.witt2004@gmail.com&gt;,&quot;Platte County&quot;&lt;mervin@plattecountywyoming.com&gt;,&quot;Platte County Parks and Rec&quot;&lt;steve@plattecountyrecreation.com&gt;,&quot;premiertitle@qwestoffice.net&quot;&lt;premiertitle@qwestoffice.net&gt;,&quot;RML Megan Hanneman&quot;&lt;megan@rmlcpas.com&gt;,&quot;sandy.dugger@bannerhealth.com&quot;&lt;sandy.dugger@bannerhealth.com&gt;,&quot;State Farm&quot;&lt;lynda@lyndalenz.com&gt;,&quot;Steil Survey&quot;&lt;brad@steilsurvey.com&gt;,&quot;Steve Shockley&quot;&lt;sshockley@plattecountywyoming.com&gt;,&quot;Superior Contracting&quot;&lt;daren@scllc19.com&gt;,&quot;Tabitha Enniss&quot;&lt;t.enniss@townofwheatlandwy.org&gt;,&quot;TC Edwards&quot;&lt;cody@tcedwardswyo.com&gt;,&quot;TDS&quot;&lt;mainoffice@tdswy.com&gt;,&quot;Thrifty Foods&quot;&lt;jodi@thriftyfoods.us&gt;,&quot;Town of Glendo Brenda Hagen&quot;&lt;glendotownof@yahoo.com&gt;,&quot;Twin Pine Bison Ranch&quot;&lt;kevin.gross@twinpinebison.com&gt;,&quot;Wanderer on Gilchrist&quot;&lt;thewandererongilchrist@gmail.com&gt;,&quot;westernconstruction307@yahoo.com&quot;&lt;westernconstruction307@yahoo.com&gt;,&quot;Wheatland Golf Club&quot;&lt;wheatlandgolf@gmail.com&gt;,&quot;Wheatland REA&quot;&lt;bardranch@hotmail.com&gt;,&quot;Woolington Agency&quot;&lt;will@wyoagency.com&gt;,&quot;Workforce Services&quot;&lt;kim.yeoman@wyo.gov&gt;,&quot;Wyoming Pure Cindy Goertz&quot;&lt;info@wyomingpure.com&gt;,&quot;tracy@wyoagency.com&quot;&lt;tracy@wyoagency.com&gt;,&quot;ldmillikin@gmail.com&quot;&lt;ldmillikin@gmail.com&gt;,&quot;Tiffany Lange&quot;&lt;tiffany@leestowing247.com&gt;,&quot;Jeremy Lange&quot;&lt;plattecountyrepair@gmail.com&gt;,&quot;Bryanna Bruce&quot;&lt;hazwoper247@gmail.com&gt;,&quot;Heather Ferguson&quot;&lt;doubleamhllc@gmail.com&gt;,&quot;Shelley Marker&quot;&lt;shelleymarker@yahoo.com&gt;,&quot;Candy Wright&quot;&lt;wright@wyomingwireless.com&gt;,&quot;keri@thankersrest.com&quot;&lt;keri@thankersrest.com&gt;,&quot;LaQuendin J LTC USARMY NG WYARNG (USA) Counts&quot;&lt;laquendin.j.counts.mil@army.mil&gt;,&quot;Dan Sisson&quot;&lt;Daniel.Sisson@fsbwy.com&gt;,&quot;Tim Wilkins&quot;&lt;tim@patriotHoldings.com&gt;,&quot;Platte County Resource District&quot;&lt;bradyirvine@rocketmail.com&gt;,&quot;Lisa Weigel&quot;&lt;lweigel@gsviking.org&gt;,&quot;Brandon Graves (bgraves770@gmail.com)&quot;&lt;bgraves770@gmail.com&gt;,&quot;allisonwilliam1956@gmail.com&quot;&lt;allisonwilliam1956@gmail.com&gt;,&quot;Taft Love&quot;&lt;taft@millirontj.com&gt;,&quot;Cindy DeLancey&quot;&lt;CLDeLancey@hollandhart.com&gt;,&quot;Braden C. Douglas&quot;&lt;BDouglas@rollinghillsbank.com&gt;,&quot;Kara Bertoch&quot;&lt;kbertoch@rollinghillsbank.com&gt;,&quot;Kelly Mixson&quot;&lt;Kgmixson@gmail.com&gt;,&quot;Jason Evans&quot;&lt;J.evans@townofwheatlandwy.org&gt;,&quot;Oliver Ashenhurst&quot;&lt;spaghettioutwest@gmail.com&gt;,&quot;Aubrey Brown&quot;&lt;wavesofwyoming@gmail.com&gt;,&quot;Jeremy Haroldson&quot;&lt;jharoldson.impact@hotmail.com&gt;,&quot;Joshua Kaufman&quot;&lt;joshkaufman81@gmail.com&gt;,&quot;Brad Jenkins&quot;&lt;laramiepeakhvac@gmail.com&gt;,&quot;Josh Hopkins&quot;&lt;mayor@chugwater.com&gt;,&quot;Thane Ashenhurst&quot;&lt;thaneash@gmail.com&gt;,&quot;Danielle Fertig&quot;&lt;fertig.danielle@yahoo.com&gt;,&quot;Derrick Sisson&quot;&lt;Derrick.Sisson@fsbwy.com&gt;,&quot;Scott Perkins&quot;&lt;s.perkins@townofwheatlandwy.org&gt;",
+        "date": "2026-01-19",
+        "receivedTime": "1768890809045",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Platte"
+        ]
+      },
+      "1768335681948153000": {
+        "subject": "Payment confirmation: Invoice #1668-(PLATTE COUNTY ECONOMIC DEVELOPMENT CORP)",
+        "from": "quickbooks@notification.intuit.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-13",
+        "receivedTime": "1768335681930",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Platte",
+          "Economic"
+        ]
+      },
+      "1768335503190153000": {
+        "subject": "Pledge 1668 from PLATTE COUNTY ECONOMIC DEVELOPMENT CORP",
+        "from": "quickbooks@notification.intuit.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-13",
+        "receivedTime": "1768335503173",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Platte",
+          "Economic"
+        ]
+      },
+      "1759856648006154100": {
+        "subject": "Re: You Are Invited: Platte County Economic Development Annual Meeting - Please RSVP",
+        "from": "hazwoper247@gmail.com",
+        "to": "&quot;Brook Brockman&quot;&lt;bbrockman@jgelliott.com&gt;",
+        "date": "2025-10-07",
+        "receivedTime": "1759856647998",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Platte",
+          "Economic"
+        ]
+      },
+      "1759856631919154100": {
+        "subject": "Re: You Are Invited: Platte County Economic Development Annual Meeting - Please RSVP",
+        "from": "hazwoper247@gmail.com",
+        "to": "&quot;Brook Brockman&quot;&lt;bbrockman@jgelliott.com&gt;",
+        "date": "2025-10-07",
+        "receivedTime": "1759856631908",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Platte",
+          "Economic"
+        ]
+      },
+      "1759247726376153000": {
+        "subject": "RE: You Are Invited: Platte County Economic Development Annual Meeting - Please RSVP",
+        "from": "bbrockman@jgelliott.com",
+        "to": "",
+        "date": "2025-09-30",
+        "receivedTime": "1759247726351",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Platte",
+          "Economic"
+        ]
+      },
+      "1758914663549153000": {
+        "subject": "You Are Invited: Platte County Economic Development Annual Meeting - Please RSVP",
+        "from": "bbrockman@jgelliott.com",
+        "to": "",
+        "date": "2025-09-26",
+        "receivedTime": "1758914663503",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Platte",
+          "Economic"
+        ]
+      },
+      "1768334805791153000": {
+        "subject": "Member Invitation: Jan 20 Public Meeting \u2013 Support for Local Process & Economic Development",
+        "from": "jyoung@pcedwy.org",
+        "to": "&quot;jill.k.goodrich@gmail.com&quot;&lt;jill.k.goodrich@gmail.com&gt;,&quot;anthony.bianchini@nee.com&quot;&lt;anthony.bianchini@nee.com&gt;,&quot;Banner Capital Bank&quot;&lt;cmccabe@bcbank.net&gt;,&quot;taylor.schmick@bannerhealth.com&quot;&lt;taylor.schmick@bannerhealth.com&gt;,&quot;Beth Hendon&quot;&lt;shepard_farms@hotmail.com&gt;,&quot;BG Livestock&quot;&lt;brookbrockman@gmail.com&gt;,&quot;Blue Raven&quot;&lt;blueravenrealty@gmail.com&gt;,&quot;BMO&quot;&lt;Heather.Paulson@BMO.com&gt;,&quot;bruwart@bobruwartmotors.com&quot;&lt;bruwart@bobruwartmotors.com&gt;,&quot;Bohlander, Natalie A&quot;&lt;natalie.bohlander@bannerhealth.com&gt;,&quot;Brian Artery&quot;&lt;bartery@ssjwyolaw.com&gt;,&quot;brian.dudeck@gridunited.com&quot;&lt;brian.dudeck@gridunited.com&gt;,&quot;Brook Brockman&quot;&lt;bbrockman@jgelliott.com&gt;,&quot;Capital Business Systems&quot;&lt;jweber@capitalmds.com&gt;,&quot;CHED Philip Ellis&quot;&lt;yippieyi@yahoo.com&gt;,&quot;Chuck Brown&quot;&lt;chuckbrown@wyoming.com&gt;,&quot;Chug Springs Butchery&quot;&lt;aspring@chugspringsbutchery.com&gt;,&quot;Chugwater Chili&quot;&lt;chugchili@chugwaterchili.com&gt;,&quot;Commissioner Jolovich&quot;&lt;ijolovich@plattecountywyoming.com&gt;,&quot;Dan Brecht (dcbrecht1951@gmail.com)&quot;&lt;dcbrecht1951@gmail.com&gt;,&quot;darin@thesmithgrouplaw.com&quot;&lt;darin@thesmithgrouplaw.com&gt;,&quot;director@plattechamber.com&quot;&lt;director@plattechamber.com&gt;,&quot;Drew Dietrich&quot;&lt;drew.dietrich@wyo.gov&gt;,&quot;EXP Realty&quot;&lt;derede.darden@exprealty.com&gt;,&quot;Frontier Furniture&quot;&lt;stacy@twinpineswy.com&gt;,&quot;Georgann Brown&quot;&lt;georgann.brown@fsbwy.com&gt;,&quot;Gittaway Ranch&quot;&lt;gittaway@gmail.com&gt;,&quot;Gorman Funeral Home&quot;&lt;tdean@gormanfh.com&gt;,&quot;Grady Winders&quot;&lt;grady.winders@iohk.io&gt;,&quot;Grid United&quot;&lt;alex.williams@gridunited.com&gt;,&quot;Guernsey Econ Dev (craigfrederick@hotmail.com)&quot;&lt;craigfrederick@hotmail.com&gt;,&quot;Gwen and Slick Seidel&quot;&lt;nailbender65@gmail.com&gt;,&quot;Heidi Adams&quot;&lt;heidi@hlabookkeeping.com&gt;,&quot;Hoffman Custom Construction&quot;&lt;SAHoffman@wyomingwisp.com&gt;,&quot;Janie Martines&quot;&lt;jmartines@chbef.com&gt;,&quot;jbaker@plattecountywyoming.com&quot;&lt;jbaker@plattecountywyoming.com&gt;,&quot;jeff.brown@fsbwy.com&quot;&lt;jeff.brown@fsbwy.com&gt;,&quot;Jeff Wilhelm&quot;&lt;jwilhelm1950@outlook.com&gt;,&quot;jen@stoneweldingwy.com&quot;&lt;jen@stoneweldingwy.com&gt;,&quot;Joe Evers&quot;&lt;jevers@americanree.com&gt;,&quot;Justin Murphy&quot;&lt;jmurphy@pvbank.com&gt;,&quot;Kent Smith&quot;&lt;kesmith@wyoming.com&gt;,&quot;kevin.gross@twinpinebison.com&quot;&lt;kevin.gross@twinpinebison.com&gt;,&quot;Keystone Group&quot;&lt;larmar@laramiepeakmotors.com&gt;,&quot;Laramie Peak Motors Chuck Ruwart&quot;&lt;CHR3@laramiepeakmotors.com&gt;,&quot;Laurie Farkas&quot;&lt;laurie.farkas@blackhillscorp.com&gt;,&quot;ldshepardranch@gmail.com&quot;&lt;ldshepardranch@gmail.com&gt;,&quot;Linda Fabian&quot;&lt;lindafabianwy@gmail.com&gt;,&quot;LPL Financial Kelli Phifer&quot;&lt;kelli.phifer@lpl.com&gt;,&quot;mkukowski@pvbank.com&quot;&lt;mkukowski@pvbank.com&gt;,&quot;Mighty House Inc.&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&quot;Missouri Basin Electric&quot;&lt;lmickelsen@bepc.com&gt;,&quot;Mona and Steve Sherard&quot;&lt;rlsherard@gmail.com&gt;,&quot;Mountain West Technologies&quot;&lt;lthorvaldson@mwtcorp.net&gt;,&quot;Olind Construction Ellie Orr&quot;&lt;ellie@norbolind.com&gt;,&quot;Parks and Rec&quot;&lt;Curtis@plattecountyrecreation.com&gt;,&quot;PCSD1&quot;&lt;john.weigel@platte1.org&gt;,&quot;Piccadilly Play School&quot;&lt;lindsey@piccadillyplayschool.com&gt;,&quot;Picket Fence Realty LLC&quot;&lt;cindy.witt2004@gmail.com&gt;,&quot;Platte County&quot;&lt;mervin@plattecountywyoming.com&gt;,&quot;Platte County Parks and Rec&quot;&lt;steve@plattecountyrecreation.com&gt;,&quot;premiertitle@qwestoffice.net&quot;&lt;premiertitle@qwestoffice.net&gt;,&quot;RML Megan Hanneman&quot;&lt;megan@rmlcpas.com&gt;,&quot;sandy.dugger@bannerhealth.com&quot;&lt;sandy.dugger@bannerhealth.com&gt;,&quot;State Farm&quot;&lt;lynda@lyndalenz.com&gt;,&quot;Steil Survey&quot;&lt;brad@steilsurvey.com&gt;,&quot;Steve Shockley&quot;&lt;sshockley@plattecountywyoming.com&gt;,&quot;Superior Contracting&quot;&lt;daren@scllc19.com&gt;,&quot;Tabitha Enniss&quot;&lt;t.enniss@townofwheatlandwy.org&gt;,&quot;TC Edwards&quot;&lt;cody@tcedwardswyo.com&gt;,&quot;TDS&quot;&lt;mainoffice@tdswy.com&gt;,&quot;Thrifty Foods&quot;&lt;jodi@thriftyfoods.us&gt;,&quot;Town of Glendo Brenda Hagen&quot;&lt;glendotownof@yahoo.com&gt;,&quot;Twin Pine Bison Ranch&quot;&lt;kevin.gross@twinpinebison.com&gt;,&quot;Wanderer on Gilchrist&quot;&lt;thewandererongilchrist@gmail.com&gt;,&quot;westernconstruction307@yahoo.com&quot;&lt;westernconstruction307@yahoo.com&gt;,&quot;Wheatland Golf Club&quot;&lt;wheatlandgolf@gmail.com&gt;,&quot;Wheatland REA&quot;&lt;bardranch@hotmail.com&gt;,&quot;Woolington Agency&quot;&lt;will@wyoagency.com&gt;,&quot;Workforce Services&quot;&lt;kim.yeoman@wyo.gov&gt;,&quot;Wyoming Pure Cindy Goertz&quot;&lt;info@wyomingpure.com&gt;,&quot;tracy@wyoagency.com&quot;&lt;tracy@wyoagency.com&gt;,&quot;ldmillikin@gmail.com&quot;&lt;ldmillikin@gmail.com&gt;,&quot;Tiffany Lange&quot;&lt;tiffany@leestowing247.com&gt;,&quot;Jeremy Lange&quot;&lt;plattecountyrepair@gmail.com&gt;,&quot;Bryanna Bruce&quot;&lt;hazwoper247@gmail.com&gt;,&quot;Heather Ferguson&quot;&lt;doubleamhllc@gmail.com&gt;,&quot;Shelley Marker&quot;&lt;shelleymarker@yahoo.com&gt;,&quot;Candy Wright&quot;&lt;wright@wyomingwireless.com&gt;,&quot;keri@thankersrest.com&quot;&lt;keri@thankersrest.com&gt;,&quot;LaQuendin J LTC USARMY NG WYARNG (USA) Counts&quot;&lt;laquendin.j.counts.mil@army.mil&gt;,&quot;Dan Sisson&quot;&lt;Daniel.Sisson@fsbwy.com&gt;,&quot;Tim Wilkins&quot;&lt;tim@patriotHoldings.com&gt;,&quot;Platte County Resource District&quot;&lt;bradyirvine@rocketmail.com&gt;,&quot;Lisa Weigel&quot;&lt;lweigel@gsviking.org&gt;,&quot;Brandon Graves (bgraves770@gmail.com)&quot;&lt;bgraves770@gmail.com&gt;,&quot;allisonwilliam1956@gmail.com&quot;&lt;allisonwilliam1956@gmail.com&gt;,&quot;Taft Love&quot;&lt;taft@millirontj.com&gt;,&quot;Cindy DeLancey&quot;&lt;CLDeLancey@hollandhart.com&gt;,&quot;Braden C. Douglas&quot;&lt;BDouglas@rollinghillsbank.com&gt;,&quot;Kara Bertoch&quot;&lt;kbertoch@rollinghillsbank.com&gt;,&quot;Kelly Mixson&quot;&lt;Kgmixson@gmail.com&gt;,&quot;Jason Evans&quot;&lt;J.evans@townofwheatlandwy.org&gt;,&quot;Oliver Ashenhurst&quot;&lt;spaghettioutwest@gmail.com&gt;,&quot;Aubrey Brown&quot;&lt;wavesofwyoming@gmail.com&gt;,&quot;Jeremy Haroldson&quot;&lt;jharoldson.impact@hotmail.com&gt;,&quot;Joshua Kaufman&quot;&lt;joshkaufman81@gmail.com&gt;,&quot;Brad Jenkins&quot;&lt;laramiepeakhvac@gmail.com&gt;,&quot;Josh Hopkins&quot;&lt;mayor@chugwater.com&gt;,&quot;Thane Ashenhurst&quot;&lt;thaneash@gmail.com&gt;,&quot;Danielle Fertig&quot;&lt;fertig.danielle@yahoo.com&gt;",
+        "date": "2026-01-13",
+        "receivedTime": "1768334805785",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Economic"
+        ]
+      },
+      "1762959654593153000": {
+        "subject": "Limited seats available: The Economist Intelligence Unit reveals important economic trends in this webinar",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-12",
+        "receivedTime": "1762959654558",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Economic"
+        ]
+      },
+      "1762354822148153000": {
+        "subject": "Limited seats available: The Economist Intelligence Unit reveals important economic trends in this webinar",
+        "from": "AmericanExpress@email.americanexpress.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-05",
+        "receivedTime": "1762354822088",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Economic"
+        ]
+      },
+      "1759795409461153000": {
+        "subject": "Your IBM CMR Agreement has been terminated for Mighty House Inc. (104rwn)",
+        "from": "no-reply-partnerportal@ibm.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-06",
+        "receivedTime": "1759795409451",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "IBM"
+        ]
+      },
+      "1758028023544153000": {
+        "subject": "Last chance\u2014IBM MaaS360 promo ends soon",
+        "from": "IBMSecurity@email.ibm.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-16",
+        "receivedTime": "1758028023496",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "IBM"
+        ]
+      },
+      "1756922533637124100": {
+        "subject": "Discover Red Hat\u2019s and IBM\u2019s future-proof Infrastructure",
+        "from": "IBM@email.ibm.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-03",
+        "receivedTime": "1756922533570",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "IBM"
+        ]
+      },
+      "1756897335863124100": {
+        "subject": "Legal update: IBM Demonstration, Development and Evaluation (DDE) program",
+        "from": "IBMPartnerPlus@bp.email.ibm.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-03",
+        "receivedTime": "1756897335807",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "IBM"
+        ]
+      },
+      "1755775856334124100": {
+        "subject": "Get 3 months free (25% off) with IBM MaaS360",
+        "from": "IBMSecurity@email.ibm.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-21",
+        "receivedTime": "1755775856161",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "IBM"
+        ]
+      },
+      "1755691439753123900": {
+        "subject": "Rachel, discover how UFC scales with IBM AI Agents",
+        "from": "IBM@email.ibm.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-20",
+        "receivedTime": "1755691439609",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "IBM"
+        ]
+      },
+      "1769536863187153000": {
+        "subject": "Why Some Amazon Products Climb Faster (+ $100 Gift Card)",
+        "from": "ed@asgtg.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-27",
+        "receivedTime": "1769536863141",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Climb"
+        ]
+      },
+      "1766207645835153000": {
+        "subject": "Acct No. 50-135152-000: Your Invoice From Ingram Micro US is Attached",
+        "from": "ingrammicro-us@billtrust.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-19",
+        "receivedTime": "1766207645827",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Ingram"
+        ]
+      },
+      "1766084785620153000": {
+        "subject": "Grow with Lenovo and Ingram Micro",
+        "from": "opportunities@mailer.ingrammicro.com",
+        "to": "&lt;RACHELWILLIAMS@MIGHTYHOUSEINC.COM&gt;",
+        "date": "2025-12-18",
+        "receivedTime": "1766084785584",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Ingram"
+        ]
+      },
+      "1763661228080018900": {
+        "subject": "Please take our survey! Ingram Micro Sales Customer Satisfaction",
+        "from": "surveys@email.formspro.microsoft.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-20",
+        "receivedTime": "1763661228066",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Ingram"
+        ]
+      },
+      "1757439275121123900": {
+        "subject": "Your Ingram Micro Reseller Application NRA082560 Has Been Updated to:Approved ",
+        "from": "Do_Not_Reply@ingrammicro.com",
+        "to": "&quot;RACHEL WILLIAMS&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-09",
+        "receivedTime": "1757439275111",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Ingram"
+        ]
+      },
+      "1755793744023123900": {
+        "subject": "Acct No. 50-135152-000: Your Invoice From Ingram Micro US is Attached",
+        "from": "ingrammicro-us@billtrust.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-21",
+        "receivedTime": "1755793744004",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Ingram"
+        ]
+      },
+      "1769997087598153000": {
+        "subject": "City of Tucson (AZ) | Temporary Employment & Staffing Services | Request for Proposals (RFP)",
+        "from": "zcarver@govwinexperts.us",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-02-01",
+        "receivedTime": "1769997087594",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1769530400678153000": {
+        "subject": "Your team has a proposal, Rachelwilliams",
+        "from": "canvacreate@engage.canva.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-27",
+        "receivedTime": "1769530400642",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1767661022645153000": {
+        "subject": "Re: Kane County Illinois | IT Consulting & Project Management Services | Request for Proposals (RFP) | Attention",
+        "from": "mpatel@govpointehqcontract.us",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-05",
+        "receivedTime": "1767661022639",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1767547832448143900": {
+        "subject": "Kane County Illinois | IT Consulting & Project Management Services | Request for Proposals (RFP) | Attention",
+        "from": "mpatel@govpointehqcontract.us",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2026-01-04",
+        "receivedTime": "1767547832442",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1765779736473138400": {
+        "subject": "Proposed service agreement and price comparison chart.",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;glendotownof&quot;&lt;glendotownof@yahoo.com&gt;",
+        "date": "2025-12-14",
+        "receivedTime": "1765779738170",
+        "folderId": "7880305000000008022",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1761824749263154100": {
+        "subject": "ATTN: Rachel, Proposals Ready to Review",
+        "from": "sarah@simplybizcapital.com",
+        "to": "&quot;rachelwilliams@mightyhouseinc.com&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-30",
+        "receivedTime": "1761824749259",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1757835195246153000": {
+        "subject": "Grow Faster with Monthly Proposal Services for State & Federal RFPs",
+        "from": "contact@govbidwriters.com",
+        "to": "&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-09-14",
+        "receivedTime": "1757835195230",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1756843222832123900": {
+        "subject": "You are invited to Stakeholder Meeting - Proposed Overall Triennial DBE Goal (FFY 2026 - 2028) - September 4, 2025",
+        "from": "dsbohelp@denvergov.org",
+        "to": "&lt;RACHELWILLIAMS@MIGHTYHOUSEINC.COM&gt;",
+        "date": "2025-09-02",
+        "receivedTime": "1756843222769",
+        "folderId": "7880305000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      }
+    }
+  },
+  "mine": {
+    "email": [
+      {
+        "isAlias": false,
+        "isPrimary": false,
+        "mailId": "theander.project@gmail.com",
+        "isConfirmed": true
+      },
+      {
+        "isAlias": false,
+        "isPrimary": true,
+        "mailId": "vincentlanderson@mightyhouseinc.com",
+        "isConfirmed": true
+      }
+    ],
+    "emails": {
+      "1765134539962153400": {
+        "subject": "A few government contracts I think Vincent L. would like!",
+        "from": "postmaster@email.samsearch.co",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-12-07",
+        "receivedTime": "1765134539959",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Government",
+          "Contract"
+        ]
+      },
+      "1763061492964143900": {
+        "subject": "A few government contracts I think Vincent L. would like!",
+        "from": "postmaster@email.samsearch.co",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-11-13",
+        "receivedTime": "1763061492958",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Government",
+          "Contract"
+        ]
+      },
+      "1758722989344153400": {
+        "subject": "\ud83d\udd11 Your Key to Government Sales: Get 889 Certified (Free!)",
+        "from": "no-reply@sell.amazon.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-24",
+        "receivedTime": "1758722989295",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Government"
+        ]
+      },
+      "1769127850324153400": {
+        "subject": "[&lt;1min] Secure tomorrow\u2019s contracts, today.",
+        "from": "humam.amouri@hey.samsearch.co",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2026-01-22",
+        "receivedTime": "1769127850295",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1765621776014153400": {
+        "subject": "Glendo IT Networking contract and comparison info",
+        "from": "theanderproject@gmail.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-12-13",
+        "receivedTime": "1765621775976",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Contract",
+          "Glendo"
+        ]
+      },
+      "1762315341090155000": {
+        "subject": "Draft of Software contract for Project GUNDOM, please edit as needed.",
+        "from": "vincentlanderson@mightyhouseinc.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-11-04",
+        "receivedTime": "1762315343215",
+        "folderId": "7874319000000008022",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1757090029916143900": {
+        "subject": "Achieve CMMI Level 3 or 5 \u2014 And Win Bigger Contracts",
+        "from": "sriya.s@orimarktechnologies.com",
+        "to": "&lt;inquiries@mightyhouseinc.com&gt;",
+        "date": "2025-09-05",
+        "receivedTime": "1757090029901",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Contract"
+        ]
+      },
+      "1770581109077158500": {
+        "subject": "iPad models from $299 - save on select models now",
+        "from": "BestBuy@email.bestbuy.com",
+        "to": "&lt;BESTBUYACCOUNT@MIGHTYHOUSEINC.COM&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770581109028",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770580982475158500": {
+        "subject": "Get your domain for $5",
+        "from": "noreply@mail.squarespace.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770580982458",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770563829991158500": {
+        "subject": "Zero Fees Processing ",
+        "from": "sulochana3689sahu@gmail.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2026-02-08",
+        "receivedTime": "1770563829986",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770493568055158500": {
+        "subject": "Save on select OLED TVs at Best Buy",
+        "from": "BestBuy@email.bestbuy.com",
+        "to": "&lt;BESTBUYACCOUNT@MIGHTYHOUSEINC.COM&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770493568007",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770485707729158500": {
+        "subject": "Join to Learn about the Gadget Repair Expo 6.0: 2/11/26 at 3:00 PM EST",
+        "from": "support@repairsfirst.org",
+        "to": "&quot;Mighty House Inc.&quot;&lt;espvendor@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770485707713",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770484467773158500": {
+        "subject": "XYAB - Order #XY32352 Was Delivered",
+        "from": "support@xyab.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770484467749",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770477423327153400": {
+        "subject": "Unlock the Full Value of Your RFA Membership",
+        "from": "support@repairsfirst.org",
+        "to": "&quot;Mighty House Inc.&quot;&lt;espvendor@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770477423317",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770476730826158500": {
+        "subject": "Report domain: mightyhouseinc.com Submitter: google.com Report-ID: 8883255869309096969",
+        "from": "noreply-dmarc-support@google.com",
+        "to": "&lt;dmarc@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770476730796",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770474849429153400": {
+        "subject": "Report domain: mightyhouseinc.com Submitter: google.com Report-ID: 8883255869309096969",
+        "from": "noreply-dmarc-support@google.com",
+        "to": "&lt;dmarc@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770474849426",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770472679529158500": {
+        "subject": "Report domain: mightyhouseinc.com Submitter: google.com Report-ID: 8883255869309096969",
+        "from": "noreply-dmarc-support@google.com",
+        "to": "&lt;dmarc@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770472679525",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770472189778158500": {
+        "subject": "Report domain: mightyhouseinc.com Submitter: google.com Report-ID: 8883255869309096969",
+        "from": "noreply-dmarc-support@google.com",
+        "to": "&lt;dmarc@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770472189748",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770470495716158500": {
+        "subject": "Report domain: mightyhouseinc.com Submitter: google.com Report-ID: 8883255869309096969",
+        "from": "noreply-dmarc-support@google.com",
+        "to": "&lt;dmarc@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770470495713",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770469461209153400": {
+        "subject": "Report domain: mightyhouseinc.com Submitter: google.com Report-ID: 8883255869309096969",
+        "from": "noreply-dmarc-support@google.com",
+        "to": "&lt;dmarc@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770469461206",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770467602219153400": {
+        "subject": "Report domain: mightyhouseinc.com Submitter: google.com Report-ID: 8883255869309096969",
+        "from": "noreply-dmarc-support@google.com",
+        "to": "&lt;dmarc@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770467602215",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770465752534158500": {
+        "subject": "Report domain: mightyhouseinc.com Submitter: google.com Report-ID: 8883255869309096969",
+        "from": "noreply-dmarc-support@google.com",
+        "to": "&lt;dmarc@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770465752531",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770463679784158500": {
+        "subject": "Report domain: mightyhouseinc.com Submitter: google.com Report-ID: 8883255869309096969",
+        "from": "noreply-dmarc-support@google.com",
+        "to": "&lt;dmarc@mightyhouseinc.com&gt;",
+        "date": "2026-02-07",
+        "receivedTime": "1770463679767",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770425989715153400": {
+        "subject": "[Action Advised] Review Google Cloud credential security best practices ",
+        "from": "CloudPlatform-noreply@google.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770425989698",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770404844051153400": {
+        "subject": "Sponsor Spotlight: Modern Wireless Powers GRE 6.0",
+        "from": "support@repairsfirst.org",
+        "to": "&quot;Mighty House Inc.&quot;&lt;espvendor@mightyhouseinc.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770404844036",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770404415710153400": {
+        "subject": "Clearance deals are on now. Shop the Best Buy Outlet.",
+        "from": "BestBuy@email.bestbuy.com",
+        "to": "&lt;BESTBUYACCOUNT@MIGHTYHOUSEINC.COM&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770404415640",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770403957549153400": {
+        "subject": "Save the date! Join to Learn about TX Parts: 2/10/26 at 2:00 PM EST",
+        "from": "support@repairsfirst.org",
+        "to": "&quot;Mighty House Inc.&quot;&lt;espvendor@mightyhouseinc.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770403957539",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770401350370153400": {
+        "subject": "Your order Order has been approved",
+        "from": "enzo.costa@vencer.g12.br",
+        "to": "&lt;comptonc@rheacounty.org&gt;,&lt;compuspections@paa.org&gt;,&lt;compute@ibtisam.us&gt;,&lt;computec@computecpc.com&gt;,&lt;computer-repair@philstillman.com&gt;,&lt;computer@gwtc.net&gt;,&lt;computer@idealpcrepairs.com&gt;,&lt;computer@wsbf.net&gt;,&lt;computerguy@reedsburgcomputerguy.com&gt;,&lt;computerguys@kodiakgroup.us&gt;,&lt;computers@computershakinc.com&gt;,&lt;computers@computersparamedics.com&gt;,&lt;computers@thelake.consul&gt;,&lt;computerscience@frontiersin.org&gt;,&lt;computerspluswoodstock@gmail.co&gt;,&lt;computerstore@mightyhouseinc.com&gt;,&lt;computersupport@franktronics.net&gt;,&lt;computertechllc@aim.com&gt;,&lt;comsol@comsolutionsgroup.com&gt;,&lt;comstock@csandw.com&gt;,&lt;comtecinc@comtecinc.com&gt;,&lt;comunicacion.espaciosarte@madrid.org&gt;,&lt;comunicacion@madrid.org&gt;,&lt;comunicacion@polancorealtyusa.com&gt;,&lt;comunicacion@prisanoticias.com&gt;,&lt;comunicacion@taiarts.com&gt;,&lt;comunicacion@thetopcompanies.com&gt;,&lt;comunicaciones@canovanasgov.com&gt;,&lt;comunicaciones@servicioslegales.org&gt;,&lt;comunicacionesomc@omcabogados.com.pe&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770401350364",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770397850030158500": {
+        "subject": "Sponsor Spotlight: DriveSavers Powers GRE 6.0",
+        "from": "support@repairsfirst.org",
+        "to": "&quot;Mighty House Inc.&quot;&lt;espvendor@mightyhouseinc.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770397850017",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770395065654158500": {
+        "subject": "RE: Your amazon listing:\u00a0X1 Carbon laptop",
+        "from": "robert@mrprimecenterx.com",
+        "to": "&lt;espvendor@mightyhouseinc.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770395065646",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770393749533153400": {
+        "subject": "Re: Re. Your container data center engineering",
+        "from": "lindsey@bizadvisorsassociates.com",
+        "to": "&lt;vincentanderson@mightyhouseinc.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770393749529",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770393636307153400": {
+        "subject": "Finally: A Modern Wireless Receiver for WaveBird Controllers",
+        "from": "sales@xyab.com",
+        "to": "&quot;Vincent L. Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770393636285",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770390634399153400": {
+        "subject": "Sponsor Spotlight: Injured Gadgets Powers GRE 6.0",
+        "from": "support@repairsfirst.org",
+        "to": "&quot;Mighty House Inc.&quot;&lt;espvendor@mightyhouseinc.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770390634388",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770388458081158500": {
+        "subject": "Order Bill is now approved",
+        "from": "mark.barath@scoalamirceaeliade.ro",
+        "to": "&lt;espm@mail.telepac.pt&gt;,&lt;esports1@sportskeeda.com&gt;,&lt;esports@blockhouse.live&gt;,&lt;esppclaims@epgins.com&gt;,&lt;esprocurement@esb.ie&gt;,&lt;espvendor@mightyhouseinc.com&gt;,&lt;espy@frqncyfit.com&gt;,&lt;esq@gallonlaw.com&gt;,&lt;esqcustserv@cdsfulfillment.com&gt;,&lt;esquirestaff@hearst.com&gt;,&lt;esr@centralbaptistcdc.org&gt;,&lt;esr@esrfulfillment.com&gt;,&lt;esr@modulex.com&gt;,&lt;esroon1974@yahoo.es&gt;,&lt;ess-contact@se.com&gt;,&lt;ess-sales@globecomposite.com&gt;,&lt;ess@essoconto.com&gt;,&lt;ess@frontier.com&gt;,&lt;ess@insytive.com&gt;,&lt;essam.alkhateb@nafinc.com&gt;,&lt;essam.m@vm-properties.com&gt;,&lt;essam@jumairare.com&gt;,&lt;essdirect@energyssi.com&gt;,&lt;esseco@esseco.it&gt;,&lt;esselay.123@btinternet.com&gt;,&lt;essen.unternehmen.de@ikea.com&gt;,&lt;essen@at-cycles.eu&gt;,&lt;essen_aurngabad@essendeinki.com&gt;,&lt;essen_blr@essendeinki.com&gt;,&lt;essen_chennai@essendeinki.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770388457956",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770386471208153401": {
+        "subject": "Order ID Invoice successfully confirmed",
+        "from": "robert.stria@liceulfaget.ro",
+        "to": "&lt;inquiries@medialab.la&gt;,&lt;inquiries@medicalresources.com&gt;,&lt;inquiries@meltycone.com&gt;,&lt;inquiries@menomineecasinoresort.com&gt;,&lt;inquiries@merrimacintl.com&gt;,&lt;inquiries@metroscg.com&gt;,&lt;inquiries@meyersroman.com&gt;,&lt;inquiries@mgeunderground.com&gt;,&lt;inquiries@miasitalianmarket.com&gt;,&lt;inquiries@michiganelectricsupply.com&gt;,&lt;inquiries@micklerandassociates.com&gt;,&lt;inquiries@midcontinent.org&gt;,&lt;inquiries@mightyhouseinc.com&gt;,&lt;inquiries@mile.org&gt;,&lt;inquiries@milkfloat.com&gt;,&lt;inquiries@millcreekresort.net&gt;,&lt;inquiries@mitre.org&gt;,&lt;inquiries@mkt-strat.com&gt;,&lt;inquiries@mncpstaffing.com&gt;,&lt;inquiries@modernchinacafe.com&gt;,&lt;inquiries@monarchcabinetry.com&gt;,&lt;inquiries@mssmidwest.com&gt;,&lt;inquiries@muccaosteria.com&gt;,&lt;inquiries@musebeautyconnect.com&gt;,&lt;inquiries@mycorrhizae.commycorrhizal&gt;,&lt;inquiries@mycrmmanager.com&gt;,&lt;inquiries@myotis.co&gt;,&lt;inquiries@ncibrokers.com&gt;,&lt;inquiries@nemak.com&gt;,&lt;inquiries@neocloudconsulting.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770386471199",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770386379562158500": {
+        "subject": "Payment confirmation for order Token received",
+        "from": "eagarzon@corsaje.edu.co",
+        "to": "&lt;contentprotection@umusic.com&gt;,&lt;contentsupport@dewalt.com&gt;,&lt;contessa.robins@nm.com&gt;,&lt;contessa@hbmwd.com&gt;,&lt;contest@pureboardshop.com&gt;,&lt;contest@superfeet.com&gt;,&lt;contest@tradersunion.com&gt;,&lt;contesta@etn.eurofins.com&gt;,&lt;contests@hackster.io&gt;,&lt;contests@hellojuniper.com&gt;,&lt;contests@theperrychamber.com&gt;,&lt;context@reverso.net&gt;,&lt;continaanderson@avoyellespsb.com&gt;,&lt;contine@apa-insurance.com&gt;,&lt;continental.support@aon.com&gt;,&lt;contingentworkforceteam@apple.com&gt;,&lt;continuedlisting@nasdaq.com&gt;,&lt;continuinged@jpkeefehs.org&gt;,&lt;contouradmin@contourglass.com&gt;,&lt;contract@davidfrancisfurniture.com&gt;,&lt;contract@eagleassociates.us&gt;,&lt;contract@proof.com.sg&gt;,&lt;contractfab@goflory.com&gt;,&lt;contracting@as-strategy.com&gt;,&lt;contracting@mightyhouseinc.com&gt;,&lt;contracting@plausa.com&gt;,&lt;contractor.recoveryfund@state.mn.us&gt;,&lt;contractor@navycompany.org&gt;,&lt;contractor@ohcsupply.com&gt;,&lt;contractor@shepherdelec.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770386379440",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1770386251240158500": {
+        "subject": "Payment status updated for order ID Bill",
+        "from": "robert.stria@liceulfaget.ro",
+        "to": "&lt;input@srf.ch&gt;,&lt;inqiries@apkdevelopment.org&gt;,&lt;inqjuiry@get-lit-orlando.com&gt;,&lt;inqueries@mightyhouseinc.com&gt;,&lt;inqueries@traffikaid.com&gt;,&lt;inquire@20frontstreet.com&gt;,&lt;inquire@57south.co&gt;,&lt;inquire@a-s-electric.com&gt;,&lt;inquire@a-s-eletric.com&gt;,&lt;inquire@abbiecakesco.com&gt;,&lt;inquire@acepowdercoatingri.com&gt;,&lt;inquire@ahint.com&gt;,&lt;inquire@ajccpa.com&gt;,&lt;inquire@amprius.com&gt;,&lt;inquire@anya-dining.com&gt;,&lt;inquire@asgcontrols.com&gt;,&lt;inquire@beneficialwatersystems.com&gt;,&lt;inquire@berwynplumbingboilerrepair.com&gt;,&lt;inquire@brazenanimation.com&gt;,&lt;inquire@buylci.com&gt;,&lt;inquire@cai.io&gt;,&lt;inquire@centroaustin.com&gt;,&lt;inquire@charliewasasinner.com&gt;,&lt;inquire@cnelectricalcontractor.com&gt;,&lt;inquire@cnyfeeds.com&gt;,&lt;inquire@compassmanagedit.com&gt;,&lt;inquire@concannonbc.com&gt;,&lt;inquire@cotesingapore.com&gt;,&lt;inquire@countdownevents.com&gt;,&lt;inquire@cpasdca.com&gt;",
+        "date": "2026-02-06",
+        "receivedTime": "1770386251108",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Glendo_from"
+        ]
+      },
+      "1760092460481143900": {
+        "subject": "Senior housing boom, A house with a water park",
+        "from": "hi@mail.zeroflux.io",
+        "to": "&quot;vincentlanderson@mightyhouseinc.com&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-10",
+        "receivedTime": "1760092460428",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Seniors",
+          "Senior"
+        ]
+      },
+      "1756850872340123900": {
+        "subject": "Voicemail message from &quot;SVC FOR SENIORS (+13073223424)&quot; [00:00:14]",
+        "from": "voicemail@ascendcloud.com",
+        "to": "&quot;DeskphoneX101&quot;&lt;DeskphoneX101@mightyhouse.com&gt;,&quot;DeskphoneX101&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&quot;DeskphoneX101&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-02",
+        "receivedTime": "1756850872342",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Seniors",
+          "Senior"
+        ]
+      },
+      "1755601884202143900": {
+        "subject": "Senior Living Frenzy",
+        "from": "hi@mail.zeroflux.io",
+        "to": "&quot;vincentlanderson@mightyhouseinc.com&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-19",
+        "receivedTime": "1755601884144",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Seniors",
+          "Senior"
+        ]
+      },
+      "1767889980840153001": {
+        "subject": "Pearson Skilling Partner Survey",
+        "from": "brian.zibricky@pearson.com",
+        "to": "&quot;Adam Monroe&quot;&lt;Adam.m@appliedtechac.com&gt;,&quot;allison.barrow@fastlane.net&quot;&lt;allison.barrow@fastlane.net&gt;,&quot;Anav Bogan&quot;&lt;anav@caregiverswithpleasure.com&gt;,&quot;Andre Schalk&quot;&lt;andre.schalk@newhorizons.de&gt;,&quot;Andreas Conrads&quot;&lt;Andreas.Conrads@NewHorizons.de&gt;,&quot;Angel Camasis&quot;&lt;angel@audentestechnologies.com&gt;,&quot;angela.mackay@fastlane.net&quot;&lt;angela.mackay@fastlane.net&gt;,&quot;Christian Roeder&quot;&lt;christian.roeder@newhorizons.de&gt;,&quot;Christine Harper&quot;&lt;christine.h@appliedtechac.com&gt;,&quot;Claude Apiou&quot;&lt;claude.apiou@seads.io&gt;,&quot;Darlene Cernoch&quot;&lt;Darlene.cernoch@mycomputercareer.edu&gt;,&quot;Dr. Yemer&quot;&lt;yemer@ssgc.consulting&gt;,&quot;Eric Fowler&quot;&lt;eric.fowler@mycomputercareer.com&gt;,&quot;Felice Juliano&quot;&lt;f.juliano@audentestechnologies.com&gt;,&quot;Francis Xavier Hernandez&quot;&lt;francis.hernandez@audentestechnologies.com&gt;,&quot;Greg Collier&quot;&lt;greg.collier@mycomputercareer.com&gt;,&quot;Jan Deckert&quot;&lt;Jan.Deckert@NewHorizons.de&gt;,&quot;Joe Mignano&quot;&lt;Joe.mignano@logicaloperations.com&gt;,&quot;Katja Firsching&quot;&lt;katja.firsching@newhorizons.de&gt;,&quot;Kim Alvarez&quot;&lt;kim.a@appliedtechac.com&gt;,&quot;lauren.jones@fastlane.net&quot;&lt;lauren.jones@fastlane.net&gt;,&quot;Lee Phillips&quot;&lt;lee.phillips@mycomputercareer.com&gt;,&quot;Liz P&quot;&lt;liz.p@appliedtechac.com&gt;,&quot;Lynn F&quot;&lt;lynn.f@appliedtechac.com&gt;,&quot;matt.rosenblum@fastlane.net&quot;&lt;matt.rosenblum@fastlane.net&gt;,&quot;Melanie Galati&quot;&lt;melanie.galati@mycomputercareer.com&gt;,&quot;Michelle Fike&quot;&lt;michelle.fike@mycomputercareer.com&gt;,&quot;Muhammad Ilyas&quot;&lt;abilyas@lifelongkuwait.com&gt;,&quot;Oscar Hahn&quot;&lt;Oscar.Hahn@newhorizonsfranchisezentrale.de&gt;,&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&quot;Sharlotte Cadila&quot;&lt;sharlotte@audentestechnologies.com&gt;,&quot;Stephan Scholtissek&quot;&lt;stephan.scholtissek@newhorizons.de&gt;,&quot;Tricia Ventura&quot;&lt;tricia@audentestechnologies.com&gt;,&quot;Verna Bogan&quot;&lt;verna@caregiverswithpleasure.com&gt;,&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;,&quot;Xenia Silva&quot;&lt;xenia.s@appliedtechac.com&gt;,&quot;Zachary Dowthitt&quot;&lt;zachary.dowthitt@mycomputercareer.com&gt;",
+        "date": "2026-01-08",
+        "receivedTime": "1767889980841",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1761750235596153000": {
+        "subject": "Pearson go to Market and Setup",
+        "from": "kara.flanagan@pearson.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-10-29",
+        "receivedTime": "1761750235598",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1761152405285153000": {
+        "subject": "Pearson Skilling Partner Program",
+        "from": "shelley.morris@pearson.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;,&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-22",
+        "receivedTime": "1761152405286",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755827062985124000": {
+        "subject": "Mighty House Inc - Welcome to the Pearson Skilling Partner Program!",
+        "from": "kara.flanagan@pearson.com",
+        "to": "&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-21",
+        "receivedTime": "1755827062945",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755615303914143900": {
+        "subject": "Mighty House Achieve Agreement between Pearson , Vincent L. Anderson and Ray Murray is Signed and Filed!",
+        "from": "adobesign@adobesign.com",
+        "to": "&quot;vincentlanderson@mightyhouseinc.com&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-19",
+        "receivedTime": "1755615302646",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755285735332124000": {
+        "subject": "RE: Pearson Skilling Partner Program",
+        "from": "kara.flanagan@pearson.com",
+        "to": "&quot;Shelley Morris&quot;&lt;shelley.morris@pearson.com&gt;,&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-15",
+        "receivedTime": "1755285735294",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755283098324124000": {
+        "subject": "Signature requested for geri.bosco@pearson.com on &quot;Mighty House Achieve Agreement&quot;",
+        "from": "adobesign@adobesign.com",
+        "to": "&quot;vincentlanderson@mightyhouseinc.com&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-15",
+        "receivedTime": "1755283098302",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755281642899124000": {
+        "subject": "Re: Pearson Skilling Partner Program",
+        "from": "shelley.morris@pearson.com",
+        "to": "&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-15",
+        "receivedTime": "1755281642882",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755280093828102500": {
+        "subject": "RE: Pearson Skilling Partner Program",
+        "from": "vincentlanderson@mightyhouseinc.com",
+        "to": "&quot;Shelley Morris&quot;&lt;shelley.morris@pearson.com&gt;",
+        "date": "2025-08-15",
+        "receivedTime": "1755280094533",
+        "folderId": "7874319000000008022",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1755267218988123900": {
+        "subject": "RE: Pearson Skilling Partner Program",
+        "from": "shelley.morris@pearson.com",
+        "to": "&quot;&#39;Rachel Williams&#39;&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-08-15",
+        "receivedTime": "1755267218992",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Pearson"
+        ]
+      },
+      "1762536928563158500": {
+        "subject": "Test to confirm migration and domain name records are fully functional",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;Jeni&quot;&lt;jeni@sfswy.org&gt;",
+        "date": "2025-11-07",
+        "receivedTime": "1762536928564",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1758587511280153400": {
+        "subject": "Vincent, 27% of patients tested had hidden heart issues",
+        "from": "tommy.kung@wealthwave.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-22",
+        "receivedTime": "1758587511268",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1757469342795143900": {
+        "subject": "Meta lnc has invited you to test Ads Manager Suite",
+        "from": "tobymagaret@gmail.com",
+        "to": "&lt;computerstore@mightyhouseinc.com&gt;",
+        "date": "2025-09-09",
+        "receivedTime": "1757469342791",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Testing"
+        ]
+      },
+      "1759932777461143900": {
+        "subject": "FREE Certification Opportunity for Credentialed Sellers \ud83c\udf89",
+        "from": "no-reply@sell.amazon.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-08",
+        "receivedTime": "1759932777433",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1758896155673153400": {
+        "subject": "\u2728 Your Business Deserves This: FREE Certification Inside!",
+        "from": "no-reply@sell.amazon.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-26",
+        "receivedTime": "1758896155624",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1757688755608153400": {
+        "subject": "Attention: Got a seller certification? Upload now",
+        "from": "no-reply@sell.amazon.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-12",
+        "receivedTime": "1757688755585",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Certification"
+        ]
+      },
+      "1770226719312158500": {
+        "subject": "Policy Enforcement Notice for &quot;Computer Store&quot; (ID: 788977680956055",
+        "from": "DanielPintos685@gmail.com",
+        "to": "&lt;computerstore@mightyhouseinc.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770226719307",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1764897546419019200": {
+        "subject": "Computer store media",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;Marie&quot;&lt;Marie@307wyomingsentinel.com&gt;",
+        "date": "2025-12-04",
+        "receivedTime": "1764897546421",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1764895807673019200": {
+        "subject": "Re: Pricing and commission structure for services offered by Computer Store",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;Vincent L. Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-12-04",
+        "receivedTime": "1764895807679",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1764894484593006400": {
+        "subject": "Pricing and commission structure for services offered by Computer Store",
+        "from": "vincentlanderson@mightyhouseinc.com",
+        "to": "&quot;Rachel Williams&quot;&lt;rachelwilliams@mightyhouseinc.com&gt;",
+        "date": "2025-12-04",
+        "receivedTime": "1764894486456",
+        "folderId": "7874319000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1761424182621153400": {
+        "subject": "MightyHouseInc is live: Computer Store costume and candies contest at 5pm, fortnite at 4pm! It&#39;s not just AI slop, it&#39;s kusogeware! T3hV1$10n and @SC0RP14N_PH03N1X",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-25",
+        "receivedTime": "1761424182609",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store",
+          "AI"
+        ]
+      },
+      "1760656350934153400": {
+        "subject": "MightyHouseInc is live: Playing games made in store! Then its Warframe update time with JTheWIZ! Countdown to October 25th &quot;SPOOPYWEEN&quot; at your Computer Store!",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-16",
+        "receivedTime": "1760656350919",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1760221664951143900": {
+        "subject": "MightyHouseInc is live: Computer Store: Computer Store: LAN Center Random Gaming",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-11",
+        "receivedTime": "1760221664939",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1759097508538153400": {
+        "subject": "Automatic reply: [EXTERNAL] Greetings from Mighty House Inc., and your new Computer Store on Gilchrist!",
+        "from": "mkukowski@pvbank.com",
+        "to": "&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-28",
+        "receivedTime": "1759097508534",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1759097125728153400": {
+        "subject": "Automatic reply: Greetings from Mighty House Inc., and your new Computer Store on Gilchrist! -EXTERNAL",
+        "from": "Georgann.Brown@fsbwy.com",
+        "to": "&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-28",
+        "receivedTime": "1759097125723",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1759097103059153400": {
+        "subject": "Automatic reply: Greetings from Mighty House Inc., and your new Computer Store on Gilchrist!",
+        "from": "kelli.phifer@lpl.com",
+        "to": "&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-28",
+        "receivedTime": "1759097103055",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1759097095798153400": {
+        "subject": "Undeliverable: Greetings from Mighty House Inc., and your new Computer Store on Gilchrist!",
+        "from": "postmaster@torringtontelegram.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-28",
+        "receivedTime": "1759097095776",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1759096936802153400": {
+        "subject": "Automatic reply: Greetings from Mighty House Inc., and your new Computer Store on Gilchrist!",
+        "from": "cmccabe@bcbank.net",
+        "to": "&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-28",
+        "receivedTime": "1759096936797",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1759096915532155300": {
+        "subject": "Greetings from Mighty House Inc., and your new Computer Store on Gilchrist!",
+        "from": "vincentlanderson@mightyhouseinc.com",
+        "to": "&quot;10th Street Social&quot;&lt;beckyg@fireduprescue.com&gt;,&quot;Banner Capital&quot;&lt;cmccabe@bcbank.net&gt;,&quot;Banner Health Natalie&quot;&lt;natalie.bohlander@health.com&gt;,&quot;taylor.schmick@bannerhealth.com&quot;&lt;taylor.schmick@bannerhealth.com&gt;,&quot;Banner Health --Zach Miller&quot;&lt;Zachary.miller@bannerhealth.com&gt;,&quot;b.condie@wheatlandrea.com&quot;&lt;b.condie@wheatlandrea.com&gt;,&quot;Blue Raven Realty&quot;&lt;blueravenrealty@gmail.com&gt;,&quot;bruwart@bobruwartmotors.com&quot;&lt;bruwart@bobruwartmotors.com&gt;,&quot;bbrockman@jgelliott.com&quot;&lt;bbrockman@jgelliott.com&gt;,&quot;C. Wright&quot;&lt;clerk@townofwheatlandwy.org&gt;,&quot;Capital Business Systems&quot;&lt;jweber@capitalmds.com&gt;,&quot;CHED Philip Ellis&quot;&lt;yippieyi@yahoo.com&gt;,&quot;Chuck Brown&quot;&lt;chuckbrown@wyoming.com&gt;,&quot;Chuck Ruwart&quot;&lt;chr3@laramiepeakmotors.com&gt;,&quot;Chugwater Chili&quot;&lt;chugchili@chugwaterchili.com&gt;,&quot;Commissioner Jolovich&quot;&lt;ijolovich@plattecountywyoming.com&gt;,&quot;Commissioner Mantle&quot;&lt;kmantle@plattecountywyoming.com&gt;,&quot;Dan Brecht (dcbrecht1951@gmail.com)&quot;&lt;dcbrecht1951@gmail.com&gt;,&quot;Drube Home&quot;&lt;kashen@drubehrh.com&gt;,&quot;Frontier Furniture&quot;&lt;stacy@twinpineswy.com&gt;,&quot;Georgann Brown&quot;&lt;georgann.brown@fsbwy.com&gt;,&quot;Gittaway Ranch&quot;&lt;gittaway@gmail.com&gt;,&quot;Gorman Funeral Home&quot;&lt;tdean@gormanfh.com&gt;,&quot;Guernsey Econ Dev (craigfrederick@hotmail.com)&quot;&lt;craigfrederick@hotmail.com&gt;,&quot;Gwen and Slick Seidel&quot;&lt;nailbender65@gmail.com&gt;,&quot;Heather Furguson&quot;&lt;cinemawest2@gmail.com&gt;,&quot;Heidi Adams&quot;&lt;heidi@hlabookkeeping.com&gt;,&quot;Hoffman Custom Construction&quot;&lt;SAHoffman@wyomingwisp.com&gt;,&quot;Janie Martines&quot;&lt;jmartines@chbef.com&gt;,&quot;jeff.brown@fsbwy.com&quot;&lt;jeff.brown@fsbwy.com&gt;,&quot;Jeff Wilhelm&quot;&lt;jwilhelm1950@outlook.com&gt;,&quot;jen@stoneweldingwy.com&quot;&lt;jen@stoneweldingwy.com&gt;,&quot;Jeremy Haroldson&quot;&lt;jharoldson.impact@hotmail.com&gt;,&quot;jill.k.goodrich@gmail.com&quot;&lt;jill.k.goodrich@gmail.com&gt;,&quot;Justin Murphy&quot;&lt;jmurphy@pvbank.com&gt;,&quot;Kent Smith&quot;&lt;kesmith@wyoming.com&gt;,&quot;Keystone Group&quot;&lt;lamar@laramiepeakmotors.com&gt;,&quot;Laurie Farkas&quot;&lt;laurie.farkas@blackhillscorp.com&gt;,&quot;Linda Fabian&quot;&lt;lindafabianwy@gmail.com&gt;,&quot;LPL Financial Kelli Phifer&quot;&lt;kelli.phifer@lpl.com&gt;,&quot;mkukowski@pvbank.com&quot;&lt;mkukowski@pvbank.com&gt;,&quot;merlinhitt@gmail.com&quot;&lt;merlinhitt@gmail.com&gt;,&quot;Missouri Basin Electric&quot;&lt;lmickelsen@bepc.com&gt;,&quot;mona@sherardrealty.com&quot;&lt;mona@sherardrealty.com&gt;,&quot;Mountain West Technologies&quot;&lt;lthorvaldson@mwtcorp.net&gt;,&quot;Olind Construction Ellie Orr&quot;&lt;ellie@norbolind.com&gt;,&quot;Parks and Rec&quot;&lt;Curtis@plattecountyrecreation.com&gt;,&quot;PCSD1&quot;&lt;john.weigel@platte1.org&gt;,&quot;Peak Gravel&quot;&lt;bardranch@hotmail.com&gt;,&quot;Piccadilly Play School&quot;&lt;lindsey@piccadillyplayschool.com&gt;,&quot;Picket Fence Realty LLC&quot;&lt;cindy.witt2004@gmail.com&gt;,&quot;Platte County&quot;&lt;mervin@plattecountywyoming.com&gt;,&quot;Platte County Parks and Rec&quot;&lt;steve@plattecountyrecreation.com&gt;,&quot;Platte County Record Times&quot;&lt;bervin@pcrecordtimes.com&gt;,&quot;Platte County Record Times Reporter&quot;&lt;swilson@pcrecordtimes.com&gt;,&quot;premiertitle@qwestoffice.net&quot;&lt;premiertitle@qwestoffice.net&gt;,&quot;Rite Agency&quot;&lt;lisacochran@hotmail.com&gt;,&quot;rka@wheatlandrea.com&quot;&lt;rka@wheatlandrea.com&gt;,&quot;RML Megan Hanneman&quot;&lt;megan@rmlcpas.com&gt;,&quot;Rob Cain&quot;&lt;robby.s.cain@icloud.com&gt;,&quot;Rob Hellbaum&quot;&lt;rhellbaum@vcn.com&gt;,&quot;Rolling Hills Bank&quot;&lt;eeddington@rollinghillsbank.com&gt;,&quot;shepard_farms@hotmail.com&quot;&lt;shepard_farms@hotmail.com&gt;,&quot;Sherard, Sherard, and Johnson&quot;&lt;stephen@ssjwyolaw.com&gt;,&quot;State Farm&quot;&lt;lynda@lyndalenz.com&gt;,&quot;Steil Survey&quot;&lt;brad@steilsurvey.com&gt;,&quot;Steve Shockley&quot;&lt;sshockley@plattecountywyoming.com&gt;,&quot;Superior Contracting&quot;&lt;daren@scllc19.com&gt;,&quot;TC Edwards&quot;&lt;cody@tcedwardswyo.com&gt;,&quot;TDS&quot;&lt;mainoffice@tdswy.com&gt;,&quot;Town of Glendo Brenda Hagen&quot;&lt;glendotownof@yahoo.com&gt;,&quot;Wanderer on Gilchrist&quot;&lt;thewandererongilchrist@gmail.com&gt;,&quot;westernconstruction307@yahoo.com&quot;&lt;westernconstruction307@yahoo.com&gt;,&quot;Wheatland REA&quot;&lt;jason.wright@wheatlandrea.com&gt;,&quot;wheatlandgolf@gmail.com&quot;&lt;wheatlandgolf@gmail.com&gt;,&quot;Wildcat Feeders&quot;&lt;wildcatfdrs@gmail.com&gt;,&quot;Woolington Agency&quot;&lt;will@wyoagency.com&gt;,&quot;Workforce Services&quot;&lt;kim.yeoman@wyo.gov&gt;,&quot;Wyoming Intertie&quot;&lt;hoa.tran@gridunited.com&gt;,&quot;Wyoming Pure Cindy Goertz&quot;&lt;info@wyomingpure.com&gt;,&quot;Y2 Consultants&quot;&lt;info@y2consultants.com&gt;",
+        "date": "2025-09-28",
+        "receivedTime": "1759096917494",
+        "folderId": "7874319000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1758657415755138300": {
+        "subject": "Re: Fwd: Re: Computer store quote of $900 -",
+        "from": "vincentlanderson@mightyhouseinc.com",
+        "to": "&quot;bullhidewest&quot;&lt;bullhide.west@gmail.com&gt;",
+        "date": "2025-09-23",
+        "receivedTime": "1758657418282",
+        "folderId": "7874319000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1758651507012116600": {
+        "subject": "Fwd: Re: Computer store quote of $900 -",
+        "from": "rachelwilliams@mightyhouseinc.com",
+        "to": "&quot;Vincentlanderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-23",
+        "receivedTime": "1758651507014",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1757626139120153400": {
+        "subject": "MightyHouseInc is live: Computer Store: 2XKO Closed Beta, in LAN Center Friendlies till Hungrybox and Mew2King Duo Play!",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-11",
+        "receivedTime": "1757626139103",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1757470018643143900": {
+        "subject": "MightyHouseInc is live: Computer Store: 2XKO Closed Beta, in LAN Center Friendlies till Hungrybox and Mew2King Duo Play!",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-09",
+        "receivedTime": "1757470018630",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1757449273120124000": {
+        "subject": "MightyHouseInc is live: Computer Store: Street Fighter X Tekken! I LOVE GEMS! ALSO BEAT MAX LVL MAX HANDICAP CPU RUFUS AND BOB IN STORE TO WIN $20!",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-09",
+        "receivedTime": "1757449273089",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1757378818489102500": {
+        "subject": "Mighty House Inc. - Computer Store Gaming Event!: 2XKO Beta release live stream with Mew2King & Hbox Duo Play!",
+        "from": "vincentlanderson@mightyhouseinc.com",
+        "to": "&quot;Hungrybox&quot;&lt;Hungrybox@teamliquid.com&gt;",
+        "date": "2025-09-08",
+        "receivedTime": "1757378820794",
+        "folderId": "7874319000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1757375643391102500": {
+        "subject": "Mighty House Inc. - Computer Store Gaming Event!: 2XKO Beta release live stream with Mew2King",
+        "from": "vincentlanderson@mightyhouseinc.com",
+        "to": "&quot;mew2king&quot;&lt;mew2king@yahoo.com&gt;",
+        "date": "2025-09-08",
+        "receivedTime": "1757375644309",
+        "folderId": "7874319000000008022",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1756162007613124000": {
+        "subject": "MightyHouseInc is live: Computer Store: &quot;Bang-On Balls: Chronicles&quot; igames.gg x lancenters.com event with @Quinnpilot!",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-25",
+        "receivedTime": "1756162007582",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1756076091134124000": {
+        "subject": "MightyHouseInc is live: Computer Store: &quot;Bang-On Balls: Chronicles&quot; igames.gg x lancenters.com event with @Quinnpilot!",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-24",
+        "receivedTime": "1756076091098",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1755983548810124000": {
+        "subject": "MightyHouseInc is live: Computer Store: @DokAsmodeus &#39;s Sayonara Stream, A Demon Slayer 2 Tournament!",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-23",
+        "receivedTime": "1755983548781",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1755925449324124000": {
+        "subject": "MightyHouseInc is live: Computer Store: Bang on Balls Event 08/24 build up hype stream",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-22",
+        "receivedTime": "1755925449288",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1755818130943143900": {
+        "subject": "MightyHouseInc is live: Computer Store: Computer Store: Sims 2 pardeux the chillining",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-21",
+        "receivedTime": "1755818130921",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1755744952937124000": {
+        "subject": "MightyHouseInc is live: Computer Store: Computer Store: Sims 2 pardeux the chillining",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-20",
+        "receivedTime": "1755744952910",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1755566106774143900": {
+        "subject": "MightyHouseInc is live: Computer Store: Computer Store: Sims 2 pardeux the chillining",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-18",
+        "receivedTime": "1755566106755",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1755468172189124000": {
+        "subject": "MightyHouseInc is live: Computer Store:Demon Slayer 2 with @dokasmodeus and @Homborgor82",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-17",
+        "receivedTime": "1755468172151",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1755402665804124000": {
+        "subject": "MightyHouseInc is live: Computer Store: USF4",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-16",
+        "receivedTime": "1755402665772",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1755387572175124000": {
+        "subject": "MightyHouseInc is live: Computer Store: Dice with Death and @ludople the third!",
+        "from": "no-reply@twitch.tv",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-16",
+        "receivedTime": "1755387572147",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Computer Store"
+        ]
+      },
+      "1763917277825019100": {
+        "subject": "[Free Training] Turn Trading Cards Into REAL Profits - Invite Inside..",
+        "from": "support@magicchest.co",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-11-23",
+        "receivedTime": "1763917277791",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Training"
+        ]
+      },
+      "1757955677834153400": {
+        "subject": "Training to help your team get started",
+        "from": "noreply@openai.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-15",
+        "receivedTime": "1757955677810",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Training"
+        ]
+      },
+      "1755185387064124000": {
+        "subject": "Student deals are here | Back to School sale.",
+        "from": "Dell_Technologies@americas.comm.dell.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-14",
+        "receivedTime": "1755185386919",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Student"
+        ]
+      },
+      "1765423162939153400": {
+        "subject": "SUMMIT HONG KONG - GPU OFFER LIST - 11 DEC 2025",
+        "from": "kaka@summits.com.hk",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-12-10",
+        "receivedTime": "1765423162909",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1764606995515019100": {
+        "subject": "Cyber Monday: Up to 50% Off VPS, dedicated, managed & GPU hosting",
+        "from": "noreply@em.liquidweb.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-12-01",
+        "receivedTime": "1764606995478",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1760581529331153400": {
+        "subject": "SUMMIT HONG KONG - GPU OFFER LIST- 16 OCT 2025",
+        "from": "kaka@summits.com.hk",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-15",
+        "receivedTime": "1760581529304",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "GPU"
+        ]
+      },
+      "1757478186160124000": {
+        "subject": "SUMMIT HONG KONG - SAMSUNG SSD & NVIDIA GPU OFFER LIST - 10 SEP 2025",
+        "from": "kaka@summits.com.hk",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-09",
+        "receivedTime": "1757478186101",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "GPU",
+          "NVIDIA"
+        ]
+      },
+      "1764640423722019100": {
+        "subject": "Sold, ship now: [Expedited Shipping] 2W-OZ6G-ZI8E MSI Stealth 14 Studio 14&quot; 165Hz FHD+ Gaming Laptop: Intel Core i7-13620H, NVIDIA Geforce RTX 4060, 16GB DDR5, 1TB NVMe SSD, Thunderbolt 4, Win 11 Pro: Star Blue A13VF-250US",
+        "from": "seller-notification@amazon.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-12-01",
+        "receivedTime": "1764640423640",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1759423617619153401": {
+        "subject": "Sold, ship now: [Second Day Delivery] 563.79 PNY NVIDIA RTX A2000 12GB",
+        "from": "seller-notification@amazon.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-02",
+        "receivedTime": "1759423617584",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1757969558918153400": {
+        "subject": "Sold, ship now: 563.79 PNY NVIDIA RTX A2000 12GB",
+        "from": "seller-notification@amazon.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-15",
+        "receivedTime": "1757969558882",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "NVIDIA"
+        ]
+      },
+      "1768489548057153400": {
+        "subject": "Multipack Discounts on Dell & HPE Enterprise Servers",
+        "from": "websales@etb-tech.com",
+        "to": "&quot;Vincent L.&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2026-01-15",
+        "receivedTime": "1768489548025",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1761836443314153400": {
+        "subject": "Your Ideal HPE Tower Server is One Click Away",
+        "from": "websales@etb-tech.com",
+        "to": "&quot;Vincent L.&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-30",
+        "receivedTime": "1761836443283",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1757671790348153400": {
+        "subject": "Unleash Unmatched Performance with Dell PowerEdge R6625 & R7625 AMD Servers",
+        "from": "websales@etb-tech.com",
+        "to": "&quot;Vincent L. Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-12",
+        "receivedTime": "1757671790318",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1757430072831124000": {
+        "subject": "A focus on MCP servers, managing your organization, and more.",
+        "from": "no-reply@github.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-09",
+        "receivedTime": "1757430072768",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1756992772005143900": {
+        "subject": "Custom-Engineered Servers for Extreme Demands from ETB",
+        "from": "websales@etb-tech.com",
+        "to": "&quot;Vincent L. Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-04",
+        "receivedTime": "1756992771969",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Server"
+        ]
+      },
+      "1770218689960158500": {
+        "subject": "Inside Cyber Newsletter: AI, Ransomware, Cloud Security",
+        "from": "no-reply@checkpoint.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2026-02-04",
+        "receivedTime": "1770218689935",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1769080616022153400": {
+        "subject": "\ud83e\udd16\ud83d\udca1 Vincent L., Discover next\u2011gen AI solutions today",
+        "from": "sourcing@hktdc.org",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2026-01-22",
+        "receivedTime": "1769080615996",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1765282411820153400": {
+        "subject": "AI Voice Agents Prequalify Real Estate Leads at Scale",
+        "from": "hi@mail.zeroflux.io",
+        "to": "&quot;vincentlanderson@mightyhouseinc.com&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-12-09",
+        "receivedTime": "1765282411727",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1764776472587019100": {
+        "subject": "Your final opportunity to join our AI security conversation",
+        "from": "info@reply.checkpoint.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-12-03",
+        "receivedTime": "1764776472565",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1763999403164019100": {
+        "subject": "A Conversation Every AI Security Leader Should Be Part Of",
+        "from": "info@reply.checkpoint.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-11-24",
+        "receivedTime": "1763999403140",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1763648020850019000": {
+        "subject": "An Invitation to Check Point\u2019s Capstone AI Security Conversation",
+        "from": "info@reply.checkpoint.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-11-20",
+        "receivedTime": "1763648020816",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1763133238764143900": {
+        "subject": "Secure Your AI Future: Exclusive End-of-Year Event",
+        "from": "info@reply.checkpoint.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-11-14",
+        "receivedTime": "1763133238748",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1762338765938143900": {
+        "subject": "92% of CRE teams now piloting AI, A tiny boathouse!",
+        "from": "hi@mail.zeroflux.io",
+        "to": "&quot;vincentlanderson@mightyhouseinc.com&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-11-05",
+        "receivedTime": "1762338765881",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1761314488021153401": {
+        "subject": "New AI features to scale and stand out",
+        "from": "noreply@mail.squarespace.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-24",
+        "receivedTime": "1761314487971",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1760628172261153400": {
+        "subject": "More efficient AI insurance methods exist",
+        "from": "contact@getcargofive.xyz",
+        "to": "&quot;Vincent Anderson&quot;&lt;vincentanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-16",
+        "receivedTime": "1760628172257",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1760006049535153400": {
+        "subject": "Will AI Disrupt Life Science Real Estate?, An airstrip home,",
+        "from": "hi@mail.zeroflux.io",
+        "to": "&quot;vincentlanderson@mightyhouseinc.com&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-09",
+        "receivedTime": "1760006049478",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1759779523145153400": {
+        "subject": "My AI prompts for capture ",
+        "from": "humam.amouri@hey.samsearch.co",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-10-06",
+        "receivedTime": "1759779523094",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1759245041340153400": {
+        "subject": "Introducing a breakthrough in AI glasses",
+        "from": "quest@campaigns.meta.com",
+        "to": "&quot;Vincent Anderson&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-30",
+        "receivedTime": "1759245041261",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1758110591199153400": {
+        "subject": "AI Is Redefining Cybersecurity\u2014Is Your Team Ready?",
+        "from": "email@go.dowjones.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-17",
+        "receivedTime": "1758110591184",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1758029668680153400": {
+        "subject": "The state of AI-led entrepreneurship",
+        "from": "noreply@mail.squarespace.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-16",
+        "receivedTime": "1758029668658",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1756981044029124000": {
+        "subject": "AI to erase half of white-collar jobs",
+        "from": "hi@mail.zeroflux.io",
+        "to": "&quot;vincentlanderson@mightyhouseinc.com&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-04",
+        "receivedTime": "1756981043862",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1756825825895124000": {
+        "subject": "Meet your assistant, the new Dell AI PC.",
+        "from": "Dell_Technologies@americas.comm.dell.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-02",
+        "receivedTime": "1756825825650",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1755605118539143900": {
+        "subject": "AI\u2019s rapid growth requires better intelligence",
+        "from": "email@go.dowjones.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-19",
+        "receivedTime": "1755605118517",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1755193653965124000": {
+        "subject": "Why Liquid Cooling is Key for AI Success",
+        "from": "noreply@evocative.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-14",
+        "receivedTime": "1755193653926",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1755193653946124000": {
+        "subject": "Why Liquid Cooling is Key for AI Success",
+        "from": "noreply@evocative.com",
+        "to": "&lt;joseph.symon.bobcares.dedicated.engineer@mightyhouseinc.com&gt;",
+        "date": "2025-08-14",
+        "receivedTime": "1755193653918",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1755173063489124000": {
+        "subject": "You\u2019re Invited: AI, Automation, and the Next Frontier in Business",
+        "from": "email@go.dowjones.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-14",
+        "receivedTime": "1755173063455",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1755086433696124000": {
+        "subject": "The AI Edge Every Organization Needs",
+        "from": "email@go.dowjones.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-13",
+        "receivedTime": "1755086433664",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "AI"
+        ]
+      },
+      "1756922528990143900": {
+        "subject": "Discover Red Hat\u2019s and IBM\u2019s future-proof Infrastructure",
+        "from": "IBM@email.ibm.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-03",
+        "receivedTime": "1756922528949",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "IBM"
+        ]
+      },
+      "1766084812414153400": {
+        "subject": "Grow with Lenovo and Ingram Micro",
+        "from": "opportunities@mailer.ingrammicro.com",
+        "to": "&lt;RACHELWILLIAM@MIGHTYHOUSEINC.COM&gt;",
+        "date": "2025-12-18",
+        "receivedTime": "1766084812382",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Ingram"
+        ]
+      },
+      "1766084807498153400": {
+        "subject": "Grow with Lenovo and Ingram Micro",
+        "from": "opportunities@mailer.ingrammicro.com",
+        "to": "&lt;INCENTLANDERSON@MIGHTYHOUSEINC.COM&gt;",
+        "date": "2025-12-18",
+        "receivedTime": "1766084807474",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Ingram"
+        ]
+      },
+      "1767446758221158500": {
+        "subject": "Re: Web Design Proposal",
+        "from": "erica.appdesigns@hotmail.com",
+        "to": "&quot;Erica Erman&quot;&lt;erica.appdesigns@hotmail.com&gt;",
+        "date": "2026-01-03",
+        "receivedTime": "1767446758217",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1765045731931019100": {
+        "subject": "Re: Web Design Proposal",
+        "from": "robert.hotwebproposal@outlook.com",
+        "to": "&quot;Robert Vohra&quot;&lt;robert.hotwebproposal@outlook.com&gt;",
+        "date": "2025-12-06",
+        "receivedTime": "1765045731918",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1762770753706153400": {
+        "subject": "Trump floats a 50-year mortgage proposal",
+        "from": "hi@mail.zeroflux.io",
+        "to": "&quot;vincentlanderson@mightyhouseinc.com&quot;&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-11-10",
+        "receivedTime": "1762770753642",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1757519841830153400": {
+        "subject": "States Submit Final BEAD Proposals to NTIA",
+        "from": "donotreply@wordpress.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-09-10",
+        "receivedTime": "1757519841808",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      },
+      "1756484761299124000": {
+        "subject": "Proposal for Virtual Business Support \u2013 Global Assist Inc.",
+        "from": "mark@theglobalassist.com",
+        "to": "&lt;vincentlanderson@mightyhouseinc.com&gt;",
+        "date": "2025-08-29",
+        "receivedTime": "1756484761279",
+        "folderId": "7874319000000008014",
+        "matched_terms": [
+          "Proposal"
+        ]
+      }
+    }
+  }
+}

@@ -1,15 +1,15 @@
 {
-  "lastChecks": {
-    "backup": 1770753576,
-    "services": 1739184360,
-    "calendar": null,
-    "email": null,
-    "prReview": null
-  },
-  "notes": {
-    "backup": "SUCCESS 2026-02-10 12:59 MST - 270.60 MB, OneDrive ✅, GDrive skipped (sync issue)",
-    "services": "dashboard:8080 ✅ | llamafile:8081 offline (on-demand)",
-    "claudeCode": "Last activity 2026-02-10 12:48 PM",
-    "git": "Workspace has uncommitted files"
-  }
+    "lastChecks":  {
+                       "backup":  1771030779,
+                       "services":  1770800237,
+                       "calendar":  null,
+                       "email":  null,
+                       "prReview":  null
+                   },
+    "notes":  {
+                  "backup":  "SUCCESS 2026-02-14 00:59 MST - 291.65 MB (OneDrive + Google Drive)",
+                  "services":  "dashboard:8080 unknown | llamafile:8081 offline | docker: macos-sonoma ✅, openclaw-agents ✅",
+                  "claudeCode":  "Not checked",
+                  "docker":  "macOS Sonoma VM running (VNC:5999, SSH:50922), Ubuntu agent container running"
+              }
 }

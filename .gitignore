@@ -82,3 +82,6 @@ claude-transcripts/
 swiss-rounds/*/repos/
 swiss-rounds/*/repo/
 swiss-rounds/cosmo-sokol-update/cosmo-sokol/
+
+# Session transcripts (may contain secrets)
+session-transcripts/
