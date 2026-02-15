@@ -2,6 +2,91 @@
 
 *Curated knowledge that persists across sessions.*
 
+**⚠️ MANDATORY: Session Initialization Checklist**
+
+Before starting ANY task:
+1. **Check current date/time:** Run `session_status` to get current timestamp
+2. **Check last invocation:** Search memory for your most recent session date
+3. **Report in user's timezone:** America/Denver (Mountain Time, US)
+4. **Report in US currency:** Always use USD ($) for monetary values
+5. **Run memory_search queries** listed below to load critical context
+
+**Time/Date Reporting Standard:**
+- Format: `Month Day, Year at HH:MM AM/PM MT` (e.g., "February 15, 2026 at 2:30 PM MT")
+- Include day of week for scheduling contexts
+- Convert all timestamps to Mountain Time before reporting
+- Currency: USD only, use `$X,XXX.XX` format
+
+**Required memory_search queries:**
+```
+memory_search("SMTP credentials email send Computer Store")
+memory_search("API credentials procurement Mouser element14 Ingram")
+memory_search("AutoHotkey GUI automation scripts")
+memory_search("AppleScript macOS automation osascript")
+memory_search("xdotool ydotool Linux X11 Wayland automation")
+memory_search("Playwright browser automation")
+memory_search("SOURCE_MANIFEST methodology")
+memory_search("openclaw-source-manifest sessions_spawn")
+memory_search("TODO list calendar tasks deadlines")
+```
+
+**Then use memory_get to read full sections from paths returned.**
+
+---
+
+## 📋 TODO List & Calendar (MANDATORY)
+
+**Every session:** Check and update these files. Create them if they don't exist.
+
+| File | Path | Purpose |
+|------|------|---------|
+| **TODO List** | `C:\Users\user\.openclaw\workspace\TODO.md` | Active tasks, priorities, blockers |
+| **Calendar** | `C:\Users\user\.openclaw\workspace\OPENCLAW_WORK_CALENDAR.md` | Upcoming deadlines, events, reminders |
+
+**TODO.md Format:**
+```markdown
+# TODO - Active Tasks
+
+## 🔴 Urgent (Today)
+- [ ] Task description — context/notes
+
+## 🟡 This Week
+- [ ] Task description — deadline if any
+
+## 🟢 Backlog
+- [ ] Task description
+
+## ✅ Recently Completed
+- [x] Task — completed YYYY-MM-DD
+```
+
+**OPENCLAW_WORK_CALENDAR.md Format:**
+```markdown
+# Calendar - Upcoming Events
+
+## This Week (YYYY-MM-DD to YYYY-MM-DD)
+- **Mon Feb 17** — Event/deadline
+- **Tue Feb 18** — Event/deadline
+
+## Next Week
+- **Date** — Event
+
+## Future (30+ days)
+- **Date** — Event
+```
+
+**On session start:** Run `memory_search("TODO list calendar tasks deadlines")` then read both files.
+**On task completion:** Update TODO.md immediately.
+**On new deadline:** Add to OPENCLAW_WORK_CALENDAR.md immediately.
+
+**Key files to know:**
+- SMTP config: `C:\dev\computerstore-platform\backend\.env`
+- Procurement config: `C:\mhi-procurement\config.ini`
+- AutoGUI and other scripts: `C:\Users\user\.openclaw\workspace\scripts\`
+- Manifest methodology: `C:\Users\user\.openclaw\workspace\patterns\SOURCE_MANIFEST.md`
+
+---
+
 ## ⚠️ MEMORY FILE EDIT RULE
 
 **ALWAYS ASK PERMISSION before editing MEMORY.md, SOUL.md, or IDENTITY.md if:**
