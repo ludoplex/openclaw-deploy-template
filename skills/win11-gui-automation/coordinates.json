@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "screen_resolution": "1920x1080",
+    "working_area": "1920x1032",
+    "taskbar_height": 48,
+    "dpi_scale": 100,
+    "last_updated": "2026-02-14",
+    "verified_by": "Peridot"
+  },
+  "verified_clicks": [
+    {
+      "id": "claude-input-center",
+      "target": "Claude Code Desktop",
+      "element": "Input text area",
+      "coords": {"x": 639, "y": 751},
+      "window_bounds": {"left": 139, "top": 60, "right": 1139, "bottom": 851},
+      "relative_position": {"x_pct": 50, "y_pct": 87},
+      "status": "verified",
+      "verified_date": "2026-02-14",
+      "notes": "Center of input area, works reliably"
+    },
+    {
+      "id": "claude-input-safe-left",
+      "target": "Claude Code Desktop", 
+      "element": "Input text area (left-biased safe)",
+      "coords": {"x": 489, "y": 693},
+      "window_bounds": {"left": 139, "top": 60, "right": 1139, "bottom": 851},
+      "relative_position": {"x_pct": 35, "y_pct": 80},
+      "status": "verified",
+      "verified_date": "2026-02-14",
+      "notes": "LEFT of center - avoids Cancel buttons on right"
+    },
+    {
+      "id": "claude-input-safe-left-2",
+      "target": "Claude Code Desktop",
+      "element": "Input text area (alternate safe)",
+      "coords": {"x": 481, "y": 691},
+      "window_bounds": {"left": 139, "top": 60, "right": 1139, "bottom": 851},
+      "relative_position": {"x_pct": 34, "y_pct": 80},
+      "status": "verified", 
+      "verified_date": "2026-02-14",
+      "notes": "Slight variation of safe-left"
+    }
+  ],
+  "estimated_coords": [
+    {
+      "id": "uac-yes-button",
+      "target": "UAC Elevation Prompt",
+      "element": "Yes button",
+      "coords": {"x": 885, "y": 590},
+      "dialog_size": {"width": 500, "height": 350},
+      "relative_position": {"x_pct": 42, "y_pct": 65},
+      "status": "estimated",
+      "notes": "Standard UAC dialog, Yes on left"
+    },
+    {
+      "id": "uac-no-button",
+      "target": "UAC Elevation Prompt",
+      "element": "No button",
+      "coords": {"x": 1035, "y": 590},
+      "dialog_size": {"width": 500, "height": 350},
+      "relative_position": {"x_pct": 58, "y_pct": 65},
+      "status": "estimated",
+      "notes": "Standard UAC dialog, No on right - DANGER"
+    },
+    {
+      "id": "consent-ok-button",
+      "target": "Windows Consent Dialog",
+      "element": "OK button",
+      "coords": {"x": 860, "y": 580},
+      "dialog_size": {"width": 450, "height": 300},
+      "relative_position": {"x_pct": 40, "y_pct": 70},
+      "status": "estimated",
+      "notes": "Generic consent, OK typically left"
+    },
+    {
+      "id": "smartscreen-run-anyway",
+      "target": "SmartScreen Warning",
+      "element": "Run anyway link/button",
+      "coords": {"x": 820, "y": 550},
+      "dialog_size": {"width": 550, "height": 400},
+      "relative_position": {"x_pct": 38, "y_pct": 60},
+      "status": "estimated",
+      "notes": "May need to click 'More info' first"
+    }
+  ],
+  "danger_zones": [
+    {
+      "id": "window-close-x",
+      "description": "Window close button",
+      "bounds": {"x_min": 1870, "x_max": 1920, "y_min": 0, "y_max": 50},
+      "severity": "critical",
+      "action": "closes window/app"
+    },
+    {
+      "id": "dialog-cancel-right",
+      "description": "Cancel/No buttons typically here",
+      "bounds": {"x_min": 1000, "x_max": 1200, "y_min": 500, "y_max": 700},
+      "severity": "high",
+      "action": "cancels operation"
+    },
+    {
+      "id": "taskbar",
+      "description": "Windows taskbar",
+      "bounds": {"x_min": 0, "x_max": 1920, "y_min": 1032, "y_max": 1080},
+      "severity": "medium",
+      "action": "may open start menu or switch apps"
+    },
+    {
+      "id": "title-bar",
+      "description": "Window title bar / drag zone",
+      "bounds": {"x_min": 0, "x_max": 1870, "y_min": 0, "y_max": 40},
+      "severity": "medium",
+      "action": "may drag/move window"
+    }
+  ],
+  "safe_zones": [
+    {
+      "id": "dialog-ok-left",
+      "description": "OK/Yes buttons typically here",
+      "bounds": {"x_min": 800, "x_max": 950, "y_min": 500, "y_max": 700},
+      "notes": "Safe for consent clicks"
+    },
+    {
+      "id": "content-area",
+      "description": "Main content area of windows",
+      "bounds": {"x_min": 100, "x_max": 1800, "y_min": 100, "y_max": 900},
+      "notes": "Generally safe for navigation"
+    }
+  ]
+}

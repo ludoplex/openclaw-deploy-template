@@ -77,3 +77,8 @@ memory-files-*.zip
 
 # Claude transcripts (may be large/sensitive)
 claude-transcripts/
+
+# Embedded git repos (use submodules if needed)
+swiss-rounds/*/repos/
+swiss-rounds/*/repo/
+swiss-rounds/cosmo-sokol-update/cosmo-sokol/

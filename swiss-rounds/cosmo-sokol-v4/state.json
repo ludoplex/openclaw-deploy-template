@@ -1,0 +1,57 @@
+{
+  "project": "cosmo-sokol-v4",
+  "mode": "new",
+  "phase": "rounds",
+  "sources": [
+    {
+      "name": "sokol-upstream",
+      "repo": "floooh/sokol",
+      "path": "C:\\cosmo-sokol\\deps\\sokol",
+      "type": "source",
+      "verified": true
+    },
+    {
+      "name": "cosmo-sokol-fork",
+      "repo": "ludoplex/cosmo-sokol",
+      "path": "C:\\cosmo-sokol",
+      "type": "source",
+      "verified": true
+    }
+  ],
+  "userVerified": true,
+  "specialists": ["seeker", "localsearch", "asm", "cosmo", "dbeng", "neteng", "cicd", "testcov"],
+  "currentRound": 1,
+  "totalRounds": 5,
+  "rounds": {
+    "1": {
+      "specialistsComplete": true,
+      "triadComplete": true,
+      "completed": ["seeker", "localsearch", "asm", "cosmo", "dbeng", "neteng", "cicd", "testcov"],
+      "pending": []
+    }
+  },
+  "triad": {
+    "redundancyComplete": true,
+    "critiqueComplete": true,
+    "solutionComplete": true
+  },
+  "pm": {
+    "started": false,
+    "overarchingPlanComplete": false,
+    "sequence": [],
+    "specialistPlans": {},
+    "complete": false
+  },
+  "revision": {
+    "priorPlanPath": null,
+    "scope": null,
+    "triggeredBy": null
+  },
+  "projectPhilosophy": {
+    "language": "C only",
+    "tooling": "cosmocc/APE only",
+    "dependencies": "none - single portable binary",
+    "noExternalTools": ["Python", "Node", "Ruby", "any interpreter"]
+  },
+  "startedAt": "2026-02-10T02:14:00.000Z"
+}

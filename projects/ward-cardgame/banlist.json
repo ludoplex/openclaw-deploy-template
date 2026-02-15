@@ -1,0 +1,39 @@
+{
+  "source": "https://www.ward-cardgame.com/how-to-play-limited-and-banned",
+  "lastUpdated": "2025-04-27",
+  "extractedAt": "2026-02-13",
+  "rules": {
+    "limited": "Only 1 card of this type is allowed in a 30 card deck",
+    "banned": "These cards are not allowed in official Ward events",
+    "promo": "All Promotional cards are considered limited. Only 1 card of each promo is allowed in a 30 card deck"
+  },
+  "limited": {
+    "gen1": [
+      "Dragon Rage",
+      "Epic Loot",
+      "Ghost of the Past",
+      "Giant Rat",
+      "Holy Light",
+      "Judgement",
+      "Junk Scarecrow",
+      "Magic Steal",
+      "Mysterious Door",
+      "Psychic Toad",
+      "Revival Priest",
+      "Stone Golem",
+      "Turn Coat",
+      "Visitor from Beyond",
+      "Wrath of the Old Ones"
+    ],
+    "gen2": [
+      "Irresistible Love"
+    ]
+  },
+  "banned": {
+    "gen1": [
+      "Time Dragon"
+    ],
+    "gen2": []
+  },
+  "promoRule": "all_limited"
+}

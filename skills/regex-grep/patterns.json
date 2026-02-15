@@ -1,0 +1,434 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Regex Pattern Library - Copy-paste ready patterns for common tasks",
+  "metadata": {
+    "version": "1.0.0",
+    "updated": "2026-02-10",
+    "notes": "Patterns are provided in ERE (grep -E) and PCRE (grep -P/rg) variants where applicable"
+  },
+  "categories": {
+    "network": {
+      "description": "Network addresses, URLs, and identifiers",
+      "patterns": {
+        "ipv4_strict": {
+          "description": "IPv4 address with valid octet ranges (0-255)",
+          "ere": "\\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b",
+          "pcre": "\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b",
+          "example_matches": ["192.168.1.1", "10.0.0.255", "0.0.0.0"],
+          "example_non_matches": ["256.1.1.1", "192.168.1.256"]
+        },
+        "ipv4_simple": {
+          "description": "IPv4 address (simple, may match invalid octets)",
+          "ere": "\\b[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\b",
+          "pcre": "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b",
+          "example_matches": ["192.168.1.1", "999.999.999.999"],
+          "notes": "Use ipv4_strict for validation, this for quick extraction"
+        },
+        "ipv4_cidr": {
+          "description": "IPv4 with CIDR notation",
+          "ere": "\\b[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}/[0-9]{1,2}\\b",
+          "pcre": "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}/\\d{1,2}\\b",
+          "example_matches": ["192.168.1.0/24", "10.0.0.0/8"]
+        },
+        "ipv6_full": {
+          "description": "Full IPv6 address (8 groups)",
+          "ere": "([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}",
+          "pcre": "(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}",
+          "example_matches": ["2001:0db8:85a3:0000:0000:8a2e:0370:7334"]
+        },
+        "ipv6_compressed": {
+          "description": "IPv6 with :: compression (complex)",
+          "pcre": "(?:(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4})?::(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}|(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}",
+          "example_matches": ["::1", "fe80::1", "2001:db8::1"]
+        },
+        "mac_colon": {
+          "description": "MAC address with colons",
+          "ere": "([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}",
+          "pcre": "(?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}",
+          "example_matches": ["00:1A:2B:3C:4D:5E"]
+        },
+        "mac_hyphen": {
+          "description": "MAC address with hyphens",
+          "ere": "([0-9a-fA-F]{2}-){5}[0-9a-fA-F]{2}",
+          "example_matches": ["00-1A-2B-3C-4D-5E"]
+        },
+        "mac_any": {
+          "description": "MAC address (colon or hyphen)",
+          "ere": "([0-9a-fA-F]{2}[:-]){5}[0-9a-fA-F]{2}",
+          "example_matches": ["00:1A:2B:3C:4D:5E", "00-1A-2B-3C-4D-5E"]
+        },
+        "url_http": {
+          "description": "HTTP/HTTPS URLs",
+          "ere": "https?://[^[:space:]<>\"'\\\\]+",
+          "pcre": "https?://[^\\s<>\"'\\\\]+",
+          "example_matches": ["https://example.com/path?query=1", "http://localhost:8080"]
+        },
+        "url_any": {
+          "description": "URLs with various schemes",
+          "ere": "[a-zA-Z][a-zA-Z0-9+.-]*://[^[:space:]<>\"'\\\\]+",
+          "example_matches": ["ftp://files.example.com", "ssh://git@github.com"]
+        },
+        "email_simple": {
+          "description": "Email addresses (simplified RFC 5322)",
+          "ere": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
+          "pcre": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
+          "example_matches": ["user@example.com", "first.last+tag@sub.domain.org"]
+        },
+        "email_strict": {
+          "description": "Email with stricter local part validation",
+          "pcre": "(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])",
+          "notes": "Full RFC 5322 compliant - complex, use email_simple for most cases"
+        },
+        "domain": {
+          "description": "Domain names",
+          "ere": "\\b([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}\\b",
+          "example_matches": ["example.com", "sub.domain.co.uk"]
+        },
+        "port": {
+          "description": "Port number (1-65535)",
+          "ere": "\\b([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])\\b",
+          "pcre": "\\b(?:[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])\\b",
+          "example_matches": ["80", "443", "8080", "65535"]
+        },
+        "host_port": {
+          "description": "Host:port combination",
+          "ere": "[a-zA-Z0-9.-]+:[0-9]{1,5}",
+          "example_matches": ["localhost:8080", "192.168.1.1:443"]
+        }
+      }
+    },
+    "code": {
+      "description": "Programming language patterns",
+      "patterns": {
+        "python_function": {
+          "description": "Python function definitions",
+          "ere": "^[[:space:]]*def[[:space:]]+[a-zA-Z_][a-zA-Z0-9_]*[[:space:]]*\\(",
+          "pcre": "^\\s*def\\s+[a-zA-Z_]\\w*\\s*\\(",
+          "example_matches": ["def my_function(", "  def _private_func("]
+        },
+        "python_class": {
+          "description": "Python class definitions",
+          "ere": "^[[:space:]]*class[[:space:]]+[a-zA-Z_][a-zA-Z0-9_]*",
+          "pcre": "^\\s*class\\s+[a-zA-Z_]\\w*",
+          "example_matches": ["class MyClass:", "class _Internal(Base):"]
+        },
+        "python_import": {
+          "description": "Python import statements",
+          "ere": "^(import|from)[[:space:]]+[a-zA-Z_][a-zA-Z0-9_.]*",
+          "pcre": "^(?:import|from)\\s+[a-zA-Z_][\\w.]*",
+          "example_matches": ["import os", "from typing import List"]
+        },
+        "js_function_declaration": {
+          "description": "JavaScript function declarations",
+          "ere": "function[[:space:]]+[a-zA-Z_$][a-zA-Z0-9_$]*[[:space:]]*\\(",
+          "pcre": "function\\s+[a-zA-Z_$][\\w$]*\\s*\\(",
+          "example_matches": ["function myFunc(", "function $helper("]
+        },
+        "js_arrow_function": {
+          "description": "JavaScript arrow functions",
+          "pcre": "(?:const|let|var)\\s+\\w+\\s*=\\s*(?:async\\s+)?(?:\\([^)]*\\)|\\w+)\\s*=>",
+          "example_matches": ["const fn = () =>", "const add = (a, b) =>", "let handler = async (req) =>"]
+        },
+        "js_require": {
+          "description": "Node.js require statements",
+          "ere": "require\\(['\"][^'\"]+['\"]\\)",
+          "pcre": "require\\(['\"][^'\"]+['\"]\\)",
+          "example_matches": ["require('fs')", "require(\"./lib/utils\")"]
+        },
+        "js_import": {
+          "description": "ES6 import statements",
+          "ere": "^import[[:space:]]+",
+          "pcre": "^import\\s+(?:\\{[^}]+\\}|\\*\\s+as\\s+\\w+|\\w+)\\s+from\\s+['\"][^'\"]+['\"]",
+          "example_matches": ["import React from 'react'", "import { useState } from 'react'"]
+        },
+        "go_function": {
+          "description": "Go function definitions",
+          "ere": "^func[[:space:]]+(\\([^)]+\\)[[:space:]]+)?[a-zA-Z_][a-zA-Z0-9_]*[[:space:]]*\\(",
+          "pcre": "^func\\s+(?:\\([^)]+\\)\\s+)?[a-zA-Z_]\\w*\\s*\\(",
+          "example_matches": ["func main()", "func (s *Server) Start("]
+        },
+        "rust_function": {
+          "description": "Rust function definitions",
+          "ere": "^[[:space:]]*(pub[[:space:]]+)?(async[[:space:]]+)?fn[[:space:]]+[a-zA-Z_][a-zA-Z0-9_]*",
+          "pcre": "^\\s*(?:pub\\s+)?(?:async\\s+)?fn\\s+[a-zA-Z_]\\w*",
+          "example_matches": ["fn main()", "pub async fn handle(", "  fn helper("]
+        },
+        "todo_comment": {
+          "description": "TODO/FIXME/XXX/HACK comments",
+          "ere": "\\b(TODO|FIXME|XXX|HACK|BUG|NOTE)\\b",
+          "pcre": "\\b(?:TODO|FIXME|XXX|HACK|BUG|NOTE)\\b",
+          "example_matches": ["// TODO: implement this", "# FIXME: broken", "/* XXX */"]
+        },
+        "secret_pattern": {
+          "description": "Potential hardcoded secrets (keys, passwords, tokens)",
+          "pcre": "(?i)(?:password|passwd|secret|api_?key|access_?key|auth_?token|private_?key|credentials?)\\s*[=:]\\s*['\"][^'\"]{8,}['\"]",
+          "notes": "High false positive rate - use for initial scanning",
+          "example_matches": ["password = \"secret123\"", "API_KEY: 'abc123def456'"]
+        },
+        "aws_key": {
+          "description": "AWS Access Key ID",
+          "ere": "\\b(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}\\b",
+          "example_matches": ["AKIAIOSFODNN7EXAMPLE"]
+        },
+        "aws_secret": {
+          "description": "Potential AWS Secret Access Key",
+          "ere": "\\b[A-Za-z0-9/+=]{40}\\b",
+          "notes": "High false positive rate - needs context"
+        },
+        "github_token": {
+          "description": "GitHub Personal Access Token",
+          "ere": "ghp_[a-zA-Z0-9]{36}",
+          "example_matches": ["ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
+        },
+        "jwt": {
+          "description": "JSON Web Token",
+          "ere": "eyJ[a-zA-Z0-9_-]*\\.eyJ[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]*",
+          "example_matches": ["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U"]
+        },
+        "console_log": {
+          "description": "Console/print debugging statements",
+          "ere": "(console\\.(log|warn|error|info|debug)|print\\(|println!|fmt\\.Print|System\\.out\\.print)",
+          "example_matches": ["console.log(", "print(", "fmt.Println("]
+        },
+        "hardcoded_ip": {
+          "description": "Hardcoded IP addresses in strings",
+          "ere": "['\"][0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}['\"]",
+          "example_matches": ["'192.168.1.1'", "\"10.0.0.1\""]
+        }
+      }
+    },
+    "logs": {
+      "description": "Log file patterns",
+      "patterns": {
+        "iso8601_datetime": {
+          "description": "ISO 8601 datetime",
+          "ere": "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}",
+          "pcre": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}",
+          "example_matches": ["2024-01-15T10:30:00", "2024-01-15T10:30:00.123Z"]
+        },
+        "iso8601_full": {
+          "description": "ISO 8601 with timezone",
+          "pcre": "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:?\\d{2})?",
+          "example_matches": ["2024-01-15T10:30:00Z", "2024-01-15T10:30:00+05:30"]
+        },
+        "common_log_format": {
+          "description": "Apache/Nginx common log format timestamp",
+          "ere": "[0-9]{2}/[A-Z][a-z]{2}/[0-9]{4}:[0-9]{2}:[0-9]{2}:[0-9]{2}",
+          "example_matches": ["15/Jan/2024:10:30:00"]
+        },
+        "syslog_timestamp": {
+          "description": "Syslog BSD format timestamp",
+          "ere": "[A-Z][a-z]{2}[[:space:]]+[0-9]{1,2}[[:space:]]+[0-9]{2}:[0-9]{2}:[0-9]{2}",
+          "pcre": "[A-Z][a-z]{2}\\s+\\d{1,2}\\s+\\d{2}:\\d{2}:\\d{2}",
+          "example_matches": ["Jan 15 10:30:00", "Jan  5 10:30:00"]
+        },
+        "log_level": {
+          "description": "Common log levels",
+          "ere": "\\b(TRACE|DEBUG|INFO|NOTICE|WARN(ING)?|ERROR|SEVERE|FATAL|CRITICAL|EMERG(ENCY)?)\\b",
+          "example_matches": ["INFO", "WARNING", "ERROR", "CRITICAL"]
+        },
+        "log_level_bracket": {
+          "description": "Log level in brackets",
+          "ere": "\\[(TRACE|DEBUG|INFO|NOTICE|WARN(ING)?|ERROR|SEVERE|FATAL|CRITICAL)\\]",
+          "example_matches": ["[INFO]", "[ERROR]", "[WARNING]"]
+        },
+        "http_status": {
+          "description": "HTTP status codes",
+          "ere": "\\b[1-5][0-9]{2}\\b",
+          "notes": "Context-dependent - may match non-status numbers",
+          "example_matches": ["200", "404", "500"]
+        },
+        "http_status_class": {
+          "description": "HTTP status by class",
+          "patterns": {
+            "1xx": "\\b1[0-9]{2}\\b",
+            "2xx": "\\b2[0-9]{2}\\b",
+            "3xx": "\\b3[0-9]{2}\\b",
+            "4xx": "\\b4[0-9]{2}\\b",
+            "5xx": "\\b5[0-9]{2}\\b"
+          }
+        },
+        "java_exception": {
+          "description": "Java stack trace",
+          "ere": "^[[:space:]]+at[[:space:]]+[a-zA-Z_$][a-zA-Z0-9_$.]+\\([^)]+\\)",
+          "pcre": "^\\s+at\\s+[\\w$.]+\\([^)]+\\)",
+          "example_matches": ["  at com.example.MyClass.method(MyClass.java:42)"]
+        },
+        "java_exception_header": {
+          "description": "Java exception header line",
+          "ere": "^[a-zA-Z_$][a-zA-Z0-9_$.]*Exception:",
+          "example_matches": ["NullPointerException:", "java.lang.RuntimeException:"]
+        },
+        "python_traceback": {
+          "description": "Python traceback file line",
+          "ere": "^[[:space:]]+File \"[^\"]+\", line [0-9]+",
+          "pcre": "^\\s+File \"[^\"]+\", line \\d+",
+          "example_matches": ["  File \"/path/to/file.py\", line 42"]
+        },
+        "python_exception": {
+          "description": "Python exception line",
+          "ere": "^[a-zA-Z_][a-zA-Z0-9_.]*Error:",
+          "example_matches": ["ValueError:", "KeyError:", "custom.module.MyError:"]
+        },
+        "go_panic": {
+          "description": "Go panic/stack trace",
+          "ere": "^(panic:|goroutine [0-9]+)",
+          "example_matches": ["panic: runtime error", "goroutine 1 [running]:"]
+        },
+        "nginx_access": {
+          "description": "Nginx access log (combined format)",
+          "pcre": "^(?<ip>[\\d.]+)\\s+-\\s+(?<user>\\S+)\\s+\\[(?<time>[^\\]]+)\\]\\s+\"(?<request>[^\"]*)\"\\s+(?<status>\\d+)\\s+(?<bytes>\\d+)\\s+\"(?<referer>[^\"]*)\"\\s+\"(?<agent>[^\"]*)\"",
+          "notes": "Named groups for easy extraction"
+        },
+        "response_time": {
+          "description": "Response time in milliseconds",
+          "ere": "(took|duration|time|latency|elapsed)[[:space:]]*[:=]?[[:space:]]*[0-9]+(\\.[0-9]+)?[[:space:]]*(ms|milliseconds?)",
+          "pcre": "(?:took|duration|time|latency|elapsed)\\s*[:=]?\\s*[\\d.]+\\s*(?:ms|milliseconds?)",
+          "example_matches": ["took 150ms", "duration: 42.5 ms", "latency=100ms"]
+        },
+        "request_id": {
+          "description": "Common request/trace ID formats",
+          "ere": "(request[_-]?id|trace[_-]?id|correlation[_-]?id)[[:space:]]*[:=][[:space:]]*[a-zA-Z0-9_-]+",
+          "example_matches": ["request_id: abc123", "trace-id=xyz789"]
+        }
+      }
+    },
+    "data": {
+      "description": "Data format patterns",
+      "patterns": {
+        "uuid_v4": {
+          "description": "UUID version 4",
+          "ere": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}",
+          "example_matches": ["550e8400-e29b-41d4-a716-446655440000"]
+        },
+        "uuid_any": {
+          "description": "UUID (any version)",
+          "ere": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+          "pcre": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+          "example_matches": ["550e8400-e29b-41d4-a716-446655440000"]
+        },
+        "date_iso": {
+          "description": "ISO date (YYYY-MM-DD)",
+          "ere": "\\b[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\\b",
+          "pcre": "\\b\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])\\b",
+          "example_matches": ["2024-01-15", "2024-12-31"]
+        },
+        "date_us": {
+          "description": "US date (MM/DD/YYYY)",
+          "ere": "\\b(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/[0-9]{4}\\b",
+          "example_matches": ["01/15/2024", "12/31/2024"]
+        },
+        "date_eu": {
+          "description": "European date (DD/MM/YYYY or DD.MM.YYYY)",
+          "ere": "\\b(0[1-9]|[12][0-9]|3[01])[/\\.](0[1-9]|1[0-2])[/\\.][0-9]{4}\\b",
+          "example_matches": ["15/01/2024", "31.12.2024"]
+        },
+        "time_24h": {
+          "description": "24-hour time (HH:MM or HH:MM:SS)",
+          "ere": "\\b([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?\\b",
+          "example_matches": ["10:30", "23:59:59", "00:00:00"]
+        },
+        "time_12h": {
+          "description": "12-hour time with AM/PM",
+          "ere": "\\b(0?[1-9]|1[0-2]):[0-5][0-9](:[0-5][0-9])?[[:space:]]*(AM|PM|am|pm)\\b",
+          "example_matches": ["10:30 AM", "11:59:59 PM"]
+        },
+        "phone_us": {
+          "description": "US phone numbers",
+          "ere": "\\b(\\+1[-. ]?)?\\(?[0-9]{3}\\)?[-. ]?[0-9]{3}[-. ]?[0-9]{4}\\b",
+          "example_matches": ["(555) 123-4567", "+1-555-123-4567", "555.123.4567"]
+        },
+        "phone_intl": {
+          "description": "International phone (E.164 format)",
+          "ere": "\\+[1-9][0-9]{6,14}\\b",
+          "example_matches": ["+14155551234", "+442071234567"]
+        },
+        "credit_card": {
+          "description": "Credit card number (basic format)",
+          "ere": "\\b[0-9]{4}[-[:space:]]?[0-9]{4}[-[:space:]]?[0-9]{4}[-[:space:]]?[0-9]{4}\\b",
+          "notes": "For testing/scanning only - does not validate checksums",
+          "example_matches": ["4111-1111-1111-1111", "4111 1111 1111 1111"]
+        },
+        "ssn_us": {
+          "description": "US Social Security Number",
+          "ere": "\\b[0-9]{3}-[0-9]{2}-[0-9]{4}\\b",
+          "example_matches": ["123-45-6789"]
+        },
+        "zip_us": {
+          "description": "US ZIP code",
+          "ere": "\\b[0-9]{5}(-[0-9]{4})?\\b",
+          "example_matches": ["12345", "12345-6789"]
+        },
+        "md5": {
+          "description": "MD5 hash",
+          "ere": "\\b[a-fA-F0-9]{32}\\b",
+          "example_matches": ["d41d8cd98f00b204e9800998ecf8427e"]
+        },
+        "sha1": {
+          "description": "SHA-1 hash",
+          "ere": "\\b[a-fA-F0-9]{40}\\b",
+          "example_matches": ["da39a3ee5e6b4b0d3255bfef95601890afd80709"]
+        },
+        "sha256": {
+          "description": "SHA-256 hash",
+          "ere": "\\b[a-fA-F0-9]{64}\\b",
+          "example_matches": ["e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"]
+        },
+        "semver": {
+          "description": "Semantic version (SemVer 2.0)",
+          "ere": "\\bv?[0-9]+\\.[0-9]+\\.[0-9]+(-[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*)?(\\+[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*)?\\b",
+          "example_matches": ["1.0.0", "v2.1.3-beta.1", "1.0.0+build.123"]
+        },
+        "number_integer": {
+          "description": "Integer (with optional sign)",
+          "ere": "-?[0-9]+",
+          "example_matches": ["42", "-123", "0"]
+        },
+        "number_decimal": {
+          "description": "Decimal number",
+          "ere": "-?[0-9]+\\.[0-9]+",
+          "example_matches": ["3.14", "-0.5", "100.00"]
+        },
+        "number_scientific": {
+          "description": "Scientific notation",
+          "ere": "-?[0-9]+(\\.[0-9]+)?[eE][+-]?[0-9]+",
+          "example_matches": ["1.23e10", "-4.56E-7", "1e6"]
+        },
+        "hex": {
+          "description": "Hexadecimal number",
+          "ere": "\\b0x[0-9a-fA-F]+\\b",
+          "example_matches": ["0xFF", "0x1a2b3c"]
+        },
+        "json_key_value": {
+          "description": "JSON key-value pair (simple)",
+          "ere": "\"[^\"]+\"[[:space:]]*:[[:space:]]*(\"[^\"]*\"|[0-9]+|true|false|null)",
+          "example_matches": ["\"name\": \"value\"", "\"count\": 42", "\"active\": true"]
+        },
+        "json_string": {
+          "description": "JSON string value",
+          "pcre": "\"(?:[^\"\\\\]|\\\\.)*\"",
+          "example_matches": ["\"hello\"", "\"with \\\"escaped\\\" quotes\""]
+        },
+        "base64": {
+          "description": "Base64 encoded string",
+          "ere": "[A-Za-z0-9+/]{4,}={0,2}",
+          "notes": "May match non-base64 - context dependent",
+          "example_matches": ["SGVsbG8gV29ybGQ=", "dGVzdA=="]
+        },
+        "base64_url": {
+          "description": "URL-safe Base64",
+          "ere": "[A-Za-z0-9_-]{4,}",
+          "notes": "Very broad - use with context"
+        }
+      }
+    }
+  },
+  "usage_examples": {
+    "grep_ere": "grep -E '{pattern}' file",
+    "grep_pcre": "grep -P '{pattern}' file",
+    "ripgrep": "rg '{pattern}' file",
+    "ripgrep_pcre": "rg -P '{pattern}' file",
+    "extract_only": "grep -oE '{pattern}' file",
+    "extract_pcre": "grep -oP '{pattern}' file"
+  }
+}

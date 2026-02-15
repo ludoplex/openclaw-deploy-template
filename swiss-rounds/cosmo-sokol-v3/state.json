@@ -1,0 +1,68 @@
+{
+  "project": "cosmo-sokol-v3",
+  "mode": "new",
+  "phase": "rounds",
+  "sources": [
+    {
+      "name": "sokol-upstream",
+      "repo": "floooh/sokol",
+      "path": "C:\\cosmo-sokol\\deps\\sokol",
+      "type": "source",
+      "verified": true
+    },
+    {
+      "name": "cosmo-sokol-fork",
+      "repo": "ludoplex/cosmo-sokol",
+      "path": "C:\\cosmo-sokol",
+      "type": "source",
+      "verified": true
+    }
+  ],
+  "userVerified": true,
+  "specialists": ["seeker", "localsearch", "asm", "cosmo", "dbeng", "neteng", "cicd", "testcov"],
+  "currentRound": 3,
+  "totalRounds": 5,
+  "rounds": {
+    "1": {
+      "specialistsComplete": true,
+      "triadComplete": true,
+      "completed": ["seeker", "localsearch", "asm", "cosmo", "dbeng", "neteng", "cicd", "testcov"],
+      "pending": []
+    },
+    "2": {
+      "specialistsComplete": true,
+      "triadComplete": true,
+      "completed": ["seeker", "localsearch", "asm", "cosmo", "dbeng", "neteng", "cicd", "testcov"],
+      "pending": []
+    },
+    "3": {
+      "specialistsComplete": true,
+      "triadComplete": true,
+      "completed": ["seeker", "localsearch", "asm", "cosmo", "dbeng", "neteng", "cicd", "testcov"],
+      "pending": []
+    }
+  },
+  "triad": {
+    "redundancyComplete": true,
+    "critiqueComplete": true,
+    "solutionComplete": true
+  },
+  "pm": {
+    "started": true,
+    "overarchingPlanComplete": true,
+    "sequence": ["cosmo", "neteng", "seeker", "localsearch"],
+    "specialistPlans": {
+      "cosmo": "Phase 1-2: Core tools + safe headers",
+      "neteng": "Phase 2: CI replacement",
+      "seeker": "Phase 3: Upstream intelligence tools",
+      "localsearch": "Phase 4: Developer workflow"
+    },
+    "complete": true
+  },
+  "revision": {
+    "priorPlanPath": null,
+    "scope": null,
+    "triggeredBy": null
+  },
+  "startedAt": "2026-02-10T01:31:00.000Z"
+}

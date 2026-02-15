@@ -1,0 +1,34 @@
+{
+  "project": "cosmo-re-stack",
+  "created": "2026-02-10T21:16:00-07:00",
+  "currentRound": 1,
+  "totalRounds": 2,
+  "phase": "complete",
+  "sources": [
+    { "name": "tedit-cosmo", "path": "C:\\tedit-cosmo", "type": "source", "status": "ready", "files": 90, "purpose": "Portable systems editor (MASM64 clone)" },
+    { "name": "e9studio", "path": "C:\\e9studio", "type": "source", "status": "ready", "purpose": "Binary analysis + WAMR patching" },
+    { "name": "llamafile-llm", "path": "C:\\llamafile-llm", "type": "source", "status": "ready", "purpose": "LLM runtime for decompilation" },
+    { "name": "cosmokramerpolitan", "path": "C:\\cosmokramerpolitan", "type": "source", "status": "ready", "files": 17929, "purpose": "Cosmopolitan toolkit" },
+    { "name": "cosmo-bsd", "path": "C:\\cosmo-bsd", "type": "source", "status": "ready", "files": 54, "purpose": "Cosmopolitan KISS BSD - portable datacenter" },
+    { "name": "cosmo-disasm", "path": "C:\\cosmo-disasm", "type": "source", "status": "ready", "purpose": "Cross-arch disassembler library" },
+    { "name": "ludofile", "path": "C:\\ludofile", "type": "source", "status": "ready", "files": 62, "purpose": "Portable polyfile + polytracker + deep learning parsing + hex viewer" },
+    { "name": "polytracker", "path": "C:\\polytracker", "type": "source", "status": "ready", "files": 594, "purpose": "LLVM taint tracking (to integrate into ludofile)" },
+    { "name": "LLM4Decompile", "path": "C:\\LLM4Decompile", "type": "source", "status": "ready", "files": 92, "purpose": "LLM decompilation models" },
+    { "name": "opentau", "path": "C:\\opentau", "type": "source", "status": "ready", "files": 158, "purpose": "LLM gradual type inference" },
+    { "name": "mir", "path": "C:\\mir", "type": "source", "status": "ready", "files": 1599, "purpose": "Lightweight JIT compiler (MIR + C11)" },
+    { "name": "rose-1", "path": "C:\\rose-1", "type": "source", "status": "ready", "files": 33125, "purpose": "LLNL source-to-source compiler infrastructure" },
+    { "name": "binaryen", "path": "C:\\binaryen", "type": "source", "status": "ready", "files": 2781, "purpose": "WebAssembly optimizer/compiler toolchain" }
+  ],
+  "specialists": {
+    "seeker": { "status": "complete", "sessionKey": "agent:seeker:subagent:a680a138-e6e1-4f30-8f91-202757bef8bd", "report": "C:\\Users\\user\\.openclaw\\workspace\\swiss-rounds\\cosmo-re-stack\\round1\\seeker-report.md" },
+    "asm": { "status": "complete", "sessionKey": "agent:asm:subagent:ef428c30-68f6-4359-87ee-7a0517c8052f", "report": "C:\\Users\\user\\.openclaw\\workspace\\swiss-rounds\\cosmo-re-stack\\round1\\asm-report.md" },
+    "cosmo": { "status": "complete", "sessionKey": "agent:cosmo:subagent:9a4a9488-498e-441f-9a20-e010a640edd8", "report": "C:\\Users\\user\\.openclaw\\workspace\\swiss-rounds\\cosmo-re-stack\\round1\\cosmo-report.md" }
+  },
+  "triad": {
+    "redundant-project-checker": { "status": "complete", "report": "C:\\Users\\user\\.openclaw\\workspace\\swiss-rounds\\cosmo-re-stack\\triad\\redundancy-analysis.md" },
+    "project-critic": { "status": "complete", "report": "C:\\Users\\user\\.openclaw\\workspace\\swiss-rounds\\cosmo-re-stack\\triad\\critique.md" },
+    "never-say-die": { "status": "complete", "sessionKey": "agent:never-say-die:subagent:936ffc38-69b2-4c20-b5e1-03b011842ca0", "report": "C:\\Users\\user\\.openclaw\\workspace\\swiss-rounds\\cosmo-re-stack\\triad\\solution.md" }
+  },
+  "pm": { "status": "complete", "sessionKey": "agent:project-manager:subagent:2f7bbc41-30df-4f8a-abcc-2f76156ce5cc", "report": "C:\\Users\\user\\.openclaw\\workspace\\swiss-rounds\\cosmo-re-stack\\synthesis\\overarching-plan.md" },
+  "vision": "Universal binary RE workstation. Edit C/ASM in tedit-cosmo → compile to WASM → WAMR JIT → e9-style injection into ANY binary (ELF/PE/Mach-O/APE). ludofile provides format detection (polyfile+polytracker). mir provides lightweight JIT. rose-1 provides source-to-source transforms. LLM4Decompile+opentau provide AI decompilation and type inference. All as portable APE binaries."
+}
