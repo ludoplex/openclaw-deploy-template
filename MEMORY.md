@@ -25,6 +25,13 @@
 - **SECONDARY:** vincentlanderson@mightyhouseinc.com (only after checking Rachel's)
 - Multiple searches across both inboxes may be necessary
 
+### 📤 Email Sending (Autonomous)
+**I CAN send emails autonomously using:**
+- **From:** rachelwilliams@mightyhouseinc.com (SMTP)
+- **Reply-To:** vincentlanderson@mightyhouseinc.com
+- This ensures replies go to Vincent
+- **WORKAROUND** — revisit for proper solution after core projects stable (procurement, WithOdyssey, Amazon)
+
 ### 🔧 Critical Tools Index (READ FIRST EVERY SESSION)
 
 | Tool | Location | Purpose |

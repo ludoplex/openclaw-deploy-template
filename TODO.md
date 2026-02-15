@@ -50,6 +50,7 @@
 - [ ] Icecat product data integration (free)
 - [ ] ScanSource partner program evaluation
 - [ ] BlueStar POS equipment channel
+- [ ] **REVISIT:** Proper email sending solution (currently using Rachel SMTP + Reply-To: Vincent workaround) — fix after procurement app, WithOdyssey, and Amazon store are stable
 
 ---
 
