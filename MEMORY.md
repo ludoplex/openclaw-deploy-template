@@ -37,28 +37,6 @@
 | Tool | Location | Purpose |
 |------|----------|---------|
 | **Supplier Email Search** | `C:\zoho-console-api-module-system\src\modules\supplier_search\` | Search Zoho Mail for API credentials from TDSynnex, D&H, Ingram, DigiKey, Mouser, VEX, XYAB, Etilize |
-| **MHI Procurement** | `C:\mhi-procurement\` | C codebase with Ingram/SYNNEX/D&H sync already implemented |
-| **Procurement Config** | `C:\mhi-procurement\config.ini` | Contains ACTIVE API credentials (see below) |
-
-### 🔑 Active API Credentials (in config.ini)
-| Supplier | Status | Account |
-|----------|--------|---------|
-| **Ingram Micro** | ✅ Sandbox working | #50-135152-000 |
-| **Mouser** | ✅ Search API active | vincentlanderson@mightyhouseinc.com |
-| **Element14/Farnell** | ✅ Active | mhi_vincenta |
-| **Climb** | ❓ Needs investigation | CU0043054170 |
-| **TD SYNNEX** | ❌ Need API creds | #786379 |
-| **D&H** | ✅ APIs CONFIRMED to exist | #3270340000 (need key) |
-
-### 🏫 MHI Vendor/ESP Status
-**MHI is ALREADY vendor and ESP in ALL school choice states:**
-- WithOdyssey ✅ (Wyoming ESA, Utah Fits All, others)
-- Evidence: Zoho emails in Rachel's inbox when searched properly
-- Don't research this — it's already done
-
-| Tool | Location | Purpose |
-|------|----------|---------|
-| **Supplier Email Search** | `C:\zoho-console-api-module-system\src\modules\supplier_search\` | Search Zoho Mail for API credentials from TDSynnex, D&H, Ingram, DigiKey, Mouser, VEX, XYAB, Etilize |
 | **SOP Engine** | `C:\zoho-console-api-module-system\src\modules\sop\` | Execute YAML-defined SOPs with Zoho integration |
 | **MHI Procurement** | `C:\mhi-procurement\` | C codebase with Ingram/SYNNEX/D&H sync already implemented |
 | **Zoho API Modules** | `C:\zoho-console-api-module-system\src\modules\` | CRM, Books, Inventory, Desk, Analytics, Projects, Sign, Cliq |
@@ -96,14 +74,6 @@ from local_llm import ask_local, generate_json, summarize, format_for_platform
 **Path:** `C:\zoho-console-api-module-system\`
 **APIs:** CRM, Books, Inventory, Desk, Analytics, Projects, Cliq, Sign
 **Auth:** OAuth 2.0 with auto-refresh
-
-### WSL2 Architecture
-**Added: 2026-02-14**
-- OpenClaw runs in **WSL2 Ubuntu-22.04**
-- WSL2 paths: `/home/user/.openclaw/`
-- Windows via WSL: `/mnt/c/Users/user/.openclaw/workspace/`
-- No symlinks — standard WSL mount
-- Agent sessions: `/home/user/.openclaw/agents/{agentId}/sessions/`
 
 ---
 
@@ -167,23 +137,6 @@ from local_llm import ask_local, generate_json, summarize, format_for_platform
 ---
 
 ## Lessons Learned
-
-### 2026-02-13: NEVER OVERRIDE EXPLICIT USER INSTRUCTIONS
-**CRITICAL RULE:** When the user gives an explicit instruction (e.g., "use OpenAI text-embedding-3-large"), that instruction is IMMUTABLE.
-
-**DO NOT:**
-- Substitute your own judgment when implementation gets difficult
-- Change configuration to something "easier" without explicit user approval
-- Rationalize unauthorized changes as "pragmatic"
-
-**WHEN BLOCKED:**
-1. Report the blocker clearly
-2. Present options
-3. WAIT for user decision
-
-This applies to ALL explicit instructions, not just embeddings. If the user says X, you do X or you ask permission to do Y. You don't silently do Y.
-
-**Origin:** 2026-02-13 incident where Claude changed OpenAI embeddings to local embeddings without authorization because CLI was hanging.
 
 ### 2026-02-09: ALWAYS USE FULL FILE PATHS
 **MANDATORY:** When referring to agent report files or any workspace files in discourse with the user, ALWAYS use full file paths.
@@ -504,17 +457,6 @@ composer install --ignore-platform-req=ext-pcntl
 ```
 
 ---
-
-### Agent Spawning: Task Composition Rule
-**Added: 2026-02-14**
-
-**CRITICAL:** Don't spawn agents with irrelevant specializations. Pick agents based on the **composition of tasks** being delegated as part of a **greater plan** constructed to follow commands.
-
-**Before spawning:**
-1. Construct the plan to follow the command
-2. Identify what specialist knowledge is needed
-3. Match agents to actual task requirements
-4. Spawn only relevant agents
 
 ### Advisory Triad: Sequential, Not Parallel
 **Added: 2026-02-08**
