@@ -64,6 +64,10 @@
 - [x] Document WithOdyssey state portal URLs (Iowa, GA, LA, WY, UT, TX) (2026-02-15)
 - [x] Confirm MHI vendor approval status (Wyoming, Utah, LA GATOR confirmed) (2026-02-15)
 - [x] Audit config.ini for working APIs (Ingram✅, Mouser✅, Element14✅, Climb✅) (2026-02-15)
+- [x] Commit 194 files to workspace repo (2026-02-15 03:25 AM)
+- [x] Push to GitHub (force push due to diverged branches) (2026-02-15 03:25 AM)
+- [x] Analyze mhi-procurement codebase structure (2026-02-15 03:30 AM)
+- [x] Create codebase analysis: `analysis/mhi-procurement-codebase-2026-02-15.md`
 
 ---
 
@@ -74,7 +78,7 @@
 | D&H API integration | No credentials | RISmith@dandh.com response |
 | TD SYNNEX integration | No credentials | mikko.dizon@tdsynnex.com response |
 | Amazon automation | No SP-API access | Vincent to register developer account |
-| VPS setup | No server | Vincent to provision Hetzner |
+| VPS setup | ✅ Creds found | theanderproject@gmail.com / MixPost2026!Hetzner (incomplete signup) |
 | WithOdyssey CSV upload | No login credentials | Vincent to provide password or trigger reset |
 
 ---
