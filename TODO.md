@@ -1,6 +1,6 @@
 # TODO.md - Active Task List
 
-*Updated: 2026-02-15 03:10 MST*
+*Updated: 2026-02-15 04:20 MST*
 
 ## 🔴 HIGH PRIORITY
 
@@ -9,7 +9,7 @@
 - [ ] Get TD SYNNEX Digital Bridge API credentials (request sent to mikko.dizon@tdsynnex.com)
 - [ ] Complete cosmo-sokol GUI implementation
 - [ ] Integrate Ingram Micro API (sandbox working)
-- [ ] Add Mouser API integration
+- [~] Add Mouser API integration (scaffold done, needs testing)
 
 ### VPS Autonomy Setup
 - [ ] Vincent provisions Hetzner VPS (AX41 or auction 64GB)
@@ -58,6 +58,11 @@
 
 - [x] Search Zoho email for supplier credentials (2026-02-14)
 - [x] Create analyst reports: VPS options, supplier enumeration (2026-02-14)
+- [x] Find WithOdyssey credentials (2026-02-15 04:00)
+- [x] Find Hetzner credentials (2026-02-15 04:00)
+- [x] Create Mouser API sync module scaffold (2026-02-15 04:10)
+- [x] Create Element14 API sync module scaffold (2026-02-15 04:10)
+- [x] Analyze MHI procurement codebase (2026-02-15 04:05)
 - [x] Identify API request status for D&H, TD SYNNEX (2026-02-14)
 - [x] Map all supplier contacts (Arrow, Ma Labs, ASI, XYAB) (2026-02-14)
 - [x] Fix memory index (swapped 2.6GB tmp with 29K embeddings to main.sqlite) (2026-02-15)
